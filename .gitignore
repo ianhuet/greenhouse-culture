@@ -13,8 +13,12 @@
  
 # Ignore everything in the root except the "wp-content" directory.
 /*
+!.github/
 !.gitignore
 !wp-content/
+
+backup/
+docs/
  
 # Ignore everything in the "wp-content" directory, except the "plugins"
 # and "themes" directories.

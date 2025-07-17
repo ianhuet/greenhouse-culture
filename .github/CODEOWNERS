@@ -1,0 +1,13 @@
+  # .github/CODEOWNERS
+
+  # Everything by default
+  * @ianhuet
+
+  # WordPress theme files
+  /wp-content/themes/ @ianhuet
+
+  # Plugin directory
+  /wp-content/plugins/ @ianhuet
+
+  # Documentation
+  *.md @ianhuet
