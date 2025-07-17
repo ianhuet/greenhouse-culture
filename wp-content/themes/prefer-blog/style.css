@@ -1,0 +1,248 @@
+/*
+Theme Name: Prefer Blog
+Theme URI: https://www.templatesell.com/item/prefer-blog/
+Author: templatesell
+Author URI: https://www.templatesell.com/
+Description: A perfect theme for blog and magazine site. It comes with Author and contact us block patterns. It will make easy to add the author information in the page and make contact form using contact form 7 plugin. With masonry layout and multiple blog page layout, this theme is the awesome and minimal theme. It is a child theme of Prefer. This theme has search option, off-canvas sidebar, multiple sidebar options, footer options, featured slider, promo boxed, footer widgets and many more. Besides that, this theme comes with added custom widgets for author information, featured posts, social icons, etc. It comes with primary color option to change the whole site color with a single click. https://www.templatesell.net/demo/prefer/
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: prefer-blog
+Template: prefer
+Requires PHP: 5.2
+Tested up to: 5.5
+Tags: grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, footer-widgets, custom-colors, custom-header, editor-style, rtl-language-support, theme-options, blog, news
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Prefer Blog is free WordPress theme by, Template Sell and child theme of Prefer.
+Prefer Blog is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+.modern-slider .slide-wrap {
+    display: table;
+    width: 100%;
+    background: #fafafa;
+    margin-top: 50px;
+}
+.slide-wrap [class*="col-"] {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+    padding: 0;
+}
+.modern-slider .img-cover{
+	position: initial;
+	top: initial;
+	left: initial;
+}
+.slide-wrap .slider-height{
+    height: 450px;
+}
+.modern-slider .slide-wrap .caption{
+	position: initial;
+	top: initial;
+	left: initial;
+	backface-visibility:initial;
+	transform: initial;
+	padding: 30px;
+}
+.modern-slider .slide-wrap .caption .s-cat{
+    z-index: 3;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 1px;
+    line-height: normal;
+    padding: 20px 0;
+    position: relative;
+    margin-bottom: 5px;
+    color: #ef9d87;
+}
+.modern-slider .slide-wrap .entry-meta{
+    margin-bottom: 15px;
+}
+
+.modern-slider .slide-wrap .entry-meta span {
+    display: inline-block;
+    margin: initial;
+    padding-left: 10px;
+}
+.modern-slider .slide-wrap .entry-meta span:first-child {
+    padding-left: 0;
+}
+.modern-slider .slide-wrap .entry-meta a{
+    color: #989ea6;
+}
+.modern-slider .slide-wrap .caption h2 {
+    max-width: initial;
+    margin: initial;
+    float: initial;
+}
+.modern-slider .slide-wrap .caption h2 a{
+	background:transparent;
+	border:initial;
+}
+.modern-slider .slide-wrap .more-btn:before {
+    content: "";
+    background-color: #000;
+    width: 40px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    -webkit-transition: 0.2;
+    -o-transition: 0.2;
+    transition: 0.2;
+}
+.modern-slider .slide-wrap .more-btn{
+    background: initial;
+    transform: initial;
+    opacity: initial;
+    visibility: initial;
+    margin: initial;
+    box-shadow: initial;
+    color: #333;
+    padding: 20px 0;
+
+}
+.modern-slider .slide-wrap .more-btn:hover{
+    opacity: 1;
+    margin-left: 0;
+    webkit-transform: translateY(-2px);
+    -ms-transform: translateY(-2px);
+    transform: translateY(-2px);
+}
+.modern-slider .slick-prev, 
+.modern-slider .slick-next{
+	bottom: 0;
+	top: auto;
+}
+@media (max-width: 991px){
+    .modern-slider .slide-wrap{
+        display: block;
+    }
+    .modern-slider .slide-wrap [class*="col-"]{
+        display: block;
+    }
+    .modern-slider .slide-wrap .caption {
+        text-align: left;
+        padding: 20px 15px;
+    }
+    .modern-slider .slide-wrap .slider-height {
+        height: 300px;
+    }
+}
+
+.promo-three .item .promo-content {
+    color: #fff;
+    padding: 50px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: initial;
+}
+.promo-three figure {
+    position: relative;
+}
+.inset {
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    position: absolute;
+    background: linear-gradient(0deg,rgba(0,0,0,.7) 0%,rgba(0,0,0,.1) 100%);
+}
+.promo-three .post-date a, 
+.promo-three .post-date,
+.promo-three .entry-meta span, 
+.promo-three .post-category a, 
+.promo-three .item .promo-content .post-title a{
+    color: #fff;
+}
+
+
+
+/*PAttern STYLE*/
+.wp-block-column h1,
+.wp-block-column h2,
+.wp-block-column h3,
+.wp-block-column h4,
+.wp-block-column h5,
+.wp-block-column h6,
+.wp-block-column p{
+    margin-bottom: 15px !important;
+}
+.post-excerpt .wp-block-column .alignwide, 
+.post-excerpt .wp-block-column .alignfull{
+    margin: 0!important;
+}
+.post-excerpt h2.author_title {
+    margin-bottom: 0;
+}
+.post-excerpt p.author_designation {
+    margin-bottom: 10px;
+}
+.post-excerpt .add_title{
+    margin-bottom: 0;
+}
+.post-excerpt .m_b_0{
+    margin-bottom: 0;
+}
+.font-20{
+    font-size: 20px;
+    font-weight: bold;
+}
+
+
+.wpcf7 {
+    background: #f9f9f9;
+    padding: 15px;
+ }
+.wpcf7 input[type="text"],
+.wpcf7 input[type="email"],
+.wpcf7 input[type="tel"],
+textarea {
+    font-size: 16px;
+    background-color: #ffffff;
+    border: none;
+    width: 100%;
+    padding: 2%;
+    border-radius: 3px;
+    margin-bottom: 10px;
+ }
+ .wpcf7 textarea{
+    height: 100px;
+ }
+  .wpcf7 input[type="submit"] {
+     color: #ffffff;
+     font-size: 18px;
+     font-weight: 700;
+     background: #000;
+     padding: 10px 25px;
+     border: none;
+     border-radius: 5px;
+     width: auto;
+     text-transform: uppercase;
+     letter-spacing: 5px;
+ }
+ .wpcf7 input:hover[type="submit"] {
+     background: #494949;
+     transition: all 0.4s ease 0s;
+ }
+ .wpcf7 input:active[type="submit"] {
+     background: #000000;
+ }
+ input[type="checkbox"] {
+    transform: scale(1.3);
+    margin-left: 5px;
+}
+
+span.wpcf7-list-item {
+margin: 0;
+padding-bottom: 20px;
+}
