@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  wordpress:
+    build: .
+    ports:
+      - "${WP_PORT:-8000}:80"
+    environment:
+      WORDPRESS_DB_HOST: ${DB_HOST}:4000
+      WORDPRESS_DB_USER: ${DB_USER}
+      WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      WORDPRESS_DB_NAME: ${DB_NAME}
+      WORDPRESS_DEBUG: ${WP_DEBUG:-true}
+      WORDPRESS_DEBUG_LOG: ${WP_DEBUG_LOG:-true}
+      WORDPRESS_DEBUG_DISPLAY: ${WP_DEBUG_DISPLAY:-false}
+    volumes:
+      # Mount custom wp-config with SSL support
+      - ./wp-config-ssl.php:/var/www/html/wp-config.php:ro
+      # Mount the entire wp-content directory for development
+      - ./wp-content:/var/www/html/wp-content
+      # WordPress core files (not tracked in Git)
+      - wordpress_data:/var/www/html
+    networks:
+      - wordpress_network
+
+volumes:
+  wordpress_data:
+
+networks:
+  wordpress_network:
+    driver: bridge
