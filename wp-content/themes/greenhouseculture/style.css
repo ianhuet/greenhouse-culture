@@ -1,0 +1,706 @@
+/*
+Theme Name: Greenhouse Culture
+Theme URI: https://greenhouse-culture.local/
+Author: Greenhouse Culture
+Author URI: https://greenhouse-culture.local/
+Description: A custom WordPress theme for Greenhouse Culture based on the Prefer Blog theme. This theme features masonry layout, multiple blog page layouts, search functionality, off-canvas sidebar, multiple sidebar options, featured slider, promo boxes, footer widgets and more. It includes custom widgets for author information, featured posts, and social icons with primary color customization options.
+Version: 1.0.0
+License: GNU General Public License v2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
+Text Domain: greenhouseculture
+Requires PHP: 5.6
+Tested up to: 6.5
+Tags: grid-layout, one-column, two-columns, three-columns, four-columns, left-sidebar, right-sidebar, custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready, footer-widgets, custom-colors, custom-header, editor-style, rtl-language-support, theme-options, blog, news
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Greenhouse Culture is a standalone WordPress theme based on Prefer and Prefer Blog themes.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/**
+ * 1.0 - General styles (body, headings, links, tags, margins, etc.)
+ * -------------------------------------------------------------
+ */
+
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+*:before,
+*:after {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+}
+html {
+  font-size: 10px;
+  -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+}
+img {
+  border: 0;
+}
+body {
+  background-color: #fff;
+  color: #353535;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-size: 1.5rem;
+  line-height: 1.875;
+  margin: 0;
+}
+article,
+aside,
+details,
+figcaption,
+figure,
+footer,
+header,
+hgroup,
+main,
+menu,
+nav,
+section,
+summary {
+  display: block;
+}
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  color: #2d2d2d;
+  clear: both;
+  font-family: "Muli", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 20px 0;
+}
+h1 {
+  font-size: 36px;
+}
+h2 {
+  font-size: 30px;
+}
+h3 {
+  font-size: 24px;
+}
+h4 {
+  font-size: 21px;
+}
+h5 {
+  font-size: 18px;
+}
+h6 {
+  font-size: 16px;
+}
+p {
+  margin-bottom: 1.5em;
+}
+dfn,
+cite,
+em,
+i {
+  font-style: italic;
+}
+blockquote {
+  margin: 0 1.5em;
+}
+address {
+  margin: 0 0 1.5em;
+}
+pre {
+  background: #eee;
+  font-family: "Courier 10 Pitch", Courier, monospace;
+  font-size: 15px;
+  font-size: 0.9375rem;
+  line-height: 1.6;
+  margin-bottom: 1.6em;
+  max-width: 100%;
+  overflow: auto;
+  padding: 1.6em;
+}
+code,
+kbd,
+tt,
+var {
+  font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
+  font-size: 15px;
+  font-size: 0.9375rem;
+}
+abbr,
+acronym {
+  border-bottom: 1px dotted #666;
+  cursor: help;
+}
+mark,
+ins {
+  background: #fff9c0;
+  text-decoration: none;
+}
+big {
+  font-size: 125%;
+}
+
+/**
+ * Links
+ */
+a {
+  color: #ef9d87;
+  text-decoration: none;
+}
+a:visited {
+  color: #ef9d87;
+}
+a:hover,
+a:focus,
+a:active {
+  color: #5A5A5A;
+}
+a:focus {
+  outline: thin dotted;
+}
+a:hover,
+a:active {
+  outline: 0;
+}
+
+/**
+ * Lists
+ */
+ul,
+ol {
+  margin: 0 0 1.5em 3em;
+}
+ul {
+  list-style: disc;
+}
+ol {
+  list-style: decimal;
+}
+li > ul,
+li > ol {
+  margin-bottom: 0;
+  margin-left: 1.5em;
+}
+dt {
+  font-weight: bold;
+}
+dd {
+  margin: 0 1.5em 1.5em;
+}
+
+/**
+ * Tables
+ */
+table {
+  margin: 0 0 1.5em;
+  width: 100%;
+}
+
+/**
+ * Forms
+ */
+button,
+input[type="button"],
+input[type="reset"],
+input[type="submit"] {
+  border: 1px solid;
+  border-color: #ccc #ccc #bbb;
+  border-radius: 3px;
+  background: #e6e6e6;
+  color: rgba(0, 0, 0, 0.8);
+  font-size: 12px;
+  font-size: 0.75rem;
+  line-height: 1;
+  padding: .6em 1em .4em;
+}
+button:hover,
+input[type="button"]:hover,
+input[type="reset"]:hover,
+input[type="submit"]:hover {
+  border-color: #ccc #bbb #aaa;
+}
+button:active,
+button:focus,
+input[type="button"]:active,
+input[type="button"]:focus,
+input[type="reset"]:active,
+input[type="reset"]:focus,
+input[type="submit"]:active,
+input[type="submit"]:focus {
+  border-color: #aaa #bbb #bbb;
+}
+input[type="text"],
+input[type="email"],
+input[type="url"],
+input[type="password"],
+input[type="search"],
+input[type="number"],
+input[type="tel"],
+input[type="range"],
+input[type="date"],
+input[type="month"],
+input[type="week"],
+input[type="time"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="color"],
+textarea {
+  color: #666;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  padding: 3px;
+}
+input[type="text"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="password"]:focus,
+input[type="search"]:focus,
+input[type="number"]:focus,
+input[type="tel"]:focus,
+input[type="range"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="week"]:focus,
+input[type="time"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="color"]:focus,
+textarea:focus {
+  color: #111;
+}
+select {
+  border: 1px solid #ccc;
+}
+textarea {
+  width: 100%;
+}
+
+/**
+ * Navigation
+ */
+.main-navigation {
+  clear: both;
+  display: block;
+  float: left;
+  width: 100%;
+}
+.main-navigation ul {
+  display: none;
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+.main-navigation ul ul {
+  box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+  float: left;
+  position: absolute;
+  top: 100%;
+  left: -999em;
+  z-index: 99999;
+}
+.main-navigation ul ul ul {
+  left: -999em;
+  top: 0;
+}
+.main-navigation ul ul li:hover > ul,
+.main-navigation ul ul li.focus > ul {
+  left: 100%;
+}
+.main-navigation ul ul a {
+  width: 200px;
+}
+.main-navigation ul li:hover > ul,
+.main-navigation ul li.focus > ul {
+  left: auto;
+}
+.main-navigation li {
+  float: left;
+  position: relative;
+}
+.main-navigation a {
+  display: block;
+  text-decoration: none;
+}
+@media screen and (min-width: 37.5em) {
+  .menu-toggle {
+    display: none;
+  }
+  .main-navigation ul {
+    display: block;
+  }
+}
+
+.site-main .comment-navigation,
+.site-main .posts-navigation,
+.site-main .post-navigation {
+  margin: 0 0 1.5em;
+  overflow: hidden;
+}
+.comment-navigation .nav-previous,
+.posts-navigation .nav-previous,
+.post-navigation .nav-previous {
+  float: left;
+  width: 50%;
+}
+.comment-navigation .nav-next,
+.posts-navigation .nav-next,
+.post-navigation .nav-next {
+  float: right;
+  text-align: right;
+  width: 50%;
+}
+
+/**
+ * Accessibility
+ */
+.screen-reader-text {
+  border: 0;
+  clip: rect(1px, 1px, 1px, 1px);
+  clip-path: inset(50%);
+  height: 1px;
+  margin: -1px;
+  overflow: hidden;
+  padding: 0;
+  position: absolute !important;
+  width: 1px;
+  word-wrap: normal !important;
+}
+.screen-reader-text:focus {
+  background-color: #f1f1f1;
+  border-radius: 3px;
+  box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+  clip: auto !important;
+  clip-path: none;
+  color: #21759b;
+  display: block;
+  font-size: 14px;
+  font-size: 0.875rem;
+  font-weight: bold;
+  height: auto;
+  left: 5px;
+  line-height: normal;
+  padding: 15px 23px 14px;
+  text-decoration: none;
+  top: 5px;
+  width: auto;
+  z-index: 100000;
+}
+#content[tabindex="-1"]:focus {
+  outline: 0;
+}
+
+/**
+ * Alignments
+ */
+.alignleft {
+  display: inline;
+  float: left;
+  margin-right: 1.5em;
+}
+.alignright {
+  display: inline;
+  float: right;
+  margin-left: 1.5em;
+}
+.aligncenter {
+  clear: both;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/**
+ * Clearings
+ */
+.clear:before,
+.clear:after,
+.entry-content:before,
+.entry-content:after,
+.comment-content:before,
+.comment-content:after,
+.site-header:before,
+.site-header:after,
+.site-content:before,
+.site-content:after,
+.site-footer:before,
+.site-footer:after {
+  content: "";
+  display: table;
+  table-layout: fixed;
+}
+.clear:after,
+.entry-content:after,
+.comment-content:after,
+.site-header:after,
+.site-content:after,
+.site-footer:after {
+  clear: both;
+}
+
+/**
+ * Widgets
+ */
+.widget {
+  margin: 0 0 1.5em;
+}
+.widget select {
+  max-width: 100%;
+}
+
+/**
+ * Content
+ */
+.sticky {
+  display: block;
+}
+.updated:not(.published) {
+  display: none;
+}
+.page-content,
+.entry-content,
+.entry-summary {
+  margin: 1.5em 0 0;
+}
+.page-links {
+  clear: both;
+  margin: 0 0 1.5em;
+}
+
+/**
+ * Comments
+ */
+.comment-content a {
+  word-wrap: break-word;
+}
+.bypostauthor {
+  display: block;
+}
+
+/**
+ * Media
+ */
+.page-content .wp-smiley,
+.entry-content .wp-smiley,
+.comment-content .wp-smiley {
+  border: none;
+  margin-bottom: 0;
+  margin-top: 0;
+  padding: 0;
+}
+embed,
+iframe,
+object {
+  max-width: 100%;
+}
+.custom-logo-link {
+  display: inline-block;
+}
+.wp-caption {
+  margin-bottom: 1.5em;
+  max-width: 100%;
+}
+.wp-caption img[class*="wp-image-"] {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+.wp-caption .wp-caption-text {
+  margin: 0.8075em 0;
+}
+.wp-caption-text {
+  text-align: center;
+}
+.gallery {
+  margin-bottom: 1.5em;
+}
+.gallery-item {
+  display: inline-block;
+  text-align: center;
+  vertical-align: top;
+  width: 100%;
+}
+.gallery-columns-2 .gallery-item {
+  max-width: 50%;
+}
+.gallery-columns-3 .gallery-item {
+  max-width: 33.33%;
+}
+.gallery-columns-4 .gallery-item {
+  max-width: 25%;
+}
+.gallery-columns-5 .gallery-item {
+  max-width: 20%;
+}
+.gallery-columns-6 .gallery-item {
+  max-width: 16.66%;
+}
+.gallery-columns-7 .gallery-item {
+  max-width: 14.28%;
+}
+.gallery-columns-8 .gallery-item {
+  max-width: 12.5%;
+}
+.gallery-columns-9 .gallery-item {
+  max-width: 11.11%;
+}
+.gallery-caption {
+  display: block;
+}
+
+/**
+ * Prefer Blog Styles
+ * -------------------------------------------------------------
+ */
+
+.modern-slider .slide-wrap {
+    display: table;
+    width: 100%;
+    background: #fafafa;
+    margin-top: 50px;
+}
+.slide-wrap [class*="col-"] {
+    display: table-cell;
+    vertical-align: middle;
+    float: none;
+    padding: 0;
+}
+.modern-slider .img-cover{
+	position: initial;
+	top: initial;
+	left: initial;
+}
+.slide-wrap .slider-height{
+    height: 450px;
+}
+.modern-slider .slide-wrap .caption{
+	position: initial;
+	top: initial;
+	left: initial;
+	backface-visibility:initial;
+	transform: initial;
+	padding: 30px;
+}
+.modern-slider .slide-wrap .caption .s-cat{
+    z-index: 3;
+    display: inline-block;
+    font-size: 14px;
+    border-radius: 1px;
+    line-height: normal;
+    padding: 20px 0;
+    position: relative;
+    margin-bottom: 5px;
+    color: #ef9d87;
+}
+.modern-slider .slide-wrap .entry-meta{
+    margin-bottom: 15px;
+}
+
+.modern-slider .slide-wrap .entry-meta span {
+    display: inline-block;
+    margin: initial;
+    padding-left: 10px;
+}
+.modern-slider .slide-wrap .entry-meta span:first-child {
+    padding-left: 0;
+}
+.modern-slider .slide-wrap .entry-meta a{
+    color: #989ea6;
+}
+.modern-slider .slide-wrap .caption h2 {
+    max-width: initial;
+    margin: initial;
+    float: initial;
+}
+.modern-slider .slide-wrap .caption h2 a{
+	background:transparent;
+	border:initial;
+}
+.modern-slider .slide-wrap .more-btn:before {
+    content: "";
+    background-color: #000;
+    width: 40px;
+    height: 1px;
+    display: inline-block;
+    vertical-align: middle;
+    margin-right: 10px;
+    -webkit-transition: 0.2;
+    -o-transition: 0.2;
+    transition: 0.2;
+}
+.modern-slider .slide-wrap .more-btn:hover:before {
+    width: 50px;
+}
+.read-time-btn {
+    padding: 10px 0;
+    display: table;
+}
+.post .min-read {
+    display: inline-block;
+    font-size: 14px;
+}
+.modern-slider .slide-wrap p {
+    line-height: 1.8;
+    margin-bottom: 20px;
+}
+
+/* Gutenberg Pattern support*/
+
+/* Post info pattern */
+.wp-block-contact-form-7-contact-form-selector{
+	max-width: 650px;
+	padding: 50px;
+	margin: 0 auto;
+	box-shadow: 0 0 40px 0 rgba(0,0,0,.08);
+}
+.wp-block-contact-form-7-contact-form-selector h3{
+	font-size: 35px;
+	text-align: center;
+}
+.wp-block-group.author-area{
+	padding: 30px;
+    background: #f5f5f5;
+}
+.author-details{
+	text-align: center;
+}
+.author-details .wp-block-image{
+	margin-bottom: 40px;
+}
+.author-details .wp-block-image .size-thumbnail{
+	border-radius: 50%;
+}
+.author-details .wp-block-image .size-thumbnail{
+	border-radius: 50%;
+}
+.author-details h2{
+	color: #333333;
+	margin: 0 0 20px;
+	font-size: 30px;
+}
+.author-social-links li{
+	display: inline-block;
+}
+.author-social-links li a{
+	background: #fff;
+    display: inline-block;
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    margin: 0 5px;
+}
+.author-social-links li a:hover{
+	color: #fff;
+}
+@media (max-width: 768px) {
+    .slide-wrap .slider-height{
+        height: auto;
+        min-height: 450px;
+    }
+}

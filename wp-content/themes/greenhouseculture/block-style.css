@@ -1,0 +1,29 @@
+/*
+* Block Styles CSS
+*/
+
+.block-editor .wp-block-latest-posts {
+    padding: 0;
+    margin-left: 0;
+}
+.wp-block-latest-posts li a>div{
+	font-weight: bold;
+	font-size: 24px;
+	display: block;
+}
+.wp-block-latest-posts__post-author,
+.wp-block-latest-posts__post-date{
+	display: inline;
+	margin-right: 10px;
+	text-transform: capitalize;
+}
+.wp-block-column h1,
+.wp-block-column h2,
+.wp-block-column h3,
+.wp-block-column h4,
+.wp-block-column h5,
+.wp-block-column h6,
+.wp-block-column p{
+    margin-bottom: 15px !important;
+    margin-top: 15px !important;
+}
