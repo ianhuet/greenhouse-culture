@@ -1,0 +1,901 @@
+[09-Aug-2025 18:40:33 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:49 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 18:42:53 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 22:47:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 22:47:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[09-Aug-2025 22:47:14 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[10-Aug-2025 14:48:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[10-Aug-2025 14:48:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[10-Aug-2025 14:48:13 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function wp_kses() in /var/www/html/wp-includes/functions.php:6105
+Stack trace:
+#0 /var/www/html/wp-includes/functions.php(5831): wp_trigger_error('', 'File wp-db.php ...', 16384)
+#1 /var/www/html/wp-includes/wp-db.php(13): _deprecated_file('wp-db.php', '6.1.0', 'wp-includes/cla...')
+#2 /var/www/html/wp-content/db.php(15): require_once('/var/www/html/w...')
+#3 /var/www/html/wp-includes/load.php(708): require_once('/var/www/html/w...')
+#4 /var/www/html/wp-settings.php(134): require_wp_db()
+#5 /var/www/html/wp-config.php(38): require_once('/var/www/html/w...')
+#6 /var/www/html/wp-load.php(50): require_once('/var/www/html/w...')
+#7 /var/www/html/wp-blog-header.php(13): require_once('/var/www/html/w...')
+#8 /var/www/html/index.php(17): require('/var/www/html/w...')
+#9 {main}
+  thrown in /var/www/html/wp-includes/functions.php on line 6105
+[10-Aug-2025 14:56:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:56:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:57:02 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:57:02 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:57:12 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:57:12 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:57:18 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:57:18 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:57:27 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:57:27 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:57:58 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:57:58 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:05 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:34 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:42 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:42 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:49 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:51 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:51 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:51 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:51 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:56 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:56 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:58:57 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:58:57 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:59:06 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 14:59:06 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 14:59:07 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 920
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 997
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: stdClass::$time_difference in /var/www/html/wp-admin/includes/upgrade.php on line 1007
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-admin/includes/upgrade.php on line 1099
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1115
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 1596
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2272
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1144
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1320
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1396
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1427
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  addcslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1786
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3371
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:37 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:03:37 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:03:45 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:03:45 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:03:46 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 920
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 997
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: stdClass::$time_difference in /var/www/html/wp-admin/includes/upgrade.php on line 1007
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-admin/includes/upgrade.php on line 1099
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1115
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 1596
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2272
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1144
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1320
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1396
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1427
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  addcslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1786
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3371
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:03:49 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:03:49 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:03:52 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:03:52 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:03:54 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:03:58 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:03:59 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:04:00 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:07:15 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:07:15 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:08:37 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:08:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:09:20 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:09:20 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:43 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 920
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 997
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: stdClass::$time_difference in /var/www/html/wp-admin/includes/upgrade.php on line 1007
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  trim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-admin/includes/upgrade.php on line 1099
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1115
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 1596
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strip_tags(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2272
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1144
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$categories in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1320
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined property: wpdb@anonymous::$post2cat in /var/www/html/wp-includes/class-wpdb.php on line 789
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1396
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-admin/includes/upgrade.php on line 1427
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  addcslashes(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1786
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3371
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[10-Aug-2025 15:09:44 UTC] PHP Deprecated:  rtrim(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/formatting.php on line 2829
+[10-Aug-2025 15:09:44 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:09:53 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:09:53 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:09:54 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:11:14 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:11:14 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:11:30 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:11:30 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:11:31 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:11:31 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:11:53 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/pluggable.php on line 1640
+[10-Aug-2025 15:11:59 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:11:59 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:12:00 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:12:00 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:12:41 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:12:41 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[10-Aug-2025 15:13:23 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[10-Aug-2025 15:13:23 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:19:45 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:19:46 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:20:06 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:20:06 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:20:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:20:08 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:29:29 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:29:30 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:30:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:30:10 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:31:19 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:31:19 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:32:11 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:32:11 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:40:00 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:40:00 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:41:54 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:41:54 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:53:36 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:53:36 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:53:37 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:53:37 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:53:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:53:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 17:54:20 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 17:54:20 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:09:21 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:09:21 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:09:21 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:09:21 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:09:21 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:09:21 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:11:48 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:11:48 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:12:02 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:12:02 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:12:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:12:11 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:12:18 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:12:18 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:12:18 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in Command line code on line 1
+[11-Aug-2025 18:15:57 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:15:57 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:16:08 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:16:08 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:19 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:17:19 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:19 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:17:19 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:17:19 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:17:19 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:26 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:17:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:17:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:17:26 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:17:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:32 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:17:32 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:17:32 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:17:32 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:17:32 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:17:32 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:25:11 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:25:11 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:25:18 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:25:18 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:26:34 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:26:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:26:34 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:26:34 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:26:34 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:26:34 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:28:34 UTC] REQUEST: 
+[11-Aug-2025 18:28:35 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:28:35 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:28:54 UTC] REQUEST: 
+[11-Aug-2025 18:28:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:28:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:08 UTC] REQUEST: /
+[11-Aug-2025 18:33:09 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:33:09 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:09 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:33:09 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:33:09 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:33:09 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:25 UTC] REQUEST: /tea-table-talk/
+[11-Aug-2025 18:33:26 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 717
+[11-Aug-2025 18:33:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/canonical.php on line 717
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 728
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 731
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "scheme" in /var/www/html/wp-includes/canonical.php on line 752
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 717
+[11-Aug-2025 18:33:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/canonical.php on line 717
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 728
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "host" in /var/www/html/wp-includes/canonical.php on line 731
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "scheme" in /var/www/html/wp-includes/canonical.php on line 752
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:33:26 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:33:26 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:33:26 UTC] PHP Warning:  Undefined array key "SERVER_NAME" in /var/www/html/wp-includes/general-template.php on line 3864
+[11-Aug-2025 18:34:54 UTC] REQUEST: /tea-table-talk/
+[11-Aug-2025 18:34:55 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:34:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:34:55 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:34:55 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:34:55 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:34:55 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:35:28 UTC] REQUEST: /?p=5
+[11-Aug-2025 18:35:29 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:35:29 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:35:29 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3301
+[11-Aug-2025 18:35:29 UTC] PHP Deprecated:  strtolower(): Passing null to parameter #1 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3202
+[11-Aug-2025 18:35:29 UTC] PHP Deprecated:  explode(): Passing null to parameter #2 ($string) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 3228
+[11-Aug-2025 18:35:29 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:35:45 UTC] REQUEST: 
+[11-Aug-2025 18:35:46 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:35:46 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:35:55 UTC] REQUEST: 
+[11-Aug-2025 18:35:56 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:35:56 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:36:04 UTC] REQUEST: 
+[11-Aug-2025 18:36:05 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:36:05 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:36:37 UTC] REQUEST: 
+[11-Aug-2025 18:36:38 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:36:38 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:36:48 UTC] REQUEST: 
+[11-Aug-2025 18:36:49 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:36:49 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:39:09 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:39:09 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:39:09 UTC] REQUEST: 
+[11-Aug-2025 18:39:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:39:10 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:39:27 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:39:27 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:39:28 UTC] REQUEST: 
+[11-Aug-2025 18:39:29 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:39:29 UTC] PHP Warning:  foreach() argument must be of type array|object, null given in /var/www/html/wp-includes/option.php on line 308
+[11-Aug-2025 18:39:47 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:39:47 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:39:47 UTC] REQUEST: 
+[11-Aug-2025 18:39:49 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:43:14 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:43:14 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:43:14 UTC] REQUEST: /tea-table-talk/
+[11-Aug-2025 18:43:15 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:43:37 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:43:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:43:37 UTC] REQUEST: /events/
+[11-Aug-2025 18:43:38 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:43:40 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:43:40 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:43:40 UTC] REQUEST: /resources/
+[11-Aug-2025 18:43:41 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:44:04 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:44:04 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:44:04 UTC] REQUEST: /
+[11-Aug-2025 18:44:05 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:44:05 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: function SQL_CALC_FOUND_ROWS has only noop implementation in tidb now, use tidb_enable_noop_functions to enable these functions in /var/www/html/wp-includes/class-wpdb.php:2351
+Stack trace:
+#0 /var/www/html/wp-includes/class-wpdb.php(2351): mysqli_query(Object(mysqli), 'SELECT SQL_CALC...')
+#1 /var/www/html/wp-includes/class-wpdb.php(2265): wpdb->_do_query('SELECT SQL_CALC...')
+#2 /var/www/html/wp-includes/class-wpdb.php(3107): wpdb->query('SELECT SQL_CALC...')
+#3 /var/www/html/wp-includes/class-wp-query.php(3419): wpdb->get_col('SELECT SQL_CALC...')
+#4 /var/www/html/wp-includes/class-wp-query.php(3949): WP_Query->get_posts()
+#5 /var/www/html/wp-includes/class-wp.php(701): WP_Query->query(Array)
+#6 /var/www/html/wp-includes/class-wp.php(821): WP->query_posts()
+#7 /var/www/html/wp-includes/functions.php(1342): WP->main('')
+#8 /var/www/html/wp-blog-header.php(16): wp()
+#9 /var/www/html/index.php(18): require('/var/www/html/w...')
+#10 {main}
+  thrown in /var/www/html/wp-includes/class-wpdb.php on line 2351
+[11-Aug-2025 18:44:13 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:44:13 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:44:13 UTC] REQUEST: /
+[11-Aug-2025 18:44:14 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:44:15 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: function SQL_CALC_FOUND_ROWS has only noop implementation in tidb now, use tidb_enable_noop_functions to enable these functions in /var/www/html/wp-includes/class-wpdb.php:2351
+Stack trace:
+#0 /var/www/html/wp-includes/class-wpdb.php(2351): mysqli_query(Object(mysqli), 'SELECT SQL_CALC...')
+#1 /var/www/html/wp-includes/class-wpdb.php(2265): wpdb->_do_query('SELECT SQL_CALC...')
+#2 /var/www/html/wp-includes/class-wpdb.php(3107): wpdb->query('SELECT SQL_CALC...')
+#3 /var/www/html/wp-includes/class-wp-query.php(3419): wpdb->get_col('SELECT SQL_CALC...')
+#4 /var/www/html/wp-includes/class-wp-query.php(3949): WP_Query->get_posts()
+#5 /var/www/html/wp-includes/class-wp.php(701): WP_Query->query(Array)
+#6 /var/www/html/wp-includes/class-wp.php(821): WP->query_posts()
+#7 /var/www/html/wp-includes/functions.php(1342): WP->main('')
+#8 /var/www/html/wp-blog-header.php(16): wp()
+#9 /var/www/html/index.php(18): require('/var/www/html/w...')
+#10 {main}
+  thrown in /var/www/html/wp-includes/class-wpdb.php on line 2351
+[11-Aug-2025 18:44:20 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:44:20 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:44:20 UTC] REQUEST: /
+[11-Aug-2025 18:44:21 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:44:21 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: function SQL_CALC_FOUND_ROWS has only noop implementation in tidb now, use tidb_enable_noop_functions to enable these functions in /var/www/html/wp-includes/class-wpdb.php:2351
+Stack trace:
+#0 /var/www/html/wp-includes/class-wpdb.php(2351): mysqli_query(Object(mysqli), 'SELECT SQL_CALC...')
+#1 /var/www/html/wp-includes/class-wpdb.php(2265): wpdb->_do_query('SELECT SQL_CALC...')
+#2 /var/www/html/wp-includes/class-wpdb.php(3107): wpdb->query('SELECT SQL_CALC...')
+#3 /var/www/html/wp-includes/class-wp-query.php(3419): wpdb->get_col('SELECT SQL_CALC...')
+#4 /var/www/html/wp-includes/class-wp-query.php(3949): WP_Query->get_posts()
+#5 /var/www/html/wp-includes/class-wp.php(701): WP_Query->query(Array)
+#6 /var/www/html/wp-includes/class-wp.php(821): WP->query_posts()
+#7 /var/www/html/wp-includes/functions.php(1342): WP->main('')
+#8 /var/www/html/wp-blog-header.php(16): wp()
+#9 /var/www/html/index.php(18): require('/var/www/html/w...')
+#10 {main}
+  thrown in /var/www/html/wp-includes/class-wpdb.php on line 2351
+[11-Aug-2025 18:44:33 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 64
+[11-Aug-2025 18:44:33 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:44:33 UTC] REQUEST: /
+[11-Aug-2025 18:44:34 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:44:34 UTC] PHP Fatal error:  Uncaught mysqli_sql_exception: function SQL_CALC_FOUND_ROWS has only noop implementation in tidb now, use tidb_enable_noop_functions to enable these functions in /var/www/html/wp-includes/class-wpdb.php:2351
+Stack trace:
+#0 /var/www/html/wp-includes/class-wpdb.php(2351): mysqli_query(Object(mysqli), 'SELECT SQL_CALC...')
+#1 /var/www/html/wp-includes/class-wpdb.php(2265): wpdb->_do_query('SELECT SQL_CALC...')
+#2 /var/www/html/wp-includes/class-wpdb.php(3107): wpdb->query('SELECT SQL_CALC...')
+#3 /var/www/html/wp-includes/class-wp-query.php(3419): wpdb->get_col('SELECT SQL_CALC...')
+#4 /var/www/html/wp-includes/class-wp-query.php(3949): WP_Query->get_posts()
+#5 /var/www/html/wp-includes/class-wp.php(701): WP_Query->query(Array)
+#6 /var/www/html/wp-includes/class-wp.php(821): WP->query_posts()
+#7 /var/www/html/wp-includes/functions.php(1342): WP->main('')
+#8 /var/www/html/wp-blog-header.php(16): wp()
+#9 /var/www/html/index.php(18): require('/var/www/html/w...')
+#10 {main}
+  thrown in /var/www/html/wp-includes/class-wpdb.php on line 2351
+[11-Aug-2025 18:45:21 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:45:21 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:45:21 UTC] REQUEST: /
+[11-Aug-2025 18:45:22 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:45:47 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:45:47 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:45:47 UTC] REQUEST: /events
+[11-Aug-2025 18:45:48 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:45:49 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:45:49 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:45:49 UTC] REQUEST: /events/
+[11-Aug-2025 18:45:49 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:45:52 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:45:52 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:45:52 UTC] REQUEST: /.well-known/appspecific/com.chrome.devtools.json
+[11-Aug-2025 18:45:53 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:09 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:09 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:09 UTC] REQUEST: /wp-login.php
+[11-Aug-2025 18:46:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:14 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:14 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:14 UTC] REQUEST: /wp-admin/
+[11-Aug-2025 18:46:15 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:23 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:23 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:23 UTC] REQUEST: /.well-known/appspecific/com.chrome.devtools.json
+[11-Aug-2025 18:46:24 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:24 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:24 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:24 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:46:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:24 UTC] REQUEST: /wp-admin/admin-ajax.php?action=dashboard-widgets&widget=dashboard_primary&pagenow=dashboard
+[11-Aug-2025 18:46:25 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:25 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:30 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:30 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:30 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:46:31 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:36 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:36 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:36 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:46:37 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:43 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:43 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:43 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:46:44 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:46:45 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:46:45 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:46:45 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:46:46 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:47:04 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:47:04 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:47:04 UTC] REQUEST: /wp-admin/themes.php
+[11-Aug-2025 18:47:05 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:48:09 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:48:09 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:48:09 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:48:10 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:48:36 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:48:36 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:48:37 UTC] REQUEST: /wp-admin/themes.php?action=activate&stylesheet=greenhouseculture&_wpnonce=2ca5fd5b3e
+[11-Aug-2025 18:48:37 UTC] PHP Notice:  Function _load_textdomain_just_in_time was called <strong>incorrectly</strong>. Translation loading for the <code>prefer-blog</code> domain was triggered too early. This is usually an indicator for some code in the plugin or theme running too early. Translations should be loaded at the <code>init</code> action or later. Please see <a href="https://developer.wordpress.org/advanced-administration/debug/debug-wordpress/">Debugging in WordPress</a> for more information. (This message was added in version 6.7.0.) in /var/www/html/wp-includes/functions.php on line 6121
+[11-Aug-2025 18:48:41 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:48:41 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:48:41 UTC] REQUEST: /wp-admin/themes.php?activated=true
+[11-Aug-2025 18:49:01 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:49:01 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:49:02 UTC] REQUEST: /wp-admin/admin.php?page=Wordfence
+[11-Aug-2025 18:49:23 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:49:23 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:49:23 UTC] REQUEST: /wp-admin/themes.php
+[11-Aug-2025 18:50:27 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:50:27 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:50:27 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:52:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:52:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:52:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:54:29 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 68
+[11-Aug-2025 18:54:29 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:54:29 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:56:30 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 18:56:30 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:56:30 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:58:14 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 18:58:14 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:58:14 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:58:23 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 18:58:23 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:58:23 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 18:59:14 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 18:59:14 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 18:59:14 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:00:22 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:00:22 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:00:22 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:00:24 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:00:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:00:24 UTC] REQUEST: /wp-admin/users.php
+[11-Aug-2025 19:00:31 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:00:31 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:00:31 UTC] REQUEST: /wp-admin/user-new.php
+[11-Aug-2025 19:01:05 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:01:05 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:01:05 UTC] REQUEST: /wp-admin/user-new.php
+[11-Aug-2025 19:01:20 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:01:20 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:01:20 UTC] REQUEST: /wp-admin/user-new.php
+[11-Aug-2025 19:01:25 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:01:25 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:01:25 UTC] REQUEST: /wp-admin/users.php?update=add&id=30002
+[11-Aug-2025 19:01:36 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:01:36 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:01:36 UTC] REQUEST: /wp-admin/user-edit.php?user_id=30002&wp_http_referer=%2Fwp-admin%2Fusers.php%3Fupdate%3Dadd%26id%3D30002
+[11-Aug-2025 19:02:40 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:02:40 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:02:40 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:03:40 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:03:40 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:03:40 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:03:46 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:03:46 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:03:46 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:03:53 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:03:53 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:03:53 UTC] REQUEST: /wp-admin/user-edit.php
+[11-Aug-2025 19:03:57 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:03:57 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:03:57 UTC] REQUEST: /wp-admin/user-edit.php?user_id=30002&updated=1&wp_http_referer=%2Fwp-admin%2Fusers.php%3Fid%3D30002
+[11-Aug-2025 19:05:02 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:05:02 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:05:02 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:07:02 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:07:02 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:07:02 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:07:14 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:07:14 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:07:14 UTC] REQUEST: /wp-admin/users.php
+[11-Aug-2025 19:08:17 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:08:17 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:08:18 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:09:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:09:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:09:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:10:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:10:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:10:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:12:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:12:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:12:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:14:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:14:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:14:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:16:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:16:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:16:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 19:18:28 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 19:18:28 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 19:18:28 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 21:51:21 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 21:51:21 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 21:51:21 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 21:53:21 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 21:53:21 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 21:53:21 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 21:55:22 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 21:55:22 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 21:55:22 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 21:57:22 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 21:57:22 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 21:57:22 UTC] REQUEST: /wp-admin/admin-ajax.php
+[11-Aug-2025 21:59:24 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[11-Aug-2025 21:59:24 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[11-Aug-2025 21:59:24 UTC] REQUEST: /wp-admin/admin-ajax.php
+[12-Aug-2025 07:40:37 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[12-Aug-2025 07:40:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[12-Aug-2025 07:40:37 UTC] REQUEST: /wp-admin/admin-ajax.php
+[12-Aug-2025 07:42:36 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[12-Aug-2025 07:42:36 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[12-Aug-2025 07:42:36 UTC] REQUEST: /wp-admin/admin-ajax.php
+[12-Aug-2025 07:44:36 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[12-Aug-2025 07:44:36 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[12-Aug-2025 07:44:36 UTC] REQUEST: /wp-admin/admin-ajax.php
+[12-Aug-2025 07:46:37 UTC] PHP Warning:  Undefined variable $table_prefix in /var/www/html/wp-content/db.php on line 87
+[12-Aug-2025 07:46:37 UTC] PHP Deprecated:  preg_match(): Passing null to parameter #2 ($subject) of type string is deprecated in /var/www/html/wp-includes/class-wpdb.php on line 1007
+[12-Aug-2025 07:46:37 UTC] REQUEST: /wp-admin/admin-ajax.php
