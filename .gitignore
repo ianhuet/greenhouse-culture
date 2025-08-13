@@ -13,21 +13,32 @@
  
 # Ignore everything in the root except the "wp-content" directory.
 /*
+.env.development
+
 !.github/
 !.gitignore
-!wp-content/
+!docker-compose.yml
+!README.md
+
+# Environment files (actual credentials)
+.env
+.env.local
 
 backup/
 docs/
  
-# Ignore everything in the "wp-content" directory, except the "plugins"
-# and "themes" directories.
-wp-content/*
-wp-content/plugins/*
+!wp-content/
+wp-content/.DS_Store
+wp-content/debug.log
+wp-content/languages
+wp-content/mu-plugins
+wp-content/plugins
+wp-content/upgrade
+wp-content/uploads
+wp-content/wflogs
+
+wp-content/themes/*
+!wp-content/themes/greenhouseculture
+
+!wp-content/plugins/contributor-bio-block
 !wp-content/plugins/members-map
-!wp-content/themes/
- 
-# Ignore everything in the "themes" directory, except the themes you
-# specify (see the commented-out example for a hint on how to do this.)
-# wp-content/themes/*
-# !wp-content/themes/my-theme/
