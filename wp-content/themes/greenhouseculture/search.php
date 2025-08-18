@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#search-result
  *
- * @package GreenhouseCulture
+ * @package Greenhouseculture
  */
 
 get_header();
@@ -16,21 +16,21 @@ get_header();
 				<h1 class="archive-title">
 					<?php
 					/* translators: %s: search query. */
-					printf( esc_html__( 'Search Results for: %s', 'prefer' ), '<span>' . get_search_query() . '</span>' );
+					printf( esc_html__( 'Search Results for: %s', 'greenhouseculture' ), '<span>' . get_search_query() . '</span>' );
 					?>
 				</h1>
 			</div>
 			<div class="breadcrumbs-wrap">
 				<?php 
 				// breadcrumb hook
-				do_action('prefer_breadcrumb_options_hook'); ?> 
+				do_action('greenhouseculture_breadcrumb_options_hook'); ?> 
 			</div>
 			<div id="primary" class="col-md-8 content-area">
 				<main id="main" class="site-main">
 					<?php if ( have_posts() ) : ?>
 					<?php
 						/* Masonry Start Section */
-						do_action('prefer_masonry_start_hook'); 
+						do_action('greenhouseculture_masonry_start_hook'); 
 
 						/* Start the Loop */
 						while ( have_posts() ) :
@@ -46,7 +46,7 @@ get_header();
 						endwhile;
 
 						/* Masonry end Section */
-						do_action('prefer_masonry_end_hook');
+						do_action('greenhouseculture_masonry_end_hook');
 						
 						else :
 

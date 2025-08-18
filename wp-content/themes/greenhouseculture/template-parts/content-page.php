@@ -4,17 +4,17 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Prefer
+ * @package Greenhouseculture
  */
-global $prefer_theme_options;
-$image_option = absint($prefer_theme_options['prefer-single-page-featured-image']);
+global $greenhouseculture_theme_options;
+$image_option = absint($greenhouseculture_theme_options['greenhouseculture-single-page-featured-image']);
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="post-wrap">
         <div class="post-media">
             <?php
             if ($image_option == 1) {
-                prefer_post_thumbnail();
+                greenhouseculture_post_thumbnail();
             }
             ?>
         </div>
@@ -26,7 +26,7 @@ $image_option = absint($prefer_theme_options['prefer-single-page-featured-image'
                 the_content();
                 
                 wp_link_pages(array(
-                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'prefer'),
+                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'greenhouseculture'),
                     'after' => '</div>',
                 ));
                 ?>
@@ -39,8 +39,8 @@ $image_option = absint($prefer_theme_options['prefer-single-page-featured-image'
             </div>
             <!-- .entry-content end -->
             <footer class="post-footer entry-footer">
-                <?php prefer_entry_meta(); ?>
-                <?php do_action( 'prefer_social_sharing' ,get_the_ID() );?>
+                <?php greenhouseculture_entry_meta(); ?>
+                <?php do_action( 'greenhouseculture_social_sharing' ,get_the_ID() );?>
             </footer><!-- .entry-footer end -->
         </div>
     </div>

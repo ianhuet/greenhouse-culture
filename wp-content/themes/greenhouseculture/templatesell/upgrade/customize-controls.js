@@ -1,7 +1,7 @@
 ( function( api ) {
 
 	// Extends our custom "upgrade" section.
-	api.sectionConstructor['prefer_plus'] = api.Section.extend({
+	api.sectionConstructor['greenhouseculture_plus'] = api.Section.extend({
 
 		// No events for this type of section.
 		attachEvents: function () {},

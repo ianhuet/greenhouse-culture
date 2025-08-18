@@ -6,10 +6,10 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package GreenhouseCulture
+ * @package Greenhouseculture
  */
-global $prefer_theme_options;
-$copyright = wp_kses_post($prefer_theme_options['prefer-footer-copyright']);
+global $greenhouseculture_theme_options;
+$copyright = wp_kses_post($greenhouseculture_theme_options['greenhouseculture-footer-copyright']);
 if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active_sidebar('footer-3') || is_active_sidebar('footer-4') ) {
 	$count = 0;
 	for ( $i = 1; $i <= 4; $i++ )
@@ -73,15 +73,15 @@ if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active
 					<div class="copyright">
 						<?php echo $copyright; ?>
 						<?php
-							/* translators: 1: Theme name, 2: Theme author. */
-							printf( esc_html__( 'Theme: %1$s by %2$s.', 'prefer' ), 'Prefer', '<a href="http://www.templatesell.com/">Template Sell</a>' );
+							/* translators: 1: Theme name. */
+							printf( esc_html__( 'Theme: %1$s', 'greenhouseculture' ), 'Greenhouseculture' );
 						?>
 					</div>
 				</div>
 			</div>
 		</div>
 	</footer>
-	<?php do_action('prefer_go_to_top_hook'); ?>
+	<?php do_action('greenhouseculture_go_to_top_hook'); ?>
 </div>
 </div><!-- main container -->
 </div><!-- #page -->

@@ -1,5 +1,5 @@
 # WordPress Local Development Setup
-## Cross-Platform, Free, Git-Friendly Development (Themes + Custom Plugins)
+- Cross-Platform, Free, Git-Friendly Development (Themes + Custom Plugins)
 
 ## Why Docker?
 - **100% Free** (Docker Desktop is free for personal use)

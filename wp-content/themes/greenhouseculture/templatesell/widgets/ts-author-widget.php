@@ -2,30 +2,30 @@
 /**
  * Author Profile Widget
  *
- * @package Prefer
+ * @package Greenhouseculture
  */
 
-if (!class_exists('Prefer_Author_Widget')) :
+if (!class_exists('Greenhouseculture_Author_Widget')) :
 
     /**
      * Author widget class.
      *
-     * @since Prefer 1.0.0
+     * @since Greenhouseculture 1.0.0
      */
-    class Prefer_Author_Widget extends WP_Widget
+    class Greenhouseculture_Author_Widget extends WP_Widget
     {
          private function defaults()
         {
             $defaults = array(
-                'title'    => esc_html__( 'Follow Us', 'prefer' ),
-                'author_description' => esc_html__( 'Author Description goes here.', 'prefer' ),
+                'title'    => esc_html__( 'Follow Us', 'greenhouseculture' ),
+                'author_description' => esc_html__( 'Author Description goes here.', 'greenhouseculture' ),
                 'author_image'=>'',
-                'author_facebook' => esc_html__( '#', 'prefer' ),
-                'author_twitter' => esc_html__( '#', 'prefer' ),
-                'author_linkedin' => esc_html__( '#', 'prefer' ),
-                'author_instagram' => esc_html__( '#', 'prefer' ),
+                'author_facebook' => esc_html__( '#', 'greenhouseculture' ),
+                'author_twitter' => esc_html__( '#', 'greenhouseculture' ),
+                'author_linkedin' => esc_html__( '#', 'greenhouseculture' ),
+                'author_instagram' => esc_html__( '#', 'greenhouseculture' ),
                 'author_pinterest' => '',
-                'author_youtube' => esc_html__( '#', 'prefer' ),
+                'author_youtube' => esc_html__( '#', 'greenhouseculture' ),
                 'author_vk' => '',
                 'author_sign'=>'',
            );
@@ -35,15 +35,15 @@ if (!class_exists('Prefer_Author_Widget')) :
         /**
          * Constructor.
          *
-         * @since Prefer 1.0.0
+         * @since Greenhouseculture 1.0.0
          */
         public function __construct()
         {
             $opts = array(
-                'classname' => 'prefer_widget_author',
-                'description' => esc_html__('Display Author Profile.', 'prefer'),
+                'classname' => 'greenhouseculture_widget_author',
+                'description' => esc_html__('Display Author Profile.', 'greenhouseculture'),
             );
-            parent::__construct('prefer-author', esc_html__('Prefer Author', 'prefer'), $opts);
+            parent::__construct('greenhouseculture-author', esc_html__('Greenhouseculture Author', 'greenhouseculture'), $opts);
         }
 
         /**
@@ -113,49 +113,49 @@ if (!class_exists('Prefer_Author_Widget')) :
                             <?php if ($author_facebook) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_facebook); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('facebook', 'prefer'); ?></span><i class="fa fa-facebook" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('facebook', 'greenhouseculture'); ?></span><i class="fa fa-facebook" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_twitter) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_twitter); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('twitter', 'prefer'); ?></span><i class="fa fa-twitter" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('twitter', 'greenhouseculture'); ?></span><i class="fa fa-twitter" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_linkedin) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_linkedin); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('linkedin', 'prefer'); ?></span><i class="fa fa-linkedin" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('linkedin', 'greenhouseculture'); ?></span><i class="fa fa-linkedin" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_instagram) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_instagram); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('instagram', 'prefer'); ?></span><i class="fa fa-instagram" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('instagram', 'greenhouseculture'); ?></span><i class="fa fa-instagram" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_pinterest) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_pinterest); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('pinterest', 'prefer'); ?></span><i class="fa fa-pinterest" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('pinterest', 'greenhouseculture'); ?></span><i class="fa fa-pinterest" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_youtube) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_youtube); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('youtube', 'prefer'); ?></span><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('youtube', 'greenhouseculture'); ?></span><i class="fa fa-youtube" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
                             <?php if ($author_vk) { ?>
                                 <li>
                                     <a href="<?php echo esc_url($author_vk); ?>" target="_blank"><span
-                                            class="screen-reader-text"><?php esc_html_e('vk', 'prefer'); ?></span><i class="fa fa-vk" aria-hidden="true"></i></a>
+                                            class="screen-reader-text"><?php esc_html_e('vk', 'greenhouseculture'); ?></span><i class="fa fa-vk" aria-hidden="true"></i></a>
                                 </li>
                             <?php } ?>
 
@@ -239,7 +239,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label
-                    for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title:', 'prefer'); ?></strong></label>
+                    for="<?php echo esc_attr($this->get_field_id('title')); ?>"><strong><?php esc_html_e('Title:', 'greenhouseculture'); ?></strong></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
                        value="<?php echo esc_attr($instance['title']); ?>"/>
@@ -247,7 +247,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label
-                    for="<?php echo esc_attr($this->get_field_id('author_description')); ?>"><strong><?php esc_html_e('Description:', 'prefer'); ?></strong></label>
+                    for="<?php echo esc_attr($this->get_field_id('author_description')); ?>"><strong><?php esc_html_e('Description:', 'greenhouseculture'); ?></strong></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_description')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_description')); ?>" type="text"
                        value="<?php echo esc_attr($instance['author_description']); ?>"/>
@@ -255,7 +255,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo $this->get_field_id('author_image'); ?>">
-                    <?php _e('Select Image: Recommended size 250*250', 'prefer'); ?>
+                    <?php _e('Select Image: Recommended size 250*250', 'greenhouseculture'); ?>
                 </label>
                 <br/>
                 <?php
@@ -273,12 +273,12 @@ if (!class_exists('Prefer_Author_Widget')) :
                 ?>">
                 <input type="button" class="button button-primary custom_media_button" id="custom_media_button"
                        name="<?php echo $this->get_field_name('author_image'); ?>"
-                       value="<?php esc_attr_e('Upload Image', 'prefer') ?>"/>
+                       value="<?php esc_attr_e('Upload Image', 'greenhouseculture') ?>"/>
             </p>
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_facebook')); ?>">
-                    <?php esc_html_e('Facebook:', 'prefer'); ?>
+                    <?php esc_html_e('Facebook:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_facebook')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_facebook')); ?>" type="text"
@@ -287,7 +287,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_twitter')); ?>">
-                    <?php esc_html_e('Twitter:', 'prefer'); ?>
+                    <?php esc_html_e('Twitter:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_twitter')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_twitter')); ?>" type="text"
@@ -296,7 +296,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_linkedin')); ?>">
-                    <?php esc_html_e('LinkedIn:', 'prefer'); ?>
+                    <?php esc_html_e('LinkedIn:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_linkedin')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_linkedin')); ?>" type="text"
@@ -305,7 +305,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_instagram')); ?>">
-                    <?php esc_html_e('Instagram:', 'prefer'); ?>
+                    <?php esc_html_e('Instagram:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_instagram')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_instagram')); ?>" type="text"
@@ -314,7 +314,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_pinterest')); ?>">
-                    <?php esc_html_e('Pinterest:', 'prefer'); ?>
+                    <?php esc_html_e('Pinterest:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_pinterest')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_pinterest')); ?>" type="text"
@@ -323,7 +323,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_youtube')); ?>">
-                    <?php esc_html_e('Youtube:', 'prefer'); ?>
+                    <?php esc_html_e('Youtube:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_youtube')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_youtube')); ?>" type="text"
@@ -332,7 +332,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label for="<?php echo esc_attr($this->get_field_name('author_vk')); ?>">
-                    <?php esc_html_e('VK:', 'prefer'); ?>
+                    <?php esc_html_e('VK:', 'greenhouseculture'); ?>
                 </label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_vk')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_vk')); ?>" type="text"
@@ -341,7 +341,7 @@ if (!class_exists('Prefer_Author_Widget')) :
 
             <p>
                 <label
-                    for="<?php echo esc_attr($this->get_field_id('author_sign')); ?>"><strong><?php esc_html_e('Author Sign Text:', 'prefer'); ?></strong></label>
+                    for="<?php echo esc_attr($this->get_field_id('author_sign')); ?>"><strong><?php esc_html_e('Author Sign Text:', 'greenhouseculture'); ?></strong></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('author_sign')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('author_sign')); ?>" type="text"
                        value="<?php echo esc_attr($instance['author_sign']); ?>"/>
@@ -353,11 +353,11 @@ if (!class_exists('Prefer_Author_Widget')) :
     }
 
 endif;
-add_action('admin_enqueue_scripts', 'prefer_widgets_backend_enqueue');
-function prefer_widgets_backend_enqueue()
+add_action('admin_enqueue_scripts', 'greenhouseculture_widgets_backend_enqueue');
+function greenhouseculture_widgets_backend_enqueue()
 {
-    wp_register_script('prefer-custom-widgets', get_stylesheet_directory_uri() . '/assets/js/widgets.js', array('jquery'), true);
+    wp_register_script('greenhouseculture-custom-widgets', get_template_directory_uri() . '/assets/js/widgets.js', array('jquery'), true);
     
     wp_enqueue_media();
-    wp_enqueue_script('prefer-custom-widgets');
+    wp_enqueue_script('greenhouseculture-custom-widgets');
 }

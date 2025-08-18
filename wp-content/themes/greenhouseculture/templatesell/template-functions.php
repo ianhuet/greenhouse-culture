@@ -2,7 +2,7 @@
 /**
  * Functions which enhance the theme by hooking into WordPress
  *
- * @package Prefer
+ * @package Greenhouseculture
  */
 
 /**
@@ -11,7 +11,7 @@
  * @param array $classes Classes for the body element.
  * @return array
  */
-function prefer_body_classes( $classes ) {
+function greenhouseculture_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes[] = 'hfeed';
@@ -24,14 +24,14 @@ function prefer_body_classes( $classes ) {
 
 	return $classes;
 }
-add_filter( 'body_class', 'prefer_body_classes' );
+add_filter( 'body_class', 'greenhouseculture_body_classes' );
 
 /**
  * Add a pingback url auto-discovery header for single posts, pages, or attachments.
  */
-function prefer_pingback_header() {
+function greenhouseculture_pingback_header() {
 	if ( is_singular() && pings_open() ) {
 		echo '<link rel="pingback" href="', esc_url( get_bloginfo( 'pingback_url' ) ), '">';
 	}
 }
-add_action( 'wp_head', 'prefer_pingback_header' );
+add_action( 'wp_head', 'greenhouseculture_pingback_header' );

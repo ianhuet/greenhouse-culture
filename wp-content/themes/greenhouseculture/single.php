@@ -4,7 +4,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/#single-post
  *
- * @package GreenhouseCulture
+ * @package Greenhouseculture
  */
 get_header();
 ?>
@@ -14,7 +14,7 @@ get_header();
 			<div class="breadcrumbs-wrap">
 				<?php 
 				// Breadcrumb hook
-				do_action('prefer_breadcrumb_options_hook'); ?> 
+				do_action('greenhouseculture_breadcrumb_options_hook'); ?> 
 			</div>
 			<div id="primary" class="col-md-8 content-area">
 				<main id="main" class="site-main">
@@ -42,12 +42,12 @@ get_header();
         	<div class="col-sm-12">
 				<?php 
 				/**
-				 * prefer_related_posts hook
-				 * @since Prefer 1.0.0
+				 * greenhouseculture_related_posts hook
+				 * @since Greenhouseculture 1.0.0
 				 *
-				 * @hooked prefer_related_posts -  10
+				 * @hooked greenhouseculture_related_posts -  10
 				 */
-				do_action( 'prefer_related_posts' ,get_the_ID() );
+				do_action( 'greenhouseculture_related_posts' ,get_the_ID() );
 				?>
 			</div>
 		</div>
