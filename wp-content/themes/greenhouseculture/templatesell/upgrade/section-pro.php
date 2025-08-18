@@ -5,7 +5,7 @@
  * @since  1.0.5
  * @access public
  */
-class Prefer_Customize_Section_Pro extends WP_Customize_Section {
+class Greenhouseculture_Customize_Section_Pro extends WP_Customize_Section {
 
 	/**
 	 * The type of customize section being rendered.
@@ -14,7 +14,7 @@ class Prefer_Customize_Section_Pro extends WP_Customize_Section {
 	 * @access public
 	 * @var    string
 	 */
-	public $type = 'prefer_plus';
+	public $type = 'greenhouseculture_plus';
 
 	/**
 	 * Custom button text to output.

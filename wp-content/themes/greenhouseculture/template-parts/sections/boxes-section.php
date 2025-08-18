@@ -1,18 +1,18 @@
 <?php
 /**
- * Prefer Promo Unique
- * @since Prefer 1.0.0
+ * Greenhouseculture Promo Unique
+ * @since Greenhouseculture 1.0.0
  *
  * @param null
  * @return void
  *
  */
-global $prefer_theme_options;
-$promo_cat = absint($prefer_theme_options['prefer-promo-select-category']);
+global $greenhouseculture_theme_options;
+$promo_cat = absint($greenhouseculture_theme_options['greenhouseculture-promo-select-category']);
 
 if( $promo_cat > 0 && is_home() )
 { ?>
-    <section class="prefer-promo-section">
+    <section class="greenhouseculture-promo-section">
         <?php if ( is_front_page() && is_home() )
         {  ?>
             <div class="container">
@@ -38,11 +38,12 @@ if( $promo_cat > 0 && is_home() )
                                     {
                                         
                                         $image_id  = get_post_thumbnail_id();
-                                        $image_url = wp_get_attachment_image_src($image_id,'prefer-promo-post',true);
+                                        $image_url = wp_get_attachment_image_src($image_id,'greenhouseculture-promo-post',true);
                                         ?>
                                         
                                         <figure>
                                             <img src="<?php echo esc_url($image_url[0]);?>">
+                                            <span class="inset"></span>
                                         </figure>
                                     <?php   } ?>
                                 </a>
@@ -60,8 +61,9 @@ if( $promo_cat > 0 && is_home() )
                                     <div class="post-date">
                                         <div class="entry-meta">
                                             <?php
-                                            prefer_posted_by();
-                                            prefer_posted_on();
+                                            greenhouseculture_posted_by();
+                                            greenhouseculture_posted_on();
+                                            greenhouseculture_blog_read_time();
                                             ?>
                                         </div><!-- .entry-meta -->
                                     </div>

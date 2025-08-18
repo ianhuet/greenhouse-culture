@@ -2,20 +2,20 @@
 /**
  * Display related posts from same category
  *
- * @since Prefer 1.0.0
+ * @since Greenhouseculture 1.0.0
  *
  * @param int $post_id
  * @return void
  *
  */
-if (!function_exists('prefer_related_post')) :
+if (!function_exists('greenhouseculture_related_post')) :
     
-    function prefer_related_post($post_id)
+    function greenhouseculture_related_post($post_id)
     {
         
-        global $prefer_theme_options;
-        $title = esc_html($prefer_theme_options['prefer-single-page-related-posts-title']);
-        if (0 == $prefer_theme_options['prefer-single-page-related-posts']) {
+        global $greenhouseculture_theme_options;
+        $title = esc_html($greenhouseculture_theme_options['greenhouseculture-single-page-related-posts-title']);
+        if (0 == $greenhouseculture_theme_options['greenhouseculture-single-page-related-posts']) {
             return;
         }
         $categories = get_the_category($post_id);
@@ -35,7 +35,7 @@ if (!function_exists('prefer_related_post')) :
                     </h2>
                     <div class="related-posts-list">
                         <?php
-                        $prefer_cat_post_args = array(
+                        $greenhouseculture_cat_post_args = array(
                             'category__in' => $category_ids,
                             'post__not_in' => array($post_id),
                             'post_type' => 'post',
@@ -43,9 +43,9 @@ if (!function_exists('prefer_related_post')) :
                             'post_status' => 'publish',
                             'ignore_sticky_posts' => true
                         );
-                        $prefer_featured_query = new WP_Query($prefer_cat_post_args);
+                        $greenhouseculture_featured_query = new WP_Query($greenhouseculture_cat_post_args);
                         
-                        while ($prefer_featured_query->have_posts()) : $prefer_featured_query->the_post();
+                        while ($greenhouseculture_featured_query->have_posts()) : $greenhouseculture_featured_query->the_post();
                             ?>
                             <div class="show-2-related-posts">
                                 <div class="post-wrap">
@@ -54,7 +54,7 @@ if (!function_exists('prefer_related_post')) :
                                         ?>
                                         <figure class="post-media">
                                             <a href="<?php the_permalink() ?>">
-                                                <?php the_post_thumbnail('prefer-related-post-thumbnails'); ?>
+                                                <?php the_post_thumbnail('greenhouseculture-related-post-thumbnails'); ?>
                                             </a>
                                         </figure>
                                         <?php
@@ -80,4 +80,4 @@ if (!function_exists('prefer_related_post')) :
         }
     }
 endif;
-add_action('prefer_related_posts', 'prefer_related_post', 10, 1);
+add_action('greenhouseculture_related_posts', 'greenhouseculture_related_post', 10, 1);

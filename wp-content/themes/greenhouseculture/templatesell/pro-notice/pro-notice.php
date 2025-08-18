@@ -2,7 +2,7 @@
 /**
  * Class to display the `Upgrade To Pro` admin notice.
  *
- * @package Prefer
+ * @package Greenhouseculture
  */
 
 defined( 'ABSPATH' ) || exit;
@@ -10,9 +10,9 @@ defined( 'ABSPATH' ) || exit;
 /**
  * Class to display the `Upgrade to Pro` admin notice.
  *
- * Class Prefer_Theme_Notice
+ * Class Greenhouseculture_Theme_Notice
  */
-class Prefer_Theme_Notice {
+class Greenhouseculture_Theme_Notice {
 
 	/**
 	 * Currently active theme in the site.
@@ -31,7 +31,7 @@ class Prefer_Theme_Notice {
 	/**
 	 * Constructor function for `Upgrade To Pro` admin notice.
 	 *
-	 * Prefer_Theme_Notice constructor.
+	 * Greenhouseculture_Theme_Notice constructor.
 	 */
 	public function __construct() {
 
@@ -48,7 +48,7 @@ class Prefer_Theme_Notice {
 	public static function get_theme_lists() {
 
 		$theme_lists = array(
-			'prefer'      => 'https://www.templatesell.com/item/prefer-plus-masonry-wordpress-theme/',
+			'greenhouseculture'      => 'https://www.templatesell.com/item/greenhouseculture-plus-masonry-wordpress-theme/',
 		);
 
 		return $theme_lists;
@@ -69,10 +69,10 @@ class Prefer_Theme_Notice {
 			$this->active_theme = wp_get_theme()->parent()->get( 'Name' );
 		}
 
-		$option = get_option( 'prefer_theme_notice_start_time' );
+		$option = get_option( 'greenhouseculture_theme_notice_start_time' );
 
 		if ( ! $option ) {
-			update_option( 'prefer_theme_notice_start_time', time() );
+			update_option( 'greenhouseculture_theme_notice_start_time', time() );
 		}
 
 		add_action( 'admin_notices', array( $this, 'pro_theme_notice_markup' ), 0 );
@@ -86,7 +86,7 @@ class Prefer_Theme_Notice {
 	 */
 	public function enqueue_scripts() {
 
-		wp_enqueue_style( 'prefer-notice', get_stylesheet_directory_uri() . '/templatesell/pro-notice/notice.css', array(), '4.5.0' );
+		wp_enqueue_style( 'greenhouseculture-notice', get_template_directory_uri() . '/templatesell/pro-notice/notice.css', array(), '4.5.0' );
 	}
 
 	/**
@@ -96,10 +96,10 @@ class Prefer_Theme_Notice {
 
 		$theme_lists             = self::get_theme_lists();
 		$current_theme           = strtolower( $this->active_theme );
-		$theme_notice_start_time = get_option( 'prefer_theme_notice_start_time' );
-		$pre_sales_query_link    = ( 'prefer' !== $current_theme ) ? "https://www.templatesell.com/support" : "https://www.templatesell.com/support";
-		$ignore_notice_permanent = get_user_meta( $this->current_user_data->ID, 'prefer_nag_pro_theme_notice_ignore', true );
-		$ignore_notice_partially = get_user_meta( $this->current_user_data->ID, 'prefer_nag_pro_theme_notice_partial_ignore', true );
+		$theme_notice_start_time = get_option( 'greenhouseculture_theme_notice_start_time' );
+		$pre_sales_query_link    = ( 'greenhouseculture' !== $current_theme ) ? "https://www.templatesell.com/support" : "https://www.templatesell.com/support";
+		$ignore_notice_permanent = get_user_meta( $this->current_user_data->ID, 'greenhouseculture_nag_pro_theme_notice_ignore', true );
+		$ignore_notice_partially = get_user_meta( $this->current_user_data->ID, 'greenhouseculture_nag_pro_theme_notice_partial_ignore', true );
 
 		// Return if the theme is not available in theme lists.
 		if ( ! array_key_exists( $current_theme, $theme_lists ) ) {
@@ -120,12 +120,12 @@ class Prefer_Theme_Notice {
 		<div class="notice updated pro-theme-notice">
 			<p>
 				<?php
-				$pro_link = '<a target="_blank" href=" ' . esc_url( $theme_lists[ $current_theme ] ) . ' ">' . esc_html__( 'upgrade to pro', 'prefer' ) . '</a>';
+				$pro_link = '<a target="_blank" href=" ' . esc_url( $theme_lists[ $current_theme ] ) . ' ">' . esc_html__( 'upgrade to pro', 'greenhouseculture' ) . '</a>';
 
 				printf(
 					esc_html__(
 						/* Translators: %1$s current user display name., %2$s Currently activated theme., %3$s Pro theme link., %4$s Coupon code. */
-						'Howdy, %1$s! You\'ve been using %2$s theme for a while now, and we hope you\'re happy with it. If you need more options and access to the premium features, you can %3$s. Also, you can use the coupon code %4$s to get 20 percent discount while making the purchase. Enjoy!', 'prefer'
+						'Howdy, %1$s! You\'ve been using %2$s theme for a while now, and we hope you\'re happy with it. If you need more options and access to the premium features, you can %3$s. Also, you can use the coupon code %4$s to get 20 percent discount while making the purchase. Enjoy!', 'greenhouseculture'
 					),
 					'<strong>' . esc_html( $this->current_user_data->display_name ) . '</strong>',
 					$this->active_theme,
@@ -139,22 +139,22 @@ class Prefer_Theme_Notice {
 				<a href="<?php echo esc_url( $theme_lists[ $current_theme ] ); ?>" class="btn button-primary"
 				   target="_blank">
 					<span class="dashicons dashicons-cart"></span>
-					<span><?php esc_html_e( 'Upgrade To Pro', 'prefer' ); ?></span>
+					<span><?php esc_html_e( 'Upgrade To Pro', 'greenhouseculture' ); ?></span>
 				</a>
 
-				<a href="?prefer_nag_pro_theme_notice_partial_ignore=1" class="btn button-secondary">
+				<a href="?greenhouseculture_nag_pro_theme_notice_partial_ignore=1" class="btn button-secondary">
 					<span class="dashicons dashicons-calendar-alt"></span>
-					<span><?php esc_html_e( 'Maybe later', 'prefer' ); ?></span>
+					<span><?php esc_html_e( 'Maybe later', 'greenhouseculture' ); ?></span>
 				</a>
 
 				<a href="<?php echo esc_url( $pre_sales_query_link ); ?>"
 				   class="btn button-secondary" target="_blank">
 					<span class="dashicons dashicons-email-alt"></span>
-					<span><?php esc_html_e( 'Contact Us', 'prefer' ); ?></span>
+					<span><?php esc_html_e( 'Contact Us', 'greenhouseculture' ); ?></span>
 				</a>
 			</div>
 
-			<a class="notice-dismiss" href="?prefer_nag_pro_theme_notice_ignore=1"></a>
+			<a class="notice-dismiss" href="?greenhouseculture_nag_pro_theme_notice_ignore=1"></a>
 		</div>
 
 		<?php
@@ -167,8 +167,8 @@ class Prefer_Theme_Notice {
 
 		$user_id = $this->current_user_data->ID;
 
-		if ( isset( $_GET['prefer_nag_pro_theme_notice_partial_ignore'] ) && '1' == $_GET['prefer_nag_pro_theme_notice_partial_ignore'] ) {
-			update_user_meta( $user_id, 'prefer_nag_pro_theme_notice_partial_ignore', time() );
+		if ( isset( $_GET['greenhouseculture_nag_pro_theme_notice_partial_ignore'] ) && '1' == $_GET['greenhouseculture_nag_pro_theme_notice_partial_ignore'] ) {
+			update_user_meta( $user_id, 'greenhouseculture_nag_pro_theme_notice_partial_ignore', time() );
 		}
 
 	}
@@ -180,11 +180,11 @@ class Prefer_Theme_Notice {
 
 		$user_id = $this->current_user_data->ID;
 
-		if ( isset( $_GET['prefer_nag_pro_theme_notice_ignore'] ) && '1' == $_GET['prefer_nag_pro_theme_notice_ignore'] ) {
-			update_user_meta( $user_id, 'prefer_nag_pro_theme_notice_ignore', time() );
+		if ( isset( $_GET['greenhouseculture_nag_pro_theme_notice_ignore'] ) && '1' == $_GET['greenhouseculture_nag_pro_theme_notice_ignore'] ) {
+			update_user_meta( $user_id, 'greenhouseculture_nag_pro_theme_notice_ignore', time() );
 		}
 
 	}
 }
 
-new Prefer_Theme_Notice();
+new Greenhouseculture_Theme_Notice();

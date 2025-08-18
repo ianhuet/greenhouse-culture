@@ -1,5 +1,5 @@
-.appearance_page_prefer-theme .wrap,
-.appearance_page_prefer-theme .prefer-panel {
+.appearance_page_greenhouseculture-theme .wrap,
+.appearance_page_greenhouseculture-theme .greenhouseculture-panel {
 	font-size: 16px;
 }
 .das-wrap{
@@ -12,19 +12,19 @@
     -ms-box-shadow: 0 0 10px 0 rgba(183, 192, 206, 0.7);
     border-radius:8px;
 }
-.prefer-panel {
+.greenhouseculture-panel {
     padding: 30px 0;
     border-bottom: 1px solid #d9d9d9;
 }
-.prefer-panel:last-child{
+.greenhouseculture-panel:last-child{
 	border-bottom: 0;
 }
-.prefer-logo{
+.greenhouseculture-logo{
 	max-width: 200px;
 	margin:0;
 	display: inline-block;
 }
-.prefer-logo img{
+.greenhouseculture-logo img{
 	max-width: 100%;
 }
 .pull-right{
@@ -85,7 +85,7 @@ h3{
     font-size: 0.8em;
     margin: 0.8em 0;
 }
-.prefer-panel p{
+.greenhouseculture-panel p{
     font-size: 18px;
     margin-bottom: 2.5rem;
     max-width: 70%;

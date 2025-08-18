@@ -1,21 +1,21 @@
 <?php
 /**
- * Prefer Social Icons menu widget
+ * Greenhouseculture Social Icons menu widget
  *
  * @since 1.0.0
  */
 
-if (!class_exists('Prefer_Social_Widget')) :
+if (!class_exists('Greenhouseculture_Social_Widget')) :
 
     /**
      * Social widget class.
      */
-    class Prefer_Social_Widget extends WP_Widget
+    class Greenhouseculture_Social_Widget extends WP_Widget
     {
          private function defaults()
         {
             $defaults = array(
-                'title'    => esc_html__( 'Follow Us', 'prefer' ),
+                'title'    => esc_html__( 'Follow Us', 'greenhouseculture' ),
            );
             return $defaults;
         }
@@ -26,10 +26,10 @@ if (!class_exists('Prefer_Social_Widget')) :
         public function __construct()
         {
             $opts = array(
-                'classname' => 'prefer-menu-social',
-                'description' => esc_html__('Social Menu Widget', 'prefer'),
+                'classname' => 'greenhouseculture-menu-social',
+                'description' => esc_html__('Social Menu Widget', 'greenhouseculture'),
             );
-            parent::__construct('prefer-social-icons', esc_html__('Prefer Social', 'prefer'), $opts);
+            parent::__construct('greenhouseculture-social-icons', esc_html__('Greenhouseculture Social', 'greenhouseculture'), $opts);
         }
 
         /**
@@ -77,7 +77,7 @@ if (!class_exists('Prefer_Social_Widget')) :
             ?>
             <p>
                 <label
-                    for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'prefer'); ?></label>
+                    for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'greenhouseculture'); ?></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
                        name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
                        value="<?php echo esc_attr($instance['title']); ?>"/>
@@ -85,7 +85,7 @@ if (!class_exists('Prefer_Social_Widget')) :
 
             <?php if (!has_nav_menu('social')) : ?>
             <p>
-                <?php esc_html_e('Go to Appearance > Customize > Menus and create a menu and assign to Social.', 'prefer'); ?>
+                <?php esc_html_e('Go to Appearance > Customize > Menus and create a menu and assign to Social.', 'greenhouseculture'); ?>
             </p>
         <?php endif; ?>
         <?php

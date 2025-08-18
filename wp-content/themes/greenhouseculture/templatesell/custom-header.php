@@ -8,33 +8,33 @@
  *
  * @link https://developer.wordpress.org/themes/functionality/custom-headers/
  *
- * @package Prefer
+ * @package Greenhouseculture
  */
 
 /**
  * Set up the WordPress core custom header feature.
  *
- * @uses prefer_header_style()
+ * @uses greenhouseculture_header_style()
  */
-function prefer_custom_header_setup() {
-	add_theme_support( 'custom-header', apply_filters( 'prefer_custom_header_args', array(
+function greenhouseculture_custom_header_setup() {
+	add_theme_support( 'custom-header', apply_filters( 'greenhouseculture_custom_header_args', array(
 		'default-image'          => '',
 		'default-text-color'     => '000000',
 		'width'                  => 1920,
 		'height'                 => 450,
 		'flex-height'            => true,
-		'wp-head-callback'       => 'prefer_header_style',
+		'wp-head-callback'       => 'greenhouseculture_header_style',
 	) ) );
 }
-add_action( 'after_setup_theme', 'prefer_custom_header_setup' );
+add_action( 'after_setup_theme', 'greenhouseculture_custom_header_setup' );
 
-if ( ! function_exists( 'prefer_header_style' ) ) :
+if ( ! function_exists( 'greenhouseculture_header_style' ) ) :
 	/**
 	 * Styles the header image and text displayed on the blog.
 	 *
-	 * @see prefer_custom_header_setup().
+	 * @see greenhouseculture_custom_header_setup().
 	 */
-	function prefer_header_style() {
+	function greenhouseculture_header_style() {
 		$header_text_color = get_header_textcolor();
 
 		/*

@@ -9,7 +9,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package GreenhouseCulture
+ * @package Greenhouseculture
  */
 get_header();
 ?>
@@ -17,7 +17,7 @@ get_header();
     <div class="container">
         <div class="row">
 			<div class="breadcrumbs-wrap">
-				<?php do_action('prefer_breadcrumb_options_hook'); ?> <!-- Breadcrumb hook -->
+				<?php do_action('greenhouseculture_breadcrumb_options_hook'); ?> <!-- Breadcrumb hook -->
 			</div>
 			<div id="primary" class="col-md-8 content-area">
 				<main id="main" class="site-main" data-test="Single-Page">

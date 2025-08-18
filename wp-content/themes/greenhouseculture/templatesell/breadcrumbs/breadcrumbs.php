@@ -8,7 +8,7 @@
  * breadcrumb scripts.
  *
  * This program is free software; you can redistribute it and/or modify it under the terms of the GNU
- * General Prefer License as published by the Free Software Foundation; either version 2 of the License,
+ * General Greenhouseculture License as published by the Free Software Foundation; either version 2 of the License,
  * or (at your option) any later version.
  *
  * This program is distributed in the hope that it will be useful, but WITHOUT ANY WARRANTY; without
@@ -31,12 +31,12 @@
  * @param  array $args Arguments to pass to Breadcrumb_Trail.
  * @return string html output.
  */
-function prefer_breadcrumb_trail( $args = array() ) {
+function greenhouseculture_breadcrumb_trail( $args = array() ) {
 
 	$breadcrumb = apply_filters( 'breadcrumb_trail_object', null, $args );
 
 	if ( !is_object( $breadcrumb ) )
-		$breadcrumb = new Prefer_Breadcrumb_Trail( $args );
+		$breadcrumb = new Greenhouseculture_Breadcrumb_Trail( $args );
 
 	return $breadcrumb->trail();
 }
@@ -47,7 +47,7 @@ function prefer_breadcrumb_trail( $args = array() ) {
  * @since  0.6.0
  * @access public
  */
-class Prefer_Breadcrumb_Trail {
+class Greenhouseculture_Breadcrumb_Trail {
 
     /**
      * Array of items belonging to the current breadcrumb trail.
@@ -307,21 +307,21 @@ class Prefer_Breadcrumb_Trail {
     protected function set_labels() {
 
         $defaults = array(
-            'browse'              => esc_html__( 'Browse:',                               'prefer' ),
-            'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'prefer' ),
-            'home'                => esc_html__( 'Home',                                  'prefer' ),
-            'error_404'           => esc_html__( '404 Not Found',                         'prefer' ),
-            'archives'            => esc_html__( 'Archives',                              'prefer' ),
+            'browse'              => esc_html__( 'Browse:',                               'greenhouseculture' ),
+            'aria_label'          => esc_attr_x( 'Breadcrumbs', 'breadcrumbs aria label', 'greenhouseculture' ),
+            'home'                => esc_html__( 'Home',                                  'greenhouseculture' ),
+            'error_404'           => esc_html__( '404 Not Found',                         'greenhouseculture' ),
+            'archives'            => esc_html__( 'Archives',                              'greenhouseculture' ),
             // Translators: %s is the search query.
-            'search'              => esc_html__( 'Search results for: %s',                'prefer' ),
+            'search'              => esc_html__( 'Search results for: %s',                'greenhouseculture' ),
             // Translators: %s is the page number.
-            'paged'               => esc_html__( 'Page %s',                               'prefer' ),
+            'paged'               => esc_html__( 'Page %s',                               'greenhouseculture' ),
             // Translators: %s is the page number.
-            'paged_comments'      => esc_html__( 'Comment Page %s',                       'prefer' ),
+            'paged_comments'      => esc_html__( 'Comment Page %s',                       'greenhouseculture' ),
             // Translators: Minute archive title. %s is the minute time format.
-            'archive_minute'      => esc_html__( 'Minute %s',                             'prefer' ),
+            'archive_minute'      => esc_html__( 'Minute %s',                             'greenhouseculture' ),
             // Translators: Weekly archive title. %s is the week date format.
-            'archive_week'        => esc_html__( 'Week %s',                               'prefer' ),
+            'archive_week'        => esc_html__( 'Week %s',                               'greenhouseculture' ),
 
             // "%s" is replaced with the translated date/time format.
             'archive_minute_hour' => '%s',
@@ -781,7 +781,7 @@ class Prefer_Breadcrumb_Trail {
 
         // Add the minute + hour item.
         if ( true === $this->args['show_title'] )
-            $this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'prefer' ) ) );
+            $this->items[] = sprintf( $this->labels['archive_minute_hour'], get_the_time( esc_html_x( 'g:i a', 'minute and hour archives time format', 'greenhouseculture' ) ) );
     }
 
     /**
@@ -798,7 +798,7 @@ class Prefer_Breadcrumb_Trail {
 
         // Add the minute item.
         if ( true === $this->args['show_title'] )
-            $this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'prefer' ) ) );
+            $this->items[] = sprintf( $this->labels['archive_minute'], get_the_time( esc_html_x( 'i', 'minute archives time format', 'greenhouseculture' ) ) );
     }
 
     /**
@@ -815,7 +815,7 @@ class Prefer_Breadcrumb_Trail {
 
         // Add the hour item.
         if ( true === $this->args['show_title'] )
-            $this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'prefer' ) ) );
+            $this->items[] = sprintf( $this->labels['archive_hour'], get_the_time( esc_html_x( 'g a', 'hour archives time format', 'greenhouseculture' ) ) );
     }
 
     /**
@@ -831,9 +831,9 @@ class Prefer_Breadcrumb_Trail {
         $this->add_rewrite_front_items();
 
         // Get year, month, and day.
-        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'prefer' ) ) );
-        $month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'prefer' ) ) );
-        $day   = sprintf( $this->labels['archive_day'],   get_the_time( esc_html_x( 'j', 'daily archives date format',   'prefer' ) ) );
+        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'greenhouseculture' ) ) );
+        $month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'greenhouseculture' ) ) );
+        $day   = sprintf( $this->labels['archive_day'],   get_the_time( esc_html_x( 'j', 'daily archives date format',   'greenhouseculture' ) ) );
 
         // Add the year and month items.
         $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -860,8 +860,8 @@ class Prefer_Breadcrumb_Trail {
         $this->add_rewrite_front_items();
 
         // Get the year and week.
-        $year = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'prefer' ) ) );
-        $week = sprintf( $this->labels['archive_week'],  get_the_time( esc_html_x( 'W', 'weekly archives date format', 'prefer' ) ) );
+        $year = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format', 'greenhouseculture' ) ) );
+        $week = sprintf( $this->labels['archive_week'],  get_the_time( esc_html_x( 'W', 'weekly archives date format', 'greenhouseculture' ) ) );
 
         // Add the year item.
         $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -887,8 +887,8 @@ class Prefer_Breadcrumb_Trail {
         $this->add_rewrite_front_items();
 
         // Get the year and month.
-        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'prefer' ) ) );
-        $month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'prefer' ) ) );
+        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'greenhouseculture' ) ) );
+        $month = sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'greenhouseculture' ) ) );
 
         // Add the year item.
         $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y' ) ) ), $year );
@@ -914,7 +914,7 @@ class Prefer_Breadcrumb_Trail {
         $this->add_rewrite_front_items();
 
         // Get the year.
-        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'prefer' ) ) );
+        $year  = sprintf( $this->labels['archive_year'],  get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'greenhouseculture' ) ) );
 
         // Add the year item.
         if ( is_paged() )
@@ -1254,15 +1254,15 @@ class Prefer_Breadcrumb_Trail {
 
                 // If using the %year% tag, add a link to the yearly archive.
                 if ( '%year%' == $tag )
-                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'prefer' ) ) ) );
+                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_year_link( get_the_time( 'Y', $post_id ) ) ), sprintf( $this->labels['archive_year'], get_the_time( esc_html_x( 'Y', 'yearly archives date format',  'greenhouseculture' ) ) ) );
 
                 // If using the %monthnum% tag, add a link to the monthly archive.
                 elseif ( '%monthnum%' == $tag )
-                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'prefer' ) ) ) );
+                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_month_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ) ) ), sprintf( $this->labels['archive_month'], get_the_time( esc_html_x( 'F', 'monthly archives date format', 'greenhouseculture' ) ) ) );
 
                 // If using the %day% tag, add a link to the daily archive.
                 elseif ( '%day%' == $tag )
-                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'prefer' ) ) ) );
+                    $this->items[] = sprintf( '<a href="%s">%s</a>', esc_url( get_day_link( get_the_time( 'Y', $post_id ), get_the_time( 'm', $post_id ), get_the_time( 'd', $post_id ) ) ), sprintf( $this->labels['archive_day'], get_the_time( esc_html_x( 'j', 'daily archives date format', 'greenhouseculture' ) ) ) );
 
                 // If using the %author% tag, add a link to the post author archive.
                 elseif ( '%author%' == $tag )

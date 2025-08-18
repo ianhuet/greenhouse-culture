@@ -18,8 +18,8 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	 * Requires WordPress 5.5 or Gutenberg version 8.2.
 	 */
 	if ( function_exists( 'register_block_pattern_category' ) ) {
-		register_block_pattern_category( 'profile', array( 'label' => __( 'Users Profile', 'prefer-blog' ) ) );
-		register_block_pattern_category( 'contact', array( 'label' => __( 'Contact Form', 'prefer-blog' ) ) );
+		register_block_pattern_category( 'profile', array( 'label' => __( 'Users Profile', 'greenhouseculture' ) ) );
+		register_block_pattern_category( 'contact', array( 'label' => __( 'Contact Form', 'greenhouseculture' ) ) );
 	}
 
 	/**
@@ -29,12 +29,12 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	 * Register the pattern.
 	 */
 	register_block_pattern(
-		'prefer/profile',
+		'greenhouseculture/profile',
 		array(
-			'title'       => __( 'Author Profile', 'prefer-blog' ),
+			'title'       => __( 'Author Profile', 'greenhouseculture' ),
 			'categories'  => array( 'profile' ),
-			'keywords'    => array( __( 'Profile', 'prefer-blog' ), __( 'User', 'prefer-blog' ) ),
-			'description' => __( 'A profile pattern with photo, text content, social media links and latest posts.', 'prefer-blog' ),
+			'keywords'    => array( __( 'Profile', 'greenhouseculture' ), __( 'User', 'greenhouseculture' ) ),
+			'description' => __( 'A profile pattern with photo, text content, social media links and latest posts.', 'greenhouseculture' ),
 			'content'     => '
 				<!-- wp:columns {"verticalAlignment":"center"} -->
 				<div class="wp-block-columns are-vertically-aligned-center"><!-- wp:column {"verticalAlignment":"center","width":33.33} -->
@@ -83,12 +83,12 @@ if ( function_exists( 'register_block_pattern' ) ) {
 	 * Register the pattern.
 	 */
 	register_block_pattern(
-		'prefer/contact',
+		'greenhouseculture/contact',
 		array(
-			'title'       => __( 'Contact Form', 'prefer-blog' ),
+			'title'       => __( 'Contact Form', 'greenhouseculture' ),
 			'categories'  => array( 'contact' ),
-			'keywords'    => array( __( 'Contact', 'prefer-blog' ), __( 'User', 'prefer-blog' ) ),
-			'description' => __( 'A contact form pattern with form, email ,phone, etc.', 'prefer-blog' ),
+			'keywords'    => array( __( 'Contact', 'greenhouseculture' ), __( 'User', 'greenhouseculture' ) ),
+			'description' => __( 'A contact form pattern with form, email ,phone, etc.', 'greenhouseculture' ),
 			'content'     => '
 				<!-- wp:columns -->
 				<div class="wp-block-columns"><!-- wp:column {"width":40} -->
@@ -102,7 +102,7 @@ if ( function_exists( 'register_block_pattern' ) ) {
 				<!-- /wp:paragraph -->
 
 				<!-- wp:paragraph {"className":"m_b_0"} -->
-				<p class="m_b_0">info@templatesell.com</p>
+				<p class="m_b_0">info@greenhouseculture.ie</p>
 				<!-- /wp:paragraph --></div></div>
 				<!-- /wp:media-text -->
 
