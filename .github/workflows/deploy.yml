@@ -19,7 +19,7 @@ jobs:
           server: ${{ secrets.FTP_HOST }}
           username: ${{ secrets.FTP_USER }}
           password: ${{ secrets.FTP_PASSWORD }}
-          server-dir: /webspace/siteapps/WordPress-184578/htdocs/wp-content/
+          server-dir: /webspace/siteapps/WordPress-184578/htdocs/
           protocol: ftp
           exclude: |
             **/.git*
