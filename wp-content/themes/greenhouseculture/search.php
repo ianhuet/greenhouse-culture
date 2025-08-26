@@ -25,7 +25,7 @@ get_header();
 				// breadcrumb hook
 				do_action('greenhouseculture_breadcrumb_options_hook'); ?> 
 			</div>
-			<div id="primary" class="col-md-8 content-area">
+			<div id="primary" class="col-md-12 content-area">
 				<main id="main" class="site-main">
 					<?php if ( have_posts() ) : ?>
 					<?php
@@ -55,7 +55,6 @@ get_header();
 					?>
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
 		</div>
 	</div>
 </section>
