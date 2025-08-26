@@ -9,16 +9,16 @@
 
     //infinite pagination
     /*new pagination style*/
-    var paged = parseInt(prefer_ajax.paged) + 1;
-    var max_num_pages = parseInt(prefer_ajax.max_num_pages);
-    var next_posts = prefer_ajax.next_posts;
+    var paged = parseInt(greenhouseculture_ajax.paged) + 1;
+    var max_num_pages = parseInt(greenhouseculture_ajax.max_num_pages);
+    var next_posts = greenhouseculture_ajax.next_posts;
 
     $(document).on( 'click', '.show-more', function( event ) {
       event.preventDefault();
         var show_more = $(this);
         var click = show_more.attr('data-click');
         if( (paged-1) >= max_num_pages){
-            show_more.html(prefer_ajax.no_more_posts)
+            show_more.html(greenhouseculture_ajax.no_more_posts)
         }
         if( click == 0 || (paged-1) >= max_num_pages){
             return false;
@@ -44,7 +44,7 @@
 
             show_more.attr("data-number", page+1);
             show_more.attr("data-click", 1);
-            show_more.html("<i class='fa fa-refresh'></i>"+prefer_ajax.show_more)
+            show_more.html("<i class='fa fa-refresh'></i>"+greenhouseculture_ajax.show_more)
         });
         return false;
     });

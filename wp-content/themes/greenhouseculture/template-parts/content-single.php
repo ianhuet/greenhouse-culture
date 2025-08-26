@@ -3,19 +3,19 @@
  * Template part for displaying posts
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- * @package Prefer
+ * @package Greenhouseculture
  */
-global $prefer_theme_options;
-$social_share = absint($prefer_theme_options['prefer-single-social-share']);
+global $greenhouseculture_theme_options;
+$social_share = absint($greenhouseculture_theme_options['greenhouseculture-single-social-share']);
 ?>
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
     <div class="post-wrap">
         <div class="post-media">
-            <?php prefer_post_thumbnail(); ?>
+            <?php greenhouseculture_post_thumbnail(); ?>
         </div>
         <div class="post-content">
             <div class="post-cats">
-                <?php prefer_entry_meta(); ?>
+                <?php greenhouseculture_entry_meta(); ?>
             </div>
             <?php
             if (is_singular()) :
@@ -30,8 +30,8 @@ $social_share = absint($prefer_theme_options['prefer-single-social-share']);
                     ?>
                     <div class="entry-meta">
                         <?php
-                        prefer_posted_on();
-                        prefer_posted_by();
+                        greenhouseculture_posted_on();
+                        greenhouseculture_posted_by();
                         ?>
                     </div><!-- .entry-meta -->
                 <?php endif; ?>
@@ -42,7 +42,7 @@ $social_share = absint($prefer_theme_options['prefer-single-social-share']);
                 the_content(sprintf(
                     wp_kses(
                     /* translators: %s: Name of current post. Only visible to screen readers */
-                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'prefer'),
+                        __('Continue reading<span class="screen-reader-text"> "%s"</span>', 'greenhouseculture'),
                         array(
                             'span' => array(
                                 'class' => array(),
@@ -53,7 +53,7 @@ $social_share = absint($prefer_theme_options['prefer-single-social-share']);
                 
                 ));
                 wp_link_pages(array(
-                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'prefer'),
+                    'before' => '<div class="page-links">' . esc_html__('Pages:', 'greenhouseculture'),
                     'after' => '</div>',
                 
                 ));
@@ -62,7 +62,7 @@ $social_share = absint($prefer_theme_options['prefer-single-social-share']);
             <footer class="post-footer entry-footer">
                 <?php 
                 if( 1 == $social_share ){
-                    do_action( 'prefer_social_sharing' ,get_the_ID() );
+                    do_action( 'greenhouseculture_social_sharing' ,get_the_ID() );
                 }
                 ?>
             </footer><!-- .entry-footer -->

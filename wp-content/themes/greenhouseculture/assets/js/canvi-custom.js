@@ -5,7 +5,7 @@
     "use strict";
 
     jQuery(document).ready(function() {
- 	var prefer_t = new Canvi({
+ 	var greenhouseculture_t = new Canvi({
     content: ".js-canvi-content",
     isDebug: !1,
     //navbar: ".myCanvasNav",
@@ -28,7 +28,7 @@
 })
 
 $('.closebtn').on('click', function(){
-        prefer_t.close();
+        greenhouseculture_t.close();
     });
 })
 })(jQuery);

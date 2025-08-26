@@ -2,26 +2,26 @@
 /**
  * Dynamic css
  *
- * @since Prefer 1.0.0
+ * @since Greenhouseculture 1.0.0
  *
  * @param null
  * @return null
  *
  */
-if (!function_exists('prefer_dynamic_css')) :
+if (!function_exists('greenhouseculture_dynamic_css')) :
 
-    function prefer_dynamic_css()
+    function greenhouseculture_dynamic_css()
     {
-        global $prefer_theme_options;
+        global $greenhouseculture_theme_options;
 
         /* Color Options Options */
-        $prefer_primary_color              = esc_attr($prefer_theme_options['prefer_primary_color']);
-        $prefer_logo_width              = absint($prefer_theme_options['prefer_logo_width_option']);
+        $greenhouseculture_primary_color              = esc_attr($greenhouseculture_theme_options['greenhouseculture_primary_color']);
+        $greenhouseculture_logo_width              = absint($greenhouseculture_theme_options['greenhouseculture_logo_width_option']);
 
         $custom_css = '';
 
         //Primary  Background 
-        if (!empty($prefer_primary_color)) {
+        if (!empty($greenhouseculture_primary_color)) {
             $custom_css .= "
             #toTop,
             a.effect:before,
@@ -46,12 +46,12 @@ if (!function_exists('prefer_dynamic_css')) :
             article.format-gallery .post-content .post-format::after, 
             article.format-audio .post-content .post-format::after, 
             article.format-quote .post-content .post-format::after{ 
-                background-color: ". $prefer_primary_color."; 
-                border-color: ".$prefer_primary_color.";
+                background-color: ". $greenhouseculture_primary_color."; 
+                border-color: ".$greenhouseculture_primary_color.";
             }";
 
         }
-        if (!empty($prefer_primary_color)) {
+        if (!empty($greenhouseculture_primary_color)) {
             $custom_css .= "
             #author:active, 
             #email:active, 
@@ -65,7 +65,7 @@ if (!function_exists('prefer_dynamic_css')) :
             #email:hover, 
             #url:hover, 
             #comment:hover{  
-                border-color: ".$prefer_primary_color.";
+                border-color: ".$greenhouseculture_primary_color.";
             }";
 
         }
@@ -73,7 +73,7 @@ if (!function_exists('prefer_dynamic_css')) :
         
 
         //Primary Color
-        if (!empty($prefer_primary_color)) {
+        if (!empty($greenhouseculture_primary_color)) {
             $custom_css .= "
             .comment-form .logged-in-as a:last-child:hover, 
             .comment-form .logged-in-as a:last-child:focus,
@@ -114,19 +114,19 @@ if (!function_exists('prefer_dynamic_css')) :
             .site-footer a,
             .promo-three .post-category a,
             .site-footer a:focus, .content-area p a{ 
-                color : ". $prefer_primary_color."; 
+                color : ". $greenhouseculture_primary_color."; 
             }";
         }
 
         //Logo Width
-        if (!empty($prefer_logo_width)) {
+        if (!empty($greenhouseculture_logo_width)) {
             $custom_css .= "
             .header-1 .head_one .logo{ 
-                max-width : ". $prefer_logo_width."px; 
+                max-width : ". $greenhouseculture_logo_width."px; 
             }";
         }
 
-        wp_add_inline_style('prefer-style', $custom_css);
+        wp_add_inline_style('greenhouseculture-style', $custom_css);
     }
 endif;
-add_action('wp_enqueue_scripts', 'prefer_dynamic_css', 99);
+add_action('wp_enqueue_scripts', 'greenhouseculture_dynamic_css', 99);

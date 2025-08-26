@@ -38,15 +38,15 @@
 
 
 /*Sidebar Style*/
-#customize-control-prefer_options-prefer-sidebar-blog-page label,
-#customize-control-prefer_options-prefer-sidebar-single-page label {
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-blog-page label,
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-single-page label {
     position: relative;
     float: left;
     max-width: 71px;
     margin-right: 15px;
 }
-#customize-control-prefer_options-prefer-sidebar-blog-page label input[type=radio],
-#customize-control-prefer_options-prefer-sidebar-single-page label input[type=radio]{
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-blog-page label input[type=radio],
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-single-page label input[type=radio]{
     position: absolute;
     left: -4px;
     top: 2px;
@@ -57,8 +57,8 @@
     height: 69px;
 }
 
-#customize-control-prefer_options-prefer-sidebar-blog-page label input[type=radio]:checked::before,
-#customize-control-prefer_options-prefer-sidebar-single-page label input[type=radio]:checked::before{
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-blog-page label input[type=radio]:checked::before,
+#customize-control-greenhouseculture_options-greenhouseculture-sidebar-single-page label input[type=radio]:checked::before{
     background: no-repeat;
     border: 1px solid #eee;
     height: 65px;

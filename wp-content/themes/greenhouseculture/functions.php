@@ -1,18 +1,26 @@
 <?php
 /**
- * Greenhouse Culture functions and definitions
- * Based on Prefer and Prefer Blog themes
+ * Greenhouseculture functions and definitions
  *
- * @package GreenhouseCulture
+ * @link https://developer.wordpress.org/themes/basics/theme-functions/
+ *
+ * @package Greenhouseculture
  */
 
 if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 	/**
 	 * Sets up theme defaults and registers support for various WordPress features.
+	 *
+	 * Note that this function is hooked into the after_setup_theme hook, which
+	 * runs before the init hook. The init hook is too late for some features, such
+	 * as indicating support for post thumbnails.
 	 */
 	function greenhouseculture_setup() {
 		/*
 		 * Make theme available for translation.
+		 * Translations can be filed in the /languages/ directory.
+		 * If you're building a theme based on Greenhouseculture, use a find and replace
+		 * to change 'greenhouseculture' to the name of your theme in all the template files.
 		 */
 		load_theme_textdomain( 'greenhouseculture' );
 
@@ -21,11 +29,16 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 
 		/*
 		 * Let WordPress manage the document title.
+		 * By adding theme support, we declare that this theme does not use a
+		 * hard-coded <title> tag in the document head, and expect WordPress to
+		 * provide it for us.
 		 */
 		add_theme_support( 'title-tag' );
 
 		/*
 		 * Enable support for Post Thumbnails on posts and pages.
+		 *
+		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
 		
@@ -39,7 +52,7 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 		) );
 
 		/*
-		 * Greenhouse Culture default core markup for search form, comment form, and comments
+		 * Greenhouseculture default core markup for search form, comment form, and comments
 		 * to output valid HTML5.
 		 */
 		add_theme_support( 'html5', array(
@@ -52,6 +65,8 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 
 		/**
 		 * Add support for core custom logo.
+		 *
+		 * @link https://codex.wordpress.org/Theme_Logo
 		 */
 		add_theme_support( 'custom-logo', array(
 			'height'      => 250,
@@ -71,6 +86,9 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 
 		/*
 		 * Add support custom font sizes.
+		 *
+		 * Add the line below to disable the custom color picker in the editor.
+		 * add_theme_support( 'disable-custom-font-sizes' );
 		 */
 		add_theme_support(
 			'editor-font-sizes',
@@ -104,6 +122,8 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 
 		/**
          * Add theme support for New Image
+         *
+         * @link https://developer.wordpress.org/reference/functions/add_image_size/
          */
         
         add_image_size('greenhouseculture-thumbnail-size', 800, 800, true); 
@@ -120,14 +140,23 @@ add_action( 'after_setup_theme', 'greenhouseculture_setup' );
 
 /**
  * Set the content width in pixels, based on the theme's design and stylesheet.
+ *
+ * Priority 0 to make it available to lower priority callbacks.
+ *
+ * @global int $content_width
  */
 function greenhouseculture_content_width() {
+	// This variable is intended to be overruled from themes.
+	// Open WPCS issue: {@link https://github.com/WordPress-Coding-Standards/WordPress-Coding-Standards/issues/1043}.
+	// phpcs:ignore WordPress.NamingConventions.PrefixAllGlobals.NonPrefixedVariableFound
 	$GLOBALS['content_width'] = apply_filters( 'greenhouseculture_content_width', 640 );
 }
 add_action( 'after_setup_theme', 'greenhouseculture_content_width', 0 );
 
 /**
  * Register widget area.
+ *
+ * @link https://developer.wordpress.org/themes/functionality/sidebars/#registering-a-sidebar
  */
 function greenhouseculture_widgets_init() {
 	register_sidebar( array(
@@ -215,11 +244,12 @@ add_action( 'widgets_init', 'greenhouseculture_widgets_init' );
 /**
  * Load TS Core Files
  */
-require get_stylesheet_directory() . '/templatesell/ts-core-files.php';
+require get_template_directory() . '/templatesell/ts-core-files.php';
 
 /**
- * Theme Default Options
+ * Greenhouseculture Theme Options - merged from greenhouseculture
  */
+
 if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
 
     function greenhouseculture_default_theme_options_values() {
@@ -227,61 +257,61 @@ if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
         $default_theme_options = array(
 
             /*Logo Options*/
-            'prefer_logo_width_option' => '700',
+            'greenhouseculture_logo_width_option' => '700',
 
             /*Top Header*/
-            'prefer_enable_top_header'=> 0, 
-            'prefer_enable_top_header_social'=> 0,
-            'prefer_enable_top_header_menu'=> 0,
+            'greenhouseculture_enable_top_header'=> 0, 
+            'greenhouseculture_enable_top_header_social'=> 0,
+            'greenhouseculture_enable_top_header_menu'=> 0,
 
            /*Header Options*/
-            'prefer_enable_offcanvas'  => 0,
-            'prefer_enable_search'  => 0,
+            'greenhouseculture_enable_offcanvas'  => 0,
+            'greenhouseculture_enable_search'  => 0,
 
             /*Colors Options*/
-            'prefer_primary_color'  => '#EF9D87',
+            'greenhouseculture_primary_color'  => '#EF9D87',
 
             /*Slider Options*/
-            'prefer_enable_slider'      => 0,
-            'prefer-select-category'    => 0,
+            'greenhouseculture_enable_slider'      => 0,
+            'greenhouseculture-select-category'    => 0,
     
             /*Boxes Section */
-            'prefer_enable_promo'       => 0,
-            'prefer-promo-select-category'=> 0,
+            'greenhouseculture_enable_promo'       => 0,
+            'greenhouseculture-promo-select-category'=> 0,
             
             /*Blog Page*/
-            'prefer-sidebar-blog-page' => 'no-sidebar',
-            'prefer-column-blog-page'  => 'masonry-post',
-            'prefer-blog-image-layout' => 'full-image',
-            'prefer-content-show-from' => 'excerpt',
-            'prefer-excerpt-length'    => 25,
-            'prefer-pagination-options'=> 'numeric',
-            'prefer-read-more-text'    => '',
-            'prefer-blog-exclude-category'=> '',
-            'prefer-show-hide-share'   => 1,
-            'prefer-show-hide-category'=> 1,
-            'prefer-show-hide-date'=> 1,
-            'prefer-show-hide-author'=> 1,
-            'prefer-show-hide-read-time'=> 1,
-            'prefer-font-family-url'=>'Muli',
+            'greenhouseculture-sidebar-blog-page' => 'no-sidebar',
+            'greenhouseculture-column-blog-page'  => 'masonry-post',
+            'greenhouseculture-image-layout' => 'full-image',
+            'greenhouseculture-content-show-from' => 'excerpt',
+            'greenhouseculture-excerpt-length'    => 25,
+            'greenhouseculture-pagination-options'=> 'numeric',
+            'greenhouseculture-read-more-text'    => '',
+            'greenhouseculture-exclude-category'=> '',
+            'greenhouseculture-show-hide-share'   => 1,
+            'greenhouseculture-show-hide-category'=> 1,
+            'greenhouseculture-show-hide-date'=> 1,
+            'greenhouseculture-show-hide-author'=> 1,
+            'greenhouseculture-show-hide-read-time'=> 1,
+            'greenhouseculture-font-family-url'=>'Muli',
 
             /*Single Page */
-            'prefer-single-page-featured-image' => 1,
-            'prefer-single-page-related-posts'  => 1,
-            'prefer-single-page-related-posts-title' => esc_html__('You may like','greenhouseculture'),
-            'prefer-sidebar-single-page'=> 'single-right-sidebar',
-            'prefer-single-social-share' => 1,
+            'greenhouseculture-single-page-featured-image' => 1,
+            'greenhouseculture-single-page-related-posts'  => 1,
+            'greenhouseculture-single-page-related-posts-title' => esc_html__('You may like','greenhouseculture'),
+            'greenhouseculture-sidebar-single-page'=> 'single-right-sidebar',
+            'greenhouseculture-single-social-share' => 1,
 
 
             /*Sticky Sidebar*/
-            'prefer-enable-sticky-sidebar' => 0,
+            'greenhouseculture-enable-sticky-sidebar' => 0,
 
             /*Footer Section*/
-            'prefer-footer-copyright'  => esc_html__('&#169; All Rights Reserved 2024','greenhouseculture'),
+            'greenhouseculture-footer-copyright'  => esc_html__('&#169; All Rights Reserved 2020','greenhouseculture'),
 
             /*Breadcrumb Options*/
-            'prefer-extra-breadcrumb' => 1,
-            'prefer-breadcrumb-selection-option'=> 'theme-breadcrumb',
+            'greenhouseculture-extra-breadcrumb' => 1,
+            'greenhouseculture-breadcrumb-selection-option'=> 'theme-breadcrumb',
 
         );
 return apply_filters( 'greenhouseculture_default_theme_options_values', $default_theme_options );
@@ -289,25 +319,23 @@ return apply_filters( 'greenhouseculture_default_theme_options_values', $default
 endif;
 
 /**
- * Enqueue scripts and styles.
+ * Google font from greenhouseculture
  */
-add_action( 'wp_enqueue_scripts', 'greenhouseculture_enqueue_scripts');
-function greenhouseculture_enqueue_scripts() {
+add_action( 'wp_enqueue_scripts', 'greenhouseculture_blog_enqueue_scripts', 20);
+function greenhouseculture_blog_enqueue_scripts() {
 
-    /*google font  */
-    global $prefer_theme_options;
-    $greenhouseculture_name_font_url   = esc_attr( $prefer_theme_options['prefer-font-family-url'] );  
+        /*google font  */
+    global $greenhouseculture_theme_options;
+    $greenhouseculture_blog_name_font_url   = esc_attr( $greenhouseculture_theme_options['greenhouseculture-font-family-url'] );  
 
-    wp_enqueue_style( 'greenhouseculture-fonts', '//fonts.googleapis.com/css?family='.$greenhouseculture_name_font_url );
-
-    wp_enqueue_style( 'greenhouseculture-style', get_stylesheet_directory_uri() . '/style.css', array(), wp_get_theme()->get( 'Version' ) );
+    wp_enqueue_style( 'greenhouseculture-fonts', '//fonts.googleapis.com/css?family='.$greenhouseculture_blog_name_font_url );
 }
 
 /**
  * Enqueue Style for block pattern.
  */
-add_action( 'enqueue_block_assets', 'greenhouseculture_block_style');
-function greenhouseculture_block_style() {
+add_action( 'enqueue_block_assets', 'greenhouseculture_blog_block_style');
+function greenhouseculture_blog_block_style() {
 
     /*Block Pattern*/
     if (is_admin()) {
@@ -317,65 +345,72 @@ function greenhouseculture_block_style() {
 
 
 //sanitize function for font
-function greenhouseculture_sanitize_select( $input, $setting ) {
+function greenhouseculture_blog_sanitize_select( $input, $setting ) {
     $choices = $setting->manager->get_control( $setting->id )->choices;
     return ( array_key_exists( $input, $choices ) ? $input : $setting->default );
 }
 
 /**
  * Add postMessage support for site title and description for the Theme Customizer.
+ *
+ * @param WP_Customize_Manager $wp_customize Theme Customizer object.
  */
-function greenhouseculture_customize_register( $wp_customize ) {
+function greenhouseculture_blog_customize_register( $wp_customize ) {
 
    $default = greenhouseculture_default_theme_options_values();
 
     /*Read time Show hide*/
-    $wp_customize->add_setting('prefer_options[prefer-show-hide-read-time]', array(
+    $wp_customize->add_setting('greenhouseculture_options[greenhouseculture-show-hide-read-time]', array(
         'capability' => 'edit_theme_options',
         'transport' => 'refresh',
-        'default' => $default['prefer-show-hide-read-time'],
-        'sanitize_callback' => 'prefer_sanitize_checkbox'
+        'default' => $default['greenhouseculture-show-hide-read-time'],
+        'sanitize_callback' => 'greenhouseculture_sanitize_checkbox'
     ));
 
-    $wp_customize->add_control('prefer_options[prefer-show-hide-read-time]', array(
+    $wp_customize->add_control('greenhouseculture_options[greenhouseculture-show-hide-read-time]', array(
         'label' => __('Show Read Time', 'greenhouseculture'),
         'description' => __('Option to hide the read time on the blog page.', 'greenhouseculture'),
-        'section' => 'prefer_blog_page_section',
-        'settings' => 'prefer_options[prefer-show-hide-read-time]',
+        'section' => 'greenhouseculture_blog_page_section',
+        'settings' => 'greenhouseculture_options[greenhouseculture-show-hide-read-time]',
         'type' => 'checkbox',
         'priority' => 15,
     ));
 
     /*Font Family URL*/
-        $wp_customize->add_setting( 'prefer_options[prefer-font-family-url]', array(
+        $wp_customize->add_setting( 'greenhouseculture_options[greenhouseculture-font-family-url]', array(
             'capability'        => 'edit_theme_options',
             'transport' => 'refresh',
-            'default'           => $default['prefer-font-family-url'],
-            'sanitize_callback' => 'greenhouseculture_sanitize_select'
+            'default'           => $default['greenhouseculture-font-family-url'],
+            'sanitize_callback' => 'greenhouseculture_blog_sanitize_select'
         ) );
-        $choices = greenhouseculture_google_fonts();
-        $wp_customize->add_control( 'prefer_options[prefer-font-family-url]', array(
+        $choices = greenhouseculture_blog_google_fonts();
+        $wp_customize->add_control( 'greenhouseculture_options[greenhouseculture-font-family-url]', array(
             'label'     => __( 'URL of Font Family', 'greenhouseculture' ),
-            'description' => __( 'Select the font here.', 'greenhouseculture' ),
+            'description' => sprintf('%1$s <a href="%2$s" target="_blank">%3$s</a> %4$s',
+                        __( 'Select the font here. More options are available', 'greenhouseculture' ),
+                        esc_url('https://greenhouseculture.ie/'),
+                        __('More options coming soon' , 'greenhouseculture'),
+                        __('' ,'greenhouseculture')
+            ),
             'choices'   => $choices,
-            'section'   => 'prefer_blog_page_section',
-            'settings'  => 'prefer_options[prefer-font-family-url]',
+            'section'   => 'greenhouseculture_blog_page_section',
+            'settings'  => 'greenhouseculture_options[greenhouseculture-font-family-url]',
             'type'      => 'select',
             'priority'  => 15,
         ) );
 
 }
-add_action( 'customize_register', 'greenhouseculture_customize_register', 999 );
+add_action( 'customize_register', 'greenhouseculture_blog_customize_register', 999 );
 
 
 /* Word read count Pagination */
-if (!function_exists('greenhouseculture_read_time')) :
+if (!function_exists('greenhouseculture_blog_read_time')) :
     /**
      * @param $content
      *
      * @return string
      */
-    function greenhouseculture_read_time()
+    function greenhouseculture_blog_read_time()
     {
         $content = apply_filters('the_content', get_post_field('post_content'));
         $read_words = 200;
@@ -402,11 +437,17 @@ endif;
 
 /**
  * Google Fonts
+ *
+ * @param null
+ * @return array
+ *
+ * @since Greenhouseculture 1.0.0
+ *
  */
-if (!function_exists('greenhouseculture_google_fonts')) :
-    function greenhouseculture_google_fonts()
+if (!function_exists('greenhouseculture_blog_google_fonts')) :
+    function greenhouseculture_blog_google_fonts()
     {
-        $greenhouseculture_google_fonts = array(
+        $greenhouseculture_blog_google_fonts = array(
             'Muli' => 'Muli',
             'Lato' => 'Lato',
             'Open+Sans' => 'Open Sans',
@@ -414,7 +455,7 @@ if (!function_exists('greenhouseculture_google_fonts')) :
             'Alegreya:400,400italic,700,900' => 'Alegreya',
             'Alex+Brush' => 'Alex Brush'
         );
-        return apply_filters('greenhouseculture_google_fonts', $greenhouseculture_google_fonts);
+        return apply_filters('greenhouseculture_blog_google_fonts', $greenhouseculture_blog_google_fonts);
     }
 endif;
 
@@ -422,13 +463,13 @@ endif;
 /**
  * Enqueue the list of fonts.
  */
-function greenhouseculture_customizer_fonts()
+function greenhouseculture_blog_customizer_fonts()
 {
-    wp_enqueue_style('greenhouseculture_customizer_fonts', 'https://fonts.googleapis.com/css?family=Muli|Lato|Open+Sans| Montserrat|Alegreya', array(), null);
+    wp_enqueue_style('greenhouseculture_blog_customizer_fonts', 'https://fonts.googleapis.com/css?family=Muli|Lato|Open+Sans| Montserrat|Alegreya', array(), null);
 }
 
-add_action('customize_controls_print_styles', 'greenhouseculture_customizer_fonts');
-add_action('customize_preview_init', 'greenhouseculture_customizer_fonts');
+add_action('customize_controls_print_styles', 'greenhouseculture_blog_customizer_fonts');
+add_action('customize_preview_init', 'greenhouseculture_blog_customizer_fonts');
 
 add_action(
     'customize_controls_print_styles',
@@ -450,32 +491,32 @@ add_action(
 
 
 
-if (!function_exists('greenhouseculture_dynamic_css')) :
+if (!function_exists('greenhouseculture_blog_dynamic_css')) :
 
-    function greenhouseculture_dynamic_css()
+    function greenhouseculture_blog_dynamic_css()
     {
-        global $prefer_theme_options;
-        $greenhouseculture_google_fonts = greenhouseculture_google_fonts(); 
-        $prefer_font_family = $prefer_theme_options['prefer-font-family-url'];       
+        global $greenhouseculture_theme_options;
+        $greenhouseculture_blog_google_fonts = greenhouseculture_blog_google_fonts(); 
+        $greenhouseculture_font_family = $greenhouseculture_theme_options['greenhouseculture-font-family-url'];       
         /* Paragraph Font Options */
-        $prefer_font_body_family = esc_attr($greenhouseculture_google_fonts[$prefer_font_family] );
+        $greenhouseculture_font_body_family = esc_attr($greenhouseculture_blog_google_fonts[$greenhouseculture_font_family] );
 
         $custom_css = '';
         //Paragraph Font Options 
-        if (!empty($prefer_font_body_family)) {
+        if (!empty($greenhouseculture_font_body_family)) {
             $custom_css .= "
             body,
             .entry-content p{ 
-                font-family:".$prefer_font_body_family."; 
+                font-family:".$greenhouseculture_font_body_family."; 
             }";
         }
 
         wp_add_inline_style('greenhouseculture-style', $custom_css);
     }
 endif;
-add_action('wp_enqueue_scripts', 'greenhouseculture_dynamic_css', 99);
+add_action('wp_enqueue_scripts', 'greenhouseculture_blog_dynamic_css', 99);
 
 /**
  * Load Block Pattern
  */
-require get_stylesheet_directory() . '/block-pattern.php';
+require get_template_directory() . '/block-pattern.php';
