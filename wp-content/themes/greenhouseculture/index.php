@@ -9,14 +9,14 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Greenhouse Culture
+ * @package Greenhouseculture
  */
 get_header();
 ?>
 <section id="content" class="site-content posts-container">
     <div class="container">
         <div class="row">
-			<div id="primary" class="col-md-8 content-area">
+			<div id="primary" class="col-md-12 content-area">
 				<main id="main" class="site-main">
 					
 				<?php
@@ -32,7 +32,7 @@ get_header();
 					endif;
 
 					/* Masonry Start Section */
-					do_action('prefer_masonry_start_hook'); 
+					do_action('greenhouseculture_masonry_start_hook'); 
 
 					/* Start the Loop */
 					while ( have_posts() ) :
@@ -49,16 +49,16 @@ get_header();
 					endwhile;
 
 					/* Masonry end Section */
-					do_action('prefer_masonry_end_hook'); 
+					do_action('greenhouseculture_masonry_end_hook'); 
 
 					/**
-		             * prefer_action_navigation hook
-		             * @since Prefer 1.0.0
+		             * greenhouseculture_action_navigation hook
+		             * @since Greenhouseculture 1.0.0
 		             *
-		             * @hooked prefer_action_navigation -  10
+		             * @hooked greenhouseculture_action_navigation -  10
 		             */
 
-		            do_action( 'prefer_action_navigation');
+		            do_action( 'greenhouseculture_action_navigation');
 
 				else :
 
@@ -69,7 +69,6 @@ get_header();
 			
 				</main><!-- #main -->
 			</div><!-- #primary -->
-			<?php get_sidebar(); ?>
 		</div>
 	</div>
 </section>

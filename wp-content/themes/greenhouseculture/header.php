@@ -6,12 +6,12 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
  *
- * @package GreenhouseCulture
+ * @package Greenhouseculture
  */
-$GLOBALS['prefer_theme_options'] = prefer_get_options_value();
-global $prefer_theme_options;
-$enable_slider = absint($prefer_theme_options['prefer_enable_slider']);
-$enable_box = $prefer_theme_options['prefer_enable_promo'];
+$GLOBALS['greenhouseculture_theme_options'] = greenhouseculture_get_options_value();
+global $greenhouseculture_theme_options;
+$enable_slider = absint($greenhouseculture_theme_options['greenhouseculture_enable_slider']);
+$enable_box = $greenhouseculture_theme_options['greenhouseculture_enable_promo'];
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -32,15 +32,15 @@ if ( function_exists( 'wp_body_open' ) ) {
 }
 ?>
 <div id="page" class="site ">
-	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'prefer' ); ?></a>
+	<a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'greenhouseculture' ); ?></a>
 
 	<?php
     /**
-     * Hook - prefer_action_header.
+     * Hook - greenhouseculture_action_header.
      *
-     * @hooked prefer_add_main_header - 10
+     * @hooked greenhouseculture_add_main_header - 10
      */
-    do_action( 'prefer_action_header' );
+    do_action( 'greenhouseculture_action_header' );
     ?>
 
 	 <?php if ($enable_slider == 1 && (is_home() || is_front_page())) { ?>
@@ -49,7 +49,7 @@ if ( function_exists( 'wp_body_open' ) ) {
             /*
             * Slider Section Hook
             */
-                do_action('prefer_action_slider');
+                do_action('greenhouseculture_action_slider');
             ?>
         </section>
     <?php } ?>
@@ -61,7 +61,7 @@ if ( function_exists( 'wp_body_open' ) ) {
             /*
             * Boxes Section Hook
             */
-            do_action('prefer_action_boxes');
+            do_action('greenhouseculture_action_boxes');
             ?>
         </section>
     <?php } ?>

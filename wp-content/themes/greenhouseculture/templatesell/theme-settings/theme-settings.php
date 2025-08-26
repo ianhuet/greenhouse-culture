@@ -1,20 +1,20 @@
 <?php
 /* Theme Options Panel */
-	    $wp_customize->add_panel( 'prefer_panel', array(
+	    $wp_customize->add_panel( 'greenhouseculture_panel', array(
 	        'priority' => 30,
 	        'capability' => 'edit_theme_options',
-	        'title' => __( 'Prefer Theme Options', 'prefer' ),
+	        'title' => __( 'Greenhouseculture Theme Options', 'greenhouseculture' ),
 ) );
 
 /* Customizer Options */
-require get_stylesheet_directory() . '/templatesell/theme-settings/logo-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/top-header-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/header-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/color-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/slider-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/boxes-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/blog-page-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/single-page-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/sticky-sidebar-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/footer-options.php';
-require get_stylesheet_directory() . '/templatesell/theme-settings/breadcrumb-options.php';
+require get_template_directory() . '/templatesell/theme-settings/logo-options.php';
+require get_template_directory() . '/templatesell/theme-settings/top-header-options.php';
+require get_template_directory() . '/templatesell/theme-settings/header-options.php';
+require get_template_directory() . '/templatesell/theme-settings/color-options.php';
+require get_template_directory() . '/templatesell/theme-settings/slider-options.php';
+require get_template_directory() . '/templatesell/theme-settings/boxes-options.php';
+require get_template_directory() . '/templatesell/theme-settings/blog-page-options.php';
+require get_template_directory() . '/templatesell/theme-settings/single-page-options.php';
+require get_template_directory() . '/templatesell/theme-settings/sticky-sidebar-options.php';
+require get_template_directory() . '/templatesell/theme-settings/footer-options.php';
+require get_template_directory() . '/templatesell/theme-settings/breadcrumb-options.php';

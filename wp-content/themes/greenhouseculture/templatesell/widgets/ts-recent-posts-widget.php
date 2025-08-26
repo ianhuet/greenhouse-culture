@@ -1,22 +1,22 @@
 <?php
 /**
- * Prefer Featured Post Widget.
+ * Greenhouseculture Featured Post Widget.
  *
  * @since 1.0.0
  */
-if (!class_exists('Prefer_Featured_Post')) :
+if (!class_exists('Greenhouseculture_Featured_Post')) :
 
     /**
      * Highlight Post widget class.
      *
      * @since 1.0.0
      */
-    class Prefer_Featured_Post extends WP_Widget
+    class Greenhouseculture_Featured_Post extends WP_Widget
     {
         private function defaults()
         {
             $defaults = array(
-                'title'    => esc_html__( 'Recent Posts', 'prefer' ),
+                'title'    => esc_html__( 'Recent Posts', 'greenhouseculture' ),
                 'cat'     => 0,
                 'post-number'=> 5,
 
@@ -27,11 +27,11 @@ if (!class_exists('Prefer_Featured_Post')) :
         public function __construct()
         {
             $opts = array(
-                'classname' => 'prefer-featured-post',
-                'description' => esc_html__('Displays Featured Post in Sidebars. Place it in Sidebar Widget Area.', 'prefer'),
+                'classname' => 'greenhouseculture-featured-post',
+                'description' => esc_html__('Displays Featured Post in Sidebars. Place it in Sidebar Widget Area.', 'greenhouseculture'),
             );
 
-            parent::__construct('prefer-featured-post', esc_html__('Prefer Featured Post', 'prefer'), $opts);
+            parent::__construct('greenhouseculture-featured-post', esc_html__('Greenhouseculture Featured Post', 'greenhouseculture'), $opts);
         }
 
 
@@ -72,7 +72,7 @@ if (!class_exists('Prefer_Featured_Post')) :
                             if (has_post_thumbnail()) {
                                 ?>
                                     <a href="<?php the_permalink(); ?>">
-                                        <?php the_post_thumbnail('prefer-related-size'); ?>
+                                        <?php the_post_thumbnail('greenhouseculture-related-size'); ?>
                                         <div class="widget_bg_overlay"></div>
                                     </a>
 
@@ -84,7 +84,7 @@ if (!class_exists('Prefer_Featured_Post')) :
                         <div class="widget_featured_content">
                                 <h4 class="entry-title"><a href="<?php the_permalink(); ?>"><?php the_title(); ?></a></h4>
                                 <div class="post-date">
-                                    <?php prefer_posted_on(); ?>
+                                    <?php greenhouseculture_posted_on(); ?>
 
                                 </div><!-- .entry-meta -->
                         </div>
@@ -117,14 +117,14 @@ if (!class_exists('Prefer_Featured_Post')) :
             ?>
             <p>
                 <label
-                for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'prefer'); ?></label>
+                for="<?php echo esc_attr($this->get_field_id('title')); ?>"><?php esc_html_e('Title:', 'greenhouseculture'); ?></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('title')); ?>"
                 name="<?php echo esc_attr($this->get_field_name('title')); ?>" type="text"
                 value="<?php echo esc_attr($instance['title']); ?>"/>
             </p>
             <p class="custom-dropdown-posts">
                 <label for="<?php echo esc_attr($this->get_field_name('cat')); ?>">
-                    <strong><?php esc_html_e('Select Category: ', 'prefer'); ?></strong>
+                    <strong><?php esc_html_e('Select Category: ', 'greenhouseculture'); ?></strong>
                 </label>
                 <?php
                 $cat_args = array(
@@ -135,7 +135,7 @@ if (!class_exists('Prefer_Featured_Post')) :
                     'class' => 'widefat',
                     'taxonomy' => 'category',
                     'selected' => absint($instance['cat']),
-                    'show_option_all' => esc_html__('Show Recent Posts', 'prefer')
+                    'show_option_all' => esc_html__('Show Recent Posts', 'greenhouseculture')
                 );
                 wp_dropdown_categories($cat_args);
                 ?>
@@ -143,7 +143,7 @@ if (!class_exists('Prefer_Featured_Post')) :
 
             <p>
                 <label
-                for="<?php echo esc_attr($this->get_field_id('post-number')); ?>"><?php esc_html_e('Number of Posts to Display:', 'prefer'); ?></label>
+                for="<?php echo esc_attr($this->get_field_id('post-number')); ?>"><?php esc_html_e('Number of Posts to Display:', 'greenhouseculture'); ?></label>
                 <input class="widefat" id="<?php echo esc_attr($this->get_field_id('post-number')); ?>"
                 name="<?php echo esc_attr($this->get_field_name('post-number')); ?>" type="number"
                 value="<?php echo esc_attr($instance['post-number']); ?>"/>

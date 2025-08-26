@@ -5,7 +5,7 @@
  * @since  1.0.5
  * @access public
  */
-final class Prefer_Customize {
+final class Greenhouseculture_Customize {
 
 	/**
 	 * Returns the instance.
@@ -62,20 +62,20 @@ final class Prefer_Customize {
 	public function sections( $manager ) {
 
 		// Load custom sections.
-		require_once( trailingslashit( get_stylesheet_directory() ) . 'templatesell/upgrade/section-pro.php' );
+		require_once( trailingslashit( get_template_directory() ) . 'templatesell/upgrade/section-pro.php' );
 
 		// Register custom section types.
-		$manager->register_section_type( 'Prefer_Customize_Section_Pro' );
+		$manager->register_section_type( 'Greenhouseculture_Customize_Section_Pro' );
 
 		// Register sections.
 		$manager->add_section(
-			new Prefer_Customize_Section_Pro(
+			new Greenhouseculture_Customize_Section_Pro(
 				$manager,
-				'prefer_plus',
+				'greenhouseculture_plus',
 				array(
-					'pro_text2' => esc_html__( 'Upgrade to Pro and Get More Features', 'prefer' ),
-					'pro_url2'  => 'https://www.templatesell.com/item/prefer-plus/',
-					'pro_text'  => esc_html__( 'Get Free Support', 'prefer' ),
+					'pro_text2' => esc_html__( 'Upgrade to Pro and Get More Features', 'greenhouseculture' ),
+					'pro_url2'  => 'https://www.templatesell.com/item/greenhouseculture-plus/',
+					'pro_text'  => esc_html__( 'Get Free Support', 'greenhouseculture' ),
 					'pro_url'   => 'https://www.templatesell.com/contact-us/',
 					'priority' => '1',
 				)
@@ -91,9 +91,9 @@ final class Prefer_Customize {
 	 * @return void
 	 */
 	public function enqueue_control_scripts() {
-		wp_enqueue_script( 'prefer-customize-controls', trailingslashit( get_stylesheet_directory_uri() ) . '/templatesell/upgrade/customize-controls.js', array( 'customize-controls' ) );
+		wp_enqueue_script( 'greenhouseculture-customize-controls', trailingslashit( get_template_directory_uri() ) . '/templatesell/upgrade/customize-controls.js', array( 'customize-controls' ) );
 	}
 }
 
 // Doing this customizer thang!
-Prefer_Customize::get_instance();
+Greenhouseculture_Customize::get_instance();

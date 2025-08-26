@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying posts on homepage with masonry layout
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -9,7 +9,7 @@
 global $greenhouseculture_theme_options;
 $show_content_from = esc_attr($greenhouseculture_theme_options['greenhouseculture-content-show-from']);
 $read_more = esc_html($greenhouseculture_theme_options['greenhouseculture-read-more-text']);
-$masonry = esc_attr($greenhouseculture_theme_options['greenhouseculture-column-blog-page']);
+$masonry = 'masonry-post'; // Force masonry for homepage
 $image_location = esc_attr($greenhouseculture_theme_options['greenhouseculture-image-layout']);
 $social_share = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-share']);
 $date = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-date']);

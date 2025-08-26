@@ -5221,12 +5221,12 @@ ul.social-menu li a[href*="dribble.com"]:before{
     content: "\f17d";
 }
 
-.widget_prefer-popular-post-widget ul{
+.widget_greenhouseculture-popular-post-widget ul{
     margin: 0;
     padding: 0;
 }
 
-.widget_prefer-popular-post-widget li{
+.widget_greenhouseculture-popular-post-widget li{
     margin-bottom: 20px;
     list-style: none;
 }
@@ -5455,12 +5455,12 @@ ul.social-menu li a[href*="dribble.com"]:before{
     display: inline-block;
 }
 
-.prefer-featured-post > ul{
+.greenhouseculture-featured-post > ul{
     margin: 0;
     padding: 5px 0 0;
 }
 
-.prefer-featured-post > ul > li{
+.greenhouseculture-featured-post > ul > li{
     position: relative;
     margin-bottom: 20px;
     list-style: none;
@@ -5612,11 +5612,11 @@ ul.social-menu li a[href*="dribble.com"]:before{
     padding-right: 10px;
 }
 
-.post-area .prefer-featured-post{
+.post-area .greenhouseculture-featured-post{
     position: relative;
 }
 
-.post-area .prefer-featured-post:before{
+.post-area .greenhouseculture-featured-post:before{
     background: linear-gradient(to left transparent, rgba(0, 0, 0, 0.1), rgba(0, 0, 0, 0.1), transparent);
     height: 1px;
     width: 100%;
@@ -5663,7 +5663,7 @@ ul.social-menu li a[href*="dribble.com"]:before{
     border-radius: initial;
 }
 
-.post-area .prefer-featured-post > ul > li:not(:last-child){
+.post-area .greenhouseculture-featured-post > ul > li:not(:last-child){
     margin-left: 20px;
 }
 
@@ -5672,7 +5672,7 @@ ul.social-menu li a[href*="dribble.com"]:before{
 }
 
 @media (min-width: 991px){
-    .post-area .prefer-featured-post > ul{
+    .post-area .greenhouseculture-featured-post > ul{
         box-sizing: border-box;
         display: flex;
         -webkit-box-flex: 0;
@@ -5688,7 +5688,7 @@ ul.social-menu li a[href*="dribble.com"]:before{
         margin-right: -.5rem;
     }
 
-    .post-area .prefer-featured-post > ul > li{
+    .post-area .greenhouseculture-featured-post > ul > li{
         -webkit-box-flex: 1;
         -ms-flex-positive: 1;
         flex-grow: 1;
@@ -5961,7 +5961,7 @@ ul.trail-items li a:hover span{
     display: none;
 }
 
-div#prefer-breadcrumbs{
+div#greenhouseculture-breadcrumbs{
     float: right;
 }
 
