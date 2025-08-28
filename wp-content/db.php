@@ -84,5 +84,7 @@ if ($is_development) {
 
     // Replace global wpdb instance
     $wpdb = new wpdb_ssl(DB_USER, DB_PASSWORD, DB_NAME, DB_HOST);
+
+    global $table_prefix;
     $wpdb->set_prefix($table_prefix);
 }

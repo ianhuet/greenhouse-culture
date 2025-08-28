@@ -26,8 +26,15 @@
 
 backup/
 docs/
- 
+
+!apache-wordpress.conf
+!Docker
+!docker-entrypoint-ssl.sh
+!wp-config-ssl.php
+
 !wp-content/
+!wp-content/db.php
+
 wp-content/.DS_Store
 wp-content/debug.log
 wp-content/languages
