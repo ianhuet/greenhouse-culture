@@ -6,7 +6,7 @@ services:
     ports:
       - "${WP_PORT:-8000}:80"
     environment:
-      WORDPRESS_DB_HOST: ${DB_HOST}:4000
+      WORDPRESS_DB_HOST: ${DB_HOST}
       WORDPRESS_DB_USER: ${DB_USER}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
       WORDPRESS_DB_NAME: ${DB_NAME}
@@ -15,7 +15,7 @@ services:
       WORDPRESS_DEBUG_DISPLAY: ${WP_DEBUG_DISPLAY:-false}
     volumes:
       # Mount custom wp-config with SSL support
-      - ./wp-config-ssl.php:/var/www/html/wp-config.php:ro
+      - ./wp-config-ssl.php:/tmp/wp-config-custom.php:ro
       # Mount the entire wp-content directory for development
       - ./wp-content:/var/www/html/wp-content
       # WordPress core files (not tracked in Git)
