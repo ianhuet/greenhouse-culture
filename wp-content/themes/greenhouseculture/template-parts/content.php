@@ -7,15 +7,15 @@
  * @package Greenhouseculture
  */
 global $greenhouseculture_theme_options;
-$show_content_from = esc_attr($greenhouseculture_theme_options['greenhouseculture-content-show-from']);
-$read_more = esc_html($greenhouseculture_theme_options['greenhouseculture-read-more-text']);
-$masonry = esc_attr($greenhouseculture_theme_options['greenhouseculture-column-blog-page']);
-$image_location = esc_attr($greenhouseculture_theme_options['greenhouseculture-image-layout']);
-$social_share = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-share']);
-$date = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-date']);
-$category = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-category']);
 $author = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-author']);
+$category = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-category']);
+$date = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-date']);
+$image_location = esc_attr($greenhouseculture_theme_options['greenhouseculture-image-layout']);
+$masonry = esc_attr($greenhouseculture_theme_options['greenhouseculture-column-blog-page']);
+$read_more = esc_html($greenhouseculture_theme_options['greenhouseculture-read-more-text']);
 $read_time = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-read-time']);
+$show_content_from = esc_attr($greenhouseculture_theme_options['greenhouseculture-content-show-from']);
+$social_share = absint($greenhouseculture_theme_options['greenhouseculture-show-hide-share']);
 
 $post = get_post($post);
 if (empty($post->post_password)) {
