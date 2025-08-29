@@ -1,35 +1,44 @@
 # WordPress Local Development Setup
-- Cross-Platform, Free, Git-Friendly Development (Themes + Custom Plugins)
-
-## Why Docker?
-- **100% Free** (Docker Desktop is free for personal use)
-- **Cross-platform** (identical setup on Windows, Mac, Linux)
-- **Git-friendly**
-- **Team consistency** (everyone gets the same environment)
-- **Production-like** (mirrors real hosting environments)
+- Cross-Platform, Free, Git-Friendly Themes + Custom Plugins Development
 
 ## Prerequisites
+- [Wordpress](https://wordpress.org/download/)
 - [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed
-- Git installed
-- Basic command line knowledge
+- [Git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) or [desktop app](https://git-scm.com/downloads/guis)
+- [Basic command line knowledge](https://code.visualstudio.com/docs/terminal/basics)
 
 ## Quick Start
 
-```bash
-# 1. Clone this repository
-git clone https://github.com/ianhuet/greenhouse-culture
-cd greenhouse-culture
+### 1. Open a Terminal & navigate to the directory where you store your development work
 
-# 2. Copy environment template and configure
-- create `.env` file in project root
-- edit .env with your database credentials, provided separately
+### 2. Clone this repository
+> git clone https://github.com/ianhuet/greenhouse-culture
+> cd greenhouse-culture
 
-# 3. Start Docker container
-docker-compose up -d
+### 3. Download Wordpress
+- Go to https://wordpress.org/download/ & download Wordpress ZIP
+- Extract the ZIP where you downloaded it
 
-# 4. Access your site
+### 4. Extract into Wordpress.zip
+- Do this away from the greenhouse-culture directory
+- When extracted open the 'wordpress' directory and delete the 'wp-content' directory
+- Copy all the remaining files and directories within the 'wordpress' directory into /your-development-directory/greenhouse-culture
+
+### 5. Setup environment credentials
+- Create `.env` file in project root
+- Add database credentials, provided separately
+
+### 6. Setup Wordpress credentials
+- Rename 'wp-config-sample.php' to 'wp-config.php'
+- Add credentials shared separately
+
+# 6. Start Docker container
+- First, ensure Docker Desktop is running
+> docker-compose up -d
+
+# 7. Access your site
 - WordPress: http://localhost:8000
-- Admin login: provided separately
+- Admin login, provided separately: http://localhost:8000/wp-admin
 ```
 
 ## Project Structure
@@ -39,8 +48,7 @@ your-project/
 ├── docker-compose.yml          # Docker configuration (tracked in Git)
 ├── .gitignore                  # Git ignore rules (tracked in Git)
 ├── README.md                   # This file (tracked in Git)
-├── .env.development            # Environment template (tracked in Git)
-├── .env                        # Your actual credentials (NOT tracked in Git)
+├── .env                        # Environment credentials (NOT tracked in Git)
 ├── wp-content/
 │   ├── themes/
 │   │   └── greenhouseculture/ # Your custom theme (tracked in Git)
@@ -49,6 +57,13 @@ your-project/
 │       └── members-map/           # Custom plugin (tracked in Git)
 └── [WordPress core files]      # Auto-generated (NOT tracked in Git)
 ```
+
+## Why Docker?
+- **100% Free** (Docker Desktop is free for personal use)
+- **Cross-platform** (identical setup on Windows, Mac, Linux)
+- **Git-friendly**
+- **Team consistency** (everyone gets the same environment)
+- **Production-like** (mirrors real hosting environments)
 
 ## Docker Configuration
 
@@ -68,33 +83,6 @@ The `.gitignore` file is pre-configured to:
 
 ## Development Workflow
 
-### Starting Development
-```bash
-# Start containers in background
-docker-compose up -d
-
-# View logs if needed
-docker-compose logs -f
-
-# Stop containers
-docker-compose down
-```
-
-### Installing WordPress
-1. Navigate to http://localhost:8000
-2. Follow WordPress installation wizard
-3. Use any admin credentials you prefer
-
-### Theme Development
-- Edit files in `wp-content/themes/greenhouseculture/`
-- Changes reflect immediately in browser
-- All changes are tracked in Git
-
-### Plugin Development
-- Edit files in `wp-content/plugins/contributor-bio-block/` or `wp-content/plugins/members-map/`
-- Activate plugins via WordPress admin
-- These custom plugins are tracked in Git
-
 ### Database Management
 - The development database is hosted remotely
 - Database credentials are provided in your `.env` file
@@ -105,30 +93,6 @@ docker-compose down
 2. They persist in Docker volume
 3. Not tracked in Git (unless you modify `.gitignore`)
 
-## Common Commands
-
-```bash
-# Start environment
-docker-compose up -d
-
-# Stop environment
-docker-compose down
-
-# Rebuild containers (after docker-compose.yml changes)
-docker-compose up -d --build
-
-# View WordPress logs
-docker-compose logs wordpress
-
-# Access WordPress container shell
-docker-compose exec wordpress bash
-
-# Run WP-CLI commands
-docker-compose exec wordpress wp [command]
-
-# Clean everything (local files only, database is remote)
-docker-compose down -v
-```
 ## Production Deployment
 ** This setup is for local development only.
 
@@ -178,7 +142,6 @@ docker-compose up -d
 ## Resources
 - [Docker Documentation](https://docs.docker.com/)
 - [WordPress Developer Resources](https://developer.wordpress.org/)
-- [Docker Compose Reference](https://docs.docker.com/compose/)
 
 ## License
 MIT licence

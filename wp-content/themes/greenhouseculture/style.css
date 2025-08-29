@@ -1785,14 +1785,14 @@ section.slider-wrapper {
   height: 550px;
 }
 .modern-slider .img-cover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: center;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 .modern-slider .overley {
     background: rgba(0,0,0,.3);
@@ -2949,27 +2949,30 @@ a.link-format:hover {
  */
 
 .pagination {
-    overflow: hidden;
+    border-radius: 0;
     display: inline-block;
     margin: 0 0 50px;
+    overflow: hidden;
     padding: 0;
-    border-radius: 0;
     position: relative;
     text-align: center;
     width: 100%;
 }
 .pagination .page-numbers {
+    background: #ddd;
+    color: #4c4f53;
+    display: flex;
+    flex-flow: row nowrap;
     font-size: 15px;
     font-style: normal;
     font-weight: 600;
-    color: #4c4f53;
-    min-width: 50px;
     line-height: 50px;
-    text-align: center;
-    background: #ddd;
+    list-style-type: none;
+    justify-content: center;
     margin: 0 4px;
-    display: inline-block;
+    min-width: 50px;
     padding: 0 15px;
+    text-align: center;
 }
 
 .pagination a.page-numbers:focus {
@@ -6043,19 +6046,19 @@ div#greenhouseculture-breadcrumbs {
 }
 .post-wrap.right-image,
 .post-wrap.left-image{
-    margin-bottom: 30px;
     background: #fbfbfb;
+    margin-bottom: 30px;
 }
 .post-wrap.right-image .img-cover,
 .post-wrap.left-image .img-cover{
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
+    background-position: center center;
     background-repeat: no-repeat;
     background-size: cover;
-    background-position: top center;
+    min-height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
 }
 
 .left-image .post-content,
@@ -6101,6 +6104,12 @@ div#greenhouseculture-breadcrumbs {
 .alternative .left-image .post-content{
     padding:20px;
 }
+
+/* .masonry-post .post-media img {
+    display: block;
+    height: auto;
+    width: 100%;
+} */
 
 .alternative article:nth-child(3n-2) .left-image{
     padding: 15px 0;
