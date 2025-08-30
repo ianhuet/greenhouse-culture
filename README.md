@@ -12,8 +12,10 @@
 ### 1. Open a Terminal & navigate to the directory where you store your development work
 
 ### 2. Clone this repository
-> git clone https://github.com/ianhuet/greenhouse-culture
-> cd greenhouse-culture
+```
+git clone https://github.com/ianhuet/greenhouse-culture
+cd greenhouse-culture
+```
 
 ### 3. Download Wordpress
 - Go to https://wordpress.org/download/ & download Wordpress ZIP
@@ -34,12 +36,13 @@
 
 # 6. Start Docker container
 - First, ensure Docker Desktop is running
-> docker-compose up -d
+```
+docker-compose up -d
+```
 
 # 7. Access your site
 - WordPress: http://localhost:8000
 - Admin login, provided separately: http://localhost:8000/wp-admin
-```
 
 ## Project Structure
 
