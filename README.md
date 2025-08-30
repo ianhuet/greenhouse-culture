@@ -2,10 +2,10 @@
 - Cross-Platform, Free, Git-Friendly Themes + Custom Plugins Development
 
 ## Prerequisites
-- [Wordpress](https://wordpress.org/download/)
-- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed
+- [Docker Desktop](https://www.docker.com/products/docker-desktop/) installed & running
 - [Git installed](https://git-scm.com/book/en/v2/Getting-Started-Installing-Git) or [desktop app](https://git-scm.com/downloads/guis)
 - [Basic command line knowledge](https://code.visualstudio.com/docs/terminal/basics)
+- [Wordpress](https://wordpress.org/download/)
 
 ## Quick Start
 
@@ -19,7 +19,6 @@ cd greenhouse-culture
 
 ### 3. Download Wordpress
 - Go to https://wordpress.org/download/ & download Wordpress ZIP
-- Extract the ZIP where you downloaded it
 
 ### 4. Extract into Wordpress.zip
 - Do this away from the greenhouse-culture directory
@@ -29,10 +28,6 @@ cd greenhouse-culture
 ### 5. Setup environment credentials
 - Create `.env` file in project root
 - Add database credentials, provided separately
-
-### 6. Setup Wordpress credentials
-- Rename 'wp-config-sample.php' to 'wp-config.php'
-- Add credentials shared separately
 
 # 6. Start Docker container
 - First, ensure Docker Desktop is running
@@ -87,8 +82,8 @@ The `.gitignore` file is pre-configured to:
 ## Development Workflow
 
 ### Database Management
-- The development database is hosted remotely
-- Database credentials are provided in your `.env` file
+- The development database is hosted remotely, on TiDB Cloud
+- Database credentials are set in your `.env` file
 - Contact the team lead for database access details
 
 ### Installing Third-Party Plugins/Themes
