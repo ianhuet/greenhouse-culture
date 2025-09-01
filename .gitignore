@@ -28,7 +28,7 @@ backup/
 docs/
 
 !apache-wordpress.conf
-!Docker
+!Dockerfile
 !docker-entrypoint-ssl.sh
 !wp-config-ssl.php
 
