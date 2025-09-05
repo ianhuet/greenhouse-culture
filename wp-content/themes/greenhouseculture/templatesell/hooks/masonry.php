@@ -9,7 +9,7 @@ if (!function_exists('greenhouseculture_masonry_start')) :
     function greenhouseculture_masonry_start()
     { ?>
         <div class="masonry-start"><div id="masonry-loop">
-        
+
         <?php
     }
 endif;
@@ -26,7 +26,7 @@ if (!function_exists('greenhouseculture_masonry_end')) :
     { ?>
         </div>
         </div>
-        
+
         <?php
     }
 endif;

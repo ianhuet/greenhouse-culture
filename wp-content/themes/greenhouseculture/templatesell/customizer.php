@@ -15,7 +15,7 @@ if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
             'greenhouseculture_logo_width_option' => '700',
 
             /*Top Header*/
-            'greenhouseculture_enable_top_header'=> 0, 
+            'greenhouseculture_enable_top_header'=> 0,
             'greenhouseculture_enable_top_header_social'=> 0,
             'greenhouseculture_enable_top_header_menu'=> 0,
 
@@ -29,11 +29,11 @@ if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
             /*Slider Options*/
             'greenhouseculture_enable_slider'      => 0,
             'greenhouseculture-select-category'    => 0,
-    
+
             /*Boxes Section */
             'greenhouseculture_enable_promo'       => 0,
             'greenhouseculture-promo-select-category'=> 0,
-            
+
             /*Blog Page*/
             'greenhouseculture-sidebar-blog-page' => 'right-sidebar',
             'greenhouseculture-column-blog-page'  => 'one-column',
@@ -101,7 +101,7 @@ function greenhouseculture_customize_register( $wp_customize ) {
 	$wp_customize->get_setting( 'blogname' )->transport         = 'postMessage';
 	$wp_customize->get_setting( 'blogdescription' )->transport  = 'postMessage';
 	$wp_customize->get_setting( 'header_textcolor' )->transport = 'postMessage';
-	
+
     if ( isset( $wp_customize->selective_refresh ) ) {
       $wp_customize->selective_refresh->add_partial( 'blogname', array(
          'selector'        => '.site-title a',

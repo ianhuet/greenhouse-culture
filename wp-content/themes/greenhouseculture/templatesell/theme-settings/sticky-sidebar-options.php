@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*Sticky Sidebar*/
 $wp_customize->add_section( 'greenhouseculture_sticky_sidebar', array(
    'priority'       => 20,

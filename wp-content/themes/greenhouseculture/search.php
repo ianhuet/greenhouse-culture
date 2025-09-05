@@ -21,16 +21,16 @@ get_header();
 				</h1>
 			</div>
 			<div class="breadcrumbs-wrap">
-				<?php 
+				<?php
 				// breadcrumb hook
-				do_action('greenhouseculture_breadcrumb_options_hook'); ?> 
+				do_action('greenhouseculture_breadcrumb_options_hook'); ?>
 			</div>
 			<div id="primary" class="col-md-12 content-area">
 				<main id="main" class="site-main">
 					<?php if ( have_posts() ) : ?>
 					<?php
 						/* Masonry Start Section */
-						do_action('greenhouseculture_masonry_start_hook'); 
+						do_action('greenhouseculture_masonry_start_hook');
 
 						/* Start the Loop */
 						while ( have_posts() ) :
@@ -47,7 +47,7 @@ get_header();
 
 						/* Masonry end Section */
 						do_action('greenhouseculture_masonry_end_hook');
-						
+
 						else :
 
 						get_template_part( 'template-parts/content', 'none' );

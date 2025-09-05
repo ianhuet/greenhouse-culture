@@ -12,9 +12,9 @@ get_header();
     <div class="container">
         <div class="row">
 			<div class="breadcrumbs-wrap">
-				<?php 
+				<?php
 				// Breadcrumb hook
-				do_action('greenhouseculture_breadcrumb_options_hook'); ?> 
+				do_action('greenhouseculture_breadcrumb_options_hook'); ?>
 			</div>
 			<div id="primary" class="col-md-8 content-area">
 				<main id="main" class="site-main">
@@ -23,11 +23,11 @@ get_header();
 							the_post();
 
 							get_template_part( 'template-parts/content', 'single' );
-						
+
 						// If comments are open or we have at least one comment, load up the comment template.
 							if ( comments_open() || get_comments_number() ) :
 								comments_template();
-							endif;						   
+							endif;
 			            endwhile; // End of the loop.
 			        ?>
 				</main><!-- #main -->
@@ -40,7 +40,7 @@ get_header();
     <div class="container">
         <div class="row">
         	<div class="col-sm-12">
-				<?php 
+				<?php
 				/**
 				 * greenhouseculture_related_posts hook
 				 * @since Greenhouseculture 1.0.0

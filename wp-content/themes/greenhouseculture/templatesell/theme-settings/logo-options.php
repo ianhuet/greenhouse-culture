@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*Logo Section*/
 $wp_customize->add_setting( 'greenhouseculture_options[greenhouseculture_logo_width_option]', array(
     'capability'        => 'edit_theme_options',

@@ -50,17 +50,17 @@ $social_share = absint($greenhouseculture_theme_options['greenhouseculture-singl
                         )
                     ),
                     get_the_title()
-                
+
                 ));
                 wp_link_pages(array(
                     'before' => '<div class="page-links">' . esc_html__('Pages:', 'greenhouseculture'),
                     'after' => '</div>',
-                
+
                 ));
                 ?>
             </div><!-- .entry-content -->
             <footer class="post-footer entry-footer">
-                <?php 
+                <?php
                 if( 1 == $social_share ){
                     do_action( 'greenhouseculture_social_sharing' ,get_the_ID() );
                 }

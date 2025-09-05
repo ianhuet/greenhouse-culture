@@ -1,4 +1,4 @@
-<?php 
+<?php
 /*Extra Options*/
 
         $wp_customize->add_section( 'greenhouseculture_extra_options', array(
@@ -40,7 +40,7 @@ $wp_customize->add_control('greenhouseculture_options[greenhouseculture-breadcru
     'choices' => array(
         'theme-breadcrumb' => __('Theme Breadcrumb', 'greenhouseculture'),
         'yoast-breadcrumb' => __('Yoast SEO Breadcrumb', 'greenhouseculture'),
-        'navxt-breadcrumb' => __('NavXT Breadcrumb', 'greenhouseculture'),    
+        'navxt-breadcrumb' => __('NavXT Breadcrumb', 'greenhouseculture'),
     ),
     'label' => __('Select the Breadcrumb', 'greenhouseculture'),
     'description' => __('After enable the breadcrumb, you need to install Yoast SEO, Rank Math or Breadcrumb NavXT plugin for added breadcrumb option.', 'greenhouseculture'),

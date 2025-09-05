@@ -33,7 +33,7 @@ $wp_customize->add_setting('greenhouseculture_options[greenhouseculture-sidebar-
     'sanitize_callback' => 'greenhouseculture_sanitize_select'
 ));
 
-$wp_customize->add_control( 
+$wp_customize->add_control(
     new Greenhouseculture_Radio_Image_Control(
         $wp_customize,
     'greenhouseculture_options[greenhouseculture-sidebar-single-page]', array(
