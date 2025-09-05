@@ -5,13 +5,11 @@
   "main": "index.js",
   "type": "module",
   "scripts": {
-    "lint": "eslint wp-content/themes/greenhouseculture/**/*.js",
-    "lint:fix": "eslint wp-content/themes/greenhouseculture/**/*.js --fix",
-    "lint:php": "./lint-php.sh",
-    "lint:all": "npm run lint && npm run lint:php",
-    "format:php": "./format-php.sh --dry-run",
-    "format:php:fix": "./format-php.sh",
-    "format:all": "npm run lint:fix && npm run format:php:fix",
+    "format:php:dry-run": "./format-php.sh --dry-run",
+    "lint:js": "eslint wp-content/themes/greenhouseculture/**/*.js --fix",
+    "lint:js:dry-run": "eslint wp-content/themes/greenhouseculture/**/*.js",
+    "lint:php": "./lint-php.sh && ./format-php.sh",
+    "lint": "npm run lint:js && npm run lint:php",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],

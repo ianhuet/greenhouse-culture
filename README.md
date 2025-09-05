@@ -29,13 +29,13 @@ cd greenhouse-culture
 - Create `.env` file in project root
 - Add database credentials, provided separately
 
-# 6. Start Docker container
+### 6. Start Docker container
 - First, ensure Docker Desktop is running
 ```
 docker-compose up -d
 ```
 
-# 7. Access your site
+### 7. Access your site
 - WordPress: http://localhost:8000
 - Admin login, provided separately: http://localhost:8000/wp-admin
 
