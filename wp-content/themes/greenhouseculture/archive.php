@@ -11,7 +11,7 @@ get_header();
 ?>
 <section id="content" class="site-content posts-container">
 	<div class="container">
-		<div class="row">	
+		<div class="row">
 			<div class="archive-heading">
 				<?php
 				the_archive_title( '<h1 class="archive-title">', '</h1>' );
@@ -29,7 +29,7 @@ get_header();
 						<?php
 
 						/* Masonry Start Section */
-						do_action('greenhouseculture_masonry_start_hook'); 
+						do_action('greenhouseculture_masonry_start_hook');
 
 						/* Start the Loop */
 						while ( have_posts() ) :
@@ -61,7 +61,7 @@ get_header();
 
 				endif;
 				?>
-				
+
 			</main><!-- #main -->
 		</div><!-- #primary -->
 	</div>

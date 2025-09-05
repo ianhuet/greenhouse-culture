@@ -10,7 +10,7 @@ if ( ! function_exists( 'greenhouseculture_posted_on' ) ) :
 	/**
 	 * Prints HTML with meta information for the current post-date/time.
 	 */
-	function greenhouseculture_posted_on() {		
+	function greenhouseculture_posted_on() {
 		$time_string = '<time class="entry-date published updated" datetime="%1$s">%2$s</time>';
 		if ( get_the_time( 'U' ) !== get_the_modified_time( 'U' ) ) {
 			$time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time><time class="updated" datetime="%3$s">%4$s</time>';
@@ -23,7 +23,7 @@ if ( ! function_exists( 'greenhouseculture_posted_on' ) ) :
 		esc_html( get_the_modified_date() )
 	);
 
-	$posted_on = 
+	$posted_on =
 		'<a href="' . esc_url( get_permalink() ) . '" rel="bookmark">' . $time_string . '</a>';
 
 	$byline = sprintf(
@@ -67,7 +67,7 @@ if ( ! function_exists( 'greenhouseculture_entry_meta' ) ) :
 		if ( $tags_list && is_singular() ) {
 			printf( '<span class="tags-links">' . '<i class="fa fa-tag"></i>' . '</span>', $tags_list ); // WPCS: XSS OK.
 		}
-      	
+
 	}
 	}
 endif;

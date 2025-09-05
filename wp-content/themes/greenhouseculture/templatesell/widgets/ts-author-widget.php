@@ -357,7 +357,7 @@ add_action('admin_enqueue_scripts', 'greenhouseculture_widgets_backend_enqueue')
 function greenhouseculture_widgets_backend_enqueue()
 {
     wp_register_script('greenhouseculture-custom-widgets', get_template_directory_uri() . '/assets/js/widgets.js', array('jquery'), true);
-    
+
     wp_enqueue_media();
     wp_enqueue_script('greenhouseculture-custom-widgets');
 }

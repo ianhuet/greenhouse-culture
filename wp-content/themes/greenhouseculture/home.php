@@ -17,16 +17,16 @@ get_header();
 		<div class="row">
 			<div id="primary" class="col-md-12 content-area">
 				<main id="main" class="site-main">
-					
+
 				<?php
 					/* Custom query for homepage posts - TiDB/MySQL compatible */
 					$paged = ( get_query_var( 'paged' ) ) ? get_query_var( 'paged' ) : 1;
 					$posts_per_page = 12;
-					
+
 					// Get total count separately to ensure compatibility with TiDB
 					global $wpdb;
 					$total_posts = $wpdb->get_var("SELECT COUNT(*) FROM {$wpdb->posts} WHERE post_type = 'post' AND post_status = 'publish'");
-					
+
 					// Standard WP_Query
 					$args = array(
 						'post_type' => 'post',
@@ -34,9 +34,9 @@ get_header();
 						'paged' => $paged,
 						'posts_per_page' => $posts_per_page,
 					);
-					
+
 					$query = new WP_Query( $args );
-					
+
 					// Always set pagination values explicitly for TiDB compatibility
 					$query->found_posts = $total_posts;
 					$query->max_num_pages = ceil($total_posts / $posts_per_page);

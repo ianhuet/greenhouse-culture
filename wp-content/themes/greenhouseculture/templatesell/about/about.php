@@ -18,7 +18,7 @@ function greenhouseculture_admin_scripts() {
 	if(is_admin()){
 		wp_enqueue_style( 'greenhouseculture-admin-style', get_template_directory_uri() . '/templatesell/about/about.css', array(), '' );
  }
-} 
+}
 add_action( 'admin_enqueue_scripts', 'greenhouseculture_admin_scripts' );
 
 /**

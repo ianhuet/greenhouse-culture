@@ -9,7 +9,7 @@
 function greenhouseculture_custom_thumb_size($get_image_options)
 {
     $get_image_options['avatar_size'] = 600;
-    
+
     return $get_image_options;
 }
 

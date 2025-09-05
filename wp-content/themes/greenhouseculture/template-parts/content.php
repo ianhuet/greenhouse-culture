@@ -24,21 +24,21 @@ if (empty($post->post_password)) {
     <div class="post-wrap <?php echo esc_attr($image_location); ?>">
         <?php if(has_post_thumbnail()) { ?>
             <div class="post-media">
-                <?php 
+                <?php
                     $image_id = get_post_thumbnail_id();
                     $image_url = wp_get_attachment_image_src( $image_id,'',true );
                 ?>
 
                 <div class="img-cover" style="background-image: url(<?php echo esc_url($image_url[0]);?>)">
 
-                    <?php 
+                    <?php
                         if($image_location == 'full-image'){
                             greenhouseculture_post_thumbnail('full');
                         }
                      ?>
                 </div>
 
-                <?php 
+                <?php
                 if( 1 == $social_share ){
                     do_action( 'greenhouseculture_social_sharing' ,get_the_ID() );
                 }
@@ -105,7 +105,7 @@ if (empty($post->post_password)) {
                     </a>
                 <?php endif; ?>
             </div>
-            
+
         </div>
     </div>
 </article><!-- #post- -->

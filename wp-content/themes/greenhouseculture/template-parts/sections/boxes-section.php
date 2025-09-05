@@ -23,37 +23,37 @@ if( $promo_cat > 0 && is_home() )
                         'posts_per_page' => 3,
                         'order'=> 'DESC'
                     );
-                    
+
                     $query = new WP_Query($args);
-                    
-                    if($query->have_posts()):                        
+
+                    if($query->have_posts()):
                         while($query->have_posts()):
                             $query->the_post();
-                            ?>                            
+                            ?>
                             <div class="item">
                                 <a href="<?php the_permalink(); ?>">
                                     <?php
-                                    
+
                                     if(has_post_thumbnail())
                                     {
-                                        
+
                                         $image_id  = get_post_thumbnail_id();
                                         $image_url = wp_get_attachment_image_src($image_id,'greenhouseculture-promo-post',true);
                                         ?>
-                                        
+
                                         <figure>
                                             <img src="<?php echo esc_url($image_url[0]);?>">
                                             <span class="inset"></span>
                                         </figure>
                                     <?php   } ?>
                                 </a>
-                                <div class="promo-content">    
+                                <div class="promo-content">
                                     <div class="post-category">
                                         <?php
                                            $categories = get_the_category();
                                            if ( ! empty( $categories ) ) {
                                               echo '<a class="s-cat" href="'.esc_url( get_category_link( $categories[0]->term_id ) ).'">'.esc_html( $categories[0]->name ).'</a>';
-                                          }                                 
+                                          }
                                         ?>
                                     </div>
 
@@ -69,7 +69,7 @@ if( $promo_cat > 0 && is_home() )
                                     </div>
                                 </div>
                             </div>
-                        
+
                         <?php endwhile; endif; wp_reset_postdata(); ?>
                 </div>
             </div>

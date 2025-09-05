@@ -1,4 +1,4 @@
-<?php 
+<?php
 /**
  * Greenhouseculture Slider Function
  * @since Greenhouseculture 1.0.0
@@ -19,7 +19,7 @@ $slide_id = absint($greenhouseculture_theme_options['greenhouseculture-select-ca
 		if ($slider_query->have_posts()): ?>
     <div class="container">
     <div class="modern-slider" data-slick='<?php echo $slick_args_encoded; ?>'>
-        <?php while ($slider_query->have_posts()) : $slider_query->the_post(); 
+        <?php while ($slider_query->have_posts()) : $slider_query->the_post();
           if(has_post_thumbnail()){
           $image_id = get_post_thumbnail_id();
           $image_url = wp_get_attachment_image_src( $image_id,'',true );
@@ -31,7 +31,7 @@ $slide_id = absint($greenhouseculture_theme_options['greenhouseculture-select-ca
             </div>
             <div class="col-md-5">
               <div class="caption">
-                    <?php 
+                    <?php
                           $categories = get_the_category();
                           if ( ! empty( $categories ) ) {
                             echo '<a class="s-cat" href="'.esc_url( get_category_link( $categories[0]->term_id ) ).'" title="Lifestyle">'.esc_html( $categories[0]->name ).'</a>';
@@ -51,7 +51,7 @@ $slide_id = absint($greenhouseculture_theme_options['greenhouseculture-select-ca
                     </div>
               </div>
             </div>
-            
+
           </div>
         </div>
         <?php } endwhile;

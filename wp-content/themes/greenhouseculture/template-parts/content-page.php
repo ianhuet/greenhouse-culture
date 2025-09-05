@@ -22,9 +22,9 @@ $image_option = absint($greenhouseculture_theme_options['greenhouseculture-singl
             <?php the_title('<h1 class="post-title entry-title">', '</h1>'); ?>
             <div class="post-excerpt entry-content">
                 <?php
-                
+
                 the_content();
-                
+
                 wp_link_pages(array(
                     'before' => '<div class="page-links">' . esc_html__('Pages:', 'greenhouseculture'),
                     'after' => '</div>',

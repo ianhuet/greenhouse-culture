@@ -35,7 +35,7 @@ $enable_social = absint($greenhouseculture_theme_options['greenhouseculture_enab
 							</div>
 						</nav><!-- .top-nav -->
 					<?php } ?>
-					
+
 					<?php if( $enable_social == 1 ){ ?>
 						<div class="right-side">
 							<div class="social-links">
@@ -51,7 +51,7 @@ $enable_social = absint($greenhouseculture_theme_options['greenhouseculture_enab
 					<?php } ?>
 				</div>
 			</section>
-			<?php } ?>		
+			<?php } ?>
 	<?php $header_image = esc_url(get_header_image());
 	$header_class = ($header_image == "") ? '' : 'header-image';
 	?>
@@ -79,7 +79,7 @@ $enable_social = absint($greenhouseculture_theme_options['greenhouseculture_enab
 		</div>
 	</div>
 	<div class="menu-area">
-		<div class="container">					
+		<div class="container">
 			<nav id="site-navigation">
 				<!-- Hamburger menu and search removed -->
 

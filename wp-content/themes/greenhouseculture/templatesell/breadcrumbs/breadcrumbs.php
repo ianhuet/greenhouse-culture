@@ -62,7 +62,7 @@ class Greenhouseculture_Breadcrumb_Trail {
      * Arguments used to build the breadcrumb trail.
      *
      * @since  0.1.0
-     * @access public 
+     * @access public
      * @var    array
      */
     public $args = array();
