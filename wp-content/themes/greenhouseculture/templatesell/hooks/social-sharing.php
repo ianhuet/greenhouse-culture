@@ -13,13 +13,13 @@ if (!function_exists('greenhouseculture_social_sharing')) :
         $greenhouseculture_url = get_the_permalink($post_id);
         $greenhouseculture_title = get_the_title($post_id);
         $greenhouseculture_image = get_the_post_thumbnail_url($post_id);
-        
+
         //sharing url
         $greenhouseculture_twitter_sharing_url = esc_url('http://twitter.com/share?text=' . $greenhouseculture_title . '&url=' . $greenhouseculture_url);
         $greenhouseculture_facebook_sharing_url = esc_url('https://www.facebook.com/sharer/sharer.php?u=' . $greenhouseculture_url);
         $greenhouseculture_pinterest_sharing_url = esc_url('http://pinterest.com/pin/create/button/?url=' . $greenhouseculture_url . '&media=' . $greenhouseculture_image . '&description=' . $greenhouseculture_title);
         $greenhouseculture_linkedin_sharing_url = esc_url('http://www.linkedin.com/shareArticle?mini=true&title=' . $greenhouseculture_title . '&url=' . $greenhouseculture_url);
-        
+
         ?>
         <div class="meta_bottom">
             <div class="post-share">

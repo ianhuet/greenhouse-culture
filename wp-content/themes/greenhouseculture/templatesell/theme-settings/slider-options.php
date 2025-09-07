@@ -32,7 +32,7 @@ $wp_customize->add_setting( 'greenhouseculture_options[greenhouseculture_enable_
 ) );
 
 $wp_customize->add_control(
-    'greenhouseculture_options[greenhouseculture_enable_slider]', 
+    'greenhouseculture_options[greenhouseculture_enable_slider]',
     array(
        'label'     => __( 'Enable Slider', 'greenhouseculture' ),
        'description' => __('You can select the category for the slider below. More Options are available on premium version.', 'greenhouseculture'),
@@ -41,7 +41,7 @@ $wp_customize->add_control(
         'type'      => 'checkbox',
        'priority'  => 15,
    )
- );        
+ );
 
 /*Slider Category Selection*/
 $wp_customize->add_setting( 'greenhouseculture_options[greenhouseculture-select-category]', array(

@@ -7,7 +7,7 @@
  * @package Greenhouseculture
  */
 if (!function_exists('greenhouseculture_add_main_header')) :
-    
+
     /**
      * Add main header.
      *
@@ -15,7 +15,7 @@ if (!function_exists('greenhouseculture_add_main_header')) :
      */
     function greenhouseculture_add_main_header()
     {
-        get_template_part('template-parts/sections/header', 'section');        
+        get_template_part('template-parts/sections/header', 'section');
     }
 endif;
 add_action('greenhouseculture_action_header', 'greenhouseculture_add_main_header', 10);
@@ -28,7 +28,7 @@ add_action('greenhouseculture_action_header', 'greenhouseculture_add_main_header
  * @package Greenhouseculture
  */
 if (!function_exists('greenhouseculture_add_main_slider')) :
-    
+
     /**
      * Add main slider.
      *
@@ -36,7 +36,7 @@ if (!function_exists('greenhouseculture_add_main_slider')) :
      */
     function greenhouseculture_add_main_slider()
     {
-        
+
         get_template_part('template-parts/sections/slider', 'section');
     }
 endif;
@@ -50,15 +50,15 @@ add_action('greenhouseculture_action_slider', 'greenhouseculture_add_main_slider
  * @package Greenhouseculture
  */
 if (!function_exists('greenhouseculture_boxes_section')) :
-    
+
     /**
      * Add main slider.
      *
      * @since 1.0.0
      */
     function greenhouseculture_boxes_section()
-    {       
-        
+    {
+
         get_template_part('template-parts/sections/boxes', 'section');
     }
 endif;
@@ -77,7 +77,7 @@ if( !function_exists( 'greenhouseculture_blog_sidebar_position_array' ) ) :
             'no-sidebar'  => esc_url(get_template_directory_uri() . '/assets/images/no-sidebar.png'),
             'middle-column'  => esc_url(get_template_directory_uri() . '/assets/images/middle-content.png'),
         );
-        
+
         return $sidebar_positions;
 
     }
@@ -97,7 +97,7 @@ if( !function_exists( 'greenhouseculture_sidebar_position_array' ) ) :
             'single-no-sidebar'  => esc_url(get_template_directory_uri() . '/assets/images/no-sidebar.png'),
             'single-middle-column'  => esc_url(get_template_directory_uri() . '/assets/images/middle-content.png'),
         );
-        
+
         return $sidebar_positions;
 
     }

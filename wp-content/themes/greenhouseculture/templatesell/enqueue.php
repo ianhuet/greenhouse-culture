@@ -12,15 +12,15 @@ function greenhouseculture_scripts() {
     wp_enqueue_style('greenhouseculture-heading', '//fonts.googleapis.com/css?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap', array(), null);
     /*Author signature google font  */
     wp_enqueue_style('greenhouseculture-sign', '//fonts.googleapis.com/css?family=Monsieur+La+Doulaise&display=swap', array(), null);
-    
+
 	//*Font-Awesome-master*/
     wp_enqueue_style( 'font-awesome', get_template_directory_uri() . '/css/font-awesome.min.css', array(), '4.5.0' );
 
     wp_enqueue_style( 'grid-css', get_template_directory_uri() . '/css/grid.min.css', array(), '4.5.0' );
-    
+
     /*Slick CSS*/
     wp_enqueue_style( 'slick', get_template_directory_uri() . '/assets/css/slick.css', array(), '4.5.0' );
-	
+
     /*mmenu CSS*/
     wp_enqueue_style( 'offcanvas-style', get_template_directory_uri() . '/assets/css/canvi.css', array(), '4.5.0' );
 
@@ -37,9 +37,9 @@ function greenhouseculture_scripts() {
 	wp_style_add_data( 'greenhouseculture-style', 'rtl', 'replace' );
 
  $greenhouseculture_pagination_option =  esc_attr($greenhouseculture_theme_options['greenhouseculture-pagination-options']);
-    
+
     if( 'ajax' == $greenhouseculture_pagination_option )  {
-    	
+
     	wp_enqueue_script( 'greenhouseculture-custom-pagination', get_template_directory_uri() . '/assets/js/custom-infinte-pagination.js', array('jquery'), '4.6.0' );
     }
 
@@ -47,20 +47,20 @@ function greenhouseculture_scripts() {
 
 	/*Slick JS*/
     wp_enqueue_script( 'slick', get_template_directory_uri() . '/assets/js/slick.js', array('jquery'), '4.6.0' );
-    
+
     /*mmenu JS*/
     $canvi =  absint($greenhouseculture_theme_options['greenhouseculture_enable_offcanvas']);
     if( 1  == $canvi )  {
         wp_enqueue_script( 'offcanvas-script', get_template_directory_uri() . '/assets/js/canvi.js', array('jquery'), '4.6.0' );
         wp_enqueue_script( 'offcanvas-custom', get_template_directory_uri() . '/assets/js/canvi-custom.js', array('jquery'), '4.6.0' );
     }
-    
+
     /*Custom Script JS*/
 	wp_enqueue_script( 'greenhouseculture-script', get_template_directory_uri() . '/assets/js/script.js', array(), '20200412', true );
-    
+
 	/*Custom Scripts*/
 	wp_enqueue_script( 'greenhouseculture-custom', get_template_directory_uri() . '/assets/js/custom.js', array(), '20200412', true );
-    
+
 	global $wp_query;
     $paged = ( get_query_var( 'paged' ) > 1 ) ? get_query_var( 'paged' ) : 1;
     $max_num_pages = $wp_query->max_num_pages;

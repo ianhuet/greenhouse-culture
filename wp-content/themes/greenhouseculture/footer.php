@@ -19,7 +19,7 @@ if ( is_active_sidebar('footer-1') || is_active_sidebar('footer-2') || is_active
 			$count++;
 		}
 	}
-	
+
 	$footer_col= 4;
 	if( $count == 4 )
 	{

@@ -56,10 +56,10 @@ if (!class_exists('Greenhouseculture_Featured_Post')) :
                 'ignore_sticky_posts' => true
             );
 
-          
+
             $i = 1;
             $query = new WP_Query($query_args);
-            ?> 
+            ?>
             <ul class="list-unstyled">
             <?php
             if ($query->have_posts()) :
@@ -113,7 +113,7 @@ if (!class_exists('Greenhouseculture_Featured_Post')) :
         public function form($instance)
         {
             $instance  = wp_parse_args( (array )$instance, $this->defaults() );
-            
+
             ?>
             <p>
                 <label

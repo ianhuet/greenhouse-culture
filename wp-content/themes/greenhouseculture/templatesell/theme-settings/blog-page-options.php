@@ -41,7 +41,7 @@ $wp_customize->add_control('greenhouseculture_options[greenhouseculture-column-b
     'choices' => array(
         'one-column' => __('Single Layout', 'greenhouseculture'),
         'masonry-post' => __('Masonry Layout', 'greenhouseculture'),
-    
+
     ),
     'label' => __('Blog Layout Options', 'greenhouseculture'),
     'description' => __('Change your blog or archive page layout.', 'greenhouseculture'),
@@ -65,7 +65,7 @@ $wp_customize->add_control('greenhouseculture_options[greenhouseculture-image-la
         'full-image' => __('Full Image', 'greenhouseculture'),
         'left-image' => __('Left Image', 'greenhouseculture'),
         'right-image' => __('Right Image', 'greenhouseculture'),
-    
+
     ),
     'label' => __('Blog Page Layout', 'greenhouseculture'),
     'description' => __('This will work only on Full layout Option', 'greenhouseculture'),

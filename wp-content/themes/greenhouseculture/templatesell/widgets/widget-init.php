@@ -14,7 +14,7 @@ if ( ! function_exists( 'greenhouseculture_load_widgets' ) ) :
 
         // Author Widget.
         register_widget( 'Greenhouseculture_Author_Widget' );
-		
+
 		// Social Widget.
         register_widget( 'Greenhouseculture_Social_Widget' );
     }

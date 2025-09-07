@@ -18,7 +18,7 @@ get_header();
         <div class="row">
 			<div id="primary" class="col-md-12 content-area">
 				<main id="main" class="site-main">
-					
+
 				<?php
 
 				if ( have_posts() ) :
@@ -32,7 +32,7 @@ get_header();
 					endif;
 
 					/* Masonry Start Section */
-					do_action('greenhouseculture_masonry_start_hook'); 
+					do_action('greenhouseculture_masonry_start_hook');
 
 					/* Start the Loop */
 					while ( have_posts() ) :
@@ -49,7 +49,7 @@ get_header();
 					endwhile;
 
 					/* Masonry end Section */
-					do_action('greenhouseculture_masonry_end_hook'); 
+					do_action('greenhouseculture_masonry_end_hook');
 
 					/**
 		             * greenhouseculture_action_navigation hook
@@ -66,7 +66,7 @@ get_header();
 
 				endif;
 				?>
-			
+
 				</main><!-- #main -->
 			</div><!-- #primary -->
 		</div>

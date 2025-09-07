@@ -16,9 +16,6 @@
 .env.development
 
 !.github/
-!.gitignore
-!docker-compose.yml
-!README.md
 
 # Environment files (actual credentials)
 .env
@@ -27,9 +24,17 @@
 backup/
 docs/
 
+!.gitignore
+!.prettierrc
 !apache-wordpress.conf
-!Dockerfile
+!docker-compose.yml
 !docker-entrypoint-ssl.sh
+!Dockerfile
+!eslint.config.js
+!lint-php.sh
+!package-lock.json
+!package.json
+!README.md
 !wp-config-ssl.php
 
 !wp-content/
