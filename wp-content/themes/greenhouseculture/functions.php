@@ -41,7 +41,7 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
 		 * @link https://developer.wordpress.org/themes/functionality/featured-images-post-thumbnails/
 		 */
 		add_theme_support( 'post-thumbnails' );
-		
+
 
 		// This theme uses wp_nav_menu() in one location.
 		register_nav_menus( array(
@@ -125,11 +125,11 @@ if ( ! function_exists( 'greenhouseculture_setup' ) ) :
          *
          * @link https://developer.wordpress.org/reference/functions/add_image_size/
          */
-        
-        add_image_size('greenhouseculture-thumbnail-size', 800, 800, true); 
-        add_image_size('greenhouseculture-related-size', 600, 400, true); 
-        add_image_size('greenhouseculture-promo-post', 800, 500, true); 
-        add_image_size('greenhouseculture-related-post-thumbnails', 850, 550, true ); 
+
+        add_image_size('greenhouseculture-thumbnail-size', 800, 800, true);
+        add_image_size('greenhouseculture-related-size', 600, 400, true);
+        add_image_size('greenhouseculture-promo-post', 800, 500, true);
+        add_image_size('greenhouseculture-related-post-thumbnails', 850, 550, true );
 
 
         // Add support for Yoast SEO Breadcrumbs.
@@ -260,7 +260,7 @@ if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
             'greenhouseculture_logo_width_option' => '700',
 
             /*Top Header*/
-            'greenhouseculture_enable_top_header'=> 0, 
+            'greenhouseculture_enable_top_header'=> 0,
             'greenhouseculture_enable_top_header_social'=> 0,
             'greenhouseculture_enable_top_header_menu'=> 0,
 
@@ -274,11 +274,11 @@ if ( !function_exists('greenhouseculture_default_theme_options_values') ) :
             /*Slider Options*/
             'greenhouseculture_enable_slider'      => 0,
             'greenhouseculture-select-category'    => 0,
-    
+
             /*Boxes Section */
             'greenhouseculture_enable_promo'       => 0,
             'greenhouseculture-promo-select-category'=> 0,
-            
+
             /*Blog Page*/
             'greenhouseculture-sidebar-blog-page' => 'no-sidebar',
             'greenhouseculture-column-blog-page'  => 'masonry-post',
@@ -326,7 +326,7 @@ function greenhouseculture_blog_enqueue_scripts() {
 
         /*google font  */
     global $greenhouseculture_theme_options;
-    $greenhouseculture_blog_name_font_url   = esc_attr( $greenhouseculture_theme_options['greenhouseculture-font-family-url'] );  
+    $greenhouseculture_blog_name_font_url   = esc_attr( $greenhouseculture_theme_options['greenhouseculture-font-family-url'] );
 
     wp_enqueue_style( 'greenhouseculture-fonts', '//fonts.googleapis.com/css?family='.$greenhouseculture_blog_name_font_url );
 }
@@ -496,18 +496,18 @@ if (!function_exists('greenhouseculture_blog_dynamic_css')) :
     function greenhouseculture_blog_dynamic_css()
     {
         global $greenhouseculture_theme_options;
-        $greenhouseculture_blog_google_fonts = greenhouseculture_blog_google_fonts(); 
-        $greenhouseculture_font_family = $greenhouseculture_theme_options['greenhouseculture-font-family-url'];       
+        $greenhouseculture_blog_google_fonts = greenhouseculture_blog_google_fonts();
+        $greenhouseculture_font_family = $greenhouseculture_theme_options['greenhouseculture-font-family-url'];
         /* Paragraph Font Options */
         $greenhouseculture_font_body_family = esc_attr($greenhouseculture_blog_google_fonts[$greenhouseculture_font_family] );
 
         $custom_css = '';
-        //Paragraph Font Options 
+        //Paragraph Font Options
         if (!empty($greenhouseculture_font_body_family)) {
             $custom_css .= "
             body,
-            .entry-content p{ 
-                font-family:".$greenhouseculture_font_body_family."; 
+            .entry-content p{
+                font-family:".$greenhouseculture_font_body_family.";
             }";
         }
 
@@ -520,3 +520,115 @@ add_action('wp_enqueue_scripts', 'greenhouseculture_blog_dynamic_css', 99);
  * Load Block Pattern
  */
 require get_template_directory() . '/block-pattern.php';
+
+/**
+ * Register Events Custom Post Type
+ */
+function greenhouseculture_register_events_post_type() {
+    register_post_type('event', array(
+        'labels' => array(
+            'name' => 'Events',
+            'singular_name' => 'Event',
+            'add_new' => 'Add New Event',
+            'add_new_item' => 'Add New Event',
+            'edit_item' => 'Edit Event',
+            'new_item' => 'New Event',
+            'view_item' => 'View Event',
+            'search_items' => 'Search Events',
+            'not_found' => 'No events found',
+            'not_found_in_trash' => 'No events found in trash'
+        ),
+        'public' => true,
+        'has_archive' => true,
+        'rewrite' => array('slug' => 'events'),
+        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'menu_icon' => 'dashicons-calendar-alt',
+        'show_in_rest' => true
+    ));
+}
+add_action('init', 'greenhouseculture_register_events_post_type');
+
+/**
+ * Register Event Categories Taxonomy
+ */
+function greenhouseculture_register_event_taxonomy() {
+    register_taxonomy('event_category', 'event', array(
+        'labels' => array(
+            'name' => 'Event Categories',
+            'singular_name' => 'Event Category',
+            'add_new_item' => 'Add New Event Category',
+            'edit_item' => 'Edit Event Category',
+            'view_item' => 'View Event Category',
+            'search_items' => 'Search Event Categories'
+        ),
+        'hierarchical' => true,
+        'public' => true,
+        'show_admin_column' => true,
+        'show_in_rest' => true,
+        'rewrite' => array('slug' => 'event-category')
+    ));
+}
+add_action('init', 'greenhouseculture_register_event_taxonomy');
+
+/**
+ * Add Event Meta Box
+ */
+function greenhouseculture_add_event_meta_box() {
+    add_meta_box(
+        'event_details',
+        'Event Details',
+        'greenhouseculture_event_meta_box_callback',
+        'event',
+        'normal',
+        'high'
+    );
+}
+add_action('add_meta_boxes', 'greenhouseculture_add_event_meta_box');
+
+/**
+ * Event Meta Box Callback
+ */
+function greenhouseculture_event_meta_box_callback($post) {
+    wp_nonce_field('greenhouseculture_save_event_meta', 'event_meta_nonce');
+    
+    $event_date = get_post_meta($post->ID, '_event_date', true);
+    $event_time = get_post_meta($post->ID, '_event_time', true);
+    $event_location = get_post_meta($post->ID, '_event_location', true);
+    
+    echo '<table>';
+    echo '<tr><td><label for="event_date">Event Date:</label></td>';
+    echo '<td><input type="date" id="event_date" name="event_date" value="' . esc_attr($event_date) . '" /></td></tr>';
+    echo '<tr><td><label for="event_time">Event Time:</label></td>';
+    echo '<td><input type="time" id="event_time" name="event_time" value="' . esc_attr($event_time) . '" /></td></tr>';
+    echo '<tr><td><label for="event_location">Location:</label></td>';
+    echo '<td><input type="text" id="event_location" name="event_location" value="' . esc_attr($event_location) . '" /></td></tr>';
+    echo '</table>';
+}
+
+/**
+ * Save Event Meta
+ */
+function greenhouseculture_save_event_meta($post_id) {
+    if (!isset($_POST['event_meta_nonce']) || !wp_verify_nonce($_POST['event_meta_nonce'], 'greenhouseculture_save_event_meta')) {
+        return;
+    }
+    
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+        return;
+    }
+    
+    if (!current_user_can('edit_post', $post_id)) {
+        return;
+    }
+    
+    if (isset($_POST['event_date'])) {
+        update_post_meta($post_id, '_event_date', sanitize_text_field($_POST['event_date']));
+    }
+    if (isset($_POST['event_time'])) {
+        update_post_meta($post_id, '_event_time', sanitize_text_field($_POST['event_time']));
+    }
+    if (isset($_POST['event_location'])) {
+        update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
+    }
+}
+add_action('save_post', 'greenhouseculture_save_event_meta');

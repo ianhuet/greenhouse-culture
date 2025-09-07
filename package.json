@@ -1,0 +1,26 @@
+{
+  "name": "greenhouse-culture",
+  "version": "1.0.0",
+  "description": "- Cross-Platform, Free, Git-Friendly Themes + Custom Plugins Development",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "format:php:dry-run": "./format-php.sh --dry-run",
+    "lint:js": "eslint wp-content/themes/greenhouseculture/**/*.js --fix",
+    "lint:js:dry-run": "eslint wp-content/themes/greenhouseculture/**/*.js",
+    "lint:php": "./lint-php.sh && ./format-php.sh",
+    "lint": "npm run lint:js && npm run lint:php",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@wordpress/eslint-plugin": "^22.16.0",
+    "eslint": "^9.35.0",
+    "eslint-config-prettier": "^10.1.8",
+    "eslint-plugin-php": "^0.1.0",
+    "eslint-plugin-prettier": "^5.5.4",
+    "prettier": "^3.6.2"
+  }
+}

@@ -9,10 +9,10 @@
  *
  */
 if (!function_exists('greenhouseculture_related_post')) :
-    
+
     function greenhouseculture_related_post($post_id)
     {
-        
+
         global $greenhouseculture_theme_options;
         $title = esc_html($greenhouseculture_theme_options['greenhouseculture-single-page-related-posts-title']);
         if (0 == $greenhouseculture_theme_options['greenhouseculture-single-page-related-posts']) {
@@ -44,7 +44,7 @@ if (!function_exists('greenhouseculture_related_post')) :
                             'ignore_sticky_posts' => true
                         );
                         $greenhouseculture_featured_query = new WP_Query($greenhouseculture_cat_post_args);
-                        
+
                         while ($greenhouseculture_featured_query->have_posts()) : $greenhouseculture_featured_query->the_post();
                             ?>
                             <div class="show-2-related-posts">
@@ -62,7 +62,7 @@ if (!function_exists('greenhouseculture_related_post')) :
                                     ?>
                                     <div class="post-content">
                                         <h2 class="post-title entry-title"><a
-                                                    href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>                                      
+                                                    href="<?php the_permalink() ?>"><?php the_title(); ?></a></h2>
                                             <div class="post-date">
                                                 <?php echo get_the_date(); ?>
                                             </div>

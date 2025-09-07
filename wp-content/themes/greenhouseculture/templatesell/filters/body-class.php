@@ -11,7 +11,7 @@ function greenhouseculture_body_class($classes)
 {
     $classes[] = 'at-sticky-sidebar';
     global $greenhouseculture_theme_options;
-    
+
     if (is_singular()) {
         $sidebar = $greenhouseculture_theme_options['greenhouseculture-sidebar-single-page'];
         if ($sidebar == 'single-no-sidebar') {
@@ -24,7 +24,7 @@ function greenhouseculture_body_class($classes)
             $classes[] = 'single-right-sidebar';
         }
     }
-    
+
     // Force no-sidebar for homepage only
     if (is_home()) {
         $classes[] = 'no-sidebar';
@@ -60,7 +60,7 @@ function greenhouseculture_layout_body_class($classes)
         $classes[] = 'masonry-post';
     } else {
         $classes[] = 'one-column';
-    }    
+    }
     return $classes;
 }
 

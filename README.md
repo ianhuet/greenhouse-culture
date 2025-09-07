@@ -1,4 +1,4 @@
-# WordPress Local Development Setup
+1# WordPress Local Development Setup
 - Cross-Platform, Free, Git-Friendly Themes + Custom Plugins Development
 
 ## Prerequisites
@@ -29,13 +29,13 @@ cd greenhouse-culture
 - Create `.env` file in project root
 - Add database credentials, provided separately
 
-# 6. Start Docker container
+### 6. Start Docker container
 - First, ensure Docker Desktop is running
 ```
 docker-compose up -d
 ```
 
-# 7. Access your site
+### 7. Access your site
 - WordPress: http://localhost:8000
 - Admin login, provided separately: http://localhost:8000/wp-admin
 
@@ -90,6 +90,30 @@ The `.gitignore` file is pre-configured to:
 1. Install via WordPress admin panel
 2. They persist in Docker volume
 3. Not tracked in Git (unless you modify `.gitignore`)
+
+### Code Linting
+The project includes automated linting for JavaScript and PHP files:
+
+**JavaScript (ESLint)**
+```bash
+npm run lint        # Check JS files
+npm run lint:fix    # Auto-fix JS issues
+```
+
+**PHP Linting & Formatting**
+```bash
+npm run lint:php       # Check PHP files for syntax issues
+npm run format:php     # Preview PHP formatting changes
+npm run format:php:fix # Apply PHP formatting fixes
+```
+
+**Combined**
+```bash
+npm run lint:all    # Check both JS and PHP files
+npm run format:all  # Fix formatting for both JS and PHP
+```
+
+The linting checks for syntax errors, coding standards, and common issues. PHP formatting removes trailing whitespace, fixes spacing, and ensures consistent code style while preserving WordPress conventions.
 
 ## Production Deployment
 ** This setup is for local development only.
