@@ -14,10 +14,12 @@ require_once plugin_dir_path(__FILE__) . 'includes/ambassador-functions.php';
 register_activation_hook(__FILE__, 'ghc_create_ambassador_role');
 register_deactivation_hook(__FILE__, 'ghc_remove_ambassador_role');
 
-add_action('show_user_profile', 'ghc_add_user_profile_fields');
-add_action('edit_user_profile', 'ghc_add_user_profile_fields');
-add_action('personal_options_update', 'ghc_save_user_profile_fields');
-add_action('edit_user_profile_update', 'ghc_save_user_profile_fields');
+add_action('init', function() {
+  add_action('show_user_profile', 'ghc_add_user_profile_fields');
+  add_action('edit_user_profile', 'ghc_add_user_profile_fields');
+  add_action('personal_options_update', 'ghc_save_user_profile_fields');
+  add_action('edit_user_profile_update', 'ghc_save_user_profile_fields');
+});
 
 add_action('wp_ajax_ghc_geocode', 'ghc_handle_geocode_ajax');
 
@@ -38,7 +40,7 @@ if ( ! function_exists('ghc_enqueue_leaflet_and_cluster') ) {
 
 add_shortcode('ambassador_map', function () {
   $rows = ghc_get_ambassador_data_rows();
-  $chips_html = ghc_get_ambassador_terms_html();
+  $tags_html = ghc_get_ambassador_tags_html();
   
   $svg_data = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="52" viewBox="0 0 36 52"><path d="M18 0c9.94 0 18 8.06 18 18 0 12.61-14.03 27.28-17.32 31a1 1 0 0 1-1.36 0C14.03 45.28 0 30.61 0 18 0 8.06 8.06 0 18 0z" fill="%236bb766"/><circle cx="18" cy="18" r="7" fill="white"/></svg>';
 
@@ -47,5 +49,5 @@ add_shortcode('ambassador_map', function () {
     'iconUrl' => $svg_data
   ]);
 
-  return ghc_render_ambassador_map_html($chips_html);
+  return ghc_render_ambassador_map_html($tags_html);
 });
