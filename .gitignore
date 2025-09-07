@@ -44,7 +44,6 @@ wp-content/.DS_Store
 wp-content/debug.log
 wp-content/languages
 wp-content/mu-plugins
-wp-content/plugins
 wp-content/upgrade
 wp-content/uploads
 wp-content/wflogs
@@ -52,5 +51,5 @@ wp-content/wflogs
 wp-content/themes/*
 !wp-content/themes/greenhouseculture
 
-!wp-content/plugins/contributor-bio-block
-!wp-content/plugins/members-map
+wp-content/plugins/*
+!wp-content/plugins/ambassador-map
