@@ -1,3 +1,13 @@
+.ambassadors-map {
+	--ink: #152219;
+	--leaf-100: #eaf6e5;
+	--leaf-200: #d8efd2;
+	--leaf-50: #f5fbf2;
+	--leaf-600: #6bb766;
+	--line: #cfe6c9;
+	--muted: #667b6c;
+}
+
 .amb-wrap {
 	--leaf-50: #f5fbf2;
 	--leaf-100: #eaf6e5;
