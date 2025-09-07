@@ -20,6 +20,7 @@ function ghc_add_user_profile_fields($user) {
   
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
+  $address = get_user_meta($user->ID, 'ambassador_address', true);
   $ambassador_bio = get_user_meta($user->ID, 'ambassador_bio', true);
   $ambassador_tags = get_user_meta($user->ID, 'ambassador_tags', true);
   $tags_string = is_array($ambassador_tags) ? implode(', ', $ambassador_tags) : '';
@@ -34,17 +35,26 @@ function ghc_add_user_profile_fields($user) {
       </td>
     </tr>
     <tr>
+      <th><label for="ambassador_address">Address</label></th>
+      <td>
+        <input type="text" name="ambassador_address" id="ambassador_address" value="<?php echo esc_attr($address); ?>" placeholder="e.g., 123 Main St, Dublin, Ireland" style="width: 400px;" />
+        <button type="button" id="geocode_address" class="button" style="margin-left: 10px;">Look up coordinates</button>
+        <p class="description">Enter your address and click "Look up coordinates" to auto-populate latitude/longitude</p>
+        <div id="geocode_status" style="margin-top: 5px;"></div>
+      </td>
+    </tr>
+    <tr>
       <th><label for="latitude">Latitude</label></th>
       <td>
         <input type="text" name="latitude" id="latitude" value="<?php echo esc_attr($latitude); ?>" placeholder="e.g., 53.3498" />
-        <p class="description">Required for map display</p>
+        <p class="description">Required for map display (auto-populated from address lookup)</p>
       </td>
     </tr>
     <tr>
       <th><label for="longitude">Longitude</label></th>
       <td>
         <input type="text" name="longitude" id="longitude" value="<?php echo esc_attr($longitude); ?>" placeholder="e.g., -6.2603" />
-        <p class="description">Required for map display</p>
+        <p class="description">Required for map display (auto-populated from address lookup)</p>
       </td>
     </tr>
     <tr>
@@ -55,13 +65,59 @@ function ghc_add_user_profile_fields($user) {
       </td>
     </tr>
   </table>
-  <p><em>Use <a href="https://www.latlong.net/" target="_blank">LatLong.net</a> to find coordinates.</em></p>
+  <p><em>Use the address lookup above or <a href="https://www.latlong.net/" target="_blank">LatLong.net</a> to find coordinates.</em></p>
+  
+  <script>
+  jQuery(document).ready(function($) {
+    $('#geocode_address').on('click', function() {
+      var address = $('#ambassador_address').val();
+      var statusDiv = $('#geocode_status');
+      
+      if (!address) {
+        statusDiv.html('<span style="color: red;">Please enter an address first.</span>');
+        return;
+      }
+      
+      $(this).prop('disabled', true).text('Looking up...');
+      statusDiv.html('<span style="color: blue;">Searching for coordinates...</span>');
+      
+      $.ajax({
+        url: ajaxurl,
+        type: 'POST',
+        data: {
+          action: 'ghc_geocode',
+          address: address,
+          nonce: '<?php echo wp_create_nonce('ghc_geocode_nonce'); ?>'
+        },
+        success: function(response) {
+          if (response.success) {
+            $('#latitude').val(response.data.latitude);
+            $('#longitude').val(response.data.longitude);
+            statusDiv.html('<span style="color: green;">✓ Coordinates found: ' + response.data.display_name + '</span>');
+          } else {
+            statusDiv.html('<span style="color: red;">Error: ' + response.data.message + '</span>');
+          }
+        },
+        error: function() {
+          statusDiv.html('<span style="color: red;">Error: Failed to connect to geocoding service.</span>');
+        },
+        complete: function() {
+          $('#geocode_address').prop('disabled', false).text('Look up coordinates');
+        }
+      });
+    });
+  });
+  </script>
   <?php
 }
 
 function ghc_save_user_profile_fields($user_id) {
   if (!current_user_can('edit_user', $user_id)) {
     return;
+  }
+  
+  if (isset($_POST['ambassador_address'])) {
+    update_user_meta($user_id, 'ambassador_address', sanitize_text_field($_POST['ambassador_address']));
   }
   
   if (isset($_POST['latitude'])) {
@@ -207,6 +263,69 @@ function ghc_get_ambassador_terms_html() {
   }
   
   return $chips_html;
+}
+
+function ghc_geocode_address($address) {
+  if (empty($address)) {
+    return ['error' => 'Address is required'];
+  }
+  
+  $api_url = 'https://nominatim.openstreetmap.org/search';
+  $params = [
+    'format' => 'json',
+    'q' => $address,
+    'limit' => 1,
+    'addressdetails' => 1
+  ];
+  
+  $request_url = add_query_arg($params, $api_url);
+  
+  $response = wp_remote_get($request_url, [
+    'timeout' => 10,
+    'user-agent' => 'WordPress Ambassador Plugin/1.0 (' . home_url() . ')'
+  ]);
+  
+  if (is_wp_error($response)) {
+    return ['error' => 'Failed to connect to geocoding service'];
+  }
+  
+  $body = wp_remote_retrieve_body($response);
+  $data = json_decode($body, true);
+  
+  if (empty($data)) {
+    return ['error' => 'Address not found'];
+  }
+  
+  $result = $data[0];
+  
+  return [
+    'success' => true,
+    'latitude' => $result['lat'],
+    'longitude' => $result['lon'],
+    'display_name' => $result['display_name']
+  ];
+}
+
+function ghc_handle_geocode_ajax() {
+  check_ajax_referer('ghc_geocode_nonce', 'nonce');
+  
+  if (!current_user_can('edit_users')) {
+    wp_die('Permission denied');
+  }
+  
+  $address = sanitize_text_field($_POST['address'] ?? '');
+  
+  if (empty($address)) {
+    wp_send_json_error(['message' => 'Address is required']);
+  }
+  
+  $result = ghc_geocode_address($address);
+  
+  if (isset($result['error'])) {
+    wp_send_json_error(['message' => $result['error']]);
+  }
+  
+  wp_send_json_success($result);
 }
 
 function ghc_render_ambassador_map_html($chips_html) {
