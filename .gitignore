@@ -45,6 +45,7 @@ wp-content/debug.log
 wp-content/languages
 wp-content/mu-plugins
 wp-content/upgrade
+wp-content/upgrade-temp-backup
 wp-content/uploads
 wp-content/wflogs
 

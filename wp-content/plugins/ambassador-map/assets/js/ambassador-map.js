@@ -7,11 +7,11 @@ document.addEventListener('DOMContentLoaded', function () {
 
   function applyFilters() {
     var term = (searchEl.value || '').trim().toLowerCase();
-    var anyFilter = term.length || activeTags.size;
+    var anyFilter = !!term.length || !!activeTags.size;
     cluster.clearLayers();
     var matched = [];
 
-    all.forEach(function (o) {
+    allResults.forEach(function (o) {
       var textMatch = !term || o.text.includes(term);
       var tagMatch = !activeTags.size || o.terms.some(s => activeTags.has(s));
 
@@ -28,12 +28,25 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       fitAll();
     }
+
+    anyFilter
+      ? panelEl.classList.add('show')
+      : panelEl.classList.remove('show');
+
+    renderList(anyFilter ? matched : allResults);
   }
   function fitAll() {
     if (cluster.getLayers().length) {
       var b = cluster.getBounds();
       if (b.isValid()) map.fitBounds(b, {padding: [28, 28]});
     }
+  }
+  function renderList(items) {
+    countEl.textContent = items.length;
+
+    listEl.innerHTML =
+      items.map(m => m.card).join('') ||
+      '<div class="ambResultPanel__list_noResult">No results.</div>';
   }
 
   var map = L.map('ambassadors-map', {scrollWheelZoom: true}).setView(
@@ -58,23 +71,28 @@ document.addEventListener('DOMContentLoaded', function () {
     spiderfyOnMaxZoom: true,
   });
 
-  var all = [];
-  var rows = window.ambassadorMapData.rows;
-  var tagsBox = document.getElementById('amb-tags');
-  var clearBtn = document.getElementById('amb-clear');
-  var searchEl = document.getElementById('amb-search');
+  var allResults = [];
   var activeTags = new Set();
+  var rows = window.ambassadorMapData.rows;
+
+  var countEl = document.getElementById('amb-count');
+  var clearBtn = document.getElementById('amb-clear');
+  var listEl = document.getElementById('amb-list');
+  var panelEl = document.getElementById('amb-panel');
+  var searchEl = document.getElementById('amb-search');
+  var tagsBox = document.getElementById('amb-tags');
 
   rows.forEach(function (item) {
     var marker = L.marker([parseFloat(item.lat), parseFloat(item.lng)], {
       title: item.title || '',
       icon: greenIcon,
     }).bindPopup(item.html || '<strong>' + (item.title || '') + '</strong>', {
-      maxWidth: 380,
       className: 'amb-leaflet-popup',
+      maxWidth: 380,
     });
     cluster.addLayer(marker);
-    all.push({
+
+    allResults.push({
       card: item.card,
       id: item.id,
       marker: marker,
@@ -84,8 +102,6 @@ document.addEventListener('DOMContentLoaded', function () {
   });
   map.addLayer(cluster);
   fitAll();
-
-  searchEl.addEventListener('input', applyFilters);
 
   if (tagsBox) {
     tagsBox.addEventListener('click', function (e) {
@@ -102,6 +118,8 @@ document.addEventListener('DOMContentLoaded', function () {
     });
   }
 
+  searchEl.addEventListener('input', applyFilters);
+
   clearBtn.addEventListener('click', function () {
     searchEl.value = '';
     activeTags.clear();
@@ -112,6 +130,18 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     applyFilters();
+  });
+
+  listEl.addEventListener('click', function (e) {
+    var row = e.target.closest('[data-id]');
+    if (!row) return;
+
+    var id = parseInt(row.getAttribute('data-id'), 10);
+    var m = allResults.find(x => x.id === id);
+    if (!m) return;
+
+    map.setView(m.marker.getLatLng(), 13, {animate: true});
+    setTimeout(() => m.marker.openPopup(), 200);
   });
 
   setTimeout(() => map.invalidateSize(), 250);
