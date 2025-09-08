@@ -209,35 +209,35 @@ function ghc_handle_geocode_ajax() {
 
 // UI: Amabassador Map
 
-function ghc_get_ambassador_popup_html($title, $content, $image_url, $tags = []) {
-  $profile_image = '';
-  if ($image_url) {
-    $profile_image = '<div class="ambPopupBody__image"><img src="'.esc_url($image_url).'" alt="'.esc_attr($title).'"></div>';
-  }
-
-  $formatted_content = nl2br(esc_html($content));
-
-  $tags_html = '';
-  if (is_array($tags) && !empty($tags)) {
-    foreach ($tags as $tag) {
-      $slug = sanitize_title($tag);
-      $tags_html .= '<span class="ambTagsBox__tag" data-term="'.esc_attr($slug).'" id="amb-tag">'.esc_html($tag).'</span>';
+function ghc_get_ambassador_unique_tags() {
+  $ambassadors = get_users(['role' => 'ambassador']);
+  $all_tags = [];
+  
+  foreach ($ambassadors as $user) {
+    $user_tags = get_user_meta($user->ID, 'ambassador_tags', true);
+    if ($user_tags && is_array($user_tags)) {
+      $user_tags = array_map('strtolower', $user_tags);
+      $all_tags = array_merge($all_tags, $user_tags);
     }
   }
-
-  $escaped_title = esc_html($title);
   
+  return array_unique($all_tags);
+}
+
+function ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tags = []) {
+  $row_id = esc_attr($id);
+  $escaped_title = esc_html($title);
+  $profile_img = ghc_get_ambassador_image_html($title, $img_url);
+  $tags_list = join(', ', $tags);
+
   return <<<HTML
-    <div class="ambPopup">
-      <h3 class="ambPopup__title">{$escaped_title}</h3>
+    <div class="ambResultPanel__list__row" data-id="{$row_id}">
+      {$profile_img}
 
-      <div class="ambPopup__body">
-        {$profile_image}
-
-        <div class="ambPopupBody__content">{$formatted_content}</div>
+      <div>
+        <h4>{$escaped_title}</h4>
+        <p>{$tags_list}</p>
       </div>
-
-      <div class="ambPopup__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
     </div>
 HTML;
 }
@@ -266,15 +266,18 @@ function ghc_get_ambassador_data_rows() {
     $lng = get_user_meta($user->ID, 'longitude', true);
     if (!$lat || !$lng) continue;
 
+    $id = $user->ID;
     $title = $user->display_name ?: $user->user_login;
     $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
     $img_url = get_avatar_url($user->ID, ['size' => 150]);
     $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
     $tag_slugs = array_map('sanitize_title', $tag_names);
 
+    $card = ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tag_names);
     $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $tag_names);
 
     $rows[] = [
+      'card'  => $card,
       'html'  => $popup,
       'id'    => $user->ID,
       'lat'   => $lat,
@@ -288,26 +291,50 @@ function ghc_get_ambassador_data_rows() {
   return $rows;
 }
 
-function ghc_get_ambassador_tags_html() {
-  $ambassadors = get_users(['role' => 'ambassador']);
-  $all_tags = [];
-  
-  foreach ($ambassadors as $user) {
-    $user_tags = get_user_meta($user->ID, 'ambassador_tags', true);
-    if ($user_tags && is_array($user_tags)) {
-      $all_tags = array_merge($all_tags, $user_tags);
-    }
-  }
-  
-  $unique_tags = array_unique($all_tags);
-  $tags_html = '';
+function ghc_get_ambassador_image_html($title, $img_url = '') {
+  $profile_image = '';
 
-  foreach ($unique_tags as $tag) {
-    $slug = sanitize_title($tag);
-    $tags_html .= '<span class="ambTagsBox__tag" data-term="'.esc_attr($slug).'">'.esc_html($tag).'</span>';
+  if ($img_url) {
+    $profile_image = '<img src="'.esc_url($img_url).'" alt="'.esc_attr($title).'">';
   }
-  
+
+  return $profile_image;
+}
+
+function ghc_get_ambassador_tags_html($tags = []) {
+  if (!is_array($tags) || empty($tags)) {
+    return '';
+  }
+
+  $tags_html = '<div class="ambTagsBox">';
+  foreach ($tags as $tag) {
+    $slug = sanitize_title($tag);
+    $tags_html .= '<span class="ambTagsBox__tag" data-term="'.esc_attr($slug).'" id="amb-tag">'.esc_html($tag).'</span>';
+  }
+  $tags_html .= '</div>';
+
   return $tags_html;
+}
+
+function ghc_get_ambassador_popup_html($title, $content, $img_url, $tags = []) {
+  $escaped_title = esc_html($title);
+  $formatted_content = nl2br(esc_html($content));
+  $profile_image = ghc_get_ambassador_image_html($title, $img_url);
+  $tags_html = ghc_get_ambassador_tags_html($tags);
+
+  return <<<HTML
+    <div class="ambPopup">
+      <h3 class="ambPopup__title">{$escaped_title}</h3>
+
+      <div class="ambPopup__body">
+        {$profile_image}
+
+        <div class="ambPopupBody__content">{$formatted_content}</div>
+      </div>
+
+      <div class="ambPopup__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
+    </div>
+HTML;
 }
 
 function ghc_render_ambassador_map_html($tags_html) {
@@ -322,7 +349,17 @@ function ghc_render_ambassador_map_html($tags_html) {
         <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
       </div>
 
-      <div class="ambMap" id="ambassadors-map"></div>
+      <div class="ambBody">
+        <div class="ambMap" id="ambassadors-map"></div>
+
+        <aside class="ambResultPanel" id="amb-panel">
+          <div class="ambResultPanel__header">
+            <p class="ambResultPanel__header__count"><span id="amb-count">0</span> result(s)</p>
+          </div>
+
+          <div class="ambResultPanel__list" id="amb-list"></div>
+        </aside>
+      </div>
     </div>
   HTML;
 }
