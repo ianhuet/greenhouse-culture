@@ -2318,6 +2318,164 @@ section.slider-wrapper {
     width: 100%;
 }
 
+/*** 
+====================================================================
+## Upcoming Events Section
+====================================================================
+***/
+
+/* container */
+.upcoming-events {
+  padding: 10px;
+}
+
+
+/* grid layout */
+.event-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px 0px;
+}
+
+/* responsive: tablets */
+@media (max-width: 768px) {
+    .event-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* responsive: phones */
+@media (max-width: 480px){
+    .event-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/*** 
+
+====================================================================
+## Event Cards
+====================================================================
+***/
+
+/* card wrapper */
+.event-item {
+    position: relative;
+    border-radius: 10px;
+    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    cursor: pointer;
+    height: 200px;
+    transition: transform 0.2s;
+    display: flex;
+}
+
+.event-item:hover {
+    transform: scale(1.01);
+}
+
+/* thumbnail */
+.event-thumbnail {
+    width: 100%;
+    height: 100%; /* fill the event-item container */
+    object-position: center;
+}
+
+.event-thumbnail img {
+    width: 100%;
+    height: 100%; 
+    object-fit: cover; 
+    display: block;
+    object-position: center;
+}
+
+/* content overlay */
+.event-content {
+    position: absolute;
+    color: #ffffff;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
+}
+
+.event-content h3, .event-content a {
+    color: #ffffff;
+}
+
+.entry-header h3.entry-title {
+    margin: 0;
+    padding: 0;
+}
+
+/* meta */
+.event-meta {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;                 /* small spacing between lines */
+    font-size: 0.9rem;        /* slightly smaller than title */
+    color: rgba(255,255,255,0.9);
+}
+
+.event-schedule {
+    display: flex;
+    flex-direction: row;
+    gap: 4px; /* space between date, slash, and time */
+    font-size: 0.9rem;
+    color: rgba(255,255,255,0.9);
+}
+
+.event-meta span {
+  display: flex;
+  align-items: center;
+}
+
+.event-meta strong {
+  font-weight: 600;
+  margin-right: 6px;
+  color: #fff;
+}
+
+
+/***
+====================================================================
+## Past Events
+====================================================================
+***/
+
+/* container */
+.past-events {
+    padding: 10px;
+}
+
+/* grid layout */
+.past-events-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    padding: 10px 0px;
+}
+
+/* responsive: tablets */
+@media (max-width: 768px) {
+    .past-events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+/* responsive: phones */
+@media (max-width: 480px){
+    .past-events-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
 /***
 ====================================================================
 ## Post Format
