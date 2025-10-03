@@ -27,42 +27,30 @@ get_header();
                         <h2>Upcoming Events</h2>
                         <div class="event-grid">
                             <?php
-                            $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
+                            // $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
                             $upcoming_events = new WP_Query(array(
-                                'post_type' => 'event',
-                                'posts_per_page' => 10,
-                                'paged' => $paged,
                                 'meta_key' => '_event_date',
-                                'orderby' => 'meta_value',
-                                'order' => 'ASC',
                                 'meta_query' => array(
                                     array(
+                                        'compare' => '>=',
                                         'key' => '_event_date',
-                                        'value' => date('Y-m-d'),
-                                        'compare' => '>='
+                                        'value' => date('Y-m-d')
                                     )
-                                )
+                                ),
+                                'orderby' => 'meta_value',
+                                'order' => 'ASC',
+                                'post_type' => 'event',
+                                'posts_per_page' => -1,
                             ));
 
                             if ($upcoming_events->have_posts()) :
                                 while ($upcoming_events->have_posts()) : $upcoming_events->the_post();
                                     get_template_part('template-parts/content', 'event');
                                 endwhile;
-
-                                if ($upcoming_events->max_num_pages > 1) :
-                                    echo '<div class="pagination-upcoming">';
-                                    echo paginate_links(array(
-                                        'total' => $upcoming_events->max_num_pages,
-                                        'current' => $paged,
-                                        'format' => '?paged=%#%',
-                                        'prev_text' => '‹ Previous',
-                                        'next_text' => 'Next ›'
-                                    ));
-                                    echo '</div>';
-                                endif;
                             else :
                                 echo '<p>No upcoming events found.</p>';
                             endif;
+
                             wp_reset_postdata();
                             ?>
                         </div>
