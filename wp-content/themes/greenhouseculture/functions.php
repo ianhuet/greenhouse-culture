@@ -645,3 +645,13 @@ function greenhouseculture_save_event_meta($post_id)
     }
 }
 add_action('save_post', 'greenhouseculture_save_event_meta');
+
+/**
+ * Add custom query variable for event pagination
+ */
+function greenhouseculture_add_query_vars($vars)
+{
+    $vars[] = "page_num";
+    return $vars;
+}
+add_filter("query_vars", "greenhouseculture_add_query_vars");
