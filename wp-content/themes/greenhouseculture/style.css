@@ -2475,6 +2475,36 @@ section.slider-wrapper {
     }
 }
 
+/* pagination */
+.pagination-past {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.pagination-past a,
+.pagination-past span {
+    display: inline-block;
+    padding: 8px 12px;
+    border-radius: 5px;
+    background-color: #c9c5c4; 
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background-color 0.3s;
+}
+
+.pagination-past a:hover {
+    background-color: #a39b99; /* darker shade on hover */
+}
+
+.pagination-past .current {
+    background-color: #9e9896; /* current page */
+}
+
+
+
 /***
 ====================================================================
 ## Post Format

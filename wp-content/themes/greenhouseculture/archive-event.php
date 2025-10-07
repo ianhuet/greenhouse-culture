@@ -98,24 +98,30 @@ get_header();
                             }
 
                             wp_reset_postdata();
-
-                            // pagination links 
-                            if ($max_pages > 1) {
-                                echo '<div class="pagination-past">';
-                                echo paginate_links(array(
-                                    'current' => $page_num,
-                                    'end_size' => 1,
-                                    'format' => '?page_num=%#%',
-                                    'mid_size' => 1,
-                                    'next_text' => 'Next ›',
-                                    'prev_text' => '‹ Previous',
-                                    'show_all' => false,
-                                    'total' => $max_pages,
-                                ));
-                                echo '</div>';
-                            }
                             ?>
                         </div>
+
+                        <?php
+
+                        // pagination links
+                        if ($max_pages > 1) {
+                            echo '<div class="pagination-past">';
+                            echo paginate_links(array(
+                                'current' => $page_num,
+                                'end_size' => 1,
+                                'format' => '?page_num=%#%',
+                                'mid_size' => 1,
+                                'next_text' => 'Next ›',
+                                'prev_text' => '‹ Previous',
+                                'show_all' => false,
+                                'total' => $max_pages,
+                            ));
+                            echo '</div>';
+                        }
+
+                        ?>
+
+
 
                     </section>
 
