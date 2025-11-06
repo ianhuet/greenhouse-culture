@@ -2320,160 +2320,177 @@ section.slider-wrapper {
 
 /*** 
 ====================================================================
-## Upcoming Events Section
+## Event Cards (Shared Styles)
 ====================================================================
 ***/
 
-/* container */
-.upcoming-events {
-  padding: 10px;
-}
-
-
-/* grid layout */
-.event-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 10px 0px;
-}
-
-/* responsive: tablets */
-@media (max-width: 768px) {
-    .event-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* responsive: phones */
-@media (max-width: 480px){
-    .event-grid {
-        grid-template-columns: 1fr;
-    }
-}
-
-/*** 
-====================================================================
-## Event Cards
-====================================================================
-***/
-
-/* card wrapper */
+/* Card wrapper */
 .event-item {
     position: relative;
-    border-radius: 10px;
-    box-shadow: 3px 3px 4px rgba(0, 0, 0, 0.2);
     overflow: hidden;
     cursor: pointer;
-    height: 200px;
-    transition: transform 0.2s;
+    transition: transform 0.2s ease;
     display: flex;
+    flex-direction: column;
 }
 
-.event-item:hover {
-    transform: scale(1.01);
-}
 
-/* thumbnail */
-.event-thumbnail {
-    width: 100%;
-    height: 100%; /* fill the event-item container */
-    object-position: center;
-}
-
-.event-thumbnail img {
-    width: 100%;
-    height: 100%; 
-    object-fit: cover; 
-    display: block;
-    object-position: center;
-}
-
-/* content overlay */
+/* Content overlay */
 .event-content {
-    position: absolute;
-    color: #ffffff;
-    bottom: 0;
-    left: 0;
+    color: #000;
     width: 100%;
-    height: 100%;
-    padding: 20px;
+    padding: 20px 0 20px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
-    background: linear-gradient(to top, rgba(0,0,0,0.9), rgba(0,0,0,0));
-}
-
-.event-content h3, .event-content a {
-    color: #ffffff;
-}
-
-.entry-header h3.entry-title {
-    margin: 0;
-    padding: 0;
-}
-
-/* meta */
-.event-meta {
-    display: flex;
-    flex-direction: column;
-    gap: 2px;                 /* small spacing between lines */
-    font-size: 0.9rem;        /* slightly smaller than title */
-    color: rgba(255,255,255,0.9);
 }
 
 .event-schedule {
     display: flex;
-    flex-direction: row;
-    gap: 4px; /* space between date, slash, and time */
-    font-size: 0.9rem;
-    color: rgba(255,255,255,0.9);
+    flex-direction: column;
 }
 
-.event-meta span {
-  display: flex;
-  align-items: center;
+.event-content .entry-header a:hover {
+    color: #1d5e52;
 }
 
-.event-meta strong {
-  font-weight: 600;
-  margin-right: 6px;
-  color: #fff;
+.event-location, .event-time {
+    display: flex;
+    align-items: center;
+}
+
+.event-location .dashicons-location, .event-time .dashicons-clock{
+    color:#54be73 ;
+    margin-right: 5px;
+}
+
+/*** 
+====================================================================
+## Upcoming Events (Specific)
+====================================================================
+***/
+
+/* Card modifier for upcoming events */
+.upcoming-event-item .event-thumbnail {
+    height: 400px;
+    width: 100%;
+    overflow: hidden;
+}
+
+.upcoming-event-item .event-thumbnail img {
+    width: 100%;
+    height: 100%;   
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.upcoming-event-schedule {
+    position: relative;
+    height: 300px;
+}
+
+.upcoming-event-date {
+    font-size: 1.125rem;
+    font-weight: bold;
+    letter-spacing: -1px;
+    color: #7e7d7d;
+}
+
+.upcoming-event-time-and-location {
+    position: absolute;
+    bottom: 5px; 
+    left: 0;
+    right: 0;
+    display: block;
+    text-align: left;
+}
+
+
+.upcoming-entry-title {
+    font-size: xx-large;
+    color: #000000;
+}
+
+.event-excerpt {
+    padding-bottom: 10px;
+}
+
+/*** 
+====================================================================
+## Past Events (Specific)
+====================================================================
+***/
+
+.past-event-item {
+    position: relative;
+}
+
+.past-content {
+    position: absolute;
+}
+
+
+
+/*** 
+====================================================================
+## Grid Layouts
+====================================================================
+***/
+
+/* Grid containers */
+.event-grid,
+.past-events-grid {
+    display: grid;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+/* Columns */
+.event-grid {
+    grid-template-columns: repeat(4, 1fr);
+}
+
+.past-events-grid {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/*** 
+====================================================================
+## Responsive Breakpoints
+====================================================================
+***/
+
+@media (max-width: 768px) {
+    .event-grid,
+    .past-events-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .upcoming-event-schedule {
+     height: 270px;
+    }
+}
+
+@media (max-width: 480px) {
+    .event-grid,
+    .past-events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .upcoming-event-schedule {
+     height: 250px;
+    }
+
 }
 
 
 /***
 ====================================================================
-## Past Events
+## Pagination
 ====================================================================
 ***/
 
-/* container */
-.past-events {
-    padding: 10px;
-}
-
-/* grid layout */
-.past-events-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: 20px;
-    padding: 10px 0px;
-}
-
-/* responsive: tablets */
-@media (max-width: 768px) {
-    .past-events-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-/* responsive: phones */
-@media (max-width: 480px){
-    .past-events-grid {
-        grid-template-columns: 1fr;
-    }
-}
 
 /* pagination */
 .pagination-past {

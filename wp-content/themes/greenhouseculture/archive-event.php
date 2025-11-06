@@ -24,7 +24,7 @@ get_header();
 
                     <!-- Upcoming Events -->
                     <section class="upcoming-events">
-                        <h2>Upcoming Events</h2>
+                        <h2>What's Coming Up..</h2>
                         <div class="event-grid">
                             <?php
                             $upcoming_events = new WP_Query(array(
