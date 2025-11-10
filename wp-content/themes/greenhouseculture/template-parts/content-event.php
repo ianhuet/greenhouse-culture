@@ -65,7 +65,7 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                 <?php if ($is_upcoming) : ?>
                     <div class="upcoming-event-time-and-location">
                         <!-- only show time for upcoming -->
-                        <?php if ($is_upcoming && $event_time) : ?>
+                        <?php if ($event_time) : ?>
                             <span class="event-time">
                                 <span class="dashicons dashicons-clock"></span>
                                 <?php echo date('g:i A', strtotime($event_time)); ?>
@@ -92,7 +92,6 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                         <?php echo esc_html($event_location); ?>
                     </span>
                 <?php endif; ?>
-
             </div>
         </div>
 
