@@ -37,17 +37,16 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                     </span>
                 <?php endif; ?>
 
-
                 <!-- always visible -->
                 <header class="entry-header">
-                    <h3 class="entry-title upcoming-entry-title">
+                    <h3 class="entry-title <?php echo $is_upcoming ? 'upcoming-entry-title' : 'past-entry-title' ?>">
                         <a href="<?php the_permalink(); ?>"><?php the_title(); ?></a>
                     </h3>
                 </header>
 
                 <!-- Only show this event date for past dates -->
                 <?php if (!$is_upcoming && $event_date) : ?>
-                    <span class="event-date">
+                    <span class="event-date past-event-date">
                         <?php echo date('M j, Y', strtotime($event_date)); ?>
                     </span>
                 <?php endif; ?>
@@ -63,24 +62,36 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                     </div>
                 <?php endif; ?>
 
-                <div class="upcoming-event-time-and-location">
-                    <!-- only show time for upcoming -->
-                    <?php if ($is_upcoming && $event_time) : ?>
-                        <span class="event-time">
-                            <span class="dashicons dashicons-clock"></span>
-                            <?php echo date('g:i A', strtotime($event_time)); ?>
-                        </span>
-                    <?php endif; ?>
+                <?php if ($is_upcoming) : ?>
+                    <div class="upcoming-event-time-and-location">
+                        <!-- only show time for upcoming -->
+                        <?php if ($is_upcoming && $event_time) : ?>
+                            <span class="event-time">
+                                <span class="dashicons dashicons-clock"></span>
+                                <?php echo date('g:i A', strtotime($event_time)); ?>
+                            </span>
+                        <?php endif; ?>
 
-                    <!-- Location always visible if present -->
-                    <?php if ($event_location) : ?>
-                        <span class="event-location">
+                        <!-- Location always visible if present -->
+                        <?php if ($event_location) : ?>
+                            <span class="event-location">
+                                <?php if ($is_upcoming) : ?>
+                                    <span class="dashicons dashicons-location"></span>
+                                <?php endif; ?>
+                                <?php echo esc_html($event_location); ?>
+                            </span>
+                        <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+                <?php if ($event_location && !$is_upcoming) : ?>
+                    <span class="event-location">
+                        <?php if ($is_upcoming) : ?>
                             <span class="dashicons dashicons-location"></span>
-                            <?php echo esc_html($event_location); ?>
-                        </span>
-                    <?php endif; ?>
-                </div>
-
+                        <?php endif; ?>
+                        <?php echo esc_html($event_location); ?>
+                    </span>
+                <?php endif; ?>
 
             </div>
         </div>

@@ -2334,6 +2334,18 @@ section.slider-wrapper {
     flex-direction: column;
 }
 
+.event-item:hover {
+    transform: scale(1.02);
+}
+
+/* universal thumbnail styling */
+.event-thumbnail img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+}
 
 /* Content overlay */
 .event-content {
@@ -2350,8 +2362,12 @@ section.slider-wrapper {
     flex-direction: column;
 }
 
+.entry-header {
+    width: 100%;
+}
+
 .event-content .entry-header a:hover {
-    color: #1d5e52;
+    color: #7cbd60;
 }
 
 .event-location, .event-time {
@@ -2380,9 +2396,7 @@ section.slider-wrapper {
 .upcoming-event-item .event-thumbnail img {
     width: 100%;
     height: 100%;   
-    object-fit: cover;
-    object-position: center;
-    display: block;
+    overflow: hidden;
 }
 
 .upcoming-event-schedule {
@@ -2402,10 +2416,8 @@ section.slider-wrapper {
     bottom: 5px; 
     left: 0;
     right: 0;
-    display: block;
     text-align: left;
 }
-
 
 .upcoming-entry-title {
     font-size: xx-large;
@@ -2423,14 +2435,74 @@ section.slider-wrapper {
 ***/
 
 .past-event-item {
-    position: relative;
+  position: relative;
+  overflow: hidden;
+  height: 200px;
+  width: auto;
+}
+
+.past-entry-title {
+  font-weight: bolder;
+  font-size: x-large;
+  text-align: start;
+}
+
+.past-thumbnail {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+}
+
+.past-thumbnail img {
+  filter: grayscale(50%) brightness(0.8);
+  transition: filter 0.3s ease;
+}
+
+.past-event-item:hover .past-thumbnail img {
+  filter: grayscale(0%) brightness(0.6);
 }
 
 .past-content {
-    position: absolute;
+  position: absolute;
+  display: flex;
+  align-items: center;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  padding: 20px;
+  z-index: 1;
+}
+
+.past-content .entry-title a {
+  color: white;
+  text-decoration: none;
+}
+
+.past-event-date {
+  font-weight: bold;
 }
 
 
+.past-event-meta {
+    width: 100%;
+    height: 100%;
+}
+
+.past-event-schedule {
+    display: flex;
+    align-items: start;
+    padding: 5px;
+}
+
+.past-content .event-date,
+.past-content .event-location {
+  color: #ddd;
+}
 
 /*** 
 ====================================================================
@@ -2462,13 +2534,56 @@ section.slider-wrapper {
 ***/
 
 @media (max-width: 768px) {
-    .event-grid,
-    .past-events-grid {
+    .event-grid {
         grid-template-columns: repeat(2, 1fr);
     }
 
+    .past-events-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .past-event-item {
+        height: 200px;
+        display: flex;
+        flex-direction: row;
+    }
+
+    .past-content .entry-title a {
+        color: #111111;
+        text-decoration: none;
+    }
+
+    .past-content .event-date, .past-content .event-location {
+    color: #111111;
+    }
+
+    .past-thumbnail {
+        position: static;
+        width: 300px;
+        height: auto;
+        z-index: auto;  
+    }
+
+    .past-thumbnail img {
+        width: 100% !important;
+        height: 100% !important;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
+    .past-content {
+        position: static;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #000;
+        padding: 20px;
+        z-index: 1;
+    }
+
     .upcoming-event-schedule {
-     height: 270px;
+        height: 270px;
     }
 }
 
@@ -2478,12 +2593,41 @@ section.slider-wrapper {
         grid-template-columns: 1fr;
     }
 
+    .past-content .entry-title a {
+        color: #ffffff;
+        text-decoration: none;
+    }
+
+    .past-content .event-date, .past-content .event-location {
+        color: #ffffff;
+    }
+
+    /* reverted style back so it will be inside the image */
+    .past-content {
+        position: absolute;
+        display: flex;
+        align-items: start;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        color: #fff;
+        padding: 20px;
+        z-index: 1;
+    }
+
+    .past-thumbnail {
+        position: static;
+        width: 100%;
+        height: auto;
+        z-index: auto;  
+    }
+
     .upcoming-event-schedule {
      height: 250px;
     }
 
 }
-
 
 /***
 ====================================================================
