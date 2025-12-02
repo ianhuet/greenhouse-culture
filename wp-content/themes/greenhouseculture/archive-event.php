@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying event archives
  *
@@ -16,97 +17,112 @@ get_header();
             </div>
             <div id="primary" class="col-md-12 content-area">
                 <main id="main" class="site-main">
-                    
+
                     <header class="page-header">
                         <h1 class="page-title">Events</h1>
                     </header>
 
                     <!-- Upcoming Events -->
                     <section class="upcoming-events">
-                        <h2>Upcoming Events</h2>
-                        <?php
-                        $paged = (get_query_var('paged')) ? get_query_var('paged') : 1;
-                        $upcoming_events = new WP_Query(array(
-                            'post_type' => 'event',
-                            'posts_per_page' => 10,
-                            'paged' => $paged,
-                            'meta_key' => '_event_date',
-                            'orderby' => 'meta_value',
-                            'order' => 'ASC',
-                            'meta_query' => array(
-                                array(
-                                    'key' => '_event_date',
-                                    'value' => date('Y-m-d'),
-                                    'compare' => '>='
-                                )
-                            )
-                        ));
+                        <h2>What's Coming Up..</h2>
+                        <div class="event-grid">
+                            <?php
+                            $upcoming_events = new WP_Query(array(
+                                'meta_key' => '_event_date',
+                                'meta_query' => array(
+                                    array(
+                                        'compare' => '>=',
+                                        'key' => '_event_date',
+                                        'value' => date('Y-m-d')
+                                    )
+                                ),
+                                'orderby' => 'meta_value',
+                                'order' => 'ASC',
+                                'post_type' => 'event',
+                                'posts_per_page' => -1,
+                            ));
 
-                        if ($upcoming_events->have_posts()) :
-                            while ($upcoming_events->have_posts()) : $upcoming_events->the_post();
-                                get_template_part('template-parts/content', 'event');
-                            endwhile;
-                            
-                            if ($upcoming_events->max_num_pages > 1) :
-                                echo '<div class="pagination-upcoming">';
-                                echo paginate_links(array(
-                                    'total' => $upcoming_events->max_num_pages,
-                                    'current' => $paged,
-                                    'format' => '?paged=%#%',
-                                    'prev_text' => '‹ Previous',
-                                    'next_text' => 'Next ›'
-                                ));
-                                echo '</div>';
+                            if ($upcoming_events->have_posts()) :
+                                while ($upcoming_events->have_posts()) : $upcoming_events->the_post();
+                                    get_template_part('template-parts/content', 'event');
+                                endwhile;
+                            else :
+                                echo '<p>No upcoming events found.</p>';
                             endif;
-                        else :
-                            echo '<p>No upcoming events found.</p>';
-                        endif;
-                        wp_reset_postdata();
-                        ?>
+
+                            wp_reset_postdata();
+                            ?>
+                        </div>
                     </section>
 
                     <!-- Past Events -->
                     <section class="past-events">
                         <h2>Past Events</h2>
-                        <?php
-                        $past_paged = (get_query_var('past_paged')) ? get_query_var('past_paged') : 1;
-                        $past_events = new WP_Query(array(
-                            'post_type' => 'event',
-                            'posts_per_page' => 10,
-                            'paged' => $past_paged,
-                            'meta_key' => '_event_date',
-                            'orderby' => 'meta_value',
-                            'order' => 'DESC',
-                            'meta_query' => array(
-                                array(
-                                    'key' => '_event_date',
-                                    'value' => date('Y-m-d'),
-                                    'compare' => '<'
-                                )
-                            )
-                        ));
+                        <div class="past-events-grid">
+                            <?php
+                            $page_num = (get_query_var('page_num')) ? get_query_var('page_num') : 1;
 
-                        if ($past_events->have_posts()) :
-                            while ($past_events->have_posts()) : $past_events->the_post();
-                                get_template_part('template-parts/content', 'event');
-                            endwhile;
-                            
-                            if ($past_events->max_num_pages > 1) :
-                                echo '<div class="pagination-past">';
-                                echo paginate_links(array(
-                                    'total' => $past_events->max_num_pages,
-                                    'current' => $past_paged,
-                                    'format' => '?past_paged=%#%',
-                                    'prev_text' => '‹ Previous',
-                                    'next_text' => 'Next ›'
-                                ));
-                                echo '</div>';
-                            endif;
-                        else :
-                            echo '<p>No past events found.</p>';
-                        endif;
-                        wp_reset_postdata();
+                            // Get all past events
+                            $all_past_events = get_posts(array(
+                                'meta_key' => '_event_date',
+                                'meta_query' => array(
+                                    array(
+                                        'compare' => '<',
+                                        'key' => '_event_date',
+                                        'type' => 'CHAR',
+                                        'value' => date('Y-m-d'),
+                                    )
+                                ),
+                                'numberposts' => -1,
+                                'order' => 'DESC',
+                                'orderby' => 'meta_value',
+                                'post_type' => 'event',
+                                'suppress_filters' => true,
+                            ));
+
+                            // manual pagination
+                            $posts_per_page = 6;
+                            $total_posts = count($all_past_events);
+                            $max_pages = ceil($total_posts / $posts_per_page);
+                            $offset = ($page_num - 1) * $posts_per_page;
+                            $current_page_events = array_slice($all_past_events, $offset, $posts_per_page);
+
+                            if ($total_posts > 0) {
+                                foreach ($current_page_events as $event_post) {
+                                    $post = get_post($event_post->ID);
+                                    setup_postdata($post);
+                                    get_template_part("template-parts/content", "event");
+                                }
+                            } else {
+                                echo "<p>No past events found.</p>";
+                            }
+
+                            wp_reset_postdata();
+                            ?>
+                        </div>
+
+                        <?php
+
+                        // pagination links
+                        if ($max_pages > 1) {
+                            echo '<div class="pagination-past">';
+                            echo paginate_links(array(
+                                'current' => $page_num,
+                                'end_size' => 1,
+                                'format' => '?page_num=%#%',
+                                'mid_size' => 1,
+                                'next_text' => 'Next ›',
+                                'prev_text' => '‹ Previous',
+                                'show_all' => false,
+                                'total' => $max_pages,
+                            ));
+                            echo '</div>';
+                        }
+
                         ?>
+
+
+
                     </section>
 
                 </main>
