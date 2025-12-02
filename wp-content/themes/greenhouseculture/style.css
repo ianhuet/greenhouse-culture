@@ -2350,7 +2350,7 @@ section.slider-wrapper {
 .event-content {
     color: #000;
     width: 100%;
-    padding: 20px 0 20px 0;
+    padding: 5px 0;
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
@@ -2374,9 +2374,9 @@ section.slider-wrapper {
     align-items: center;
 }
 
-.event-location .dashicons-location, .event-time .dashicons-clock{
+.event-location .dashicons-location, .event-time .dashicons-clock, .event-date .dashicons-calendar-alt{
     color:#54be73 ;
-    margin-right: 5px;
+    margin-right: 3px;
 }
 
 /*** 
@@ -2400,27 +2400,20 @@ section.slider-wrapper {
 
 .upcoming-event-schedule {
     position: relative;
-    height: 300px;
+    padding: 10px 0;
 }
 
-.upcoming-event-date {
-    font-size: 1.125rem;
-    font-weight: bold;
-    letter-spacing: -1px;
-    color: #7e7d7d;
-}
 
 .upcoming-event-time-and-location {
-    position: absolute;
-    bottom: 5px; 
-    left: 0;
-    right: 0;
-    text-align: left;
+    display: flex;
+    flex-direction: row;
+    gap: 15px;
+    margin: 0 0 10px 0;
 }
 
 .upcoming-entry-title {
     font-size: xx-large;
-    color: #000000;
+    margin: 0;
 }
 
 .event-excerpt {
@@ -2519,7 +2512,7 @@ section.slider-wrapper {
 
 /* Columns */
 .event-grid {
-    grid-template-columns: repeat(4, 1fr);
+    grid-template-columns: repeat(2, 1fr);
 }
 
 .past-events-grid {
@@ -2533,10 +2526,6 @@ section.slider-wrapper {
 ***/
 
 @media (max-width: 768px) {
-    .event-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
     .past-events-grid {
         grid-template-columns: 1fr;
     }
@@ -2581,9 +2570,6 @@ section.slider-wrapper {
         z-index: 1;
     }
 
-    .upcoming-event-schedule {
-        height: 270px;
-    }
 }
 
 @media (max-width: 480px) {
@@ -2620,10 +2606,6 @@ section.slider-wrapper {
         width: 100%;
         height: auto;
         z-index: auto;  
-    }
-
-    .upcoming-event-schedule {
-     height: 250px;
     }
 
 }

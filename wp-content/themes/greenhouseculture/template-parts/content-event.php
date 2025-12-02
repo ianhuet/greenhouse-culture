@@ -30,13 +30,6 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
         <div class="event-meta <?php echo $is_upcoming ? 'upcoming-event-meta' : 'past-event-meta'; ?>">
             <div class="event-schedule <?php echo $is_upcoming ? 'upcoming-event-schedule' : 'past-event-schedule'; ?>">
 
-                <!-- only show this date for upcoming events -->
-                <?php if ($is_upcoming && $event_date) : ?>
-                    <span class="event-date upcoming-event-date">
-                        <?php echo strtoupper(date('M j, Y', strtotime($event_date))); ?>
-                    </span>
-                <?php endif; ?>
-
                 <!-- always visible -->
                 <header class="entry-header">
                     <h3 class="entry-title <?php echo $is_upcoming ? 'upcoming-entry-title' : 'past-entry-title' ?>">
@@ -51,19 +44,17 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                     </span>
                 <?php endif; ?>
 
-                <!-- only shows for upcoming event / checks if event has excerpt or content --->
-                <?php if ($is_upcoming && (has_excerpt() || !empty(get_the_content()))) : ?>
-                    <div class="event-excerpt upcoming-event-excerpt">
-                        <?php if (has_excerpt()) {
-                            echo wp_trim_words(get_the_excerpt(), 15, '...');
-                        } else {
-                            echo wp_trim_words(get_the_content(), 15, '...');
-                        } ?>
-                    </div>
-                <?php endif; ?>
-
                 <?php if ($is_upcoming) : ?>
                     <div class="upcoming-event-time-and-location">
+
+                        <!-- only show this date for upcoming events -->
+                        <?php if ($is_upcoming && $event_date) : ?>
+                            <span class="event-date">
+                                <span class="dashicons dashicons-calendar-alt"></span>
+                                <?php echo date('M j, Y', strtotime($event_date)); ?>
+                            </span>
+                        <?php endif; ?>
+
                         <!-- only show time for upcoming -->
                         <?php if ($event_time) : ?>
                             <span class="event-time">
@@ -81,6 +72,17 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
                                 <?php echo esc_html($event_location); ?>
                             </span>
                         <?php endif; ?>
+                    </div>
+                <?php endif; ?>
+
+                <!-- only shows for upcoming event / checks if event has excerpt or content --->
+                <?php if ($is_upcoming && (has_excerpt() || !empty(get_the_content()))) : ?>
+                    <div class="event-excerpt upcoming-event-excerpt">
+                        <?php if (has_excerpt()) {
+                            echo wp_trim_words(get_the_excerpt(), 15, '...');
+                        } else {
+                            echo wp_trim_words(get_the_content(), 15, '...');
+                        } ?>
                     </div>
                 <?php endif; ?>
 
