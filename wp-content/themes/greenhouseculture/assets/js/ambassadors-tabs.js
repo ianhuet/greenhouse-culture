@@ -1,6 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
-  const tabs = document.querySelectorAll('.tabbed-content .tab');
-  const panels = document.querySelectorAll('.tabbed-content .tab-panel');
+  const tabs = document.querySelectorAll('.bap-tabbed-content .tab');
+  const panels = document.querySelectorAll('.bap-tabbed-content .tab-panel');
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
