@@ -6,7 +6,7 @@
 get_header();
 ?>
 
-<section class="ambassador-page">
+<section class="ambassador-homepage">
   <div class="container">
     <div class="breadcrumbs-wrap">
       <?php do_action('greenhouseculture_breadcrumb_options_hook'); ?>
@@ -22,22 +22,24 @@ get_header();
 
       <section class="bap-hero">
         <header>
-          <p>In order to protect the planet, and our own future, it is time to come together and call for action on biodiversity loss. This network creates a supportive space for all individuals to honour and protect biodiversity, to discover more about the intrinsic value of nature, and advocate for the right of all living beings. If you are interested in biodiversity and advocating for a sustainable future for all then we would love you to get in touch.</p>
+          <p>In order to protect the planet, and our own future, it is time to come together and call for action on biodiversity loss. This network creates a supportive space for all individuals to honour and protect biodiversity, to discover more about the intrinsic value of nature, and advocate for the right of all living beings.</p>
 
           <div class="bap-quote">
             <p>"Biodiversity is our most valuable but least appreciated resource."</p>
             <cite>Edward O. Wilson</cite>
           </div>
 
+          <p>If you are interested in biodiversity and advocating for a sustainable future for all then <a href="#bap-join">we would love you to get in touch</a>.</p>
           <p>This hub will provide you with any resources you may need, and offer a space to highlight your actions and communications throughout the year.</p>
         </header>
 
         <div class="bap-media">
           <div class="bap-media-video">
-            <video controls poster="<?php echo get_template_directory_uri(); ?>/assets/images/bap_video_poster.jpg">
+            <video poster="<?php echo get_template_directory_uri(); ?>/assets/images/bap_video_poster.jpg">
               <source src="<?php echo get_template_directory_uri(); ?>/assets/images/BAP_Why_What.mp4" type="video/mp4">
               Your browser does not support the video tag.
             </video>
+            <p class="bap-media-video-caption"><strong>Why we do what we do</strong> ~ introducing the Biodiversity Ambassadors</p>
           </div>
         </div>
       </section>
@@ -62,7 +64,7 @@ get_header();
                 <li>Submit your success stories and case studies</li>
                 <li>Connect with local communities and organizations</li>
               </ul>
-              <button class="read-more">Read More</button>
+              <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
             </div>
           </div>
 
@@ -77,7 +79,7 @@ get_header();
                 <li>One-third of bee species in Ireland are threatened</li>
                 <li>Peatlands store 75% of Ireland's soil carbon</li>
               </ul>
-              <button class="read-more">Read More</button>
+              <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
             </div>
           </div>
 
@@ -92,20 +94,22 @@ get_header();
                 <li>View training videos and webinars</li>
                 <li>Get templates for action plans and reports</li>
               </ul>
-              <button class="read-more">Read More</button>
+              <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
             </div>
           </div>
         </div>
       </section>
 
       <section class="bap-location-map">
-        <h3>Biodiversity Ambassodors</h3>
-        <p><a href="#">Members can login here</a> to get full access to this map, and connect with others in the biodiversity focused network.</p>
+        <h3>Biodiversity Ambassadors</h3>
+        <p><a href="#">Ambassadors can login here</a> to get full access to this map, and connect with others in the Biodiversity Ambassador network.</p>
         <?php echo do_shortcode('[ambassador_map private="false"]'); ?>
       </section>
 
+      <a name="bap-join"></a>
+
       <section class="bap-join">
-        <h3>Join the Biodiversity Ambassodors</h3>
+        <h3>Join the Biodiversity Ambassadors</h3>
 
         <div class="bap-join-content">
           <div>
@@ -120,13 +124,13 @@ get_header();
             </div>
             <input type="email" name="email" placeholder="Email" required>
             <input type="tel" name="phone" placeholder="Phone">
-            <button type="submit">Submit</button>
+            <button type="submit">Become an Ambassodor</button>
           </form>
         </div>
       </section>
 
       <section class="bap-logos">
-        <p>The vision of Greenhouse Culture, as with our associates Green sod Ireland Land Trust, is where our Earth's ecosystems are thriving and flourishing. We believe together we are stronger; together we can protect our natural environment for present and future generations.</p>
+        <p>The vision of Greenhouse Culture, as with our associates Green sod Ireland Land Trust, is where Earth's ecosystems are thriving and flourishing. We believe together we are stronger; together we can protect our natural environment for present and future generations.</p>
         <img src="<?php echo get_template_directory_uri(); ?>/assets/images/ghc_bap_logos.webp" alt="Biodiversity Ambassador Programme Partners" class="logos-image" />
       </section>
 </div>

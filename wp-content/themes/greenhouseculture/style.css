@@ -7918,3 +7918,27 @@ padding-bottom: 20px;
 }
 
 
+.bap-title {
+  background-image: url('assets/images/bap_title_bg.jpg');
+  background-position: top;
+  background-size: cover;
+  border-radius: 8px;
+  color: var(--color-white);
+  padding: 2rem;
+}
+.bap-title-content {
+  background-color: rgba(8, 49, 5, 0.7);
+  border-radius: 8px;
+  padding: 2rem 2rem 3rem;
+}
+.bap-title h1 {
+  color: white;
+}
+.bap-title p {
+  color: white;
+  font-size: 18px;
+}
+.bap-title p a {
+  color: white;
+  font-weight: bold;
+}

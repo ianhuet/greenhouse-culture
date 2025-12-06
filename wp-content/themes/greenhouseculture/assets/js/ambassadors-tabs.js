@@ -16,4 +16,21 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   });
+
+  document.querySelectorAll('.bap-media-video').forEach(container => {
+    const video = container.querySelector('video');
+    if (!video) return;
+
+    const playButton = document.createElement('div');
+    playButton.className = 'bap-play-button';
+    container.appendChild(playButton);
+
+    container.addEventListener('click', () => {
+      if (video.paused) {
+        video.play();
+        video.controls = true;
+        container.classList.add('playing');
+      }
+    });
+  });
 });
