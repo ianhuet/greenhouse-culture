@@ -55,3 +55,4 @@ wp-content/themes/*
 
 wp-content/plugins/*
 !wp-content/plugins/ambassador-map
+!wp-content/plugins/kit-signup

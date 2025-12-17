@@ -107,27 +107,32 @@ get_header();
         <?php echo do_shortcode('[ambassador_map private="false"]'); ?>
       </section>
 
-      <!-- <a name="bap-join"></a>
+      <a name="bap-join"></a>
+
       <section class="bap-join">
         <h3>Join the Biodiversity Ambassadors</h3>
 
         <div class="bap-join-content">
           <div>
-            <p>Becoming a Biodiversity Ambassador is about finding your voice, and your voice to help protect our wild acres, and restore safe havens where species can thrive and flourish, vital for biodiversity.</p>
-            <p>The Biodiversity Ambassador Programme is a place to come together in community with likeminded people. to project and nurture our natural environment and all its biodiversity. A place where together we can deepen our connection with nature, and develop stronger interconnected relationships with all living beings.</p>
+            <p>We warmly invite you to stay connected as the programme evolves. Sign up for our newsletter to receive updates on the Biodiversity Ambassador Programme, Greenhouse Culture projects, new resources, and ways to engage with us.</p>
+            <p>Join a growing community of people who care about restoring balance, protecting wild places, and honouring the rich web of life we all depend on.</p>
           </div>
 
-          <form>
-            <div class="form-row">
-              <input type="text" name="firstname" placeholder="First Name" required>
-              <input type="text" name="lastname" placeholder="Last Name" required>
-            </div>
-            <input type="email" name="email" placeholder="Email" required>
-            <input type="tel" name="phone" placeholder="Phone">
-            <button type="submit">Become an Ambassodor</button>
-          </form>
+          <!--
+            <form>
+              <div class="form-row">
+                <input type="text" name="firstname" placeholder="First Name" required>
+                <input type="text" name="lastname" placeholder="Last Name" required>
+              </div>
+              <input type="email" name="email" placeholder="Email" required>
+              <input type="tel" name="phone" placeholder="Phone">
+              <button type="submit">Become an Ambassodor</button>
+            </form>
+          -->
+
+          <?php echo do_shortcode('[kit_signup]'); ?>
         </div>
-      </section> -->
+      </section>
 
       <section class="bap-logos">
         <p>The vision of Greenhouse Culture, as with our associates Green sod Ireland Land Trust, is where Earth's ecosystems are thriving and flourishing. We believe together we are stronger; together we can protect our natural environment for present and future generations.</p>

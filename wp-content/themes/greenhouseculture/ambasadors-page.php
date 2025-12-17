@@ -26,7 +26,7 @@ get_header();
         the_content();
       }
       ?>
-</div>
+    </div>
 
   </div>
 </section>

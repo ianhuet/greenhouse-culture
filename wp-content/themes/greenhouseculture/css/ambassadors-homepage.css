@@ -225,37 +225,6 @@ h3 {
 .bap-join h3 {
   color: var(--color-white);
 }
-.bap-join form {
-  display: flex;
-  flex-direction: column;
-  gap: 1rem;
-}
-
-.bap-join .form-row {
-  display: flex;
-  flex-flow: column nowrap;
-  gap: 1rem;
-}
-.bap-join input {
-  border: 1px solid var(--color-primary-hover);
-  border-radius: 4px;
-  padding: 4px 8px;
-}
-.bap-join button {
-  background-color:var(--color-primary-hover);
-  color: var(--color-white);
-  border: 1px solid var(--color-primary-hover);
-  border-radius: 4px;
-  padding: 2px 8px;
-}
-.bap-join button:hover {
-  background-color:var(--color-white);
-  color: var(--color-primary);
-}
-.bap-join input:focus,
-.bap-join button:focus {
-  outline: var(--color-primary);
-}
 
 .bap-logos {
   margin: 2rem 0;
@@ -292,11 +261,6 @@ h3 {
     max-height: 450px;
   }
 
-  .bap-join .form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 1rem;
-  }
   .bap-join-content {
     display: grid;
     gap: 4rem;
