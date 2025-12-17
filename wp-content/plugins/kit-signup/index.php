@@ -11,11 +11,11 @@ if (!defined('ABSPATH')) exit;
 
 define('KIT_SIGNUP_API_KEY', 'kit_16285884175424ac0af932d4186790d0');
 define('KIT_SIGNUP_FORM_ID', 8497275);
-define('KIT_SIGNUP_MESSAGE_ERROR', 'Unable to subscribe. Please try again.');
+define('KIT_SIGNUP_MESSAGE_ERROR', 'Unable to sign-up. Please try again.');
 define('KIT_SIGNUP_MESSAGE_SUCCESS', 'Successfully subscribed! Check your email.');
 define('KIT_SIGNUP_PLACEHOLDER_EMAIL', 'Email Address');
 define('KIT_SIGNUP_PLACEHOLDER_NAME', 'Name');
-define('KIT_SIGNUP_BUTTON_TEXT', 'Subscribe');
+define('KIT_SIGNUP_BUTTON_TEXT', 'Sign-up');
 
 require_once plugin_dir_path(__FILE__) . 'includes/kit-functions.php';
 

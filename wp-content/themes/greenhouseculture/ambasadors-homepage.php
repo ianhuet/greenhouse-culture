@@ -110,25 +110,13 @@ get_header();
       <a name="bap-join"></a>
 
       <section class="bap-join">
-        <h3>Join the Biodiversity Ambassadors</h3>
+        <h3>Greenhouse Culture Newsletter</h3>
 
         <div class="bap-join-content">
           <div>
             <p>We warmly invite you to stay connected as the programme evolves. Sign up for our newsletter to receive updates on the Biodiversity Ambassador Programme, Greenhouse Culture projects, new resources, and ways to engage with us.</p>
             <p>Join a growing community of people who care about restoring balance, protecting wild places, and honouring the rich web of life we all depend on.</p>
           </div>
-
-          <!--
-            <form>
-              <div class="form-row">
-                <input type="text" name="firstname" placeholder="First Name" required>
-                <input type="text" name="lastname" placeholder="Last Name" required>
-              </div>
-              <input type="email" name="email" placeholder="Email" required>
-              <input type="tel" name="phone" placeholder="Phone">
-              <button type="submit">Become an Ambassodor</button>
-            </form>
-          -->
 
           <?php echo do_shortcode('[kit_signup]'); ?>
         </div>
