@@ -15,7 +15,7 @@ define('KIT_SIGNUP_MESSAGE_ERROR', 'Unable to sign-up. Please try again.');
 define('KIT_SIGNUP_MESSAGE_SUCCESS', 'Successfully subscribed! Check your email.');
 define('KIT_SIGNUP_PLACEHOLDER_EMAIL', 'Email Address');
 define('KIT_SIGNUP_PLACEHOLDER_NAME', 'Name');
-define('KIT_SIGNUP_BUTTON_TEXT', 'Sign-up');
+define('KIT_SIGNUP_BUTTON_TEXT', 'Sign-Up');
 
 require_once plugin_dir_path(__FILE__) . 'includes/kit-functions.php';
 
