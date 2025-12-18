@@ -337,9 +337,11 @@ function ghc_get_ambassador_popup_html($title, $content, $img_url, $tags = []) {
 HTML;
 }
 
-function ghc_render_ambassador_map_html($tags_html) {
-  return <<<HTML
-    <div class="ambassador-map">
+function ghc_render_ambassador_map_html($tags_html, $is_private = true) {
+  $header = '';
+
+  if ($is_private) {
+    $header = <<<HTML
       <div class="ambHeader">
         <div class="ambHeader__searchBox">
           <input class="ambHeader__searchBox__input" id="amb-search" placeholder="Search ambassadors, skills, topics…" type="text">
@@ -348,6 +350,12 @@ function ghc_render_ambassador_map_html($tags_html) {
 
         <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
       </div>
+    HTML;
+  }
+
+  return <<<HTML
+    <div class="ambassador-map">
+      {$header}
 
       <div class="ambBody">
         <div class="ambMap" id="ambassadors-map"></div>

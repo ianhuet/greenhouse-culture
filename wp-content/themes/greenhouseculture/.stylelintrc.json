@@ -1,0 +1,16 @@
+{
+  "extends": "stylelint-config-standard",
+  "plugins": ["stylelint-order"],
+  "rules": {
+    "alpha-value-notation": null,
+    "color-function-notation": null,
+    "declaration-block-no-duplicate-properties": true,
+    "no-descending-specificity": null,
+    "no-duplicate-selectors": null,
+    "order/properties-alphabetical-order": true,
+    "property-no-vendor-prefix": true,
+    "rule-empty-line-before": null,
+    "selector-class-pattern": null,
+    "value-no-vendor-prefix": true
+  }
+}

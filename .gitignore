@@ -23,7 +23,9 @@
 
 backup/
 docs/
+node_modules/
 
+.DS_Store
 !.gitignore
 !.prettierrc
 !apache-wordpress.conf
@@ -54,3 +56,4 @@ wp-content/themes/*
 
 wp-content/plugins/*
 !wp-content/plugins/ambassador-map
+!wp-content/plugins/kit-signup
