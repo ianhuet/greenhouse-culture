@@ -218,6 +218,7 @@ h3 {
 }
 .bap-tabbed-content .read-more:hover {
   background: var(--color-primary-hover);
+  color: var(--color-white);
 }
 
 .bap-location-map {}

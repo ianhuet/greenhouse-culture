@@ -1866,9 +1866,9 @@ section.slider-wrapper {
     backface-visibility: hidden;
     opacity: 0;
     -webkit-transform: translate(0, 25px);
-    -moz-transform: translate(0, 25px)
-    -ms-transform: translate(0, 25px)
-    transform: translate(0, 25px)
+    -moz-transform: translate(0, 25px);
+    -ms-transform: translate(0, 25px);
+    transform: translate(0, 25px);
 }
 .modern-slider .slick-active .caption{
     -webkit-transform: translate(0px, 0px);

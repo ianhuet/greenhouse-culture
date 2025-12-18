@@ -52,6 +52,7 @@ document.addEventListener('DOMContentLoaded', function() {
                 if (data.success) {
                     messageDiv.textContent = data.data.message;
                     messageDiv.classList.add('success');
+                    form.classList.add('submitted');
                     form.reset();
                 } else {
                     messageDiv.textContent = data.data.message || kitSignupData.messageError;

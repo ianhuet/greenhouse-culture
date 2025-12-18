@@ -45,52 +45,55 @@ get_header();
 
       <section class="bap-tabbed-content">
         <div class="tabs">
-          <button class="tab active" data-tab="ideas">Ideas</button>
-          <button class="tab" data-tab="facts">Facts</button>
-          <button class="tab" data-tab="resources">Resources</button>
+          <button class="tab active" data-tab="facts">Facts</button>
+          <button class="tab" data-tab="ideas">Ideas</button>
+          <button class="tab" data-tab="community">Community</button>
         </div>
 
         <div class="tab-panels">
-          <div class="tab-panel active" id="ideas">
+          <div class="tab-panel active" id="facts">
             <div class="content-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_ideas.jpg" alt="Ideas">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_ideas.jpg" alt="Facts">
             </div>
             <div class="content-list">
               <ul>
-                <li>Share your biodiversity projects and initiatives</li>
-                <li>Collaborate with other ambassadors on conservation efforts</li>
-                <li>Submit your success stories and case studies</li>
-                <li>Connect with local communities and organizations</li>
+                <li>Globally, monitored wildlife populations have declined by 73% since 1970, and around one million species face extinction.</li>
+                <li>Ireland reflects this crisis in our own hedgerows, bogs, and fields.</li>
+                <li>90% of Ireland’s EU-protected habitats have ‘bad’ or ‘inadequate’ conservation status.</li>
+                <li>One third of Ireland’s 98 bee species are threatened with extinction</li>
+                <li>54 of Ireland’s 211 bird species (26%) are now Red-listed for conservation concern</li>
               </ul>
-              <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
+              <a class="read-more" href="/biodiversity-ambassador-programme/facts-actions-ideas">Read More</a>
             </div>
           </div>
 
-          <div class="tab-panel" id="facts">
+          <div class="tab-panel" id="ideas">
             <div class="content-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_facts.jpg" alt="Facts">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_facts.jpg" alt="Ideas">
             </div>
             <div class="content-list">
               <ul>
-                <li>Ireland is home to over 30,000 species of wildlife</li>
-                <li>Native hedgerows support up to 600 plant species</li>
-                <li>One-third of bee species in Ireland are threatened</li>
-                <li>Peatlands store 75% of Ireland's soil carbon</li>
+                <li>Small changes that make an immediate difference - no planning required.</li>
+                <li>Project that need a bit of preparation or coordination.</li>
+                <li>Ideas for those ready to mobilise others and engage institutions.</li>
+                <li>Advocacy ideas on making biodiversity part of public discourse.</li>
               </ul>
-              <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
+              <a class="read-more" href="/biodiversity-ambassador-programme/facts-actions-ideas/#bap-ideas">Read More</a>
             </div>
           </div>
 
-          <div class="tab-panel" id="resources">
+          <div class="tab-panel" id="community">
             <div class="content-image">
-              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_resources.jpg" alt="Resources">
+              <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_resources.jpg" alt="Community">
             </div>
             <div class="content-list">
+              <p>Ordinary people are proving that citizen-led action can restore biodiversity, these initiatives started with local concern and grew into measurable success:</p>
               <ul>
-                <li>Download educational materials and guides</li>
-                <li>Access biodiversity monitoring tools</li>
-                <li>View training videos and webinars</li>
-                <li>Get templates for action plans and reports</li>
+                <li>Abbeyleix Bog, Ireland</li>
+                <li>Oslo Pollinator Passage, Norway</li>
+                <li>Utrecht Bee Stops, Netherlands</li>
+                <li>The Burren, Ireland</li>
+                <li>Gökova Bay, Turkey</li>
               </ul>
               <a class="read-more" href="/biodiversity-ambassador-programme/ideas-facts-resources/">Read More</a>
             </div>
@@ -100,11 +103,9 @@ get_header();
 
       <section class="bap-location-map">
         <h3>Biodiversity Ambassadors</h3>
-        <p><a href="#">Ambassadors can login here</a> to get full access to this map, and connect with others in the Biodiversity Ambassador network.</p>
+        <p>Biodiversity Ambassador network map coming soon...</p>
         <?php echo do_shortcode('[ambassador_map private="false"]'); ?>
       </section>
-
-      <a name="bap-join"></a>
 
       <section class="bap-join">
         <h3>Greenhouse Culture Newsletter</h3>
