@@ -18,19 +18,33 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.querySelectorAll('.bap-media-video').forEach(container => {
+    const youtubeId = container.dataset.youtubeId;
     const video = container.querySelector('video');
-    if (!video) return;
+
+    if (!youtubeId && !video) return;
 
     const playButton = document.createElement('div');
     playButton.className = 'bap-play-button';
     container.appendChild(playButton);
 
-    container.addEventListener('click', () => {
-      if (video.paused) {
-        video.play();
-        video.controls = true;
+    if (youtubeId) {
+      container.addEventListener('click', () => {
+        const iframe = document.createElement('iframe');
+        iframe.src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1&rel=0`;
+        iframe.allow = 'accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture';
+        iframe.allowFullscreen = true;
+        container.innerHTML = '';
+        container.appendChild(iframe);
         container.classList.add('playing');
-      }
-    });
+      });
+    } else if (video) {
+      container.addEventListener('click', () => {
+        if (video.paused) {
+          video.play();
+          video.controls = true;
+          container.classList.add('playing');
+        }
+      });
+    }
   });
 });

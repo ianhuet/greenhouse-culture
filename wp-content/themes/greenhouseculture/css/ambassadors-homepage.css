@@ -71,9 +71,15 @@ h3 {
   position: relative;
   cursor: pointer;
 }
-.bap-media-video video {
+.bap-media-video video,
+.bap-media-video iframe,
+.bap-media-video .bap-youtube-poster {
+  aspect-ratio: 16 / 9;
   display: block;
   width: 100%;
+}
+.bap-media-video iframe {
+  border: none;
 }
 .bap-media-video.playing .bap-play-button {
   display: none;

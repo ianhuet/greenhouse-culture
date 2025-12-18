@@ -35,13 +35,10 @@ get_header();
         </header>
 
         <div class="bap-media">
-          <div class="bap-media-video">
-            <video poster="<?php echo get_template_directory_uri(); ?>/assets/images/bap_video_poster.jpg">
-              <source src="<?php echo get_template_directory_uri(); ?>/assets/images/BAP_Why_What.mp4" type="video/mp4">
-              Your browser does not support the video tag.
-            </video>
-            <p class="bap-media-video-caption"><strong>Why we do what we do</strong> ~ introducing the Biodiversity Ambassadors</p>
+          <div class="bap-media-video" data-youtube-id="xH57NaCZtto">
+            <img src="<?php echo get_template_directory_uri(); ?>/assets/images/bap_video_poster.jpg" alt="Video thumbnail" class="bap-youtube-poster">
           </div>
+          <p class="bap-media-video-caption"><strong>Why we do what we do</strong> ~ introducing the Biodiversity Ambassadors</p>
         </div>
       </section>
 
