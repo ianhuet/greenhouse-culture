@@ -7917,7 +7917,7 @@ margin: 0;
 padding-bottom: 20px;
 }
 
-
+.ambassador-page {}
 .bap-title {
   background-image: url('assets/images/bap_title_bg.jpg');
   background-position: top;
@@ -7942,4 +7942,38 @@ padding-bottom: 20px;
 .bap-title p a {
   color: white;
   font-weight: bold;
+}
+
+.ambassador-page h2 {
+  margin-bottom: 0;
+  margin-top: 24px;
+}
+.ambassador-page h3 {
+  color: #083105;
+  font-size: 20px;
+  margin-bottom: 6px;
+  margin-top: 12px;
+}
+.ambassador-page a {
+  color: #619913;
+  text-decoration: none;
+}
+.ambassador-page a:hover {
+  color: #0b8f77;
+  text-decoration: underline;
+}
+
+.ambassador-page ul {
+  margin-bottom: 12px;
+  padding-left: 20px;
+}
+.ambassador-page ul li::marker {
+  color: #6bb766;
+}
+
+.ambassador-page .wp-block-group .is-vertical.is-layout-flex {
+  gap: 0 !important;
+}
+.ambassador-page .wp-block-group .is-vertical.is-layout-flex ul {
+  margin-top: 6px;
 }
