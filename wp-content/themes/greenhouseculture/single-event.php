@@ -22,15 +22,17 @@ get_header();
 
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 
-                            <header class="entry-header">
-                                <h1 class="entry-title"><?php the_title(); ?></h1>
-                            </header>
+
 
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="event-featured-image">
                                     <?php the_post_thumbnail('large'); ?>
                                 </div>
                             <?php endif; ?>
+
+                            <header class="entry-header">
+                                <h1 class="entry-title"><?php the_title(); ?></h1>
+                            </header>
 
                             <div class="event-details">
                                 <?php
@@ -40,15 +42,24 @@ get_header();
                                 ?>
 
                                 <?php if ($event_date) : ?>
-                                    <p><strong>Date:</strong> <?php echo date('F j, Y', strtotime($event_date)); ?></p>
+                                    <p class="event-meta event-date">
+                                        <span class="dashicons dashicons-calendar-alt"></span>
+                                        <?php echo date('F j, Y', strtotime($event_date)); ?>
+                                    </p>
                                 <?php endif; ?>
 
                                 <?php if ($event_time) : ?>
-                                    <p><strong>Time:</strong> <?php echo date('g:i A', strtotime($event_time)); ?></p>
+                                    <p class="event-meta event-time">
+                                        <span class="dashicons dashicons-clock"></span>
+                                        <?php echo date('g:i A', strtotime($event_time)); ?>
+                                    </p>
                                 <?php endif; ?>
 
                                 <?php if ($event_location) : ?>
-                                    <p><strong>Location:</strong> <?php echo esc_html($event_location); ?></p>
+                                    <p class="event-meta event-location">
+                                        <span class="dashicons dashicons-location"></span>
+                                        <?php echo esc_html($event_location); ?>
+                                    </p>
                                 <?php endif; ?>
                             </div>
 

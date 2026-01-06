@@ -2361,7 +2361,7 @@ section.slider-wrapper {
     flex-direction: column;
 }
 
-.entry-header {
+.event-content .entry-header {
     width: 100%;
 }
 
@@ -2425,6 +2425,7 @@ section.slider-wrapper {
 ## Past Events (Specific)
 ====================================================================
 ***/
+
 
 .past-event-item {
   position: relative;
@@ -2609,6 +2610,44 @@ section.slider-wrapper {
     }
 
 }
+
+/***
+====================================================================
+## Single Event Page
+====================================================================
+***/
+
+.single-event .entry-header h1.entry-title{
+    margin: 10px 0 5px 0;
+}
+
+.single-event .event-featured-image {
+    width: 100%;
+    overflow: hidden;
+    height: 500px;
+}
+
+.single-event .event-featured-image img {
+    height: 100%;
+    width: 100%;
+    display: block;
+    object-position: center;
+    object-fit: cover;
+}
+
+.single-event div.event-details {
+    display: flex;
+    gap: 15px;
+}
+
+.single-event .event-location .dashicons,
+.single-event .event-time .dashicons,
+.single-event .event-date .dashicons {
+  color: #54be73;
+  margin-right: 3px;
+}
+
+
 
 /***
 ====================================================================
