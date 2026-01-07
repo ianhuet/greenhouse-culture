@@ -238,6 +238,10 @@ h3 {
   text-align: center;
 }
 
+.ambassador-homepage .kit-signup-form button {
+  background-color: var(--color-primary-hover, #083105);
+}
+
 @media (min-width: 768px) {
   .bap-box {
     padding: 20px 15px;
