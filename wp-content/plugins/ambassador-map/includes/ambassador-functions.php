@@ -34,7 +34,7 @@ function ghc_add_user_profile_fields($user) {
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
   ?>
-  <h3>Ambassador Information</h3>
+  <h2>Ambassador Information</h2>
   <table class="form-table">
     <tr>
       <th><label for="ambassador_bio">Ambassador Bio</label></th>
@@ -138,6 +138,24 @@ function ghc_add_user_profile_fields($user) {
 
   <script>
   jQuery(document).ready(function($) {
+    var form = $('form#your-profile');
+    var sectionsToMove = ['Account Management', 'Application Passwords'];
+
+    $('h2').filter(function() {
+      return $(this).text().trim().toLowerCase() === 'about the user';
+    }).next('table.form-table').find('tr').has('label[for="description"]').hide();
+
+    sectionsToMove.forEach(function(sectionTitle) {
+      var heading = $('h2').filter(function() {
+        return $(this).text().trim() === sectionTitle;
+      });
+      if (heading.length) {
+        var elements = heading.nextUntil('h2, h3');
+        form.append(heading);
+        form.append(elements);
+      }
+    });
+
     $('#geocode_address').on('click', function() {
       var address = $('#ambassador_address').val();
       var statusDiv = $('#geocode_status');

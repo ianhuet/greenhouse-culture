@@ -8014,7 +8014,7 @@ padding-bottom: 20px;
 }
 
 .kit-signup-panel {
-  background-color: var(--color-primary);
+  background-color: var(--color-primary-hover);
   border-radius: 8px;
   color: var(--color-white);
   margin-bottom: 3rem;

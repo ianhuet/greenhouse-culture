@@ -98,14 +98,8 @@ function kit_signup_settings_page() {
                 <tr>
                     <th scope="row"><label for="panel_content">Panel Content</label></th>
                     <td>
-                        <?php
-                        wp_editor($settings['panel_content'], 'panel_content', [
-                            'textarea_name' => 'kit_signup_settings[panel_content]',
-                            'textarea_rows' => 8,
-                            'media_buttons' => false,
-                            'teeny' => true
-                        ]);
-                        ?>
+                        <textarea id="panel_content" name="kit_signup_settings[panel_content]" rows="8" class="large-text"><?php echo esc_textarea($settings['panel_content']); ?></textarea>
+                        <p class="description">Separate paragraphs with blank lines.</p>
                     </td>
                 </tr>
             </table>

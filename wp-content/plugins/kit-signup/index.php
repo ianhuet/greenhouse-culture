@@ -40,7 +40,7 @@ function kit_signup_render_panel($atts) {
         <h3><?php echo esc_html($settings['panel_title']); ?></h3>
         <div class="kit-signup-panel-content">
             <div>
-                <?php echo wp_kses_post($settings['panel_content']); ?>
+                <?php echo wp_kses_post(wpautop($settings['panel_content'])); ?>
             </div>
             <?php echo kit_signup_render_form([]); ?>
         </div>
