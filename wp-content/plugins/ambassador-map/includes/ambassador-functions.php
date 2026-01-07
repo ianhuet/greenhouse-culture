@@ -25,7 +25,6 @@ function ghc_add_user_profile_fields($user) {
   $ambassador_tags = get_user_meta($user->ID, 'ambassador_tags', true);
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
-  $tags_string = is_array($ambassador_tags) ? implode(', ', $ambassador_tags) : '';
   ?>
   <h3>Ambassador Information</h3>
   <table class="form-table">
@@ -60,10 +59,38 @@ function ghc_add_user_profile_fields($user) {
       </td>
     </tr>
     <tr>
-      <th><label for="ambassador_tags">Tags</label></th>
+      <th><label>Categories</label></th>
       <td>
-        <input type="text" name="ambassador_tags" id="ambassador_tags" value="<?php echo esc_attr($tags_string); ?>" />
-        <p class="description">Comma-separated list of skills/topics (e.g., "JavaScript, React, Frontend")</p>
+        <?php
+        $categories = ghc_get_categories();
+        if (empty($categories)): ?>
+          <p class="description">No categories defined. <a href="<?php echo esc_url(admin_url('options-general.php?page=ambassador-map-settings')); ?>">Configure categories</a></p>
+        <?php else: ?>
+          <div class="ghc-user-categories">
+            <?php foreach ($categories as $category): ?>
+              <fieldset class="ghc-user-category-group">
+                <legend><strong><?php echo esc_html($category['name']); ?></strong></legend>
+                <?php foreach ($category['subcategories'] as $subcategory):
+                  $value = $category['slug'] . ':' . sanitize_title($subcategory);
+                  $checked = is_array($ambassador_tags) && in_array($value, $ambassador_tags) ? 'checked' : '';
+                ?>
+                  <label style="display: block; margin: 4px 0;">
+                    <input type="checkbox"
+                           name="ambassador_tags[]"
+                           value="<?php echo esc_attr($value); ?>"
+                           <?php echo $checked; ?>>
+                    <?php echo esc_html($subcategory); ?>
+                  </label>
+                <?php endforeach; ?>
+              </fieldset>
+            <?php endforeach; ?>
+          </div>
+          <style>
+            .ghc-user-categories { display: flex; flex-wrap: wrap; gap: 20px; }
+            .ghc-user-category-group { border: 1px solid #c3c4c7; padding: 10px 15px; border-radius: 4px; min-width: 150px; }
+            .ghc-user-category-group legend { padding: 0 5px; }
+          </style>
+        <?php endif; ?>
       </td>
     </tr>
   </table>
@@ -134,11 +161,12 @@ function ghc_save_user_profile_fields($user_id) {
     update_user_meta($user_id, 'ambassador_bio', sanitize_textarea_field($_POST['ambassador_bio']));
   }
   
-  if (isset($_POST['ambassador_tags'])) {
-    $tags_string = sanitize_text_field($_POST['ambassador_tags']);
-    $tags_array = array_map('trim', explode(',', $tags_string));
+  if (isset($_POST['ambassador_tags']) && is_array($_POST['ambassador_tags'])) {
+    $tags_array = array_map('sanitize_text_field', $_POST['ambassador_tags']);
     $tags_array = array_filter($tags_array);
     update_user_meta($user_id, 'ambassador_tags', $tags_array);
+  } else {
+    update_user_meta($user_id, 'ambassador_tags', []);
   }
 }
 

@@ -10,6 +10,7 @@
 if ( ! defined('ABSPATH') ) exit;
 
 require_once plugin_dir_path(__FILE__) . 'includes/ambassador-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/ambassador-settings.php';
 
 register_activation_hook(__FILE__, 'ghc_create_ambassador_role');
 register_deactivation_hook(__FILE__, 'ghc_remove_ambassador_role');
