@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ambassador Map
  * Description: Interactive Leaflet map with clusters, search, tag chips, and a results panel. Shortcode: [ambassador_map]
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Greenhouse Culture & Aarthy Adhibagavan
  * License:     GPL-2.0+
  */

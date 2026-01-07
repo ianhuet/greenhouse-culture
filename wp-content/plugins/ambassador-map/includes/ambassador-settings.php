@@ -18,8 +18,34 @@ function ghc_register_settings() {
     'sanitize_callback' => 'ghc_sanitize_categories',
     'default' => []
   ]);
+
+  register_setting('ghc_ambassador_settings', 'ghc_ambassador_support_options', [
+    'type' => 'array',
+    'sanitize_callback' => 'ghc_sanitize_support_options',
+    'default' => []
+  ]);
 }
 add_action('admin_init', 'ghc_register_settings');
+
+function ghc_sanitize_support_options($input) {
+  if (!is_array($input)) {
+    return [];
+  }
+
+  $sanitized = [];
+  foreach ($input as $option) {
+    $trimmed = trim(sanitize_text_field($option));
+    if ($trimmed) {
+      $sanitized[] = $trimmed;
+    }
+  }
+
+  return $sanitized;
+}
+
+function ghc_get_support_options() {
+  return get_option('ghc_ambassador_support_options', []);
+}
 
 function ghc_sanitize_categories($input) {
   if (!is_array($input)) {
@@ -150,7 +176,23 @@ function ghc_render_settings_page() {
         <button type="button" class="button" id="ghc-add-category">Add Category</button>
       </p>
 
-      <?php submit_button('Save Categories'); ?>
+      <hr style="margin: 30px 0;">
+
+      <h2>Support Options</h2>
+      <p class="description">Define support options that ambassadors can offer (one per line).</p>
+
+      <?php $support_options = ghc_get_support_options(); ?>
+      <div id="ghc-support-container">
+        <textarea name="ghc_ambassador_support_options_raw"
+                  id="ghc-support-options-input"
+                  rows="6"
+                  class="large-text"
+                  placeholder="Advice / Mentoring&#10;Hands-on Help&#10;Training / Workshops&#10;Collaboration / Partnerships"><?php
+          echo esc_textarea(implode("\n", $support_options));
+        ?></textarea>
+      </div>
+
+      <?php submit_button('Save Settings'); ?>
     </form>
   </div>
 
@@ -254,6 +296,22 @@ function ghc_render_settings_page() {
             input.value = line.trim();
             form.appendChild(input);
           });
+        });
+
+        var supportTextarea = document.getElementById('ghc-support-options-input');
+        var supportLines = supportTextarea.value.split('\n').filter(function(line) {
+          return line.trim();
+        });
+
+        var existingSupport = form.querySelectorAll('input[name^="ghc_ambassador_support_options["]');
+        existingSupport.forEach(function(el) { el.remove(); });
+
+        supportLines.forEach(function(line, i) {
+          var input = document.createElement('input');
+          input.type = 'hidden';
+          input.name = 'ghc_ambassador_support_options[' + i + ']';
+          input.value = line.trim();
+          form.appendChild(input);
         });
       });
     })();
