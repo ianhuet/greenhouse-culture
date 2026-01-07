@@ -15,6 +15,12 @@ function ghc_remove_ambassador_role() {
   remove_role('ambassador');
 }
 
+function ghc_add_contact_methods($methods) {
+  $methods['phone'] = 'Phone';
+  return $methods;
+}
+add_filter('user_contactmethods', 'ghc_add_contact_methods');
+
 function ghc_add_user_profile_fields($user) {
   if (!current_user_can('edit_user', $user->ID)) {
     return;
@@ -22,12 +28,13 @@ function ghc_add_user_profile_fields($user) {
   
   $address = get_user_meta($user->ID, 'ambassador_address', true);
   $ambassador_bio = get_user_meta($user->ID, 'ambassador_bio', true);
+  $ambassador_projects = get_user_meta($user->ID, 'ambassador_projects', true);
   $ambassador_tags = get_user_meta($user->ID, 'ambassador_tags', true);
+  $ambassador_support = get_user_meta($user->ID, 'ambassador_support', true);
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
-  $tags_string = is_array($ambassador_tags) ? implode(', ', $ambassador_tags) : '';
   ?>
-  <h3>Ambassador Information</h3>
+  <h2>Ambassador Information</h2>
   <table class="form-table">
     <tr>
       <th><label for="ambassador_bio">Ambassador Bio</label></th>
@@ -37,11 +44,18 @@ function ghc_add_user_profile_fields($user) {
       </td>
     </tr>
     <tr>
+      <th><label for="ambassador_projects">Projects & Initiatives</label></th>
+      <td>
+        <textarea name="ambassador_projects" id="ambassador_projects" rows="5" cols="30"><?php echo esc_textarea($ambassador_projects); ?></textarea>
+        <p class="description">Describe projects or initiatives you are involved in</p>
+      </td>
+    </tr>
+    <tr>
       <th><label for="ambassador_address">Address</label></th>
       <td>
         <input type="text" name="ambassador_address" id="ambassador_address" value="<?php echo esc_attr($address); ?>" placeholder="e.g., 123 Main St, Dublin, Ireland" style="width: 400px;" />
         <button type="button" id="geocode_address" class="button" style="margin-left: 10px;">Look up coordinates</button>
-        <p class="description">Enter your address and click "Look up coordinates" to auto-populate latitude/longitude</p>
+        <p class="description">Enter your address and click "Look up coordinates" to auto-populate latitude/longitude. Or use <a href="https://www.latlong.net/" target="_blank">LatLong.net</a> to find coordinates manually.</p>
         <div id="geocode_status" style="margin-top: 5px;"></div>
       </td>
     </tr>
@@ -60,17 +74,88 @@ function ghc_add_user_profile_fields($user) {
       </td>
     </tr>
     <tr>
-      <th><label for="ambassador_tags">Tags</label></th>
+      <th><label>Categories</label></th>
       <td>
-        <input type="text" name="ambassador_tags" id="ambassador_tags" value="<?php echo esc_attr($tags_string); ?>" />
-        <p class="description">Comma-separated list of skills/topics (e.g., "JavaScript, React, Frontend")</p>
+        <?php
+        $categories = ghc_get_categories();
+        if (empty($categories)): ?>
+          <p class="description">No categories defined. <a href="<?php echo esc_url(admin_url('options-general.php?page=ambassador-map-settings')); ?>">Configure categories</a></p>
+        <?php else: ?>
+          <div class="ghc-user-categories">
+            <?php foreach ($categories as $category): ?>
+              <fieldset class="ghc-user-category-group">
+                <legend><strong><?php echo esc_html($category['name']); ?></strong></legend>
+                <?php foreach ($category['subcategories'] as $subcategory):
+                  $value = $category['slug'] . ':' . sanitize_title($subcategory);
+                  $checked = is_array($ambassador_tags) && in_array($value, $ambassador_tags) ? 'checked' : '';
+                ?>
+                  <label style="display: block; margin: 4px 0;">
+                    <input type="checkbox"
+                           name="ambassador_tags[]"
+                           value="<?php echo esc_attr($value); ?>"
+                           <?php echo $checked; ?>>
+                    <?php echo esc_html($subcategory); ?>
+                  </label>
+                <?php endforeach; ?>
+              </fieldset>
+            <?php endforeach; ?>
+          </div>
+          <style>
+            .ghc-user-categories,
+            .ghc-user-support { display: flex; flex-wrap: wrap; gap: 20px; }
+            .ghc-user-category-group { border: 1px solid #c3c4c7; padding: 10px 15px; border-radius: 4px; min-width: 150px; }
+            .ghc-user-category-group legend { padding: 0 5px; }
+          </style>
+        <?php endif; ?>
+      </td>
+    </tr>
+    <tr>
+      <th><label>Support Options</label></th>
+      <td>
+        <?php
+        $support_options = ghc_get_support_options();
+        if (empty($support_options)): ?>
+          <p class="description">No support options defined. <a href="<?php echo esc_url(admin_url('options-general.php?page=ambassador-map-settings')); ?>">Configure support options</a></p>
+        <?php else: ?>
+          <div class="ghc-user-support">
+            <?php foreach ($support_options as $option):
+              $slug = sanitize_title($option);
+              $checked = is_array($ambassador_support) && in_array($slug, $ambassador_support) ? 'checked' : '';
+            ?>
+              <label style="display: block; margin: 4px 0;">
+                <input type="checkbox"
+                       name="ambassador_support[]"
+                       value="<?php echo esc_attr($slug); ?>"
+                       <?php echo $checked; ?>>
+                <?php echo esc_html($option); ?>
+              </label>
+            <?php endforeach; ?>
+          </div>
+        <?php endif; ?>
       </td>
     </tr>
   </table>
-  <p><em>Use the address lookup above or <a href="https://www.latlong.net/" target="_blank">LatLong.net</a> to find coordinates.</em></p>
-  
+
   <script>
   jQuery(document).ready(function($) {
+    var form = $('form#your-profile');
+    var sectionsToMove = ['Account Management', 'Application Passwords'];
+
+    $('h2').filter(function() {
+      return $(this).text().trim().toLowerCase() === 'about the user';
+    }).next('table.form-table').find('tr').has('label[for="description"]').hide();
+
+    sectionsToMove.forEach(function(sectionTitle) {
+      var heading = $('h2').filter(function() {
+        return $(this).text().trim() === sectionTitle;
+      });
+      if (heading.length) {
+        var elements = heading.nextUntil('h2, h3');
+        form.append(heading);
+        form.append(elements);
+      }
+    });
+
     $('#geocode_address').on('click', function() {
       var address = $('#ambassador_address').val();
       var statusDiv = $('#geocode_status');
@@ -133,12 +218,25 @@ function ghc_save_user_profile_fields($user_id) {
   if (isset($_POST['ambassador_bio'])) {
     update_user_meta($user_id, 'ambassador_bio', sanitize_textarea_field($_POST['ambassador_bio']));
   }
-  
-  if (isset($_POST['ambassador_tags'])) {
-    $tags_string = sanitize_text_field($_POST['ambassador_tags']);
-    $tags_array = array_map('trim', explode(',', $tags_string));
+
+  if (isset($_POST['ambassador_projects'])) {
+    update_user_meta($user_id, 'ambassador_projects', sanitize_textarea_field($_POST['ambassador_projects']));
+  }
+
+  if (isset($_POST['ambassador_tags']) && is_array($_POST['ambassador_tags'])) {
+    $tags_array = array_map('sanitize_text_field', $_POST['ambassador_tags']);
     $tags_array = array_filter($tags_array);
     update_user_meta($user_id, 'ambassador_tags', $tags_array);
+  } else {
+    update_user_meta($user_id, 'ambassador_tags', []);
+  }
+
+  if (isset($_POST['ambassador_support']) && is_array($_POST['ambassador_support'])) {
+    $support_array = array_map('sanitize_text_field', $_POST['ambassador_support']);
+    $support_array = array_filter($support_array);
+    update_user_meta($user_id, 'ambassador_support', $support_array);
+  } else {
+    update_user_meta($user_id, 'ambassador_support', []);
   }
 }
 

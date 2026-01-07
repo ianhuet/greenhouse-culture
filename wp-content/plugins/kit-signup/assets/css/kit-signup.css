@@ -18,8 +18,8 @@
 }
 
 .kit-signup-form button {
-    background-color: var(--color-primary-hover, #083105);
-    border: 1px solid var(--color-primary-hover, #083105);
+    background-color: var(--color-primary, #083105);
+    border: 1px solid var(--color-primary, #083105);
     border-radius: 4px;
     color: var(--color-white, #fff);
     padding: 4px 8px;

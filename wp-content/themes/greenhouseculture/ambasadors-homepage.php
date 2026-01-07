@@ -22,7 +22,9 @@ get_header();
 
       <section class="bap-hero">
         <header>
-          <p>To protect the planet, and our own future, it is time to come together and call for action on biodiversity loss. This network creates a supportive space for individuals to honour and protect biodiversity. It helps people discover more about the intrinsic value of nature and advocate for the rights of all living beings.</p>
+          <?php the_content() ?>
+
+          <!-- <p>To protect the planet, and our own future, it is time to come together and call for action on biodiversity loss. This network creates a supportive space for individuals to honour and protect biodiversity. It helps people discover more about the intrinsic value of nature and advocate for the rights of all living beings.</p>
 
           <div class="bap-quote">
             <p>"Biodiversity is our most valuable but least appreciated resource."</p>
@@ -31,7 +33,7 @@ get_header();
 
           <p>This programme recognises the power of collective awareness. It invites us to take time to understand biodiversity, the wider living world, and our place within it. When people come together to explore and deepen this understanding, new possibilities emerge — for protection, restoration, and shared stewardship guided by the principles of deep ecology.</p>
           <p>The Biodiversity Ambassador Programme nurtures this collective spirit. It encourages a journey of learning, reflection, and care that strengthens our relationship with nature and with one another.</p>
-          <p>Below are practical ideas you can try in your garden, your neighbourhood, or with your community to support biodiversity and help nature thrive. Choose what fits for you — from small everyday changes to bigger projects, each step is a way to care for nature and speak up for the living world.</p>
+          <p>Below are practical ideas you can try in your garden, your neighbourhood, or with your community to support biodiversity and help nature thrive. Choose what fits for you — from small everyday changes to bigger projects, each step is a way to care for nature and speak up for the living world.</p> -->
         </header>
 
         <div class="bap-media">

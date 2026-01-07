@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ambassador Map
  * Description: Interactive Leaflet map with clusters, search, tag chips, and a results panel. Shortcode: [ambassador_map]
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Greenhouse Culture & Aarthy Adhibagavan
  * License:     GPL-2.0+
  */
@@ -10,6 +10,7 @@
 if ( ! defined('ABSPATH') ) exit;
 
 require_once plugin_dir_path(__FILE__) . 'includes/ambassador-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/ambassador-settings.php';
 
 register_activation_hook(__FILE__, 'ghc_create_ambassador_role');
 register_deactivation_hook(__FILE__, 'ghc_remove_ambassador_role');
