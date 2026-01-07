@@ -23,6 +23,17 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 */
 
+:root {
+  --color-border-light: #ddd;
+  --color-text-medium: #666;
+  --color-text-dark: #333;
+  --color-bg-hover: #f5f5f5;
+  --color-bg-light: #f0f0f0;
+  --color-primary: #6bb766;
+  --color-primary-hover: #083105ff;
+  --color-white: white;
+}
+
 /**
  * 1.0 - General styles (body, headings, links, tags, margins, etc.)
  * -------------------------------------------------------------
@@ -8000,4 +8011,23 @@ padding-bottom: 20px;
 }
 .ambassador-page .wp-block-group .is-vertical.is-layout-flex ul {
   margin-top: 6px;
+}
+
+.kit-signup-panel {
+  background-color: var(--color-primary);
+  border-radius: 8px;
+  color: var(--color-white);
+  margin-bottom: 3rem;
+  padding: 2rem;
+}
+.kit-signup-panel h3 {
+  color: var(--color-white);
+}
+
+@media (min-width: 768px) {
+  .kit-signup-panel .kit-signup-panel-content {
+    display: grid;
+    gap: 2rem;
+    grid-template-columns: 3fr 2fr;
+  }
 }

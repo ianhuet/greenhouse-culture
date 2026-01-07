@@ -18,8 +18,36 @@ define('KIT_SIGNUP_PLACEHOLDER_NAME', 'Name');
 define('KIT_SIGNUP_BUTTON_TEXT', 'Sign-Up');
 
 require_once plugin_dir_path(__FILE__) . 'includes/kit-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/kit-admin.php';
+
+add_filter('plugin_action_links_' . plugin_basename(__FILE__), 'kit_signup_action_links');
+
+function kit_signup_action_links($links) {
+    $settings_link = '<a href="' . admin_url('options-general.php?page=kit-signup') . '">Settings</a>';
+    array_unshift($links, $settings_link);
+    return $links;
+}
 
 add_shortcode('kit_signup', 'kit_signup_render_form');
+add_shortcode('kit_signup_panel', 'kit_signup_render_panel');
+
+function kit_signup_render_panel($atts) {
+    $settings = kit_signup_get_settings();
+
+    ob_start();
+    ?>
+    <section class="kit-signup-panel">
+        <h3><?php echo esc_html($settings['panel_title']); ?></h3>
+        <div class="kit-signup-panel-content">
+            <div>
+                <?php echo wp_kses_post($settings['panel_content']); ?>
+            </div>
+            <?php echo kit_signup_render_form([]); ?>
+        </div>
+    </section>
+    <?php
+    return ob_get_clean();
+}
 
 function kit_signup_render_form($atts) {
     $nonce = wp_create_nonce('kit_signup_nonce');
