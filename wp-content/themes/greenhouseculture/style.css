@@ -7917,6 +7917,30 @@ margin: 0;
 padding-bottom: 20px;
 }
 
+.ambassador-homepage blockquote.wp-block-quote,
+.ambassador-page blockquote.wp-block-quote {
+  border-left: 4px solid var(--color-primary);
+  font-family: unset;
+  font-size: 1.25rem;
+  font-style: italic;
+  margin: 1rem 0 2rem;
+  padding-left: 2rem;
+}
+.ambassador-homepage blockquote.wp-block-quote::before,
+.ambassador-page blockquote.wp-block-quote::before {
+  content: '';
+}
+.ambassador-homepage blockquote.wp-block-quote p,
+.ambassador-page blockquote.wp-block-quote p {
+  margin-bottom: 0.5rem;
+}
+.ambassador-homepage blockquote.wp-block-quote cite,
+.ambassador-page blockquote.wp-block-quote cite {
+  color: var(--color-text-medium);
+  font-size: 1rem;
+  font-style: normal;
+}
+
 .ambassador-page {}
 .bap-title {
   background-image: url('assets/images/bap_title_bg.jpg');
