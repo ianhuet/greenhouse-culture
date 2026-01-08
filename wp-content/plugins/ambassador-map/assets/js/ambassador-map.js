@@ -84,13 +84,18 @@ document.addEventListener('DOMContentLoaded', function () {
   var tagsBox = document.getElementById('amb-tags');
 
   rows.forEach(function (item) {
-    var marker = L.marker([parseFloat(item.lat), parseFloat(item.lng)], {
-      title: item.title || '',
-      icon: greenIcon,
-    });
+    var markerOptions = {icon: greenIcon};
+    if (isPrivate && item.title) {
+      markerOptions.title = item.title;
+    }
 
-    if (isPrivate) {
-      marker.bindPopup(item.html || '<strong>' + (item.title || '') + '</strong>', {
+    var marker = L.marker(
+      [parseFloat(item.lat), parseFloat(item.lng)],
+      markerOptions
+    );
+
+    if (isPrivate && item.html) {
+      marker.bindPopup(item.html, {
         className: 'amb-leaflet-popup',
         maxWidth: 380,
       });
@@ -99,7 +104,7 @@ document.addEventListener('DOMContentLoaded', function () {
     cluster.addLayer(marker);
 
     allResults.push({
-      card: item.card,
+      card: item.card || '',
       id: item.id,
       marker: marker,
       terms: item.terms || [],
