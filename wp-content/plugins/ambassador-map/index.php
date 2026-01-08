@@ -15,6 +15,10 @@ require_once plugin_dir_path(__FILE__) . 'includes/ambassador-settings.php';
 register_activation_hook(__FILE__, 'ghc_create_ambassador_role');
 register_deactivation_hook(__FILE__, 'ghc_remove_ambassador_role');
 
+add_action('after_setup_theme', function() {
+  add_image_size('ambassador-avatar', 300, 300, true);
+});
+
 add_action('init', function() {
   add_action('show_user_profile', 'ghc_add_user_profile_fields');
   add_action('edit_user_profile', 'ghc_add_user_profile_fields');

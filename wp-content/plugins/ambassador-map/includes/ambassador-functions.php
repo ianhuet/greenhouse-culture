@@ -31,11 +31,30 @@ function ghc_add_user_profile_fields($user) {
   $ambassador_projects = get_user_meta($user->ID, 'ambassador_projects', true);
   $ambassador_tags = get_user_meta($user->ID, 'ambassador_tags', true);
   $ambassador_support = get_user_meta($user->ID, 'ambassador_support', true);
+  $ambassador_image_id = get_user_meta($user->ID, 'ambassador_image', true);
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
+
+  wp_enqueue_media();
   ?>
   <h2>Ambassador Information</h2>
   <table class="form-table">
+    <tr>
+      <th><label>Profile Image</label></th>
+      <td>
+        <div id="ambassador-image-preview" style="margin-bottom: 10px;">
+          <?php if ($ambassador_image_id): ?>
+            <?php echo wp_get_attachment_image($ambassador_image_id, 'ambassador-avatar', false, ['style' => 'max-width: 150px; height: auto; border-radius: 4px;']); ?>
+          <?php else: ?>
+            <div style="width: 150px; height: 150px; background: #f0f0f0; border-radius: 4px; display: flex; align-items: center; justify-content: center; color: #999;">No image</div>
+          <?php endif; ?>
+        </div>
+        <input type="hidden" name="ambassador_image" id="ambassador_image" value="<?php echo esc_attr($ambassador_image_id); ?>">
+        <button type="button" class="button" id="ambassador-image-upload">Select Image</button>
+        <button type="button" class="button" id="ambassador-image-remove" <?php echo $ambassador_image_id ? '' : 'style="display:none;"'; ?>>Remove</button>
+        <p class="description">Square image recommended (will be cropped to 300x300)</p>
+      </td>
+    </tr>
     <tr>
       <th><label for="ambassador_bio">Ambassador Bio</label></th>
       <td>
