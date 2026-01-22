@@ -655,3 +655,14 @@ function greenhouseculture_add_query_vars($vars)
     return $vars;
 }
 add_filter("query_vars", "greenhouseculture_add_query_vars");
+
+/**
+ * Ensure dashicons are loaded on the frontend
+ * so event icons are visible to all visitors.
+ */
+function greenhouseculture_load_dashicons_frontend()
+{
+    wp_enqueue_style('dashicons');
+}
+
+add_action('wp_enqueue_scripts', 'greenhouseculture_load_dashicons_frontend');
