@@ -646,7 +646,6 @@ function greenhouseculture_save_event_meta($post_id)
 }
 add_action('save_post', 'greenhouseculture_save_event_meta');
 
-<<<<<<< HEAD
 /**
  * Add custom query variable for event pagination
  */
@@ -667,7 +666,6 @@ function greenhouseculture_load_dashicons_frontend()
 }
 
 add_action('wp_enqueue_scripts', 'greenhouseculture_load_dashicons_frontend');
-=======
 function greenhouseculture_enqueue_ambassadors_styles() {
     if (is_page_template('ambasadors-homepage.php')) {
         wp_enqueue_style(
@@ -686,4 +684,3 @@ function greenhouseculture_enqueue_ambassadors_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassadors_styles');
->>>>>>> upstream/main
