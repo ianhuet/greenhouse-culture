@@ -1,0 +1,78 @@
+.kit-signup-form {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+}
+
+.kit-signup-form .form-row {
+    display: flex;
+    flex-flow: column nowrap;
+    gap: 1rem;
+}
+
+.kit-signup-form input {
+    border: 1px solid var(--color-primary-hover, #083105);
+    border-radius: 4px;
+    color: black;
+    padding: 4px 8px;
+}
+
+.kit-signup-form button {
+    background-color: var(--color-primary, #083105);
+    border: 1px solid var(--color-primary, #083105);
+    border-radius: 4px;
+    color: var(--color-white, #fff);
+    padding: 4px 8px;
+}
+
+.kit-signup-form button:hover {
+    background-color: var(--color-white, #fff);
+    color: var(--color-primary, #6bb766);
+}
+
+.kit-signup-form button:disabled {
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+.kit-signup-form input:focus,
+.kit-signup-form button:focus {
+    outline: var(--color-primary, #6bb766);
+}
+
+.kit-signup-honeypot {
+    height: 0;
+    left: -9999px;
+    opacity: 0;
+    overflow: hidden;
+    position: absolute;
+}
+
+.kit-signup-message {
+    background-color: var(--color-white, #fff);
+    border-radius: 4px;
+    color: black;
+    display: none;
+    margin-top: 1rem;
+    padding: 10px;
+    text-align: center;
+}
+
+.kit-signup-message.success,
+.kit-signup-message.error {
+    display: block;
+}
+
+.kit-signup-form.submitted .form-row,
+.kit-signup-form.submitted > input,
+.kit-signup-form.submitted > button {
+    display: none;
+}
+
+@media (min-width: 768px) {
+    .kit-signup-form .form-row {
+        display: grid;
+        gap: 1rem;
+        grid-template-columns: 1fr 1fr;
+    }
+}

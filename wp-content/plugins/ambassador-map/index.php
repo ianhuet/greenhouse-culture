@@ -2,7 +2,7 @@
 /**
  * Plugin Name: Ambassador Map
  * Description: Interactive Leaflet map with clusters, search, tag chips, and a results panel. Shortcode: [ambassador_map]
- * Version:     1.0.0
+ * Version:     1.1.0
  * Author:      Greenhouse Culture & Aarthy Adhibagavan
  * License:     GPL-2.0+
  */
@@ -10,9 +10,14 @@
 if ( ! defined('ABSPATH') ) exit;
 
 require_once plugin_dir_path(__FILE__) . 'includes/ambassador-functions.php';
+require_once plugin_dir_path(__FILE__) . 'includes/ambassador-settings.php';
 
 register_activation_hook(__FILE__, 'ghc_create_ambassador_role');
 register_deactivation_hook(__FILE__, 'ghc_remove_ambassador_role');
+
+add_action('after_setup_theme', function() {
+  add_image_size('ambassador-avatar', 300, 300, true);
+});
 
 add_action('init', function() {
   add_action('show_user_profile', 'ghc_add_user_profile_fields');
@@ -38,17 +43,24 @@ if ( ! function_exists('ghc_enqueue_leaflet_and_cluster') ) {
   add_action('wp_enqueue_scripts','ghc_enqueue_leaflet_and_cluster');
 }
 
-add_shortcode('ambassador_map', function () {
-  $rows = ghc_get_ambassador_data_rows();
-  $tags = ghc_get_ambassador_unique_tags();
-  $tags_html = ghc_get_ambassador_tags_html($tags);
-  
+add_shortcode('ambassador_map', function ($atts) {
+  $atts = shortcode_atts([
+    'private' => 'true'
+  ], $atts);
+
+  $is_private = filter_var($atts['private'], FILTER_VALIDATE_BOOLEAN);
+
+  $rows = ghc_get_ambassador_data_rows($is_private);
+  $tags = $is_private ? ghc_get_ambassador_unique_tags() : [];
+  $tags_html = $is_private ? ghc_get_ambassador_tags_html($tags) : '';
+
   $svg_data = 'data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="36" height="52" viewBox="0 0 36 52"><path d="M18 0c9.94 0 18 8.06 18 18 0 12.61-14.03 27.28-17.32 31a1 1 0 0 1-1.36 0C14.03 45.28 0 30.61 0 18 0 8.06 8.06 0 18 0z" fill="%236bb766"/><circle cx="18" cy="18" r="7" fill="white"/></svg>';
 
   wp_localize_script('ambassador-map-js', 'ambassadorMapData', [
     'rows' => $rows,
-    'iconUrl' => $svg_data
+    'iconUrl' => $svg_data,
+    'isPrivate' => $is_private
   ]);
 
-  return ghc_render_ambassador_map_html($tags_html);
+  return ghc_render_ambassador_map_html($tags_html, $is_private);
 });

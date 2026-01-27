@@ -646,6 +646,7 @@ function greenhouseculture_save_event_meta($post_id)
 }
 add_action('save_post', 'greenhouseculture_save_event_meta');
 
+<<<<<<< HEAD
 /**
  * Add custom query variable for event pagination
  */
@@ -666,3 +667,23 @@ function greenhouseculture_load_dashicons_frontend()
 }
 
 add_action('wp_enqueue_scripts', 'greenhouseculture_load_dashicons_frontend');
+=======
+function greenhouseculture_enqueue_ambassadors_styles() {
+    if (is_page_template('ambasadors-homepage.php')) {
+        wp_enqueue_style(
+            'ambassadors-homepage',
+            get_template_directory_uri() . '/css/ambassadors-homepage.css',
+            array(),
+            filemtime(get_template_directory() . '/css/ambassadors-homepage.css')
+        );
+        wp_enqueue_script(
+            'ambassadors-tabs',
+            get_template_directory_uri() . '/assets/js/ambassadors-tabs.js',
+            array(),
+            filemtime(get_template_directory() . '/assets/js/ambassadors-tabs.js'),
+            true
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassadors_styles');
+>>>>>>> upstream/main

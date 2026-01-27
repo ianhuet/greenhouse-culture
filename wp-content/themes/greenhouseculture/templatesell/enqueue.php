@@ -32,6 +32,7 @@ function greenhouseculture_scripts() {
 
    /*Main CSS*/
     wp_enqueue_style( 'greenhouseculture-style', get_stylesheet_uri() );
+    // wp_enqueue_style( 'greenhouseculture-style', get_stylesheet_directory_uri() . '/greenhouse-culture-style.css' );
 
 	/*RTL CSS*/
 	wp_style_add_data( 'greenhouseculture-style', 'rtl', 'replace' );
