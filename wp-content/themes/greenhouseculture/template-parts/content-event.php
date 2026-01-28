@@ -21,7 +21,7 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
 
 
     <?php if (has_post_thumbnail()) : ?>
-        <div class="event-thumbnail <?php echo $is_upcoming ? 'upcoming-thumbnail' : 'past-thumbnail' ?>">
+        <div class="event-thumbnail <?php echo $is_upcoming ? 'upcoming-thumbnail' : 'past-thumbnail' ?><?php echo !has_post_thumbnail() ? ' no-thumbnail' : '' ?>">
             <?php the_post_thumbnail('greenhouseculture-related-size'); ?>
         </div>
     <?php endif; ?>

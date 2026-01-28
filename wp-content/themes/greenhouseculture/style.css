@@ -2357,6 +2357,10 @@ section.slider-wrapper {
   display: block;
 }
 
+.event-thumbnail.no-thumbnail {
+    background-color: #c2c2c2;
+}
+
 /* Content overlay */
 .event-content {
     color: #000;
