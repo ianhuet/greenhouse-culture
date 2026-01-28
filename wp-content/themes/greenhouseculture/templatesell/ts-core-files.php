@@ -81,17 +81,3 @@ require get_template_directory() . '/templatesell/hooks/masonry.php';
 require get_template_directory() . '/templatesell/filters/excerpt.php';
 require get_template_directory() . '/templatesell/filters/jetpack-widget.php';
 require get_template_directory() . '/templatesell/filters/body-class.php';
-
-
-/**
- * Upgrade to pro
- */
- require get_template_directory() . '/templatesell/upgrade/class-customize.php';
-
-/**
- * For Admin Page
- */
-if ( is_admin() ) {
- require get_template_directory() . '/templatesell/about/about.php';
- require get_template_directory() . '/templatesell/pro-notice/pro-notice.php';
-}

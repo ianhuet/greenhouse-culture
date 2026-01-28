@@ -62,8 +62,7 @@ get_header();
                             <?php
                             $page_num = (get_query_var('page_num')) ? get_query_var('page_num') : 1;
 
-                            // Get all past events
-                            $all_past_events = get_posts(array(
+                            $past_events_with_date = get_posts(array(
                                 'meta_key' => '_event_date',
                                 'meta_query' => array(
                                     array(
@@ -80,8 +79,29 @@ get_header();
                                 'suppress_filters' => true,
                             ));
 
-                            // manual pagination
-                            $posts_per_page = 6;
+                            $events_without_date = get_posts(array(
+                                'numberposts' => -1,
+                                'order' => 'DESC',
+                                'orderby' => 'post_date',
+                                'post_type' => 'event',
+                                'meta_query' => array(
+                                    'relation' => 'OR',
+                                    array(
+                                        'key' => '_event_date',
+                                        'compare' => 'NOT EXISTS',
+                                    ),
+                                    array(
+                                        'key' => '_event_date',
+                                        'value' => '',
+                                        'compare' => '=',
+                                    ),
+                                ),
+                                'suppress_filters' => true,
+                            ));
+
+                            $all_past_events = array_merge($past_events_with_date, $events_without_date);
+
+                            $posts_per_page = 9;
                             $total_posts = count($all_past_events);
                             $max_pages = ceil($total_posts / $posts_per_page);
                             $offset = ($page_num - 1) * $posts_per_page;
@@ -101,28 +121,20 @@ get_header();
                             ?>
                         </div>
 
-                        <?php
-
-                        // pagination links
-                        if ($max_pages > 1) {
-                            echo '<div class="pagination-past">';
-                            echo paginate_links(array(
-                                'current' => $page_num,
-                                'end_size' => 1,
-                                'format' => '?page_num=%#%',
-                                'mid_size' => 1,
-                                'next_text' => 'Next ›',
-                                'prev_text' => '‹ Previous',
-                                'show_all' => false,
-                                'total' => $max_pages,
-                            ));
-                            echo '</div>';
-                        }
-
-                        ?>
-
-
-
+                        <?php if ($max_pages > 1) : ?>
+                            <div class="pagination-past">
+                                <?php
+                                echo paginate_links(array(
+                                    'base' => add_query_arg('page_num', '%#%'),
+                                    'current' => $page_num,
+                                    'format' => '',
+                                    'next_text' => 'Next ›',
+                                    'prev_text' => '‹ Previous',
+                                    'total' => $max_pages,
+                                ));
+                                ?>
+                            </div>
+                        <?php endif; ?>
                     </section>
 
                 </main>
