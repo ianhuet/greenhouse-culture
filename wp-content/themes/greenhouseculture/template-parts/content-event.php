@@ -20,11 +20,11 @@ $is_upcoming = strtotime($event_date) >= strtotime(date('Y-m-d'));
     onclick="window.location='<?php the_permalink() ?>'">
 
 
-    <?php if (has_post_thumbnail()) : ?>
-        <div class="event-thumbnail <?php echo $is_upcoming ? 'upcoming-thumbnail' : 'past-thumbnail' ?><?php echo !has_post_thumbnail() ? ' no-thumbnail' : '' ?>">
+    <div class="event-thumbnail <?php echo $is_upcoming ? 'upcoming-thumbnail' : 'past-thumbnail' ?><?php echo !has_post_thumbnail() ? ' no-thumbnail' : '' ?>">
+        <?php if (has_post_thumbnail()) : ?>
             <?php the_post_thumbnail('greenhouseculture-related-size'); ?>
-        </div>
-    <?php endif; ?>
+        <?php endif; ?>
+    </div>
 
     <div class="event-content <?php echo $is_upcoming ? 'upcoming-content' : 'past-content' ?>">
         <div class="event-meta <?php echo $is_upcoming ? 'upcoming-event-meta' : 'past-event-meta'; ?>">
