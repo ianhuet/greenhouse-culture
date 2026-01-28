@@ -1,4 +1,5 @@
 <?php
+
 /**
  * The template for displaying single events
  *
@@ -16,14 +17,12 @@ get_header();
             </div>
             <div id="primary" class="col-md-12 content-area">
                 <main id="main" class="site-main">
-                    
+
                     <?php while (have_posts()) : the_post(); ?>
-                        
+
                         <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-                            
-                            <header class="entry-header">
-                                <h1 class="entry-title"><?php the_title(); ?></h1>
-                            </header>
+
+
 
                             <?php if (has_post_thumbnail()) : ?>
                                 <div class="event-featured-image">
@@ -31,23 +30,36 @@ get_header();
                                 </div>
                             <?php endif; ?>
 
+                            <header class="entry-header">
+                                <h1 class="entry-title"><?php the_title(); ?></h1>
+                            </header>
+
                             <div class="event-details">
                                 <?php
                                 $event_date = get_post_meta(get_the_ID(), '_event_date', true);
                                 $event_time = get_post_meta(get_the_ID(), '_event_time', true);
                                 $event_location = get_post_meta(get_the_ID(), '_event_location', true);
                                 ?>
-                                
+
                                 <?php if ($event_date) : ?>
-                                    <p><strong>Date:</strong> <?php echo date('F j, Y', strtotime($event_date)); ?></p>
+                                    <p class="event-meta event-date">
+                                        <span class="dashicons dashicons-calendar-alt"></span>
+                                        <?php echo date('F j, Y', strtotime($event_date)); ?>
+                                    </p>
                                 <?php endif; ?>
-                                
+
                                 <?php if ($event_time) : ?>
-                                    <p><strong>Time:</strong> <?php echo date('g:i A', strtotime($event_time)); ?></p>
+                                    <p class="event-meta event-time">
+                                        <span class="dashicons dashicons-clock"></span>
+                                        <?php echo date('g:i A', strtotime($event_time)); ?>
+                                    </p>
                                 <?php endif; ?>
-                                
+
                                 <?php if ($event_location) : ?>
-                                    <p><strong>Location:</strong> <?php echo esc_html($event_location); ?></p>
+                                    <p class="event-meta event-location">
+                                        <span class="dashicons dashicons-location"></span>
+                                        <?php echo esc_html($event_location); ?>
+                                    </p>
                                 <?php endif; ?>
                             </div>
 
