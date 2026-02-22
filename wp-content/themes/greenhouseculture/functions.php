@@ -652,6 +652,7 @@ add_action('save_post', 'greenhouseculture_save_event_meta');
 function greenhouseculture_add_query_vars($vars)
 {
     $vars[] = "page_num";
+    $vars[] = "ambassador_profile";
     return $vars;
 }
 add_filter("query_vars", "greenhouseculture_add_query_vars");
@@ -684,3 +685,44 @@ function greenhouseculture_enqueue_ambassadors_styles() {
     }
 }
 add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassadors_styles');
+
+function greenhouseculture_ambassador_profile_rewrite() {
+    add_rewrite_rule(
+        'ambassador/([^/]+)/?$',
+        'index.php?ambassador_profile=$matches[1]',
+        'top'
+    );
+}
+add_action('init', 'greenhouseculture_ambassador_profile_rewrite');
+
+function greenhouseculture_ambassador_profile_template($template) {
+    $slug = get_query_var('ambassador_profile');
+    if (!$slug) {
+        return $template;
+    }
+
+    $profile_template = locate_template('single-ambassador.php');
+    if ($profile_template) {
+        return $profile_template;
+    }
+
+    return $template;
+}
+add_filter('template_include', 'greenhouseculture_ambassador_profile_template');
+
+function greenhouseculture_enqueue_ambassador_profile_styles() {
+    if (!get_query_var('ambassador_profile')) {
+        return;
+    }
+
+    $css_path = get_template_directory() . '/css/ambassador-profile.css';
+    if (file_exists($css_path)) {
+        wp_enqueue_style(
+            'ambassador-profile',
+            get_template_directory_uri() . '/css/ambassador-profile.css',
+            array(),
+            filemtime($css_path)
+        );
+    }
+}
+add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassador_profile_styles');

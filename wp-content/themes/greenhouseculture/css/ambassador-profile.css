@@ -1,0 +1,143 @@
+.ambassador-profile__sidebar {
+    min-height: 1px;
+}
+
+.ambassador-profile__header {
+    display: grid;
+    gap: 1rem;
+    margin-bottom: 2.5rem;
+}
+
+.ambassador-profile__header-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+.ambassador-profile__header-info h2 {
+    font-size: 18px;
+    margin: 0;
+    margin-bottom: 0.5rem;
+    text-decoration: underline;
+}
+
+.ambassador-profile__header-avatar {
+    width: 60%;
+}
+
+.ambassador-profile__avatar {
+    aspect-ratio: 3 / 4;
+    border-radius: 8px;
+    height: auto;
+    margin: 0 auto;
+    object-fit: cover;
+    width: 240px;
+}
+
+.ambassador-profile__name {
+    color: var(--color-primary-hover);
+    margin: 0;
+}
+
+.ambassador-profile__support h3 {
+    text-decoration: underline;
+    color: var(--color-primary-hover);
+    font-size: 1rem;
+    margin-bottom: 0;
+}
+
+.ambassador-profile__tags {
+    display: flex;
+    flex-flow: row wrap;
+}
+.ambassador-profile__tags span {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    padding: 4px 8px;
+}
+
+.ambassador-profile__section {
+    margin-bottom: 2.5rem;
+}
+
+.ambassador-profile__section h2 {
+    border-bottom: 2px solid var(--color-primary);
+    color: var(--color-primary-hover);
+    font-size: 1.25rem;
+    margin-bottom: 1rem;
+    padding-bottom: 0.5rem;
+}
+
+.ambassador-profile__text p {
+    line-height: 1.7;
+}
+
+.ambassador-profile__categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1.5rem;
+}
+
+.ambassador-profile__category-group h3 {
+    color: var(--color-primary-hover);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.ambassador-profile__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+}
+
+.ambassador-profile__tag {
+    background: var(--color-bg-light);
+    border-radius: 999px;
+    border: 1px solid var(--color-border-light);
+    font-size: 14px;
+    padding: 0.4rem 0.85rem;
+    text-transform: capitalize;
+}
+
+.ambassador-profile__contacts {
+    border: 2px solid var(--color-primary);
+    border-radius: 8px;
+    box-sizing: border-box;
+    padding: 2rem;
+}
+.ambassador-profile__contacts svg {
+    color: black;
+    margin-right: 1rem;
+    vertical-align: middle;
+}
+.ambassador-profile__contacts p:last-of-type {
+    margin-bottom: 0;
+}
+
+@media (min-width: 768px) {
+    .ambassador-profile__header {
+        grid-template-columns: 2fr 1fr;
+        grid-template-rows: auto 1fr;
+    }
+
+    .ambassador-profile__name {
+        grid-column: 1;
+        grid-row: 1;
+    }
+
+    .ambassador-profile__header-avatar {
+        grid-column: 2;
+        grid-row: 1 / -1;
+        display: flex;
+        justify-content: center;
+        width: auto;
+    }
+
+    .ambassador-profile__header-info {
+        grid-column: 1;
+        grid-row: 2;
+    }
+
+    .ambassador-profile__avatar {
+        margin: unset;
+    }
+}
