@@ -115,6 +115,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
       if (!tag) return;
 
+      searchEl.value = '';
       var slug = tag.getAttribute('data-term');
       tag.classList.toggle('active');
       tag.classList.contains('active')

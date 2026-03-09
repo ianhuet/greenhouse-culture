@@ -504,13 +504,14 @@ function ghc_get_ambassador_data_rows() {
     $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
     $img_url = ghc_get_ambassador_avatar_url($user->ID);
     $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
-    $tag_slugs = array_map('sanitize_title', $tag_names);
     $region = get_user_meta($user->ID, 'searchable_region', true) ?: '';
 
     $display_categories = [];
+    $category_slugs = [];
     foreach ($tag_names as $tag) {
       $slug = explode(':', $tag)[0];
-      if (isset($category_names[$slug]) && !in_array($category_names[$slug], $display_categories)) {
+      if (isset($category_names[$slug]) && !in_array($slug, $category_slugs)) {
+        $category_slugs[] = $slug;
         $display_categories[] = $category_names[$slug];
       }
     }
@@ -526,7 +527,7 @@ function ghc_get_ambassador_data_rows() {
       'id'    => $user->ID,
       'lat'   => $lat,
       'lng'   => $lng,
-      'terms' => $tag_slugs,
+      'terms' => $category_slugs,
       'text'  => strtolower(wp_strip_all_tags(implode(' ', $search_parts))),
       'title' => $title,
     ];
@@ -582,6 +583,14 @@ HTML;
 }
 
 function ghc_render_ambassador_map_html() {
+  $categories = ghc_get_categories();
+  $chips_html = '';
+  foreach ($categories as $category) {
+    $slug = esc_attr($category['slug']);
+    $name = esc_html($category['name']);
+    $chips_html .= '<span class="ambTagsBox__tag" data-term="' . $slug . '">' . $name . '</span>';
+  }
+
   return <<<HTML
     <div class="ambassador-map">
       <div class="ambHeader">
@@ -590,7 +599,7 @@ function ghc_render_ambassador_map_html() {
           <button class="ambHeader__searchBox__clear" id="amb-clear" type="button">Clear filters</button>
         </div>
 
-        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags"></div>
+        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$chips_html}</div>
       </div>
 
       <div class="ambBody">
