@@ -26,13 +26,13 @@
 }
 .ambTagsBox__tag {
 	align-items: center;
-	background: var(--background);
+	background: var(--line);
 	border-radius: 999px;
-	border: 1px solid var(--line);
+	border: 1px solid var(--background);
 	color: var(--ink);
 	cursor: pointer;
-	font-size: 14px;
-	padding: 0.45rem 0.75rem;
+	font-size: 12px;
+	padding: 0.25rem 0.75rem;
 	text-transform: capitalize;
 	transition: all .15s ease;
 	user-select: none;
@@ -44,6 +44,7 @@
 }
 .ambTagsBox__tag:hover {
 	background: var(--leaf-50);
+	color: black;
 }
 
 /* HEADER ---------------------- */
@@ -150,6 +151,10 @@
 	padding-left: 12px;
 	padding-right: 12px;
 	width: 120px;
+}
+.ambPopupBody__content {
+	max-height: 30vh;
+	overflow-y: scroll;
 }
 .ambPopupBody__content p {
 	margin: 0 0 8px;
