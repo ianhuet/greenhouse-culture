@@ -550,9 +550,9 @@ function greenhouseculture_register_events_post_type()
         'public' => true,
         'has_archive' => true,
         'rewrite' => array('slug' => 'events'),
-        'supports' => array('title', 'editor', 'thumbnail', 'excerpt'),
+        'supports' => array('title', 'thumbnail', 'editor', 'excerpt'),
         'menu_icon' => 'dashicons-calendar-alt',
-        'show_in_rest' => true
+        'show_in_rest' => false
     ));
 }
 add_action('init', 'greenhouseculture_register_events_post_type');
@@ -603,18 +603,116 @@ function greenhouseculture_event_meta_box_callback($post)
 {
     wp_nonce_field('greenhouseculture_save_event_meta', 'event_meta_nonce');
 
-    $event_date = get_post_meta($post->ID, '_event_date', true);
-    $event_time = get_post_meta($post->ID, '_event_time', true);
-    $event_location = get_post_meta($post->ID, '_event_location', true);
+    $fields = [
+        'date' => get_post_meta($post->ID, '_event_date', true),
+        'time' => get_post_meta($post->ID, '_event_time', true),
+        'location' => get_post_meta($post->ID, '_event_location', true),
+        'tagline' => get_post_meta($post->ID, '_event_tagline', true),
+        'secondary' => get_post_meta($post->ID, '_event_secondary_content', true),
+        'testimonials' => get_post_meta($post->ID, '_event_testimonials', true),
+        'supporters' => get_post_meta($post->ID, '_event_supporters', true),
+        'gallery' => get_post_meta($post->ID, '_event_gallery', true),
+    ];
 
-    echo '<table>';
-    echo '<tr><td><label for="event_date">Event Date:</label></td>';
-    echo '<td><input type="date" id="event_date" name="event_date" value="' . esc_attr($event_date) . '" /></td></tr>';
-    echo '<tr><td><label for="event_time">Event Time:</label></td>';
-    echo '<td><input type="time" id="event_time" name="event_time" value="' . esc_attr($event_time) . '" /></td></tr>';
-    echo '<tr><td><label for="event_location">Location:</label></td>';
-    echo '<td><input type="text" id="event_location" name="event_location" value="' . esc_attr($event_location) . '" /></td></tr>';
-    echo '</table>';
+?>
+    <table class="form-table">
+        <tr>
+            <th><label for="event_date">Date</label></th>
+            <td><input type="date" name="event_date" id="event_date" value="<?php echo esc_attr($fields['date']); ?>" /></td>
+        </tr>
+        <tr>
+            <th><label for="event_time">Time</label></th>
+            <td><input type="time" name="event_time" id="event_time" value="<?php echo esc_attr($fields['time']); ?>" /></td>
+        </tr>
+        <tr>
+            <th><label for="event_location">Location</label></th>
+            <td><input type="text" name="event_location" id="event_location" value="<?php echo esc_attr($fields['location']); ?>" /></td>
+        </tr>
+        <tr>
+            <th><label for="event_tagline">Tagline</label></th>
+            <td><input type="text" name="event_tagline" id="event_tagline" value="<?php echo esc_attr($fields['tagline']); ?>" /></td>
+        </tr>
+        <tr>
+            <th><label for="event_gallery">Gallery</label></th>
+            <td>
+                <div id="event-gallery-preview" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                    <?php
+                    $gallery_ids = is_array($fields['gallery']) ? $fields['gallery'] : explode(',', $fields['gallery']);
+                    foreach ($gallery_ids as $id) {
+                        $id = intval($id);
+                        if (!$id) continue;
+                        $type = get_post_mime_type($id);
+                        if (str_starts_with($type, 'video')) {
+                            echo '<div style="position:relative;">
+                        <video src="' . esc_url(wp_get_attachment_url($id)) . '" width="100" height="80" style="object-fit:cover;"></video>
+                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '" style="position:absolute;top:0;right:0;">✕</button>
+                      </div>';
+                        } else {
+                            $thumb = wp_get_attachment_image_url($id, 'thumbnail');
+                            echo '<div style="position:relative;">
+                        <img src="' . esc_url($thumb) . '" width="100" height="80" style="object-fit:cover;" />
+                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '" style="position:absolute;top:0;right:0;">✕</button>
+                      </div>';
+                        }
+                    }
+                    ?>
+                </div>
+                <input type="hidden" name="event_gallery" id="event_gallery"
+                    value="<?php echo esc_attr(is_array($fields['gallery']) ? implode(',', array_filter($fields['gallery'])) : $fields['gallery']); ?>" />
+                <button type="button" id="event-gallery-btn" class="button">
+                    Add Images / Videos
+                </button>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="event_secondary_content">Secondary Content</label></th>
+            <td><textarea name="event_secondary_content" id="event_secondary_content" rows="4" style="width:100%;"><?php echo esc_textarea($fields['secondary']); ?></textarea></td>
+        </tr>
+        <tr>
+            <th><label for="event_testimonials">Testimonials</label></th>
+            <td>
+                <?php
+                $testimonials = is_array($fields['testimonials']) ? $fields['testimonials'] : [];
+                for ($i = 0; $i < 4; $i++) :
+                    $t = $testimonials[$i] ?? ['name' => '', 'role' => '', 'quote' => ''];
+                ?>
+                    <div style="border:1px solid #ddd; padding:12px; margin-bottom:12px; border-radius:4px;">
+                        <p style="margin:0 0 4px;"><strong>Testimonial <?php echo $i + 1; ?></strong></p>
+                        <input type="text" name="event_testimonials[<?php echo $i; ?>][name]" placeholder="Name" value="<?php echo esc_attr($t['name']); ?>" style="width:100%; margin-bottom:6px;" />
+                        <input type="text" name="event_testimonials[<?php echo $i; ?>][role]" placeholder="Role / Title (optional)" value="<?php echo esc_attr($t['role']); ?>" style="width:100%; margin-bottom:6px;" />
+                        <textarea name="event_testimonials[<?php echo $i; ?>][quote]" placeholder="Quote" rows="3" style="width:100%;"><?php echo esc_textarea($t['quote']); ?></textarea>
+                    </div>
+                <?php endfor; ?>
+                <p class="description">Leave empty fields blank — they won't show on the frontend.</p>
+            </td>
+        </tr>
+        <tr>
+            <th><label for="event_supporters">Supporters / Collaborators</label></th>
+            <td>
+                <div id="event-supporters-preview" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                    <?php
+                    $supporter_ids = is_array($fields['supporters']) ? $fields['supporters'] : array_filter(array_map('intval', explode(',', $fields['supporters'])));
+                    foreach ($supporter_ids as $id) :
+                        if (!$id) continue;
+                        $thumb = wp_get_attachment_image_url($id, 'thumbnail');
+                    ?>
+                        <div class="supporter-preview-item" style="position:relative; width:100px; height:80px; overflow:hidden;">
+                            <img src="<?php echo esc_url($thumb); ?>" style="width:100%; height:100%; object-fit:contain;" />
+                            <button type="button" class="remove-supporter-item button" data-id="<?php echo $id; ?>"
+                                style="position:absolute;top:2px;right:2px;background:red;color:#fff;border:none;cursor:pointer;border-radius:3px;padding:1px 5px;font-size:12px;">✕</button>
+                        </div>
+                    <?php endforeach; ?>
+                </div>
+                <input type="hidden" name="event_supporters" id="event_supporters"
+                    value="<?php echo esc_attr(implode(',', $supporter_ids ?? [])); ?>" />
+                <button type="button" id="event-supporters-btn" class="button button-secondary">
+                    + Add Supporter Logos
+                </button>
+                <p class="description">Upload logos for supporters and collaborators.</p>
+            </td>
+        </tr>
+    </table>
+<?php
 }
 
 /**
@@ -622,34 +720,45 @@ function greenhouseculture_event_meta_box_callback($post)
  */
 function greenhouseculture_save_event_meta($post_id)
 {
-    if (!isset($_POST['event_meta_nonce']) || !wp_verify_nonce($_POST['event_meta_nonce'], 'greenhouseculture_save_event_meta')) {
-        return;
-    }
+    if (!isset($_POST['event_meta_nonce']) || !wp_verify_nonce($_POST['event_meta_nonce'], 'greenhouseculture_save_event_meta')) return;
+    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
+    if (!current_user_can('edit_post', $post_id)) return;
 
-    if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
-        return;
-    }
+    $fields = ['event_date', 'event_time', 'event_location', 'event_tagline', 'event_secondary_content', 'event_testimonials', 'event_supporters', 'event_gallery'];
 
-    if (!current_user_can('edit_post', $post_id)) {
-        return;
-    }
-
-    if (isset($_POST['event_date'])) {
-        update_post_meta($post_id, '_event_date', sanitize_text_field($_POST['event_date']));
-    }
-    if (isset($_POST['event_time'])) {
-        update_post_meta($post_id, '_event_time', sanitize_text_field($_POST['event_time']));
-    }
-    if (isset($_POST['event_location'])) {
-        update_post_meta($post_id, '_event_location', sanitize_text_field($_POST['event_location']));
+    foreach ($fields as $field) {
+        if (isset($_POST[$field])) {
+            if ($field === 'event_gallery') {
+                $value = array_map('intval', explode(',', sanitize_text_field($_POST[$field])));
+                $value = array_slice($value, 0, 18);
+            } elseif ($field === 'event_testimonials') {
+                $raw = $_POST['event_testimonials'];
+                $value = [];
+                if (is_array($raw)) {
+                    foreach (array_slice($raw, 0, 4) as $t) {
+                        $value[] = [
+                            'name'  => sanitize_text_field($t['name'] ?? ''),
+                            'role'  => sanitize_text_field($t['role'] ?? ''),
+                            'quote' => sanitize_textarea_field($t['quote'] ?? ''),
+                        ];
+                    }
+                }
+            } elseif ($field === 'event_supporters') {
+                $value = array_filter(array_map('intval', explode(',', sanitize_text_field($_POST[$field]))));
+                $value = array_values($value); // reindex array
+            } else {
+                $value = sanitize_text_field($_POST[$field]);
+            }
+            update_post_meta($post_id, '_' . $field, $value);
+        }
     }
 }
 add_action('save_post', 'greenhouseculture_save_event_meta');
 
-<<<<<<< HEAD
 /**
  * Add custom query variable for event pagination
  */
+
 function greenhouseculture_add_query_vars($vars)
 {
     $vars[] = "page_num";
@@ -661,14 +770,15 @@ add_filter("query_vars", "greenhouseculture_add_query_vars");
  * Ensure dashicons are loaded on the frontend
  * so event icons are visible to all visitors.
  */
+
 function greenhouseculture_load_dashicons_frontend()
 {
     wp_enqueue_style('dashicons');
 }
 
 add_action('wp_enqueue_scripts', 'greenhouseculture_load_dashicons_frontend');
-=======
-function greenhouseculture_enqueue_ambassadors_styles() {
+function greenhouseculture_enqueue_ambassadors_styles()
+{
     if (is_page_template('ambasadors-homepage.php')) {
         wp_enqueue_style(
             'ambassadors-homepage',
@@ -685,5 +795,25 @@ function greenhouseculture_enqueue_ambassadors_styles() {
         );
     }
 }
+
 add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassadors_styles');
->>>>>>> upstream/main
+
+/**
+ * Enqueue media uploader for the event meta box
+ */
+function greenhouseculture_event_admin_scripts($hook)
+{
+    // Only load on add/edit event screens
+    global $post;
+    if (($hook === 'post-new.php' || $hook === 'post.php') && isset($post->post_type) && $post->post_type === 'event') {
+        wp_enqueue_media(); // loads WP media library
+        wp_enqueue_script(
+            'event-gallery-uploader',
+            get_template_directory_uri() . '/assets/js/event-gallery.js',
+            array('jquery'),
+            '1.0.0',
+            true
+        );
+    }
+}
+add_action('admin_enqueue_scripts', 'greenhouseculture_event_admin_scripts');
