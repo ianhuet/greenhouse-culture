@@ -74,7 +74,6 @@ document.addEventListener('DOMContentLoaded', function () {
   var allResults = [];
   var activeTags = new Set();
   var rows = window.ambassadorMapData.rows;
-  var isPrivate = window.ambassadorMapData.isPrivate;
 
   var countEl = document.getElementById('amb-count');
   var clearBtn = document.getElementById('amb-clear');
@@ -85,21 +84,17 @@ document.addEventListener('DOMContentLoaded', function () {
 
   rows.forEach(function (item) {
     var markerOptions = {icon: greenIcon};
-    if (isPrivate && item.title) {
-      markerOptions.title = item.title;
-    }
+    markerOptions.title = item.title;
 
     var marker = L.marker(
       [parseFloat(item.lat), parseFloat(item.lng)],
       markerOptions
     );
 
-    if (isPrivate && item.html) {
-      marker.bindPopup(item.html, {
-        className: 'amb-leaflet-popup',
-        maxWidth: 380,
-      });
-    }
+    marker.bindPopup(item.html, {
+      className: 'amb-leaflet-popup',
+      maxWidth: 380,
+    });
 
     cluster.addLayer(marker);
 

@@ -93,6 +93,7 @@ function ghc_add_user_profile_fields($user) {
       <th><label for="longitude">Longitude</label></th>
       <td>
         <input type="text" name="longitude" id="longitude" value="<?php echo esc_attr($longitude); ?>" placeholder="e.g., -6.2603" />
+        <input type="hidden" name="searchable_region" id="searchable_region" value="<?php echo esc_attr(get_user_meta($user->ID, 'searchable_region', true)); ?>">
         <p class="description">Required for map display (auto-populated from address lookup)</p>
       </td>
     </tr>
@@ -237,6 +238,7 @@ function ghc_add_user_profile_fields($user) {
           if (response.success) {
             $('#latitude').val(response.data.latitude);
             $('#longitude').val(response.data.longitude);
+            $('#searchable_region').val(response.data.searchable_region);
             statusDiv.html('<span style="color: green;">✓ Coordinates found: ' + response.data.display_name + '</span>');
           } else {
             statusDiv.html('<span style="color: red;">Error: ' + response.data.message + '</span>');
@@ -280,7 +282,11 @@ function ghc_save_user_profile_fields($user_id) {
   if (isset($_POST['longitude'])) {
     update_user_meta($user_id, 'longitude', sanitize_text_field($_POST['longitude']));
   }
-  
+
+  if (isset($_POST['searchable_region'])) {
+    update_user_meta($user_id, 'searchable_region', sanitize_text_field($_POST['searchable_region']));
+  }
+
   if (isset($_POST['ambassador_bio'])) {
     update_user_meta($user_id, 'ambassador_bio', sanitize_textarea_field($_POST['ambassador_bio']));
   }
@@ -340,13 +346,55 @@ function ghc_geocode_address($address) {
   }
   
   $result = $data[0];
-  
+  $region = ghc_extract_searchable_region($result['address'] ?? []);
+
   return [
     'success' => true,
     'latitude' => $result['lat'],
     'longitude' => $result['lon'],
-    'display_name' => $result['display_name']
+    'display_name' => $result['display_name'],
+    'searchable_region' => $region,
   ];
+}
+
+function ghc_extract_searchable_region($address) {
+  $city = $address['city'] ?? $address['town'] ?? $address['village'] ?? '';
+  $county = $address['county'] ?? '';
+  $state = $address['state'] ?? '';
+  $country = $address['country'] ?? '';
+
+  $parts = array_filter([$city, $county, $state, $country]);
+  return strtolower(implode(', ', $parts));
+}
+
+function ghc_reverse_geocode($lat, $lng) {
+  $api_url = 'https://nominatim.openstreetmap.org/reverse';
+  $params = [
+    'lat' => $lat,
+    'lon' => $lng,
+    'format' => 'json',
+    'addressdetails' => 1,
+  ];
+
+  $request_url = add_query_arg($params, $api_url);
+
+  $response = wp_remote_get($request_url, [
+    'timeout' => 10,
+    'user-agent' => 'WordPress Ambassador Plugin/1.0 (' . home_url() . ')'
+  ]);
+
+  if (is_wp_error($response)) {
+    return '';
+  }
+
+  $body = wp_remote_retrieve_body($response);
+  $data = json_decode($body, true);
+
+  if (empty($data) || !isset($data['address'])) {
+    return '';
+  }
+
+  return ghc_extract_searchable_region($data['address']);
 }
 
 function ghc_handle_geocode_ajax() {
@@ -417,7 +465,17 @@ function ghc_get_ambassador_avatar_url($user_id) {
   return 'https://secure.gravatar.com/avatar/?s=300&d=mm&r=g';
 }
 
-function ghc_get_ambassador_data_rows($is_private = true) {
+function ghc_get_category_name_map() {
+  $categories = ghc_get_categories();
+  $map = [];
+  foreach ($categories as $category) {
+    $map[$category['slug']] = $category['name'];
+  }
+  return $map;
+}
+
+function ghc_get_ambassador_data_rows() {
+  $category_names = ghc_get_category_name_map();
   $ambassadors = get_users([
     'role' => 'ambassador',
     'meta_query' => [
@@ -441,33 +499,37 @@ function ghc_get_ambassador_data_rows($is_private = true) {
     $lng = get_user_meta($user->ID, 'longitude', true);
     if (!$lat || !$lng) continue;
 
-    if ($is_private) {
-      $id = $user->ID;
-      $title = $user->display_name ?: $user->user_login;
-      $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
-      $img_url = ghc_get_ambassador_avatar_url($user->ID);
-      $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
-      $tag_slugs = array_map('sanitize_title', $tag_names);
+    $id = $user->ID;
+    $title = $user->display_name ?: $user->user_login;
+    $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
+    $img_url = ghc_get_ambassador_avatar_url($user->ID);
+    $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
+    $tag_slugs = array_map('sanitize_title', $tag_names);
+    $region = get_user_meta($user->ID, 'searchable_region', true) ?: '';
 
-      $card = ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tag_names);
-      $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $tag_names);
-
-      $rows[] = [
-        'card'  => $card,
-        'html'  => $popup,
-        'id'    => $user->ID,
-        'lat'   => $lat,
-        'lng'   => $lng,
-        'terms' => $tag_slugs,
-        'text'  => wp_strip_all_tags($title.' '.$content),
-        'title' => $title,
-      ];
-    } else {
-      $rows[] = [
-        'lat' => $lat,
-        'lng' => $lng,
-      ];
+    $display_categories = [];
+    foreach ($tag_names as $tag) {
+      $slug = explode(':', $tag)[0];
+      if (isset($category_names[$slug]) && !in_array($category_names[$slug], $display_categories)) {
+        $display_categories[] = $category_names[$slug];
+      }
     }
+
+    $card = ghc_get_ambassador_card_html($id, $title, $content, $img_url, $display_categories);
+    $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $display_categories);
+
+    $search_parts = array_filter([$title, $content, $region, implode(' ', $tag_names)]);
+
+    $rows[] = [
+      'card'  => $card,
+      'html'  => $popup,
+      'id'    => $user->ID,
+      'lat'   => $lat,
+      'lng'   => $lng,
+      'terms' => $tag_slugs,
+      'text'  => strtolower(wp_strip_all_tags(implode(' ', $search_parts))),
+      'title' => $title,
+    ];
   }
 
   return $rows;
@@ -519,25 +581,17 @@ function ghc_get_ambassador_popup_html($title, $content, $img_url, $tags = []) {
 HTML;
 }
 
-function ghc_render_ambassador_map_html($tags_html, $is_private = true) {
-  $header = '';
-
-  if ($is_private) {
-    $header = <<<HTML
+function ghc_render_ambassador_map_html() {
+  return <<<HTML
+    <div class="ambassador-map">
       <div class="ambHeader">
         <div class="ambHeader__searchBox">
           <input class="ambHeader__searchBox__input" id="amb-search" placeholder="Search ambassadors, skills, topics…" type="text">
           <button class="ambHeader__searchBox__clear" id="amb-clear" type="button">Clear filters</button>
         </div>
 
-        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
+        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags"></div>
       </div>
-    HTML;
-  }
-
-  return <<<HTML
-    <div class="ambassador-map">
-      {$header}
 
       <div class="ambBody">
         <div class="ambMap" id="ambassadors-map"></div>
