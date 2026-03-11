@@ -194,6 +194,53 @@ function ghc_render_settings_page() {
 
       <?php submit_button('Save Settings'); ?>
     </form>
+
+    <hr style="margin: 30px 0;">
+
+    <h2>Backfill Searchable Regions</h2>
+    <p class="description">Populate <code>searchable_region</code> for ambassadors who have coordinates but no region data. Respects Nominatim's 1 request/second rate limit, so this may take a moment.</p>
+    <p>
+      <button type="button" class="button" id="ghc-backfill-regions">Backfill Regions</button>
+      <span id="ghc-backfill-status" style="margin-left: 10px;"></span>
+    </p>
+
+    <script>
+    (function() {
+      var btn = document.getElementById('ghc-backfill-regions');
+      var status = document.getElementById('ghc-backfill-status');
+
+      btn.addEventListener('click', function() {
+        btn.disabled = true;
+        btn.textContent = 'Processing...';
+        status.textContent = '';
+
+        var xhr = new XMLHttpRequest();
+        xhr.open('POST', ajaxurl);
+        xhr.setRequestHeader('Content-Type', 'application/x-www-form-urlencoded');
+        xhr.onload = function() {
+          btn.disabled = false;
+          btn.textContent = 'Backfill Regions';
+          try {
+            var resp = JSON.parse(xhr.responseText);
+            if (resp.success) {
+              var d = resp.data;
+              status.innerHTML = '<span style="color:green;">Done — ' + d.updated + ' updated, ' + d.skipped + ' already had data, ' + d.failed + ' failed.</span>';
+            } else {
+              status.innerHTML = '<span style="color:red;">Error: ' + (resp.data && resp.data.message || 'Unknown') + '</span>';
+            }
+          } catch(e) {
+            status.innerHTML = '<span style="color:red;">Unexpected response.</span>';
+          }
+        };
+        xhr.onerror = function() {
+          btn.disabled = false;
+          btn.textContent = 'Backfill Regions';
+          status.innerHTML = '<span style="color:red;">Request failed.</span>';
+        };
+        xhr.send('action=ghc_backfill_regions&nonce=<?php echo wp_create_nonce("ghc_backfill_regions_nonce"); ?>');
+      });
+    })();
+    </script>
   </div>
 
   <style>
