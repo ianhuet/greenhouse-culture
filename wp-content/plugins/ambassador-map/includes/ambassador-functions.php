@@ -436,24 +436,6 @@ function ghc_get_ambassador_unique_tags() {
   return array_unique($all_tags);
 }
 
-function ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tags = []) {
-  $row_id = esc_attr($id);
-  $escaped_title = esc_html($title);
-  $profile_img = ghc_get_ambassador_image_html($title, $img_url);
-  $tags_list = join(', ', $tags);
-
-  return <<<HTML
-    <div class="ambResultPanel__list__row" data-id="{$row_id}">
-      {$profile_img}
-
-      <div>
-        <h4>{$escaped_title}</h4>
-        <p>{$tags_list}</p>
-      </div>
-    </div>
-HTML;
-}
-
 function ghc_get_ambassador_avatar_url($user_id) {
   $image_id = get_user_meta($user_id, 'ambassador_image', true);
   if ($image_id) {
@@ -516,13 +498,11 @@ function ghc_get_ambassador_data_rows() {
       }
     }
 
-    $card = ghc_get_ambassador_card_html($id, $title, $content, $img_url, $display_categories);
     $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $display_categories);
 
     $search_parts = array_filter([$title, $content, $region, implode(' ', $tag_names)]);
 
     $rows[] = [
-      'card'  => $card,
       'html'  => $popup,
       'id'    => $user->ID,
       'lat'   => $lat,
@@ -604,14 +584,6 @@ function ghc_render_ambassador_map_html() {
 
       <div class="ambBody">
         <div class="ambMap" id="ambassadors-map"></div>
-
-        <aside class="ambResultPanel" id="amb-panel">
-          <div class="ambResultPanel__header">
-            <p class="ambResultPanel__header__count"><span id="amb-count">0</span> result(s)</p>
-          </div>
-
-          <div class="ambResultPanel__list" id="amb-list"></div>
-        </aside>
       </div>
     </div>
   HTML;

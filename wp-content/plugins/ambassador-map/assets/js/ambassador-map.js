@@ -28,25 +28,12 @@ document.addEventListener('DOMContentLoaded', function () {
     } else {
       fitAll();
     }
-
-    anyFilter
-      ? panelEl.classList.add('show')
-      : panelEl.classList.remove('show');
-
-    renderList(anyFilter ? matched : allResults);
   }
   function fitAll() {
     if (cluster.getLayers().length) {
       var b = cluster.getBounds();
       if (b.isValid()) map.fitBounds(b, {padding: [28, 28]});
     }
-  }
-  function renderList(items) {
-    countEl.textContent = items.length;
-
-    listEl.innerHTML =
-      items.map(m => m.card).join('') ||
-      '<div class="ambResultPanel__list_noResult">No results.</div>';
   }
 
   var map = L.map('ambassadors-map', {scrollWheelZoom: true}).setView(
@@ -75,10 +62,7 @@ document.addEventListener('DOMContentLoaded', function () {
   var activeTags = new Set();
   var rows = window.ambassadorMapData.rows;
 
-  var countEl = document.getElementById('amb-count');
   var clearBtn = document.getElementById('amb-clear');
-  var listEl = document.getElementById('amb-list');
-  var panelEl = document.getElementById('amb-panel');
   var searchEl = document.getElementById('amb-search');
   var tagsBox = document.getElementById('amb-tags');
 
@@ -99,7 +83,6 @@ document.addEventListener('DOMContentLoaded', function () {
     cluster.addLayer(marker);
 
     allResults.push({
-      card: item.card || '',
       id: item.id,
       marker: marker,
       terms: item.terms || [],
@@ -137,18 +120,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 
     applyFilters();
-  });
-
-  listEl.addEventListener('click', function (e) {
-    var row = e.target.closest('[data-id]');
-    if (!row) return;
-
-    var id = parseInt(row.getAttribute('data-id'), 10);
-    var m = allResults.find(x => x.id === id);
-    if (!m) return;
-
-    map.setView(m.marker.getLatLng(), 13, {animate: true});
-    setTimeout(() => m.marker.openPopup(), 200);
   });
 
   setTimeout(() => map.invalidateSize(), 250);
