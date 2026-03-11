@@ -456,8 +456,18 @@ function ghc_get_category_name_map() {
   return $map;
 }
 
+function ghc_get_support_label_map() {
+  $options = ghc_get_support_options();
+  $map = [];
+  foreach ($options as $option) {
+    $map[sanitize_title($option)] = $option;
+  }
+  return $map;
+}
+
 function ghc_get_ambassador_data_rows() {
   $category_names = ghc_get_category_name_map();
+  $support_labels = ghc_get_support_label_map();
   $ambassadors = get_users([
     'role' => 'ambassador',
     'meta_query' => [
@@ -498,7 +508,17 @@ function ghc_get_ambassador_data_rows() {
       }
     }
 
-    $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $display_categories);
+    $support_slugs = get_user_meta($user->ID, 'ambassador_support', true) ?: [];
+    $display_support = [];
+    foreach ($support_slugs as $slug) {
+      if (isset($support_labels[$slug])) {
+        $display_support[] = $support_labels[$slug];
+      }
+    }
+
+    $profile_url = home_url('/ambassador/' . $user->user_nicename . '/');
+
+    $popup = ghc_get_ambassador_popup_html($title, $img_url, $region, $display_categories, $display_support, $profile_url);
 
     $search_parts = array_filter([$title, $content, $region, implode(' ', $tag_names)]);
 
@@ -541,23 +561,36 @@ function ghc_get_ambassador_tags_html($tags = []) {
   return $tags_html;
 }
 
-function ghc_get_ambassador_popup_html($title, $content, $img_url, $tags = []) {
+function ghc_get_ambassador_popup_html($title, $img_url, $region, $categories = [], $support = [], $profile_url = '') {
   $escaped_title = esc_html($title);
-  $formatted_content = nl2br(esc_html($content));
   $profile_image = ghc_get_ambassador_image_html($title, $img_url);
-  $tags_html = ghc_get_ambassador_tags_html($tags);
+  $escaped_region = esc_html(ucwords($region));
+  $escaped_url = esc_url($profile_url);
+
+  $categories_html = '';
+  if (!empty($categories)) {
+    $chips = array_map(function($cat) {
+      return '<span class="ambPopup__chip">' . esc_html($cat) . '</span>';
+    }, $categories);
+    $categories_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Roles:</h4>' . implode('', $chips) . '</div>';
+  }
+
+  $support_html = '';
+  if (!empty($support)) {
+    $chips = array_map(function($opt) {
+      return '<span class="ambPopup__chip">' . esc_html($opt) . '</span>';
+    }, $support);
+    $support_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Supports:</h4>' . implode('', $chips) . '</div>';
+  }
 
   return <<<HTML
     <div class="ambPopup">
       <h3 class="ambPopup__title">{$escaped_title}</h3>
-
-      <div class="ambPopup__body">
-        {$profile_image}
-
-        <div class="ambPopupBody__content">{$formatted_content}</div>
-      </div>
-
-      <div class="ambPopup__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
+      <div class="ambPopup__avatar">{$profile_image}</div>
+      <div class="ambPopup__location"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--leaf-600)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span>{$escaped_region}</span></div>
+      {$categories_html}
+      {$support_html}
+      <a class="ambPopup__cta" href="{$escaped_url}">Find Out More</a>
     </div>
 HTML;
 }
