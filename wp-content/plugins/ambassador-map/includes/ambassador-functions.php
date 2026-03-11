@@ -321,6 +321,7 @@ function ghc_geocode_address($address) {
   
   $api_url = 'https://nominatim.openstreetmap.org/search';
   $params = [
+    'accept-language' => 'en',
     'addressdetails' => 1,
     'format' => 'json',
     'limit' => 1,
@@ -370,6 +371,7 @@ function ghc_extract_searchable_region($address) {
 function ghc_reverse_geocode($lat, $lng) {
   $api_url = 'https://nominatim.openstreetmap.org/reverse';
   $params = [
+    'accept-language' => 'en',
     'lat' => $lat,
     'lon' => $lng,
     'format' => 'json',
@@ -417,6 +419,54 @@ function ghc_handle_geocode_ajax() {
   }
   
   wp_send_json_success($result);
+}
+
+function ghc_handle_backfill_regions_ajax() {
+  check_ajax_referer('ghc_backfill_regions_nonce', 'nonce');
+
+  if (!current_user_can('manage_options')) {
+    wp_send_json_error(['message' => 'Permission denied']);
+  }
+
+  $ambassadors = get_users([
+    'role' => 'ambassador',
+    'meta_query' => [
+      'relation' => 'AND',
+      ['key' => 'latitude', 'value' => '', 'compare' => '!='],
+      ['key' => 'longitude', 'value' => '', 'compare' => '!='],
+    ]
+  ]);
+
+  $updated = 0;
+  $skipped = 0;
+  $failed = 0;
+
+  foreach ($ambassadors as $user) {
+    $existing = get_user_meta($user->ID, 'searchable_region', true);
+    if (!empty($existing)) {
+      $skipped++;
+      continue;
+    }
+
+    $lat = get_user_meta($user->ID, 'latitude', true);
+    $lng = get_user_meta($user->ID, 'longitude', true);
+    $region = ghc_reverse_geocode($lat, $lng);
+
+    if (!empty($region)) {
+      update_user_meta($user->ID, 'searchable_region', $region);
+      $updated++;
+    } else {
+      $failed++;
+    }
+
+    sleep(1);
+  }
+
+  wp_send_json_success([
+    'updated' => $updated,
+    'skipped' => $skipped,
+    'failed' => $failed,
+  ]);
 }
 
 // UI: Amabassador Map
