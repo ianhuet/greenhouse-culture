@@ -198,6 +198,20 @@
 	transition: all .15s ease;
 	user-select: none;
 }
+.ambPopup__chip.ambCategory[data-category]::before {
+	margin-right: 0;
+}
+.ambCategory[data-category]::before {
+	font-family: FontAwesome;
+	margin-right: 6px;
+}
+.ambCategory[data-category="food-farming-growing"]::before { content: "\f06c"; }
+.ambCategory[data-category="water-land-ecosystems"]::before { content: "\f0ac"; }
+.ambCategory[data-category="science-data-technical"]::before { content: "\f0c3"; }
+.ambCategory[data-category="community-youth-action"]::before { content: "\f0c0"; }
+.ambCategory[data-category="art-culture-communication"]::before { content: "\f1fc"; }
+.ambCategory[data-category="support-strategy-funding"]::before { content: "\f2b5"; }
+
 .ambassador-homepage .ambPopup__cta {
 	background: var(--color-primary);
 	border-radius: 4px;

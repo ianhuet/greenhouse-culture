@@ -25,7 +25,7 @@
 }
 
 .ambassador-profile__avatar {
-    aspect-ratio: 3 / 4;
+    aspect-ratio: 4 / 3;
     border-radius: 8px;
     height: auto;
     margin: 0 auto;
@@ -81,6 +81,9 @@
     color: var(--color-primary-hover);
     font-size: 1rem;
     margin-bottom: 0.5rem;
+}
+.ambassador-profile__category-group h3:before {
+    margin-right: 3px;
 }
 
 .ambassador-profile__tags {
