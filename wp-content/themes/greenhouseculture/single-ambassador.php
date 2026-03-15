@@ -54,12 +54,17 @@ foreach ($support_options as $option) {
 }
 ?>
 
-<section id="content" class="site-content posts-container">
+<section id="content" class="site-content posts-container single-ambassador">
     <div class="container">
         <div class="row">
             <div class="breadcrumbs-wrap">
                 <?php do_action('greenhouseculture_breadcrumb_options_hook'); ?>
             </div>
+            <section class="bap-title">
+                <div class="bap-title-content">
+                    <h1>BIODIVERSITY AMBASSADOR</h1>
+                </div>
+            </section>
             <div class="col-md-8 content-area">
                 <article class="ambassador-profile">
                     <header class="ambassador-profile__header">
@@ -91,7 +96,7 @@ foreach ($support_options as $option) {
                             <?php if (!empty($support_labels)): ?>
                                 <div class="ambassador-profile__support">
                                     <h2>Support Offered</h2>
-                                    <p class="ambassador-profile__tags"><?php echo implode(' ', array_map(function($item) { return '<span>' . esc_html($item) . '</span>'; }, $support_labels)); ?></p>
+                                    <p class="ambassador-profile__tags ambassador-profile__tags--alt"><?php echo implode(' ', array_map(function($item) { return '<span>' . esc_html($item) . '</span>'; }, $support_labels)); ?></p>
                                 </div>
                             <?php endif; ?>
                         </div>
