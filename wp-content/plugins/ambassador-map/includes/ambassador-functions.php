@@ -620,9 +620,10 @@ function ghc_get_ambassador_popup_html($title, $img_url, $region, $categories = 
   $categories_html = '';
   if (!empty($categories)) {
     $chips = array_map(function($cat) {
-      return '<span class="ambPopup__chip">' . esc_html($cat) . '</span>';
+      $slug = sanitize_title($cat);
+      return '<span class="ambPopup__chip ambCategory" data-category="' . esc_attr($slug) . '" title="' . esc_attr($cat) . '"></span>';
     }, $categories);
-    $categories_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Roles:</h4>' . implode('', $chips) . '</div>';
+    $categories_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Role:</h4>' . implode('', $chips) . '</div>';
   }
 
   $support_html = '';
@@ -630,7 +631,7 @@ function ghc_get_ambassador_popup_html($title, $img_url, $region, $categories = 
     $chips = array_map(function($opt) {
       return '<span class="ambPopup__chip">' . esc_html($opt) . '</span>';
     }, $support);
-    $support_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Supports:</h4>' . implode('', $chips) . '</div>';
+    $support_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Support:</h4>' . implode('', $chips) . '</div>';
   }
 
   return <<<HTML
@@ -651,7 +652,7 @@ function ghc_render_ambassador_map_html() {
   foreach ($categories as $category) {
     $slug = esc_attr($category['slug']);
     $name = esc_html($category['name']);
-    $chips_html .= '<span class="ambTagsBox__tag" data-term="' . $slug . '">' . $name . '</span>';
+    $chips_html .= '<span class="ambTagsBox__tag ambCategory" data-category="' . esc_attr($slug) . '" data-term="' . $slug . '">' . $name . '</span>';
   }
 
   return <<<HTML

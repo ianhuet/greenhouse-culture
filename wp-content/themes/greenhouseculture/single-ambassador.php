@@ -63,24 +63,24 @@ foreach ($support_options as $option) {
             <div class="col-md-8 content-area">
                 <article class="ambassador-profile">
                     <header class="ambassador-profile__header">
-                        <h1 class="ambassador-profile__name"><?php echo esc_html($nick_name); ?></h1>
+                        <h1 class="ambassador-profile__name"><?php echo esc_html($display_name); ?></h1>
 
                         <?php if ($avatar_url): ?>
                             <div class="ambassador-profile__header-avatar">
                                 <img class="ambassador-profile__avatar"
                                      src="<?php echo esc_url($avatar_url); ?>"
-                                     alt="<?php echo esc_attr($nick_name); ?>">
+                                     alt="<?php echo esc_attr($display_name); ?>">
                             </div>
                         <?php endif; ?>
 
                         <div class="ambassador-profile__header-info">
                             <?php if (!empty($grouped_tags)): ?>
                                 <div>
-                                    <h2>Ambassador Roles</h2>
+                                    <h2>Ambassador Role</h2>
                                     <div class="ambassador-profile__categories">
                                         <?php foreach ($grouped_tags as $group): ?>
                                             <div class="ambassador-profile__category-group">
-                                                <h3><?php echo esc_html($group['name']); ?></h3>
+                                                <h3 class="ambCategory" data-category="<?php echo esc_attr(sanitize_title($group['name'])); ?>"><?php echo esc_html($group['name']); ?></h3>
                                                 <p class="ambassador-profile__tags"><?php echo implode(' ', array_map(function($item) { return '<span>' . esc_html($item) . '</span>'; }, $group['items'])); ?></p>
                                             </div>
                                         <?php endforeach; ?>
