@@ -26,9 +26,6 @@ add_action('init', function() {
   add_action('edit_user_profile_update', 'ghc_save_user_profile_fields');
 });
 
-add_action('wp_ajax_ghc_geocode', 'ghc_handle_geocode_ajax');
-add_action('wp_ajax_ghc_backfill_regions', 'ghc_handle_backfill_regions_ajax');
-
 if ( ! function_exists('ghc_enqueue_leaflet_and_cluster') ) {
   function ghc_enqueue_leaflet_and_cluster() {
     wp_enqueue_style('leaflet-css','https://unpkg.com/leaflet/dist/leaflet.css',[],null);
