@@ -23,6 +23,7 @@
 	display: flex;
 	flex-flow: row wrap;
 	gap: 8px;
+	justify-content: space-between;
 }
 .ambTagsBox__tag {
 	align-items: center;
@@ -31,7 +32,7 @@
 	border: 1px solid var(--background);
 	color: var(--ink);
 	cursor: pointer;
-	font-size: 12px;
+	font-size: 11px;
 	padding: 0.25rem 0.75rem;
 	text-transform: capitalize;
 	transition: all .15s ease;
@@ -81,14 +82,14 @@
 }
 
 .ambHeader__searchBox__clear {
-	border: 1px solid var(--line);
 	border-radius: var(--radius-1);
+	border: 1px solid var(--line);
 	box-sizing: border-box;
-	max-height: 58px;
-	padding: 1rem;
-	padding: 0.9rem 1rem;
 	display: none;
 	margin-left: auto;
+	max-height: 58px;
+	padding: 0.9rem 1rem;
+	padding: 1rem;
 }
 .ambHeader__searchBox__clear.show {
 	display: block;
@@ -137,9 +138,9 @@
 	margin: 0;
 }
 .ambPopup__avatar {
-	margin: 0 auto 12px;
-	width: 140px;
 	height: 140px;
+	margin: 0 auto 12px;
+	width: 170px;
 }
 .ambPopup__avatar img {
 	border-radius: var(--radius-1);
@@ -208,9 +209,9 @@
 .ambCategory[data-category="food-farming-growing"]::before { content: "\f06c"; }
 .ambCategory[data-category="water-land-ecosystems"]::before { content: "\f0ac"; }
 .ambCategory[data-category="science-data-technical"]::before { content: "\f0c3"; }
-.ambCategory[data-category="community-youth-action"]::before { content: "\f0c0"; }
+.ambCategory[data-category="community-youth-action"]::before { content: "\f1ae"; }
 .ambCategory[data-category="art-culture-communication"]::before { content: "\f1fc"; }
-.ambCategory[data-category="support-strategy-funding"]::before { content: "\f2b5"; }
+.ambCategory[data-category="support-strategy-funding"]::before { content: "\f19c"; }
 
 .ambassador-homepage .ambPopup__cta {
 	background: var(--color-primary);

@@ -1,3 +1,13 @@
+.single-ambassador .bap-title {
+    margin-bottom: 5rem;
+}
+.single-ambassador .bap-title-content {
+    padding: 2rem;
+}
+.single-ambassador .bap-title-content h1 {
+    margin: 0;
+}
+
 .ambassador-profile__sidebar {
     min-height: 1px;
 }
@@ -25,10 +35,11 @@
 }
 
 .ambassador-profile__avatar {
-    aspect-ratio: 4 / 3;
+    aspect-ratio: 3 / 4;
     border-radius: 8px;
     height: auto;
     margin: 0 auto;
+    max-height: 180px;
     object-fit: cover;
     width: 240px;
 }
@@ -53,6 +64,9 @@
     border: 2px solid var(--color-primary);
     border-radius: 8px;
     padding: 4px 8px;
+}
+.ambassador-profile__tags--alt span {
+    background: #cfe6c9;
 }
 
 .ambassador-profile__section {
