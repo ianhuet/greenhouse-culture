@@ -65,24 +65,28 @@ get_header();
                             $past_events_with_date = get_posts(array(
                                 'meta_key' => '_event_date',
                                 'meta_query' => array(
+                                    'relation' => 'AND',
                                     array(
                                         'compare' => '<',
                                         'key' => '_event_date',
                                         'type' => 'CHAR',
                                         'value' => date('Y-m-d'),
-                                    )
+                                    ),
+                                    array(
+                                        'compare' => '!=',
+                                        'key' => '_event_date',
+                                        'value' => '',
+                                    ),
                                 ),
                                 'numberposts' => -1,
-                                'order' => 'DESC',
-                                'orderby' => 'meta_value',
+                                'orderby' => array('meta_value' => 'DESC', 'ID' => 'DESC'),
                                 'post_type' => 'event',
                                 'suppress_filters' => true,
                             ));
 
                             $events_without_date = get_posts(array(
                                 'numberposts' => -1,
-                                'order' => 'DESC',
-                                'orderby' => 'post_date',
+                                'orderby' => array('post_date' => 'DESC', 'ID' => 'DESC'),
                                 'post_type' => 'event',
                                 'meta_query' => array(
                                     'relation' => 'OR',
