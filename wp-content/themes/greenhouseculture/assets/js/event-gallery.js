@@ -1,165 +1,206 @@
-jQuery(function ($) {
-  var frame;
-  var supportersFrame;
-  var MAX_ITEMS = 18;
+document.addEventListener('DOMContentLoaded', function () {
+  let frame;
+  let supportersFrame;
+  const MAX_ITEMS = 18;
 
   // ===========================
-  // Gallery
+  // Helpers
   // ===========================
 
-  $('#event-gallery-btn').on('click', function () {
-    var current = $('#event_gallery').val();
-    var ids = current ? current.split(',').filter(Boolean) : [];
+  function updateGalleryInput() {
+    const ids = [
+      ...document.querySelectorAll('#event-gallery-preview .gallery-item'),
+    ]
+      .map(el => el.dataset.id)
+      .filter(Boolean);
 
-    if (ids.length >= MAX_ITEMS) {
-      alert('Maximum ' + MAX_ITEMS + ' images/videos allowed in the gallery.');
-      return;
-    }
+    console.log('NEW ORDER:', ids);
+    document.getElementById('event_gallery').value = ids.join(',');
+  }
 
-    if (frame) {
-      frame.open();
-      return;
-    }
+  function getIds(inputId) {
+    const val = document.getElementById(inputId).value;
+    return val ? val.split(',').filter(Boolean) : [];
+  }
 
-    frame = wp.media({
-      title: 'Select Gallery Images / Videos',
-      button: {text: 'Add to Gallery'},
-      multiple: true,
-      library: {type: ['image', 'video']},
+  // ===========================
+  // SortableJS — Gallery
+  // ===========================
+
+  const galleryPreview = document.getElementById('event-gallery-preview');
+
+  if (galleryPreview) {
+    Sortable.create(galleryPreview, {
+      animation: 150,
+      ghostClass: 'sortable-ghost',
+      chosenClass: 'sortable-chosen',
+      dragClass: 'sortable-drag',
+      onEnd: function () {
+        updateGalleryInput();
+      },
     });
+  }
 
-    frame.on('select', function () {
-      var selection = frame.state().get('selection');
-      var current = $('#event_gallery').val();
-      var ids = current ? current.split(',').filter(Boolean) : [];
+  // ===========================
+  // Gallery — Add Button
+  // ===========================
 
-      if (ids.length + selection.length > MAX_ITEMS) {
-        alert(
-          'Maximum ' +
-            MAX_ITEMS +
-            ' images/videos allowed. You can add ' +
-            (MAX_ITEMS - ids.length) +
-            ' more.'
-        );
+  document
+    .getElementById('event-gallery-btn')
+    ?.addEventListener('click', function () {
+      const ids = getIds('event_gallery');
+
+      if (ids.length >= MAX_ITEMS) {
+        alert(`Maximum ${MAX_ITEMS} images/videos allowed in the gallery.`);
+        return;
       }
 
-      selection.each(function (attachment) {
-        if (ids.length >= MAX_ITEMS) return;
+      if (frame) {
+        frame.open();
+        return;
+      }
 
-        var id = String(attachment.get('id'));
-        var type = attachment.get('type');
-        var url = attachment.get('url');
+      frame = wp.media({
+        title: 'Select Gallery Images / Videos',
+        button: {text: 'Add to Gallery'},
+        multiple: true,
+        library: {type: ['image', 'video']},
+      });
 
-        if (ids.indexOf(id) !== -1) return;
-        ids.push(id);
+      frame.on('select', function () {
+        const selection = frame.state().get('selection');
+        const ids = getIds('event_gallery');
 
-        var preview;
-        if (type === 'video') {
-          preview =
-            '<video src="' +
-            url +
-            '" width="100" height="80" style="object-fit:cover;"></video>';
-        } else {
-          var thumb =
-            attachment.get('sizes') && attachment.get('sizes').thumbnail
-              ? attachment.get('sizes').thumbnail.url
-              : url;
-          preview =
-            '<img src="' +
-            thumb +
-            '" width="100" height="80" style="object-fit:cover;" />';
+        if (ids.length + selection.length > MAX_ITEMS) {
+          alert(
+            `Maximum ${MAX_ITEMS} images/videos allowed. You can add ${MAX_ITEMS - ids.length} more.`
+          );
         }
 
-        $('#event-gallery-preview').append(
-          '<div style="position:relative;">' +
-            preview +
-            '<button type="button" class="remove-gallery-item button" data-id="' +
-            id +
-            '" style="position:absolute;top:0;right:0;">✕</button>' +
-            '</div>'
-        );
+        selection.each(function (attachment) {
+          if (ids.length >= MAX_ITEMS) return;
+
+          const id = String(attachment.get('id'));
+          const type = attachment.get('type');
+          const url = attachment.get('url');
+
+          if (ids.includes(id)) return;
+          ids.push(id);
+
+          const sizes = attachment.get('sizes');
+          const thumb = sizes?.thumbnail?.url ?? url;
+
+          const mediaEl =
+            type === 'video'
+              ? `<video src="${url}" width="100" height="80" style="object-fit:cover;"></video>`
+              : `<img src="${thumb}" width="100" height="80" style="object-fit:cover;" />`;
+
+          const item = document.createElement('div');
+          item.className = 'gallery-item';
+          item.dataset.id = id;
+          item.innerHTML = `
+    ${mediaEl}
+    <button type="button" class="remove-gallery-item button" data-id="${id}">✕</button>
+`;
+
+          galleryPreview.appendChild(item);
+        });
+
+        document.getElementById('event_gallery').value = ids
+          .filter(Boolean)
+          .join(',');
       });
 
-      $('#event_gallery').val(ids.filter(Boolean).join(','));
+      frame.open();
     });
 
-    frame.open();
+  // ===========================
+  // Gallery — Remove
+  // ===========================
+
+  galleryPreview?.addEventListener('click', function (e) {
+    const btn = e.target.closest('.remove-gallery-item');
+    if (!btn) return;
+
+    btn.closest('.gallery-item').remove();
+    updateGalleryInput();
   });
 
-  $(document).on('click', '.remove-gallery-item', function () {
-    var removeId = String($(this).data('id'));
-    $(this).parent().remove();
+  // ===========================
+  // Supporters — Add Button
+  // ===========================
 
-    var ids = $('#event_gallery')
-      .val()
-      .split(',')
-      .filter(function (id) {
-        return id && id !== removeId;
+  document
+    .getElementById('event-supporters-btn')
+    ?.addEventListener('click', function () {
+      if (supportersFrame) {
+        supportersFrame.open();
+        return;
+      }
+
+      supportersFrame = wp.media({
+        title: 'Select Supporter Logos',
+        button: {text: 'Add Logos'},
+        multiple: true,
+        library: {type: ['image']},
       });
-    $('#event_gallery').val(ids.join(','));
-  });
 
-  // ===========================
-  // Supporters
-  // ===========================
+      supportersFrame.on('select', function () {
+        const selection = supportersFrame.state().get('selection');
+        const ids = getIds('event_supporters');
+        const preview = document.getElementById('event-supporters-preview');
 
-  $('#event-supporters-btn').on('click', function () {
-    if (supportersFrame) {
+        selection.each(function (attachment) {
+          const id = String(attachment.get('id'));
+          if (ids.includes(id)) return;
+          ids.push(id);
+
+          const sizes = attachment.get('sizes');
+          const thumb = sizes?.thumbnail?.url ?? attachment.get('url');
+
+          const item = document.createElement('div');
+          item.className = 'supporter-preview-item';
+          item.innerHTML = `
+    <img src="${thumb}" />
+    <button type="button" class="remove-supporter-item button" data-id="${id}">✕</button>
+`;
+
+          preview.appendChild(item);
+        });
+
+        document.getElementById('event_supporters').value = ids.join(',');
+      });
+
       supportersFrame.open();
-      return;
+    });
+
+  // ===========================
+  // Supporters — Remove
+  // ===========================
+
+  document
+    .getElementById('event-supporters-preview')
+    ?.addEventListener('click', function (e) {
+      const btn = e.target.closest('.remove-supporter-item');
+      if (!btn) return;
+
+      const removeId = String(btn.dataset.id);
+      btn.closest('.supporter-preview-item').remove();
+
+      const ids = getIds('event_supporters').filter(id => id !== removeId);
+      document.getElementById('event_supporters').value = ids.join(',');
+    });
+
+  // ===========================
+  // Debug — log on save
+  // ===========================
+
+  document.addEventListener('click', function (e) {
+    if (e.target.matches('#publish, #save-post')) {
+      console.log(
+        'Saving gallery value:',
+        document.getElementById('event_gallery').value
+      );
     }
-
-    supportersFrame = wp.media({
-      title: 'Select Supporter Logos',
-      button: {text: 'Add Logos'},
-      multiple: true,
-      library: {type: ['image']},
-    });
-
-    supportersFrame.on('select', function () {
-      var selection = supportersFrame.state().get('selection');
-      var current = $('#event_supporters').val();
-      var ids = current ? current.split(',').filter(Boolean) : [];
-
-      selection.each(function (attachment) {
-        var id = String(attachment.get('id'));
-        if (ids.indexOf(id) !== -1) return;
-        ids.push(id);
-
-        var thumb =
-          attachment.get('sizes') && attachment.get('sizes').thumbnail
-            ? attachment.get('sizes').thumbnail.url
-            : attachment.get('url');
-
-        $('#event-supporters-preview').append(
-          '<div class="supporter-preview-item" style="position:relative; width:100px; height:80px; overflow:hidden;">' +
-            '<img src="' +
-            thumb +
-            '" style="width:100%; height:100%; object-fit:contain;" />' +
-            '<button type="button" class="remove-supporter-item button" data-id="' +
-            id +
-            '" ' +
-            'style="position:absolute;top:2px;right:2px;background:red;color:#fff;border:none;cursor:pointer;border-radius:3px;padding:1px 5px;font-size:12px;">✕</button>' +
-            '</div>'
-        );
-      });
-
-      $('#event_supporters').val(ids.join(','));
-    });
-
-    supportersFrame.open();
-  });
-
-  $(document).on('click', '.remove-supporter-item', function () {
-    var removeId = String($(this).data('id'));
-    $(this).closest('.supporter-preview-item').remove();
-
-    var ids = $('#event_supporters')
-      .val()
-      .split(',')
-      .filter(function (id) {
-        return id && id !== removeId;
-      });
-    $('#event_supporters').val(ids.join(','));
   });
 });

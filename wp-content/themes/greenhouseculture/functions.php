@@ -607,6 +607,7 @@ function greenhouseculture_event_meta_box_callback($post)
         'date' => get_post_meta($post->ID, '_event_date', true),
         'time' => get_post_meta($post->ID, '_event_time', true),
         'location' => get_post_meta($post->ID, '_event_location', true),
+        'price' => get_post_meta($post->ID, '_event_price', true),
         'tagline' => get_post_meta($post->ID, '_event_tagline', true),
         'secondary' => get_post_meta($post->ID, '_event_secondary_content', true),
         'testimonials' => get_post_meta($post->ID, '_event_testimonials', true),
@@ -622,20 +623,24 @@ function greenhouseculture_event_meta_box_callback($post)
         </tr>
         <tr>
             <th><label for="event_time">Time</label></th>
-            <td><input type="time" name="event_time" id="event_time" value="<?php echo esc_attr($fields['time']); ?>" /></td>
+            <td><input type="time" placeholder="10:00" name="event_time" id="event_time" value="<?php echo esc_attr($fields['time']); ?>" /></td>
         </tr>
         <tr>
             <th><label for="event_location">Location</label></th>
-            <td><input type="text" name="event_location" id="event_location" value="<?php echo esc_attr($fields['location']); ?>" /></td>
+            <td><input type="text" placeholder="e.g. Dublin, The Harbor etc" name="event_location" class="regular-text" id="event_location" value="<?php echo esc_attr($fields['location']); ?>" /></td>
+        </tr>
+        <tr>
+            <th><label for="event_price">Price</label></th>
+            <td><input type="text" placeholder="e.g. Free Event, 5, 10 etc" class="regular-text" name="event_price" id="event_price" value="<?php echo esc_attr($fields['price']); ?>" /></td>
         </tr>
         <tr>
             <th><label for="event_tagline">Tagline</label></th>
-            <td><input type="text" name="event_tagline" id="event_tagline" value="<?php echo esc_attr($fields['tagline']); ?>" /></td>
+            <td><input type="text" name="event_tagline" class="regular-text" id="event_tagline" value="<?php echo esc_attr($fields['tagline']); ?>" /></td>
         </tr>
         <tr>
             <th><label for="event_gallery">Gallery</label></th>
             <td>
-                <div id="event-gallery-preview" style="display:flex; flex-wrap:wrap; gap:8px; margin-bottom:10px;">
+                <div id="event-gallery-preview">
                     <?php
                     $gallery_ids = is_array($fields['gallery']) ? $fields['gallery'] : explode(',', $fields['gallery']);
                     foreach ($gallery_ids as $id) {
@@ -643,15 +648,15 @@ function greenhouseculture_event_meta_box_callback($post)
                         if (!$id) continue;
                         $type = get_post_mime_type($id);
                         if (str_starts_with($type, 'video')) {
-                            echo '<div style="position:relative;">
-                        <video src="' . esc_url(wp_get_attachment_url($id)) . '" width="100" height="80" style="object-fit:cover;"></video>
-                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '" style="position:absolute;top:0;right:0;">✕</button>
+                            echo '<div class="gallery-item" data-id="' . $id . '" >
+                        <video src="' . esc_url(wp_get_attachment_url($id)) . '" ></video>
+                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '">✕</button>
                       </div>';
                         } else {
                             $thumb = wp_get_attachment_image_url($id, 'thumbnail');
-                            echo '<div style="position:relative;">
-                        <img src="' . esc_url($thumb) . '" width="100" height="80" style="object-fit:cover;" />
-                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '" style="position:absolute;top:0;right:0;">✕</button>
+                            echo '<div class="gallery-item" data-id="' . $id . '">
+                        <img src="' . esc_url($thumb) . '"/>
+                        <button type="button" class="remove-gallery-item button" data-id="' . $id . '">✕</button>
                       </div>';
                         }
                     }
@@ -689,17 +694,16 @@ function greenhouseculture_event_meta_box_callback($post)
         <tr>
             <th><label for="event_supporters">Supporters / Collaborators</label></th>
             <td>
-                <div id="event-supporters-preview" style="display:flex; flex-wrap:wrap; gap:10px; margin-bottom:12px;">
+                <div id="event-supporters-preview">
                     <?php
                     $supporter_ids = is_array($fields['supporters']) ? $fields['supporters'] : array_filter(array_map('intval', explode(',', $fields['supporters'])));
                     foreach ($supporter_ids as $id) :
                         if (!$id) continue;
                         $thumb = wp_get_attachment_image_url($id, 'thumbnail');
                     ?>
-                        <div class="supporter-preview-item" style="position:relative; width:100px; height:80px; overflow:hidden;">
-                            <img src="<?php echo esc_url($thumb); ?>" style="width:100%; height:100%; object-fit:contain;" />
-                            <button type="button" class="remove-supporter-item button" data-id="<?php echo $id; ?>"
-                                style="position:absolute;top:2px;right:2px;background:red;color:#fff;border:none;cursor:pointer;border-radius:3px;padding:1px 5px;font-size:12px;">✕</button>
+                        <div class="supporter-preview-item" data-id="<?php echo $id; ?>">
+                            <img src="<?php echo esc_url($thumb); ?>" />
+                            <button type="button" class="remove-supporter-item button" data-id="<?php echo $id; ?>">✕</button>
                         </div>
                     <?php endforeach; ?>
                 </div>
@@ -724,7 +728,7 @@ function greenhouseculture_save_event_meta($post_id)
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
     if (!current_user_can('edit_post', $post_id)) return;
 
-    $fields = ['event_date', 'event_time', 'event_location', 'event_tagline', 'event_secondary_content', 'event_testimonials', 'event_supporters', 'event_gallery'];
+    $fields = ['event_date',  'event_time', 'event_location', 'event_price', 'event_tagline', 'event_secondary_content', 'event_testimonials', 'event_supporters', 'event_gallery'];
 
     foreach ($fields as $field) {
         if (isset($_POST[$field])) {
@@ -803,17 +807,62 @@ add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_ambassadors_styles')
  */
 function greenhouseculture_event_admin_scripts($hook)
 {
-    // Only load on add/edit event screens
     global $post;
-    if (($hook === 'post-new.php' || $hook === 'post.php') && isset($post->post_type) && $post->post_type === 'event') {
-        wp_enqueue_media(); // loads WP media library
+
+    if (($hook === 'post-new.php' || $hook === 'post.php')
+        && isset($post->post_type)
+        && $post->post_type === 'event'
+    ) {
+        wp_enqueue_media();
+
+
+        wp_enqueue_style(
+            'event-gallery-admin',
+            get_template_directory_uri() . '/assets/css/event-gallery-admin.css',
+            [],
+            '1.0.0'
+        );
+
+        wp_enqueue_script(
+            'sortablejs',
+            'https://cdn.jsdelivr.net/npm/sortablejs@1.15.2/Sortable.min.js',
+            [],
+            '1.15.2',
+            true
+        );
+
         wp_enqueue_script(
             'event-gallery-uploader',
             get_template_directory_uri() . '/assets/js/event-gallery.js',
-            array('jquery'),
-            '1.0.0',
+            ['sortablejs'],
+            '1.0.1',
             true
         );
     }
 }
 add_action('admin_enqueue_scripts', 'greenhouseculture_event_admin_scripts');
+
+function greenhouseculture_enqueue_glightbox()
+{
+    wp_enqueue_style(
+        'glightbox-css',
+        'https://cdn.jsdelivr.net/npm/glightbox/dist/css/glightbox.min.css',
+        [],
+        null
+    );
+
+    wp_enqueue_script(
+        'glightbox-js',
+        'https://cdn.jsdelivr.net/npm/glightbox/dist/js/glightbox.min.js',
+        [],
+        null,
+        true
+    );
+
+    wp_add_inline_script(
+        'glightbox-js',
+        "document.addEventListener('DOMContentLoaded', function(){
+        GLightbox({selector:'.glightbox'}); });"
+    );
+}
+add_action('wp_enqueue_scripts', 'greenhouseculture_enqueue_glightbox');

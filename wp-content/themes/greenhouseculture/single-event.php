@@ -37,12 +37,20 @@ get_header();
                                 $event_date     = get_post_meta(get_the_ID(), '_event_date', true);
                                 $event_time     = get_post_meta(get_the_ID(), '_event_time', true);
                                 $event_location = get_post_meta(get_the_ID(), '_event_location', true);
+                                $event_price = get_post_meta(get_the_ID(), '_event_price', true);
                                 ?>
 
                                 <?php if ($event_date) : ?>
                                     <p class="event-meta event-date">
                                         <span class="dashicons dashicons-calendar-alt"></span>
                                         <?php echo date('F j, Y', strtotime($event_date)); ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <?php if ($event_price) : ?>
+                                    <p class="event-meta event-price">
+                                        <span class="dashicons dashicons-money-alt"></span>
+                                        <?php echo esc_html($event_price); ?>
                                     </p>
                                 <?php endif; ?>
 
@@ -107,13 +115,19 @@ get_header();
                                                 }
 
                                                 $mime = get_post_mime_type($attachment_id);
+                                                $flex = $width / 25;
 
-                                                echo '<div class="gallery-col" style="flex: 0 0 ' . $width . '%; max-width: ' . $width . '%;">';
+                                                echo '<div class="gallery-col" style="flex:' . $flex . '">';
+                                                $url = wp_get_attachment_url($attachment_id);
 
                                                 if (strpos($mime, 'video') === 0) {
-                                                    echo '<video src="' . esc_url(wp_get_attachment_url($attachment_id)) . '" controls preload="metadata"></video>';
+                                                    echo '<a href="' . esc_url($url) . '" class="glightbox" data-gallery="events">';
+                                                    echo '<video src="' . esc_url($url) . '" preload="metadata"></video>';
+                                                    echo '</a>';
                                                 } else {
+                                                    echo '<a href="' . esc_url($url) . '" class="glightbox" data-gallery="events">';
                                                     echo wp_get_attachment_image($attachment_id, 'large');
+                                                    echo '</a>';
                                                 }
 
                                                 echo '</div>';
@@ -145,7 +159,7 @@ get_header();
                                     <div class="testimonials-grid">
                                         <?php foreach ($event_testimonials as $testimonial) :
                                             if (empty($testimonial['quote'])) continue; ?>
-                                            <blockquote class="testimonial-item">
+                                            <div class="testimonial-item">
                                                 <p class="testimonial-quote">"<?php echo esc_html($testimonial['quote']); ?>"</p>
                                                 <footer class="testimonial-author">
                                                     <strong class="testimonial-name"><?php echo esc_html($testimonial['name']); ?></strong>
@@ -153,7 +167,7 @@ get_header();
                                                         <span class="testimonial-role"> — <?php echo esc_html($testimonial['role']); ?></span>
                                                     <?php endif; ?>
                                                 </footer>
-                                            </blockquote>
+                                            </div>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
@@ -171,12 +185,25 @@ get_header();
                                         <?php foreach ($event_supporters as $id) :
                                             if (!$id) continue; ?>
                                             <div class="supporter-item">
-                                                <?php echo wp_get_attachment_image($id, 'medium'); ?>
+                                                <?php echo wp_get_attachment_image($id, 'large'); ?>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
                                 </div>
                             <?php endif; ?>
+
+                            <?php
+                            $kit_signup_settings = function_exists('kit_signup_get_settings') ? kit_signup_get_settings() : [];
+
+                            if (
+                                function_exists('kit_signup_render_panel')
+                                && !empty($kit_signup_settings['append_to_events'])
+                                && get_post_meta(get_the_ID(), '_kit_signup_exclude', true) !== '1'
+                            ) {
+                                echo kit_signup_render_panel([]);
+                            }
+                            ?>
+
 
                         </article>
 

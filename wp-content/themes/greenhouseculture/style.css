@@ -2380,12 +2380,16 @@ section.slider-wrapper {
     color: #7cbd60;
 }
 
-.event-location, .event-time {
+.event-location, .event-time, .event-price {
     display: flex;
     align-items: center;
 }
 
-.event-location .dashicons-location, .event-time .dashicons-clock, .event-date .dashicons-calendar-alt{
+.event-location .dashicons-location, 
+.event-time .dashicons-clock, 
+.event-date .dashicons-calendar-alt,
+.event-price .dashicons-money-alt
+{
     color:#54be73 ;
     margin-right: 3px;
 }
@@ -2761,12 +2765,12 @@ section.slider-wrapper {
 .event-gallery-grid {
     display: flex;
     flex-direction: column;
-    gap: 1px;
+    gap: 8px;
 }
 
 .gallery-row {
     display: flex;
-    gap: 1px;
+    gap: 8px;
     height: 280px;
  }
 
@@ -2779,6 +2783,13 @@ section.slider-wrapper {
 }
 
 /* Images and videos fill the entire col height */
+
+.gallery-col a{
+    width: 100%;
+    height: 100%;
+    display: flex;
+}
+
 .gallery-col img,
 .gallery-col video {
     width: 100%;
@@ -2801,6 +2812,52 @@ section.slider-wrapper {
     height: 320px;
 }
 
+/* Gallery preview items */
+.gallery-item {
+    position: relative;
+}
+
+.gallery-item img,
+.gallery-item video {
+    width: 100px;
+    height: 80px;
+    object-fit: cover;
+    display: block;
+}
+
+.remove-gallery-item {
+    position: absolute;
+    top: 0;
+    right: 0;
+}
+
+/* Supporter preview items */
+.supporter-preview-item {
+    position: relative;
+    width: 100px;
+    height: 80px;
+    overflow: hidden;
+}
+
+.supporter-preview-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.remove-supporter-item {
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    background: red;
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    border-radius: 3px;
+    padding: 1px 5px;
+    font-size: 12px;
+}
+
 /* Mobile: stack everything */
 @media (max-width: 480px) {
     .gallery-row,
@@ -2808,7 +2865,7 @@ section.slider-wrapper {
     .gallery-row-4,
     .gallery-row-7 {
         flex-direction: column;
-        height: auto;     /* let rows grow naturally when stacked */
+        height: auto;
     }
 
     .gallery-col {
