@@ -268,7 +268,7 @@ h3 {
 
   .bap-location-map {}
   .bap-location-map .ambassador-map .ambBody {
-    height: 50vh !important;
+    height: 70vh !important;
     max-height: 450px;
   }
 

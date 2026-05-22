@@ -76,24 +76,8 @@ function ghc_add_user_profile_fields($user) {
     <tr>
       <th><label for="ambassador_address">Address</label></th>
       <td>
-        <input type="text" name="ambassador_address" id="ambassador_address" value="<?php echo esc_attr($address); ?>" placeholder="e.g., 123 Main St, Dublin, Ireland" style="width: 400px;" />
-        <button type="button" id="geocode_address" class="button" style="margin-left: 10px;">Look up coordinates</button>
-        <p class="description">Enter your address and click "Look up coordinates" to auto-populate latitude/longitude. Or use <a href="https://www.latlong.net/" target="_blank">LatLong.net</a> to find coordinates manually.</p>
-        <div id="geocode_status" style="margin-top: 5px;"></div>
-      </td>
-    </tr>
-    <tr>
-      <th><label for="latitude">Latitude</label></th>
-      <td>
-        <input type="text" name="latitude" id="latitude" value="<?php echo esc_attr($latitude); ?>" placeholder="e.g., 53.3498" />
-        <p class="description">Required for map display (auto-populated from address lookup)</p>
-      </td>
-    </tr>
-    <tr>
-      <th><label for="longitude">Longitude</label></th>
-      <td>
-        <input type="text" name="longitude" id="longitude" value="<?php echo esc_attr($longitude); ?>" placeholder="e.g., -6.2603" />
-        <p class="description">Required for map display (auto-populated from address lookup)</p>
+        <input type="text" name="ambassador_address" id="ambassador_address" value="<?php echo esc_attr($address); ?>" placeholder="e.g., Dublin, Ireland" style="width: 400px;" />
+        <p class="description">Enter a town/city, region and country to place this ambassador on the map</p>
       </td>
     </tr>
     <tr>
@@ -213,43 +197,6 @@ function ghc_add_user_profile_fields($user) {
       $(this).hide();
     });
 
-    $('#geocode_address').on('click', function() {
-      var address = $('#ambassador_address').val();
-      var statusDiv = $('#geocode_status');
-      
-      if (!address) {
-        statusDiv.html('<span style="color: red;">Please enter an address first.</span>');
-        return;
-      }
-      
-      $(this).prop('disabled', true).text('Looking up...');
-      statusDiv.html('<span style="color: blue;">Searching for coordinates...</span>');
-      
-      $.ajax({
-        url: ajaxurl,
-        type: 'POST',
-        data: {
-          action: 'ghc_geocode',
-          address: address,
-          nonce: '<?php echo wp_create_nonce('ghc_geocode_nonce'); ?>'
-        },
-        success: function(response) {
-          if (response.success) {
-            $('#latitude').val(response.data.latitude);
-            $('#longitude').val(response.data.longitude);
-            statusDiv.html('<span style="color: green;">✓ Coordinates found: ' + response.data.display_name + '</span>');
-          } else {
-            statusDiv.html('<span style="color: red;">Error: ' + response.data.message + '</span>');
-          }
-        },
-        error: function() {
-          statusDiv.html('<span style="color: red;">Error: Failed to connect to geocoding service.</span>');
-        },
-        complete: function() {
-          $('#geocode_address').prop('disabled', false).text('Look up coordinates');
-        }
-      });
-    });
   });
   </script>
   <?php
@@ -270,17 +217,18 @@ function ghc_save_user_profile_fields($user_id) {
   }
 
   if (isset($_POST['ambassador_address'])) {
-    update_user_meta($user_id, 'ambassador_address', sanitize_text_field($_POST['ambassador_address']));
+    $address = sanitize_text_field($_POST['ambassador_address']);
+    update_user_meta($user_id, 'ambassador_address', $address);
+
+    if (!empty($address)) {
+      $geocoded = ghc_geocode_address($address);
+      if (!empty($geocoded['success'])) {
+        update_user_meta($user_id, 'latitude', $geocoded['latitude']);
+        update_user_meta($user_id, 'longitude', $geocoded['longitude']);
+      }
+    }
   }
-  
-  if (isset($_POST['latitude'])) {
-    update_user_meta($user_id, 'latitude', sanitize_text_field($_POST['latitude']));
-  }
-  
-  if (isset($_POST['longitude'])) {
-    update_user_meta($user_id, 'longitude', sanitize_text_field($_POST['longitude']));
-  }
-  
+
   if (isset($_POST['ambassador_bio'])) {
     update_user_meta($user_id, 'ambassador_bio', sanitize_textarea_field($_POST['ambassador_bio']));
   }
@@ -315,6 +263,7 @@ function ghc_geocode_address($address) {
   
   $api_url = 'https://nominatim.openstreetmap.org/search';
   $params = [
+    'accept-language' => 'en',
     'addressdetails' => 1,
     'format' => 'json',
     'limit' => 1,
@@ -340,35 +289,13 @@ function ghc_geocode_address($address) {
   }
   
   $result = $data[0];
-  
+
   return [
     'success' => true,
     'latitude' => $result['lat'],
     'longitude' => $result['lon'],
-    'display_name' => $result['display_name']
+    'display_name' => $result['display_name'],
   ];
-}
-
-function ghc_handle_geocode_ajax() {
-  check_ajax_referer('ghc_geocode_nonce', 'nonce');
-  
-  if (!current_user_can('edit_users')) {
-    wp_die('Permission denied');
-  }
-  
-  $address = sanitize_text_field($_POST['address'] ?? '');
-  
-  if (empty($address)) {
-    wp_send_json_error(['message' => 'Address is required']);
-  }
-  
-  $result = ghc_geocode_address($address);
-  
-  if (isset($result['error'])) {
-    wp_send_json_error(['message' => $result['error']]);
-  }
-  
-  wp_send_json_success($result);
 }
 
 // UI: Amabassador Map
@@ -388,24 +315,6 @@ function ghc_get_ambassador_unique_tags() {
   return array_unique($all_tags);
 }
 
-function ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tags = []) {
-  $row_id = esc_attr($id);
-  $escaped_title = esc_html($title);
-  $profile_img = ghc_get_ambassador_image_html($title, $img_url);
-  $tags_list = join(', ', $tags);
-
-  return <<<HTML
-    <div class="ambResultPanel__list__row" data-id="{$row_id}">
-      {$profile_img}
-
-      <div>
-        <h4>{$escaped_title}</h4>
-        <p>{$tags_list}</p>
-      </div>
-    </div>
-HTML;
-}
-
 function ghc_get_ambassador_avatar_url($user_id) {
   $image_id = get_user_meta($user_id, 'ambassador_image', true);
   if ($image_id) {
@@ -417,7 +326,27 @@ function ghc_get_ambassador_avatar_url($user_id) {
   return 'https://secure.gravatar.com/avatar/?s=300&d=mm&r=g';
 }
 
-function ghc_get_ambassador_data_rows($is_private = true) {
+function ghc_get_category_name_map() {
+  $categories = ghc_get_categories();
+  $map = [];
+  foreach ($categories as $category) {
+    $map[$category['slug']] = $category['name'];
+  }
+  return $map;
+}
+
+function ghc_get_support_label_map() {
+  $options = ghc_get_support_options();
+  $map = [];
+  foreach ($options as $option) {
+    $map[sanitize_title($option)] = $option;
+  }
+  return $map;
+}
+
+function ghc_get_ambassador_data_rows() {
+  $category_names = ghc_get_category_name_map();
+  $support_labels = ghc_get_support_label_map();
   $ambassadors = get_users([
     'role' => 'ambassador',
     'meta_query' => [
@@ -441,33 +370,47 @@ function ghc_get_ambassador_data_rows($is_private = true) {
     $lng = get_user_meta($user->ID, 'longitude', true);
     if (!$lat || !$lng) continue;
 
-    if ($is_private) {
-      $id = $user->ID;
-      $title = $user->display_name ?: $user->user_login;
-      $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
-      $img_url = ghc_get_ambassador_avatar_url($user->ID);
-      $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
-      $tag_slugs = array_map('sanitize_title', $tag_names);
+    $id = $user->ID;
+    $title = $user->display_name ?: $user->user_login;
+    $content = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
+    $img_url = ghc_get_ambassador_avatar_url($user->ID);
+    $tag_names = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
+    $region = get_user_meta($user->ID, 'ambassador_address', true);
+    if (empty($region)) continue;
 
-      $card = ghc_get_ambassador_card_html($id, $title, $content, $img_url, $tag_names);
-      $popup = ghc_get_ambassador_popup_html($title, $content, $img_url, $tag_names);
-
-      $rows[] = [
-        'card'  => $card,
-        'html'  => $popup,
-        'id'    => $user->ID,
-        'lat'   => $lat,
-        'lng'   => $lng,
-        'terms' => $tag_slugs,
-        'text'  => wp_strip_all_tags($title.' '.$content),
-        'title' => $title,
-      ];
-    } else {
-      $rows[] = [
-        'lat' => $lat,
-        'lng' => $lng,
-      ];
+    $display_categories = [];
+    $category_slugs = [];
+    foreach ($tag_names as $tag) {
+      $slug = explode(':', $tag)[0];
+      if (isset($category_names[$slug]) && !in_array($slug, $category_slugs)) {
+        $category_slugs[] = $slug;
+        $display_categories[] = $category_names[$slug];
+      }
     }
+
+    $support_slugs = get_user_meta($user->ID, 'ambassador_support', true) ?: [];
+    $display_support = [];
+    foreach ($support_slugs as $slug) {
+      if (isset($support_labels[$slug])) {
+        $display_support[] = $support_labels[$slug];
+      }
+    }
+
+    $profile_url = home_url('/ambassador/' . $user->user_nicename . '/');
+
+    $popup = ghc_get_ambassador_popup_html($title, $img_url, $region, $display_categories, $display_support, $profile_url);
+
+    $search_parts = array_filter([$title, $content, $region, implode(' ', $tag_names)]);
+
+    $rows[] = [
+      'html'  => $popup,
+      'id'    => $user->ID,
+      'lat'   => $lat,
+      'lng'   => $lng,
+      'terms' => $category_slugs,
+      'text'  => strtolower(wp_strip_all_tags(implode(' ', $search_parts))),
+      'title' => $title,
+    ];
   }
 
   return $rows;
@@ -498,57 +441,63 @@ function ghc_get_ambassador_tags_html($tags = []) {
   return $tags_html;
 }
 
-function ghc_get_ambassador_popup_html($title, $content, $img_url, $tags = []) {
+function ghc_get_ambassador_popup_html($title, $img_url, $region, $categories = [], $support = [], $profile_url = '') {
   $escaped_title = esc_html($title);
-  $formatted_content = nl2br(esc_html($content));
   $profile_image = ghc_get_ambassador_image_html($title, $img_url);
-  $tags_html = ghc_get_ambassador_tags_html($tags);
+  $escaped_region = esc_html(ucwords($region));
+  $escaped_url = esc_url($profile_url);
+
+  $categories_html = '';
+  if (!empty($categories)) {
+    $chips = array_map(function($cat) {
+      $slug = sanitize_title($cat);
+      return '<span class="ambPopup__chip ambCategory" data-category="' . esc_attr($slug) . '" title="' . esc_attr($cat) . '"></span>';
+    }, $categories);
+    $categories_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Role:</h4>' . implode('', $chips) . '</div>';
+  }
+
+  $support_html = '';
+  if (!empty($support)) {
+    $chips = array_map(function($opt) {
+      return '<span class="ambPopup__chip">' . esc_html($opt) . '</span>';
+    }, $support);
+    $support_html = '<div class="ambPopup__section"><h4 class="ambPopup__label">Support:</h4>' . implode('', $chips) . '</div>';
+  }
 
   return <<<HTML
     <div class="ambPopup">
       <h3 class="ambPopup__title">{$escaped_title}</h3>
-
-      <div class="ambPopup__body">
-        {$profile_image}
-
-        <div class="ambPopupBody__content">{$formatted_content}</div>
-      </div>
-
-      <div class="ambPopup__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
+      <div class="ambPopup__avatar">{$profile_image}</div>
+      <div class="ambPopup__location"><svg width="16" height="16" viewBox="0 0 24 24" fill="var(--leaf-600)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg><span>{$escaped_region}</span></div>
+      {$categories_html}
+      {$support_html}
+      <a class="ambPopup__cta" href="{$escaped_url}">Find Out More</a>
     </div>
 HTML;
 }
 
-function ghc_render_ambassador_map_html($tags_html, $is_private = true) {
-  $header = '';
+function ghc_render_ambassador_map_html() {
+  $categories = ghc_get_categories();
+  $chips_html = '';
+  foreach ($categories as $category) {
+    $slug = esc_attr($category['slug']);
+    $name = esc_html($category['name']);
+    $chips_html .= '<span class="ambTagsBox__tag ambCategory" data-category="' . esc_attr($slug) . '" data-term="' . $slug . '">' . $name . '</span>';
+  }
 
-  if ($is_private) {
-    $header = <<<HTML
+  return <<<HTML
+    <div class="ambassador-map">
       <div class="ambHeader">
         <div class="ambHeader__searchBox">
           <input class="ambHeader__searchBox__input" id="amb-search" placeholder="Search ambassadors, skills, topics…" type="text">
           <button class="ambHeader__searchBox__clear" id="amb-clear" type="button">Clear filters</button>
         </div>
 
-        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$tags_html}</div>
+        <div class="ambHeader__tagsBox ambTagsBox" id="amb-tags">{$chips_html}</div>
       </div>
-    HTML;
-  }
-
-  return <<<HTML
-    <div class="ambassador-map">
-      {$header}
 
       <div class="ambBody">
         <div class="ambMap" id="ambassadors-map"></div>
-
-        <aside class="ambResultPanel" id="amb-panel">
-          <div class="ambResultPanel__header">
-            <p class="ambResultPanel__header__count"><span id="amb-count">0</span> result(s)</p>
-          </div>
-
-          <div class="ambResultPanel__list" id="amb-list"></div>
-        </aside>
       </div>
     </div>
   HTML;

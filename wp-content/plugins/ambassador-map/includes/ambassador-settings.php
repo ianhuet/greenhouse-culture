@@ -194,6 +194,7 @@ function ghc_render_settings_page() {
 
       <?php submit_button('Save Settings'); ?>
     </form>
+
   </div>
 
   <style>
