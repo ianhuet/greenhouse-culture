@@ -619,7 +619,7 @@ function greenhouseculture_event_meta_box_callback($post)
     <table class="form-table">
         <tr>
             <th><label for="event_date">Date</label></th>
-            <td><input type="date" name="event_date" id="event_date" value="<?php echo esc_attr($fields['date']); ?>" /></td>
+            <td><input type="date" name="event_date" id="event_date" value="<?php echo esc_attr($fields['date']); ?>" required /></td>
         </tr>
         <tr>
             <th><label for="event_time">Time</label></th>

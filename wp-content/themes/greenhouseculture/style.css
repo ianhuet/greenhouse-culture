@@ -2387,11 +2387,17 @@ section.slider-wrapper {
 
 .event-location .dashicons-location, 
 .event-time .dashicons-clock, 
-.event-date .dashicons-calendar-alt,
-.event-price .dashicons-money-alt
+.event-date .dashicons-calendar-alt
 {
     color:#54be73 ;
     margin-right: 3px;
+}
+
+.event-euro-icon {
+    color:#54be73 ;
+    margin-right: 3px;
+    font-weight: bold;
+    font-size: large;
 }
 
 /*** 

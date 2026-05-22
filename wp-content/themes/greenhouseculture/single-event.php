@@ -47,13 +47,6 @@ get_header();
                                     </p>
                                 <?php endif; ?>
 
-                                <?php if ($event_price) : ?>
-                                    <p class="event-meta event-price">
-                                        <span class="dashicons dashicons-money-alt"></span>
-                                        <?php echo esc_html($event_price); ?>
-                                    </p>
-                                <?php endif; ?>
-
                                 <?php if ($event_time) : ?>
                                     <p class="event-meta event-time">
                                         <span class="dashicons dashicons-clock"></span>
@@ -65,6 +58,13 @@ get_header();
                                     <p class="event-meta event-location">
                                         <span class="dashicons dashicons-location"></span>
                                         <?php echo esc_html($event_location); ?>
+                                    </p>
+                                <?php endif; ?>
+
+                                <?php if ($event_price) : ?>
+                                    <p class="event-meta event-price">
+                                        <span class="event-euro-icon" aria-hidden="true">€</span>
+                                        <?php echo esc_html($event_price); ?>
                                     </p>
                                 <?php endif; ?>
                             </div>
@@ -81,9 +81,13 @@ get_header();
 
                             <?php
                             $event_gallery = get_post_meta(get_the_ID(), '_event_gallery', true);
-                            if (!is_array($event_gallery)) {
-                                $event_gallery = array_filter(array_map('intval', explode(',', $event_gallery)));
+
+                            if (is_array($event_gallery)) {
+                                $event_gallery = array_values(array_filter(array_map('intval', $event_gallery)));
+                            } else {
+                                $event_gallery = array_values(array_filter(array_map('intval', explode(',', (string) $event_gallery))));
                             }
+
                             if (!empty($event_gallery)) : ?>
                                 <div class="event-gallery">
                                     <h3><?php esc_html_e('Gallery', 'greenhouseculture'); ?></h3>
@@ -153,37 +157,54 @@ get_header();
 
                             <?php
                             $event_testimonials = get_post_meta(get_the_ID(), '_event_testimonials', true);
-                            if (!empty($event_testimonials) && is_array($event_testimonials)) : ?>
+
+                            if (!empty($event_testimonials) && is_array($event_testimonials)) {
+                                $event_testimonials = array_filter($event_testimonials, function ($testimonial) {
+                                    return !empty($testimonial['quote']);
+                                });
+                            }
+
+                            if (!empty($event_testimonials)) : ?>
                                 <div class="event-testimonials">
+
                                     <h3><?php esc_html_e('Testimonials', 'greenhouseculture'); ?></h3>
+
                                     <div class="testimonials-grid">
-                                        <?php foreach ($event_testimonials as $testimonial) :
-                                            if (empty($testimonial['quote'])) continue; ?>
+                                        <?php foreach ($event_testimonials as $testimonial) : ?>
                                             <div class="testimonial-item">
                                                 <p class="testimonial-quote">"<?php echo esc_html($testimonial['quote']); ?>"</p>
                                                 <footer class="testimonial-author">
-                                                    <strong class="testimonial-name"><?php echo esc_html($testimonial['name']); ?></strong>
+
+                                                    <?php if (!empty($testimonial['name'])) : ?>
+                                                        <strong class="testimonial-name"><?php echo esc_html($testimonial['name']); ?></strong>
+                                                    <?php endif; ?>
+
                                                     <?php if (!empty($testimonial['role'])) : ?>
                                                         <span class="testimonial-role"> — <?php echo esc_html($testimonial['role']); ?></span>
                                                     <?php endif; ?>
+
                                                 </footer>
                                             </div>
                                         <?php endforeach; ?>
                                     </div>
+
                                 </div>
                             <?php endif; ?>
 
                             <?php
                             $event_supporters = get_post_meta(get_the_ID(), '_event_supporters', true);
-                            if (!is_array($event_supporters)) {
-                                $event_supporters = array_filter(array_map('intval', explode(',', $event_supporters)));
+
+                            if (is_array($event_supporters)) {
+                                $event_supporters = array_values(array_filter(array_map('intval', $event_supporters)));
+                            } else {
+                                $event_supporters = array_values(array_filter(array_map('intval', explode(',', (string) $event_supporters))));
                             }
+
                             if (!empty($event_supporters)) : ?>
                                 <div class="event-supporters">
                                     <h3><?php esc_html_e('Supporters & Collaborators', 'greenhouseculture'); ?></h3>
                                     <div class="supporters-grid">
-                                        <?php foreach ($event_supporters as $id) :
-                                            if (!$id) continue; ?>
+                                        <?php foreach ($event_supporters as $id) : ?>
                                             <div class="supporter-item">
                                                 <?php echo wp_get_attachment_image($id, 'large'); ?>
                                             </div>
