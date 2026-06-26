@@ -21,6 +21,8 @@ $avatar_url = function_exists('ghc_get_ambassador_avatar_url')
     ? ghc_get_ambassador_avatar_url($user->ID)
     : '';
 $website = $user->user_url;
+$tagline = get_user_meta($user->ID, 'ambassador_tagline', true);
+$address = get_user_meta($user->ID, 'ambassador_address', true);
 $bio = get_user_meta($user->ID, 'ambassador_bio', true) ?: $user->description;
 $projects = get_user_meta($user->ID, 'ambassador_projects', true);
 $user_tags = get_user_meta($user->ID, 'ambassador_tags', true) ?: [];
@@ -68,7 +70,20 @@ foreach ($support_options as $option) {
             <div class="col-md-8 content-area">
                 <article class="ambassador-profile">
                     <header class="ambassador-profile__header">
+                        <div class="ambassador-profile__intro">
+
                         <h1 class="ambassador-profile__name"><?php echo esc_html($display_name); ?></h1>
+                            <?php if ($address): ?>
+                                <div class="ambassador-profile__location">
+                                    <svg width="16" height="16" viewBox="0 0 24 24" fill="var(--leaf-600)"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5a2.5 2.5 0 1 1 0-5 2.5 2.5 0 0 1 0 5z"/></svg>
+                                    <span><?php echo esc_html(ucwords($address)); ?></span>
+                                </div>
+                            <?php endif; ?>
+
+                            <?php if ($tagline): ?>
+                                <p class="ambassador-profile__tagline"><?php echo esc_html($tagline); ?></p>
+                            <?php endif; ?>
+                        </div>
 
                         <?php if ($avatar_url): ?>
                             <div class="ambassador-profile__header-avatar">
@@ -81,7 +96,6 @@ foreach ($support_options as $option) {
                         <div class="ambassador-profile__header-info">
                             <?php if (!empty($grouped_tags)): ?>
                                 <div>
-                                    <h2>Ambassador Role</h2>
                                     <div class="ambassador-profile__categories">
                                         <?php foreach ($grouped_tags as $group): ?>
                                             <div class="ambassador-profile__category-group">

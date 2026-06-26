@@ -48,6 +48,21 @@
     color: var(--color-primary-hover);
     margin: 0;
 }
+.ambassador-profile__tagline {
+    margin-bottom: 5px;
+}
+.ambassador-profile__location {
+    align-items: center;
+    display: flex;
+    gap: 6px;
+    justify-content: flex-start;
+}
+.ambassador-profile__location svg {
+    color: var(--color-primary);
+    flex-shrink: 0;
+    height: 16px;
+    width: 16px;
+}
 
 .ambassador-profile__support h3 {
     text-decoration: underline;
@@ -83,6 +98,7 @@
 
 .ambassador-profile__text p {
     line-height: 1.7;
+    text-align: justify;
 }
 
 .ambassador-profile__categories {
@@ -136,7 +152,7 @@
         grid-template-rows: auto 1fr;
     }
 
-    .ambassador-profile__name {
+    .ambassador-profile__intro {
         grid-column: 1;
         grid-row: 1;
     }

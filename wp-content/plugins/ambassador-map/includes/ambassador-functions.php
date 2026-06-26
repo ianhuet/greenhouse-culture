@@ -36,6 +36,7 @@ function ghc_add_user_profile_fields($user) {
   $ambassador_tags = get_user_meta($user->ID, 'ambassador_tags', true);
   $ambassador_support = get_user_meta($user->ID, 'ambassador_support', true);
   $ambassador_image_id = get_user_meta($user->ID, 'ambassador_image', true);
+  $ambassador_tagline = get_user_meta($user->ID, 'ambassador_tagline', true);
   $latitude = get_user_meta($user->ID, 'latitude', true);
   $longitude = get_user_meta($user->ID, 'longitude', true);
 
@@ -57,6 +58,13 @@ function ghc_add_user_profile_fields($user) {
         <button type="button" class="button" id="ambassador-image-upload">Select Image</button>
         <button type="button" class="button" id="ambassador-image-remove" <?php echo $ambassador_image_id ? '' : 'style="display:none;"'; ?>>Remove</button>
         <p class="description">Square image recommended (will be cropped to 300x300)</p>
+      </td>
+    </tr>
+    <tr>
+      <th><label for="ambassador_tagline">Ambassador Tagline</label></th>
+      <td>
+        <input type="text" name="ambassador_tagline" id="ambassador_tagline" value="<?php echo esc_attr($ambassador_tagline); ?>" style="width: 400px;" />
+        <p class="description">A short tagline or strapline for this ambassador</p>
       </td>
     </tr>
     <tr>
@@ -227,6 +235,10 @@ function ghc_save_user_profile_fields($user_id) {
         update_user_meta($user_id, 'longitude', $geocoded['longitude']);
       }
     }
+  }
+
+  if (isset($_POST['ambassador_tagline'])) {
+    update_user_meta($user_id, 'ambassador_tagline', sanitize_text_field($_POST['ambassador_tagline']));
   }
 
   if (isset($_POST['ambassador_bio'])) {
