@@ -695,6 +695,11 @@ function greenhouseculture_ambassador_profile_rewrite() {
 }
 add_action('init', 'greenhouseculture_ambassador_profile_rewrite');
 
+add_action('after_switch_theme', function() {
+    greenhouseculture_ambassador_profile_rewrite();
+    flush_rewrite_rules();
+});
+
 function greenhouseculture_ambassador_profile_template($template) {
     $slug = get_query_var('ambassador_profile');
     if (!$slug) {
