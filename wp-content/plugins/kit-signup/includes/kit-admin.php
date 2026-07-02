@@ -2,7 +2,8 @@
 
 if (!defined('ABSPATH')) exit;
 
-function kit_signup_get_settings() {
+function kit_signup_get_settings()
+{
     $defaults = [
         'append_to_pages' => false,
         'append_to_posts' => false,
@@ -14,7 +15,8 @@ function kit_signup_get_settings() {
     return wp_parse_args(get_option('kit_signup_settings', []), $defaults);
 }
 
-function kit_signup_admin_menu() {
+function kit_signup_admin_menu()
+{
     add_options_page(
         'Kit Signup Settings',
         'Kit Signup',
@@ -25,14 +27,16 @@ function kit_signup_admin_menu() {
 }
 add_action('admin_menu', 'kit_signup_admin_menu');
 
-function kit_signup_register_settings() {
+function kit_signup_register_settings()
+{
     register_setting('kit_signup_options', 'kit_signup_settings', [
         'sanitize_callback' => 'kit_signup_sanitize_settings'
     ]);
 }
 add_action('admin_init', 'kit_signup_register_settings');
 
-function kit_signup_sanitize_settings($input) {
+function kit_signup_sanitize_settings($input)
+{
     return [
         'append_to_pages' => !empty($input['append_to_pages']),
         'append_to_posts' => !empty($input['append_to_posts']),
@@ -42,9 +46,10 @@ function kit_signup_sanitize_settings($input) {
     ];
 }
 
-function kit_signup_settings_page() {
+function kit_signup_settings_page()
+{
     $settings = kit_signup_get_settings();
-    ?>
+?>
     <div class="wrap">
         <h1>Kit Signup Settings</h1>
         <form method="post" action="options.php">
@@ -107,10 +112,11 @@ function kit_signup_settings_page() {
             <?php submit_button(); ?>
         </form>
     </div>
-    <?php
+<?php
 }
 
-function kit_signup_add_meta_box() {
+function kit_signup_add_meta_box()
+{
     $settings = kit_signup_get_settings();
     $post_types = [];
 
@@ -131,18 +137,20 @@ function kit_signup_add_meta_box() {
 }
 add_action('add_meta_boxes', 'kit_signup_add_meta_box');
 
-function kit_signup_meta_box_callback($post) {
+function kit_signup_meta_box_callback($post)
+{
     wp_nonce_field('kit_signup_meta_box', 'kit_signup_meta_box_nonce');
     $excluded = get_post_meta($post->ID, '_kit_signup_exclude', true);
-    ?>
+?>
     <label>
         <input type="checkbox" name="kit_signup_exclude" value="1" <?php checked($excluded, '1'); ?>>
         Hide Kit Signup form on this <?php echo esc_html(get_post_type_object($post->post_type)->labels->singular_name); ?>
     </label>
-    <?php
+<?php
 }
 
-function kit_signup_save_meta_box($post_id) {
+function kit_signup_save_meta_box($post_id)
+{
     if (!isset($_POST['kit_signup_meta_box_nonce'])) return;
     if (!wp_verify_nonce($_POST['kit_signup_meta_box_nonce'], 'kit_signup_meta_box')) return;
     if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) return;
@@ -156,7 +164,8 @@ function kit_signup_save_meta_box($post_id) {
 }
 add_action('save_post', 'kit_signup_save_meta_box');
 
-function kit_signup_append_to_content($content) {
+function kit_signup_append_to_content($content)
+{
     if (!is_singular() || !is_main_query()) {
         return $content;
     }
@@ -171,10 +180,9 @@ function kit_signup_append_to_content($content) {
         $should_append = true;
     } elseif ($post_type === 'post' && $settings['append_to_posts']) {
         $should_append = true;
-    } elseif ($post_type === 'event' && $settings['append_to_events']) {
-        $should_append = true;
     }
 
+    // Events render the signup panel in single-event.php after custom event sections.
     if (!$should_append) {
         return $content;
     }

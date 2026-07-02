@@ -1,0 +1,65 @@
+/* ===========================
+   Event Gallery — Admin Preview
+   =========================== */
+
+#event-gallery-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-bottom: 10px;
+}
+
+.gallery-item {
+  position: relative;
+  cursor: grab;
+}
+
+.gallery-item:active {
+  cursor: grabbing;
+}
+
+.gallery-item img,
+.gallery-item video {
+  width: 100px;
+  height: 80px;
+  object-fit: cover;
+  display: block;
+}
+
+.remove-gallery-item {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+/* ===========================
+   Supporters — Admin Preview
+   =========================== */
+
+#event-supporters-preview {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-bottom: 12px;
+}
+
+.supporter-preview-item {
+  position: relative;
+  width: 100px;
+  height: 80px;
+  overflow: hidden;
+}
+
+.supporter-preview-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  display: block;
+}
+
+.remove-supporter-item {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  border: none;
+}
